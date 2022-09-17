@@ -22,7 +22,8 @@
 
 エディットモードにてＦ７キー（変更可）を押すとGUIが起動します。  
 コントロールを押した場合に複数のメイドを選択します。  
-エラーが発生した場合は、config/emes.xmlを削除する。  
+
+#### エラーが発生した場合は、config/emes.xmlを削除する。  
 
 ## 設定ファイル（初回起動時の自動作成）
 EMES.xml  
@@ -96,6 +97,16 @@ EMES_MaidScenceData.xml
 | Ｈ＿Ｓｈｉｆｔ	|	 Ｈｏｍｅ／Ｅｎｄ		    |   カメラの視野    |   
 | Ｓ						 |                        |   スクリーンショット   |   
 
+## パーツ移動
+| キー 1 | キー 2 | 説明 |
+| :---         |     :---:      |          ---: |
+| Ｚ						 |  | 	上下左右移動
+| Ｘ						 |  | 	回転
+| Ｃ						 |  | 	サイズ調整
+| Ｄ						 |  | 	削除
+| Ｈ＿Ｃｔｒｌ	 | 	Ａ	 | 			プレハブを有効にする
+
+
 ## BepinExに移行
 ・フォルダを作成  
 ・・COM3D2(_5)\BepInEx\plugins\EnhancedMaidEditScene  
@@ -115,6 +126,18 @@ EMES_MaidScenceData.xml
 ・・・EMES_FingerPose.txt  
 ・・・EMES_MaidScenceData.xml  
 ・・「COM3D2_5\BepInEx\plugins\EnhancedMaidEditScene\config」に移動  
+
+## EMES_MaidScenceData.xml
+v1.0  v0.7.1.0  
+v1.1  v0.8.0.0  
+v1.2  v1.0.0.0  
+v1.3  v1.1.0.0  
+
+## パーツドラッグまたは回転できません
+パーツ名には「_yure_」が含まれます  
+・解決  
+ ①「サブ展開」  
+ ②「髪Hit」のチェックを外して「ボディヒット」を無効にする  
 
 ## 更新履歴
 ### 2021.12.22 Ver 1.0.0.0
