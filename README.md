@@ -70,9 +70,9 @@ EMES_MaidScenceData.xml
 
 ## 「複数尻尾✕自動IKチェーン」サンプル  
 ・「ナナチ全年齢 ver1.2」  
-・・https://www.dropbox.com/s/1ajm2hxqn0brhd5/Nanachi_A_v1.2.7z?dl=0
+・・https://www.dropbox.com/s/1ajm2hxqn0brhd5/Nanachi_A_v1.2.7z?dl=0  
 ・「雪玉」  
-・・https://www.dropbox.com/s/pnmoxxkwsgoepwu/SnowBall.7z?dl=0
+・・https://www.dropbox.com/s/pnmoxxkwsgoepwu/SnowBall.7z?dl=0  
 
 ## 「自動IKチェーン」が正常に動作しない場合があります  
 
