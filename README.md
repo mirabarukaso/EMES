@@ -140,6 +140,32 @@ v1.3  v1.1.0.0
  ②「髪Hit」のチェックを外して「ボディヒット」を無効にする  
 
 ## 更新履歴
+### 2022 9.18 Ver 1.1.0.1  
+・機能追加  
+・・骨格  
+・・・「こぶし」「指を屈する」  
+・・・「複数尻尾」選択を解除できます  
+・・・「その他」 BoneSlider Lite  
+・・環境  
+・・・「シーン情報」に「カメラの位置✕５」を追加  
+・・・「カメラ」「UIを完全に非表示」  
+・・・「シェーダー」に「ビネット」を追加  
+・・道具  
+・・・「サブパーツ」を展開  
+・・・背景移動  
+・・・「メイドパーツ」移動  
+・既存のEMES_MaidScenceData.xmlが自動的にアップグレードします（１．２➞１．３）  
+・いくつかのバグを修正した  
+・・ポーズを保存した後の名前が混乱  
+・BepInEx 5.4.21.0対応  
+・BepInExとSybarisの間で互換性があります  
+・カスタムオーダーメイド3D2本体Ver2.23.0対応  
+・・COM3D2.EnhancedMaidEditScene.Plugin.dll  
+・・BepInEx.COM3D2.EnhancedMaidEditScene.Plugin.dll  
+・カスタムオーダーメイド3D2.5本体Ver3.23.0対応  
+・・COM3D25.EnhancedMaidEditScene.Plugin.dll  
+・・BepInEx.COM3D25.EnhancedMaidEditScene.Plugin.dll  
+
 ### 2021.12.22 Ver 1.0.0.0
 ・機能追加  
 ・・道具  
