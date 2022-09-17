@@ -288,7 +288,7 @@ namespace COM3D2.EnhancedMaidEditScene.Plugin
         public string fChitsuY = "-0.0";
         public string fKetsuY = "0.03";
         public string fToikiY = "-0.03";
-        public string fToikiZ = "0.07f";
+        public string fToikiZ = "0.07";
 
         //Dance
         public string sHotkeyDanceStart = "h_ctrl+d";

@@ -247,7 +247,9 @@ namespace COM3D2.EnhancedMaidEditScene.Plugin
         public GameObject goItemMaster{get; private set;}
 
         public List<HandleEx> Items_selectedHandles { get; private set; }
+        public List<HandleEx> Items_Sub_selectedHandles { get; private set; }
         public Dictionary<HandleEx, string> Items_ItemHandle { get; private set; }
+        public Dictionary<HandleEx, string> Items_Sub_ItemHandle { get; private set; }
         private class ItemHandlePosRotScale
         {
             public Vector3 position;
@@ -261,6 +263,7 @@ namespace COM3D2.EnhancedMaidEditScene.Plugin
         public bool bAssertBgLoaded = false;
 
         public PerfabItems Items_perfabItems { get; private set; }
+
 
         #region perfab/particle
         public class PerfabItems
@@ -402,6 +405,12 @@ namespace COM3D2.EnhancedMaidEditScene.Plugin
             Items_ItemHandle = new Dictionary<HandleEx, string>();
             Items_ItemHandle.Clear();
 
+            Items_Sub_selectedHandles = new List<HandleEx>();
+            Items_Sub_selectedHandles.Clear();
+
+            Items_Sub_ItemHandle = new Dictionary<HandleEx, string>();
+            Items_Sub_ItemHandle.Clear();
+
             itemHandlePosRotScale = new ItemHandlePosRotScale();
             itemHandlePosRotScale.position = goItemMaster.transform.position;
             itemHandlePosRotScale.localScale = goItemMaster.transform.localScale;
@@ -430,6 +439,12 @@ namespace COM3D2.EnhancedMaidEditScene.Plugin
 
             Items_ItemHandle.Clear();
             Items_ItemHandle = null;
+
+            Items_Sub_selectedHandles.Clear();
+            Items_Sub_selectedHandles = null;
+
+            Items_Sub_ItemHandle.Clear();
+            Items_Sub_ItemHandle = null;
 
             Items_HandItem.Clear();
             Items_HandItem = null;
@@ -560,6 +575,14 @@ namespace COM3D2.EnhancedMaidEditScene.Plugin
                 return handle;
             }
             return null;
+        }
+
+        public HandleEx Items_CreatHandle(string sFullName, string sName, string sCategory, GameObject gameObject)
+        {
+            HandleEx handle = new HandleEx(EMES_MaidIK.BoneType.Root, EMES_MaidIK.BoneSetType.Root, gameObject, false, true);
+            handle.SetupItem(sFullName, sName, sCategory);
+            Items_ItemHandle.Add(handle, sName);
+            return handle;
         }
 
         public HandleEx Items_CreateExternalImageHandle(string sFullPath, string sFileName, string sShaderName, PrimitiveType primitiveType, bool receiveShadows, 
@@ -733,9 +756,6 @@ namespace COM3D2.EnhancedMaidEditScene.Plugin
 
         public void Items_RemoveHandle(HandleEx hHandle)
         {
-#if DEBUG
-            Debuginfo.Log("Items_RemoveHandle at sName = " + hHandle.sItemName, 2);
-#endif
             hHandle.Visible = false;
 
             Action<HandleEx> actionDestoryHandle = delegate (HandleEx handle)
@@ -744,7 +764,7 @@ namespace COM3D2.EnhancedMaidEditScene.Plugin
                 handle.Destroy();
             };
 
-            if ("WildHandle" == hHandle.sCategory)
+            if (true == hHandle.sCategory.Equals("WildHandle"))
             {
                 if (true == hHandle.sItemFullName.Contains("SubLightPoint_"))
                 {
@@ -756,28 +776,18 @@ namespace COM3D2.EnhancedMaidEditScene.Plugin
                     Super.MaidIK.IK_RemoveGazePoint(GameMain.Instance.CharacterMgr.GetMaid(hHandle.sItemName), false);
                 }               
             }
-            else if ("MyRoomCustomObject" == hHandle.sCategory)
+            else if (true == hHandle.sCategory.Equals("MyRoomCustomObject") || true == hHandle.sCategory.Equals("ExternalImage") || true == hHandle.sCategory.Contains("Direct_"))
             {
-#if DEBUG
-                Debuginfo.Log("DestroyImmediate hHandle.parentBone = " + hHandle.parentBone.name, 2);
-#endif
                 UnityEngine.Object.DestroyImmediate(hHandle.parentBone);
                 actionDestoryHandle(hHandle);
             }
-            else if ("ExternalImage" == hHandle.sCategory)
+            else if (true == hHandle.sCategory.Equals("SubItemHandle") || true == hHandle.sCategory.Equals("RoomAsItem"))
             {
-#if DEBUG
-                Debuginfo.Log("DestroyImmediate ExternalImage = " + hHandle.parentBone.name, 2);
-#endif
-                UnityEngine.Object.DestroyImmediate(hHandle.parentBone);
+                Items_Sub_ItemHandle.Remove(hHandle);
                 actionDestoryHandle(hHandle);
             }
-            else  if(true == hHandle.sCategory.Contains("Direct_"))
+            else if (true == hHandle.sCategory.Equals("MaidPartsHandle"))
             {
-#if DEBUG
-                Debuginfo.Log("DestroyImmediate Direct_ = " + hHandle.parentBone.name, 2);
-#endif
-                UnityEngine.Object.DestroyImmediate(hHandle.parentBone);
                 actionDestoryHandle(hHandle);
             }
             else
@@ -831,9 +841,28 @@ namespace COM3D2.EnhancedMaidEditScene.Plugin
             return Items_ItemHandle.Count;
         }
 
-        public GameObject GetMasterItemObject()
+        public HandleEx Items_Sub_CreateHandle(string sFullName, string sName, string sCategory, GameObject gameObject)
         {
-            return goItemMaster;
+#if DEBUG
+            Debuginfo.Log("Items_Sub_CreateHandle() sName = " + sName, 2);
+#endif
+            HandleEx handle = new HandleEx(EMES_MaidIK.BoneType.Root, EMES_MaidIK.BoneSetType.Root, gameObject, false, true);
+            handle.SetupItem(sFullName, sName, sCategory);
+            Items_Sub_ItemHandle.Add(handle, sName);
+            return handle;
+        }
+
+        public void Items_Sub_RemoveAll()
+        {
+            if (0 == GetItemHandleCount())
+                return;
+
+            foreach (KeyValuePair<HandleEx, string> handle in Items_Sub_ItemHandle.ToList())
+            {
+                Items_RemoveHandle(handle.Key);
+            }
+
+            Items_Sub_ItemHandle.Clear();
         }
 
         public void Items_UpdateSelectedHandleExList(System.Windows.Forms.ListBox.SelectedObjectCollection selectedHandles)
@@ -843,39 +872,48 @@ namespace COM3D2.EnhancedMaidEditScene.Plugin
             {
                 Items_selectedHandles.Add(handle.Key);
                 handle.Key.Visible = false;
-#if DEBUG
-                Debuginfo.Log("Selected " + handle.Key.parentBone.name, 2);
-#endif
             }
         }
 
-        public void Items_CopyHandlePosRotScale(HandleEx handle)
+        public void Items_Sub_UpdateSelectedHandleExList(System.Windows.Forms.ListBox.SelectedObjectCollection selectedHandles)
         {
+            if (null == selectedHandles)
+            {
 #if DEBUG
-            Debuginfo.Log("Items_CopyHandlePosRotScale " + handle.sItemName, 2);
+                Debuginfo.Log("Items_Sub_UpdateSelectedHandleExList() selectedHandles == NULL" + DateTime.Now, 0);
 #endif
-            itemHandlePosRotScale.position = handle.GetParentBone().position;
-            itemHandlePosRotScale.rotation = handle.GetParentBone().rotation;
-            itemHandlePosRotScale.localRotation = handle.GetParentBone().localRotation;
-            itemHandlePosRotScale.localScale = handle.GetParentBone().localScale;
+                return;
+            }
+
+            Items_Sub_selectedHandles.Clear();
+            foreach (KeyValuePair<HandleEx, string> handle in selectedHandles)
+            {
+                Items_Sub_selectedHandles.Add(handle.Key);
+                handle.Key.Visible = false;
+            }
         }
 
-        public void Items_PasteHandlePosRotScale(HandleEx handle, bool bPos, bool bRot, bool bScale)
+        public void Items_CopyHandlePosRotScale(GameObject gameObject)
         {
-#if DEBUG
-            Debuginfo.Log("Items_PasteHandlePosRotScale " + handle.sItemName, 2);
-#endif
+            itemHandlePosRotScale.position = gameObject.transform.position;
+            itemHandlePosRotScale.rotation = gameObject.transform.rotation;
+            itemHandlePosRotScale.localRotation = gameObject.transform.localRotation;
+            itemHandlePosRotScale.localScale = gameObject.transform.localScale;
+        }
+
+        public void Items_PasteHandlePosRotScale(GameObject gameObject, bool bPos, bool bRot, bool bScale)
+        {
             if (true == bPos)
-                handle.GetParentBone().position = itemHandlePosRotScale.position;
+                gameObject.transform.position = itemHandlePosRotScale.position;
 
             if (true == bRot)
             {
-                handle.GetParentBone().rotation = itemHandlePosRotScale.rotation;
-                handle.GetParentBone().localRotation = itemHandlePosRotScale.localRotation;
+                gameObject.transform.rotation = itemHandlePosRotScale.rotation;
+                gameObject.transform.localRotation = itemHandlePosRotScale.localRotation;
             }
 
             if (true == bScale)
-                handle.GetParentBone().localScale = itemHandlePosRotScale.localScale;
+                gameObject.transform.localScale = itemHandlePosRotScale.localScale;
         }
 
         public void Items_RenewPrefab(HandleEx handle)
@@ -1388,8 +1426,154 @@ namespace COM3D2.EnhancedMaidEditScene.Plugin
                 return;
             }
 
+            #region Actions
+            Action<HandleEx> aRenewPrefab = delegate (HandleEx posHandle)
+            {
+                if (true == FlexKeycode.GetMultipleKeyUp(Super.settingsXml.sHotkeyItemReloadParticle) && ("効果" == posHandle.sCategory || "ボディー" == posHandle.sCategory) && true == Super.settingsXml.bHotkeyItemReloadParticle)
+                {
+                    Items_RenewPrefab(posHandle);
+                }
+            };
+
+            Action<HandleEx, bool> aProcessHandle_Invisible = delegate (HandleEx posHandle, bool bNoDelete)
+            {
+                if (true == FlexKeycode.GetKey(Super.settingsXml.sHotkeyItemPos) && true == Super.settingsXml.bHotkeyItemPos)
+                {
+                    if (false == posHandle.IK_GetHandleKunPosotionMode())
+                        posHandle.IK_ChangeHandleKunModePosition(true);
+                    posHandle.Visible = true;
+                }
+                else if (true == FlexKeycode.GetKey(Super.settingsXml.sHotkeyItemRot) && true == Super.settingsXml.bHotkeyItemRot)
+                {
+                    if (true == posHandle.IK_GetHandleKunPosotionMode())
+                        posHandle.IK_ChangeHandleKunModePosition(false);
+                    posHandle.Visible = true;
+                }
+                else if ((true == FlexKeycode.GetKey(Super.settingsXml.sHotkeyItemDelete) && false == bNoDelete && true == Super.settingsXml.bHotkeyItemDelete)
+                      || (true == FlexKeycode.GetKey(Super.settingsXml.sHotkeyItemSize) && true == Super.settingsXml.bHotkeyItemSize))
+                {
+                    if (false == posHandle.IK_GetHandleKunIKMode())
+                        posHandle.IK_ChangeHandleKunModeIK(true);
+                    posHandle.Visible = true;
+                }
+                else if (false == FlexKeycode.GetKey(Super.settingsXml.sHotkeyItemDelete) && false == FlexKeycode.GetKey(Super.settingsXml.sHotkeyItemSize))
+                {
+                    if (true == posHandle.IK_GetHandleKunIKMode())
+                    {
+                        if (true == Super.settingsXml.bHotkeyItemDelete || true == Super.settingsXml.bHotkeyItemSize)
+                            posHandle.IK_ChangeHandleKunModePosition(true);
+                    }
+                }
+            };
+
+            Action<HandleEx> aProcessHandle_Visible = delegate (HandleEx posHandle)
+            {
+                if (true == posHandle.ControllDragged())
+                {
+                    Vector3 deltaVector = posHandle.DeltaVector();
+                    Quaternion deltaQuaternion = posHandle.DeltaQuaternion();
+
+                    if (false == posHandle.IK_GetHandleKunPosotionMode())
+                    {
+                        //ボーンを回転させておく
+                        posHandle.GetParentBone().rotation *= deltaQuaternion;
+                    }
+                    else
+                    {
+                        posHandle.GetParentBone().position += deltaVector;
+                    }
+
+                    if (true == FlexKeycode.GetKey(Super.settingsXml.sHotkeyItemSize) && true == Super.settingsXml.bHotkeyItemSize)
+                    {
+                        /*
+                        XYZ 0
+                        X   1
+                        Y   2
+                        Z   3
+                        XY  4
+                        XZ  5
+                        YZ  6
+                         */
+                        if (0 == Super.Window.GetItemsHandleScaleFactor())
+                        {
+                            posHandle.GetParentBone().localScale += new Vector3(deltaVector.y, deltaVector.y, deltaVector.y);
+                        }
+                        else if (1 == Super.Window.GetItemsHandleScaleFactor())
+                        {
+                            posHandle.GetParentBone().localScale += new Vector3(deltaVector.y, 0, 0);
+                        }
+                        else if (2 == Super.Window.GetItemsHandleScaleFactor())
+                        {
+                            posHandle.GetParentBone().localScale += new Vector3(0, deltaVector.y, 0);
+                        }
+                        else if (3 == Super.Window.GetItemsHandleScaleFactor())
+                        {
+                            posHandle.GetParentBone().localScale += new Vector3(0, 0, deltaVector.y);
+                        }
+                        else if (4 == Super.Window.GetItemsHandleScaleFactor())
+                        {
+                            posHandle.GetParentBone().localScale += new Vector3(deltaVector.y, deltaVector.y, 0);
+                        }
+                        else if (5 == Super.Window.GetItemsHandleScaleFactor())
+                        {
+                            posHandle.GetParentBone().localScale += new Vector3(deltaVector.y, 0, deltaVector.y);
+                        }
+                        else if (6 == Super.Window.GetItemsHandleScaleFactor())
+                        {
+                            posHandle.GetParentBone().localScale += new Vector3(0, deltaVector.y, deltaVector.y);
+                        }
+
+                        if (true == Super.Window.Items_isItemHandleMethodAllorSingle())
+                        {
+                            Super.Window.Items_UpdateItemHandleScaleInfo(posHandle.parentBone);
+                        }
+                    }
+                }
+                else if (false == FlexKeycode.GetKey(Super.settingsXml.sHotkeyItemPos) && false == FlexKeycode.GetKey(Super.settingsXml.sHotkeyItemRot)
+                    && false == FlexKeycode.GetKey(Super.settingsXml.sHotkeyItemDelete) && false == FlexKeycode.GetKey(Super.settingsXml.sHotkeyItemSize))
+                {
+                    if (true == Super.settingsXml.bHotkeyItemPos || true == Super.settingsXml.bHotkeyItemRot || true == Super.settingsXml.bHotkeyItemDelete || true == Super.settingsXml.bHotkeyItemSize)
+                        posHandle.Visible = false;
+                }
+            };
+
+            Action<HandleEx> aProcessHandle_Invisible_Gravity = delegate (HandleEx posHandle)
+            {
+                if (true == FlexKeycode.GetKey(Super.settingsXml.sHotkeyItemPos) && true == Super.settingsXml.bHotkeyItemPos)
+                {
+                    if (false == posHandle.IK_GetHandleKunIKMode())
+                        posHandle.IK_ChangeHandleKunModeIK(true);
+                    posHandle.Visible = true;
+                }
+            };
+
+            Action<HandleEx> aProcessHandle_Visible_Gravity = delegate (HandleEx posHandle)
+            {
+                if (true == posHandle.ControllDragged())
+                {
+                    DynamicBone component2 = posHandle.parentBone.GetComponent<DynamicBone>();
+                    if (component2 != null && component2.enabled)
+                    {
+                        Vector3 softG = component2.m_Gravity;
+                        softG += (posHandle.DeltaVector() * 0.1f);
+                        component2.m_Gravity = new Vector3(softG.x, softG.y, softG.z);
+                    }
+                    if (true == Super.Window.Items_isItemHandleMethodAllorSingle())
+                    {
+                        Super.Window.Items_UpdateItemHandleScaleInfo(posHandle.parentBone);
+                    }
+                }
+                else if (false == FlexKeycode.GetKey(Super.settingsXml.sHotkeyItemPos) && false == FlexKeycode.GetKey(Super.settingsXml.sHotkeyItemRot)
+                    && false == FlexKeycode.GetKey(Super.settingsXml.sHotkeyItemDelete) && false == FlexKeycode.GetKey(Super.settingsXml.sHotkeyItemSize))
+                {
+                    if (true == Super.settingsXml.bHotkeyItemPos || true == Super.settingsXml.bHotkeyItemRot || true == Super.settingsXml.bHotkeyItemDelete || true == Super.settingsXml.bHotkeyItemSize)
+                        posHandle.Visible = false;
+                }
+            };
+            #endregion
+
             List<HandleEx> ItemHandleList = new List<HandleEx>();
-            if(true == Super.Window.Items_isItemHandleMethodAll())
+            if (true == Super.Window.Items_isItemHandleMethodAll())
             {
                 ItemHandleList = Items_ItemHandle.Select(kvp => kvp.Key).ToList();
             }
@@ -1398,125 +1582,90 @@ namespace COM3D2.EnhancedMaidEditScene.Plugin
                 ItemHandleList = Items_selectedHandles.ToList();
             }
 
-            foreach (HandleEx posHandle in ItemHandleList)
+            if (true == Super.Window.isItems_list_tabPage1())
             {
-                if (true == FlexKeycode.GetMultipleKeyUp(Super.settingsXml.sHotkeyItemReloadParticle) && ("効果" == posHandle.sCategory || "ボディー" == posHandle.sCategory) && true == Super.settingsXml.bHotkeyItemReloadParticle)
+                foreach (HandleEx posHandle in ItemHandleList)
                 {
-                    Items_RenewPrefab(posHandle);
-                }
+                    if(false == posHandle.CheckParentAlive())
+                    {
+#if DEBUG
+                        Debuginfo.Log("Items_SyncPosRotFromHandle() posHandle.goHandleMasterObject == null", 2);
+                        continue;
+#endif
+                    }
+                    aRenewPrefab(posHandle);
 
-                if (false == posHandle.Visible)
-                {
-                    if (true == FlexKeycode.GetKey(Super.settingsXml.sHotkeyItemPos) && true == Super.settingsXml.bHotkeyItemPos)
+                    if (false == posHandle.Visible)
                     {
-                        if (false == posHandle.IK_GetHandleKunPosotionMode())
-                            posHandle.IK_ChangeHandleKunModePosition(true);
-                        posHandle.Visible = true;
+                        aProcessHandle_Invisible(posHandle, posHandle.sCategory.Equals("MaidPartsHandle"));
                     }
-                    else if (true == FlexKeycode.GetKey(Super.settingsXml.sHotkeyItemRot) && true == Super.settingsXml.bHotkeyItemRot)
+                    else
                     {
-                        if (true == posHandle.IK_GetHandleKunPosotionMode())
-                            posHandle.IK_ChangeHandleKunModePosition(false);
-                        posHandle.Visible = true;
-                    }
-                    else if ((true == FlexKeycode.GetKey(Super.settingsXml.sHotkeyItemDelete) && true == Super.settingsXml.bHotkeyItemDelete)
-                          || (true == FlexKeycode.GetKey(Super.settingsXml.sHotkeyItemSize) && true == Super.settingsXml.bHotkeyItemSize))
-                    {
-                        if (false == posHandle.IK_GetHandleKunIKMode())
-                            posHandle.IK_ChangeHandleKunModeIK(true);
-                        posHandle.Visible = true;
-                    }
-                    else if (false == FlexKeycode.GetKey(Super.settingsXml.sHotkeyItemDelete) && false == FlexKeycode.GetKey(Super.settingsXml.sHotkeyItemSize))
-                    {
-                        if (true == posHandle.IK_GetHandleKunIKMode())
+                        aProcessHandle_Visible(posHandle);
+
+                        if (true == posHandle.ControllClicked() && true == Super.settingsXml.bHotkeyItemDelete)
                         {
-                            if(true == Super.settingsXml.bHotkeyItemDelete || true == Super.settingsXml.bHotkeyItemSize)
-                                posHandle.IK_ChangeHandleKunModePosition(true);
+                            if (true == FlexKeycode.GetKey(Super.settingsXml.sHotkeyItemDelete))
+                            {
+                                Super.Window.Items_ClearSubItems();
+                                Items_RemoveHandle(posHandle);
+                                Super.Window.Items_UpdateCurrentHandleCount();
+                                break;
+                            }
                         }
                     }
+                }
+            }
+            else if (true == Super.Window.issubItems_list_tabPage2())
+            {
+                ItemHandleList = new List<HandleEx>();
+                if (true == Super.Window.Items_isItemHandleMethodAll())
+                {
+                    ItemHandleList = Items_Sub_ItemHandle.Select(kvp => kvp.Key).ToList();
                 }
                 else
                 {
-                    if (true == posHandle.ControllDragged())
+                    if (Items_Sub_selectedHandles.Count > 0)
+                        ItemHandleList = Items_Sub_selectedHandles.ToList();
+                    else
+                        ItemHandleList.Clear();
+                }
+
+                if (0 != ItemHandleList.Count)
+                {
+                    foreach (HandleEx posHandle in ItemHandleList)
                     {
-                        if (false == posHandle.IK_GetHandleKunPosotionMode())
+                        if (true == posHandle.sItemName.Contains("S>"))
                         {
-                            //ボーンを回転させておく
-                            posHandle.GetParentBone().rotation *= posHandle.DeltaQuaternion();
-                        }
-                        else
-                        {
-                            posHandle.GetParentBone().position += posHandle.DeltaVector();
+                            posHandle.Visible = false;
+                            continue;
                         }
 
-                        if (true == FlexKeycode.GetKey(Super.settingsXml.sHotkeyItemSize) && true == Super.settingsXml.bHotkeyItemSize)
+                        if (false == posHandle.Visible)
                         {
-                            /*
-                            XYZ 0
-                            X   1
-                            Y   2
-                            Z   3
-                            XY  4
-                            XZ  5
-                            YZ  6
-                             */
-                            if (0 == Super.Window.GetItemsHandleScaleFactor())
+                            if (true == posHandle.sItemName.Contains("D>"))
                             {
-                                posHandle.GetParentBone().localScale += new Vector3(posHandle.DeltaVector().y, posHandle.DeltaVector().y, posHandle.DeltaVector().y); 
-                            }
-                            else if (1 == Super.Window.GetItemsHandleScaleFactor())
-                            {
-                                posHandle.GetParentBone().localScale += new Vector3(posHandle.DeltaVector().y, posHandle.GetParentBone().localScale.y, posHandle.GetParentBone().localScale.z);
-                            }
-                            else if (2 == Super.Window.GetItemsHandleScaleFactor())
-                            {
-                                posHandle.GetParentBone().localScale += new Vector3(posHandle.GetParentBone().localScale.x, posHandle.DeltaVector().y, posHandle.GetParentBone().localScale.z);
-                            }
-                            else if (3 == Super.Window.GetItemsHandleScaleFactor())
-                            {
-                                posHandle.GetParentBone().localScale += new Vector3(posHandle.GetParentBone().localScale.x, posHandle.GetParentBone().localScale.y, posHandle.DeltaVector().y);
-                            }
-                            else if (4 == Super.Window.GetItemsHandleScaleFactor())
-                            {
-                                posHandle.GetParentBone().localScale += new Vector3(posHandle.DeltaVector().y, posHandle.DeltaVector().y, 0);
-                            }
-                            else if (5 == Super.Window.GetItemsHandleScaleFactor())
-                            {
-                                posHandle.GetParentBone().localScale += new Vector3(posHandle.DeltaVector().y, 0, posHandle.DeltaVector().y);
-                            }
-                            else if (6 == Super.Window.GetItemsHandleScaleFactor())
-                            {
-                                posHandle.GetParentBone().localScale += new Vector3(0, posHandle.DeltaVector().y, posHandle.DeltaVector().y);
+                                aProcessHandle_Invisible_Gravity(posHandle);
                             }
                             else
                             {
-                                posHandle.GetParentBone().localScale += new Vector3(posHandle.DeltaVector().y, posHandle.DeltaVector().y, posHandle.DeltaVector().y);
+                                aProcessHandle_Invisible(posHandle, true);
                             }
                         }
-
-                        if (true == Super.Window.Items_isItemHandleMethodAllorSingle())
+                        else
                         {
-                            Super.Window.Items_UpdateItemHandleScaleInfo(posHandle);
-                        }
-                    }
-                    else if (false == FlexKeycode.GetKey(Super.settingsXml.sHotkeyItemPos) && false == FlexKeycode.GetKey(Super.settingsXml.sHotkeyItemRot) 
-                        && false == FlexKeycode.GetKey(Super.settingsXml.sHotkeyItemDelete) && false == FlexKeycode.GetKey(Super.settingsXml.sHotkeyItemSize))
-                    {
-                        if(true == Super.settingsXml.bHotkeyItemPos || true == Super.settingsXml.bHotkeyItemRot || true == Super.settingsXml.bHotkeyItemDelete || true == Super.settingsXml.bHotkeyItemSize)
-                            posHandle.Visible = false;
-                    }
-
-                    if (true == posHandle.ControllClicked() && true == Super.settingsXml.bHotkeyItemDelete)
-                    {
-                        if (true == FlexKeycode.GetKey(Super.settingsXml.sHotkeyItemDelete))
-                        {
-                            Items_RemoveHandle(posHandle);
-                            Super.Window.Items_UpdateCurrentHandleCount();
-                            break;
+                            if (true == posHandle.sItemName.Contains("D>"))
+                            {
+                                aProcessHandle_Visible_Gravity(posHandle);
+                            }
+                            else
+                            {
+                                aProcessHandle_Visible(posHandle);
+                            }
                         }
                     }
                 }
-            }               
+            }
         }
 
         private bool Items_AddExistPrefab(GameObject oldGoItem, GameObject goParentBone, Vector3 f_vOffsetLocalPos, Vector3 f_vOffsetLocalRot, out GameObject newGoItem)

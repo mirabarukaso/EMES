@@ -17,6 +17,8 @@ rem @set CSC="C:\Windows\Microsoft.NET\Framework\v3.5\csc"
 @set OPTS=%OPTS% /r:%MANAGED%\System.Windows.Forms.dll
 
 del *.dll
+del *.cs
+xcopy /y C:\Users\okm\source\repos\COM3D2.EnhancedMaidEditScene.Plugin\COM3D2.EnhancedMaidEditScene.Plugin\*.cs .
 
 %CSC% %OPTS% /out:BepInEx.COM3D2.EnhancedMaidEditScene.Plugin.dll .\*.cs
 @time /T

@@ -64,19 +64,15 @@ namespace COM3D2.EnhancedMaidEditScene.Plugin
             this.Dance_PlayOfficial_Button = new System.Windows.Forms.Button();
             this.Dance_List_ComboBox = new System.Windows.Forms.ComboBox();
             this.Face = new System.Windows.Forms.TabPage();
+            this.groupBox18 = new System.Windows.Forms.GroupBox();
+            this.HandleSizeSliderCheckBox = new System.Windows.Forms.CheckBox();
+            this.HandleSizeSliderTrackBar = new System.Windows.Forms.TrackBar();
+            this.HideAllMaidsHandle = new System.Windows.Forms.Button();
             this.Debug_groupBox = new System.Windows.Forms.GroupBox();
+            this.button1 = new System.Windows.Forms.Button();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.button2 = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
             this.textBox1 = new System.Windows.Forms.TextBox();
-            this.groupBox15 = new System.Windows.Forms.GroupBox();
-            this.MaidFace_ResetEyeRotation_button = new System.Windows.Forms.Button();
-            this.MaidFace_ShowEyesHandleR_checkBox = new System.Windows.Forms.CheckBox();
-            this.MaidPose_FaceLock_checkBox = new System.Windows.Forms.CheckBox();
-            this.MaidFace_ShowEyesHandleL_checkBox = new System.Windows.Forms.CheckBox();
-            this.MaidFace_AddGazePoint_button = new System.Windows.Forms.Button();
-            this.MaidFace_ShowGazePoint_checkBox = new System.Windows.Forms.CheckBox();
-            this.MaidFace_RemoveGazePoint_button = new System.Windows.Forms.Button();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.openMouthLookTooth_checkBox = new System.Windows.Forms.CheckBox();
             this.openMouth_checkBox = new System.Windows.Forms.CheckBox();
@@ -158,28 +154,30 @@ namespace COM3D2.EnhancedMaidEditScene.Plugin
             this.eyeclose_label = new System.Windows.Forms.Label();
             this.CurrentMaidFaceBlendComboBox = new System.Windows.Forms.ComboBox();
             this.BonesIK = new System.Windows.Forms.TabPage();
-            this.groupBox18 = new System.Windows.Forms.GroupBox();
-            this.HandleSizeSliderCheckBox = new System.Windows.Forms.CheckBox();
-            this.HandleSizeSliderTrackBar = new System.Windows.Forms.TrackBar();
-            this.HideAllMaidsHandle = new System.Windows.Forms.Button();
             this.groupBox17 = new System.Windows.Forms.GroupBox();
+            this.MaidHandleSelectModle_None_radioButton = new System.Windows.Forms.RadioButton();
             this.MaidHandleSelectModle_Others_radioButton = new System.Windows.Forms.RadioButton();
             this.MaidHandleSelectModle_Current_radioButton = new System.Windows.Forms.RadioButton();
             this.MaidHandleSelectModle_All_radioButton = new System.Windows.Forms.RadioButton();
+            this.groupBox15 = new System.Windows.Forms.GroupBox();
+            this.MaidFace_ResetEyeRotation_button = new System.Windows.Forms.Button();
+            this.MaidFace_ShowEyesHandleR_checkBox = new System.Windows.Forms.CheckBox();
+            this.MaidPose_FaceLock_checkBox = new System.Windows.Forms.CheckBox();
+            this.MaidFace_ShowEyesHandleL_checkBox = new System.Windows.Forms.CheckBox();
+            this.MaidFace_AddGazePoint_button = new System.Windows.Forms.Button();
+            this.MaidFace_ShowGazePoint_checkBox = new System.Windows.Forms.CheckBox();
+            this.MaidFace_RemoveGazePoint_button = new System.Windows.Forms.Button();
             this.MaidPoseAndParts_tabControl = new System.Windows.Forms.TabControl();
             this.Body_tabPage = new System.Windows.Forms.TabPage();
-            this.label4 = new System.Windows.Forms.Label();
+            this.ResetSelectedBones_button = new System.Windows.Forms.Button();
             this.Mune_R_checkBox = new System.Windows.Forms.CheckBox();
             this.Offset_RotationCheckbox = new System.Windows.Forms.CheckBox();
             this.Mune_L_checkBox = new System.Windows.Forms.CheckBox();
-            this.label3 = new System.Windows.Forms.Label();
             this.Bip01_Head = new System.Windows.Forms.CheckBox();
             this.Bip01_PositionCheckBox = new System.Windows.Forms.CheckBox();
             this.Offset_PositionCheckbox = new System.Windows.Forms.CheckBox();
-            this.RightHandPoseComboBox = new System.Windows.Forms.ComboBox();
             this.Bip01_Neck = new System.Windows.Forms.CheckBox();
             this.SelectAllSpine = new System.Windows.Forms.Button();
-            this.LeftHandPoseComboBox = new System.Windows.Forms.ComboBox();
             this.Bip01_Spine1a = new System.Windows.Forms.CheckBox();
             this.SelectAllLeftLeg = new System.Windows.Forms.Button();
             this.Bip01_Spine1 = new System.Windows.Forms.CheckBox();
@@ -206,18 +204,21 @@ namespace COM3D2.EnhancedMaidEditScene.Plugin
             this.Bip01_R_UpperArm = new System.Windows.Forms.CheckBox();
             this.FingerAndToe_tabPage = new System.Windows.Forms.TabPage();
             this.Bip01_R_Finger = new System.Windows.Forms.CheckBox();
+            this.label4 = new System.Windows.Forms.Label();
             this.Bip01_R_Toe = new System.Windows.Forms.CheckBox();
             this.Bip01_L_Toe = new System.Windows.Forms.CheckBox();
             this.Bip01_L_Finger = new System.Windows.Forms.CheckBox();
-            this.label2 = new System.Windows.Forms.Label();
             this.Bip01_R_Finger0 = new System.Windows.Forms.CheckBox();
             this.ExportCurrentFingerPose = new System.Windows.Forms.Button();
             this.Bip01_R_Finger1 = new System.Windows.Forms.CheckBox();
             this.Bip01_L_Toe01 = new System.Windows.Forms.CheckBox();
+            this.label3 = new System.Windows.Forms.Label();
             this.Bip01_R_Finger2 = new System.Windows.Forms.CheckBox();
             this.Bip01_L_Toe1 = new System.Windows.Forms.CheckBox();
             this.Bip01_R_Finger3 = new System.Windows.Forms.CheckBox();
+            this.LeftHandPoseComboBox = new System.Windows.Forms.ComboBox();
             this.Bip01_L_Toe2 = new System.Windows.Forms.CheckBox();
+            this.RightHandPoseComboBox = new System.Windows.Forms.ComboBox();
             this.Bip01_R_Finger4 = new System.Windows.Forms.CheckBox();
             this.Bip01_L_Toe21 = new System.Windows.Forms.CheckBox();
             this.Bip01_R_Finger41 = new System.Windows.Forms.CheckBox();
@@ -253,9 +254,39 @@ namespace COM3D2.EnhancedMaidEditScene.Plugin
             this.Bip01_L_Finger41 = new System.Windows.Forms.CheckBox();
             this.Bip01_L_Finger32 = new System.Windows.Forms.CheckBox();
             this.Bip01_L_Finger42 = new System.Windows.Forms.CheckBox();
+            this.Kobushi_tabPage = new System.Windows.Forms.TabPage();
+            this.groupBox24 = new System.Windows.Forms.GroupBox();
+            this.label68 = new System.Windows.Forms.Label();
+            this.label69 = new System.Windows.Forms.Label();
+            this.ToeBlend_Left_Sync_checkBox = new System.Windows.Forms.CheckBox();
+            this.ToeBlend_Right_Sync_checkBox = new System.Windows.Forms.CheckBox();
+            this.ToeBlend_Sync_Fist_checkBox = new System.Windows.Forms.CheckBox();
+            this.ToeBlend_Left_Fist_trackBar = new System.Windows.Forms.TrackBar();
+            this.ToeBlend_Right_Fist_trackBar = new System.Windows.Forms.TrackBar();
+            this.ToeBlend_Sync_Open_checkBox = new System.Windows.Forms.CheckBox();
+            this.ToeBlend_Left_Open_trackBar = new System.Windows.Forms.TrackBar();
+            this.ToeBlend_Right_Open_trackBar = new System.Windows.Forms.TrackBar();
+            this.groupBox23 = new System.Windows.Forms.GroupBox();
+            this.Blend_LockSelected_radioButton = new System.Windows.Forms.RadioButton();
+            this.Blend_LockOthers_radioButton = new System.Windows.Forms.RadioButton();
+            this.Blend_LockNone_radioButton = new System.Windows.Forms.RadioButton();
+            this.label65 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.groupBox22 = new System.Windows.Forms.GroupBox();
+            this.label67 = new System.Windows.Forms.Label();
+            this.label66 = new System.Windows.Forms.Label();
+            this.FingerBlend_Left_Sync_checkBox = new System.Windows.Forms.CheckBox();
+            this.FingerBlend_Right_Sync_checkBox = new System.Windows.Forms.CheckBox();
+            this.FingerBlend_Sync_Fist_checkBox = new System.Windows.Forms.CheckBox();
+            this.FingerBlend_Left_Fist_trackBar = new System.Windows.Forms.TrackBar();
+            this.FingerBlend_Right_Fist_trackBar = new System.Windows.Forms.TrackBar();
+            this.FingerBlend_Sync_Open_checkBox = new System.Windows.Forms.CheckBox();
+            this.FingerBlend_Left_Open_trackBar = new System.Windows.Forms.TrackBar();
+            this.FingerBlend_Right_Open_trackBar = new System.Windows.Forms.TrackBar();
             this.MaidTails_tabPage = new System.Windows.Forms.TabPage();
             this.MaidTails_listBox = new System.Windows.Forms.ListBox();
             this.MaidTails_Cat_groupBox = new System.Windows.Forms.GroupBox();
+            this.MaidTails_UnSelect_button = new System.Windows.Forms.Button();
             this.MaidTails_ShowRot_checkBox = new System.Windows.Forms.CheckBox();
             this.MaidTails_ShowPos_checkBox = new System.Windows.Forms.CheckBox();
             this.MaidTails_CatReset_button = new System.Windows.Forms.Button();
@@ -284,6 +315,41 @@ namespace COM3D2.EnhancedMaidEditScene.Plugin
             this.Gravity_x_textBox = new System.Windows.Forms.TextBox();
             this.Gravity_x_trackBar = new System.Windows.Forms.TrackBar();
             this.label42 = new System.Windows.Forms.Label();
+            this.BoneSliderOffset_tabPage = new System.Windows.Forms.TabPage();
+            this.MaidPose_tabControl = new System.Windows.Forms.TabControl();
+            this.Mirrot_tabPage = new System.Windows.Forms.TabPage();
+            this.MaidMirror_Bip01_checkBox = new System.Windows.Forms.CheckBox();
+            this.MaidMirror_Toes_button = new System.Windows.Forms.Button();
+            this.MaidMirror_Upper_button = new System.Windows.Forms.Button();
+            this.MaidMirror_Fingers_button = new System.Windows.Forms.Button();
+            this.MaidMirror_All_button = new System.Windows.Forms.Button();
+            this.MaidMirror_Lower_button = new System.Windows.Forms.Button();
+            this.ResetPose_tabPage = new System.Windows.Forms.TabPage();
+            this.MaidReset_Head_button = new System.Windows.Forms.Button();
+            this.MaidReset_RightToe_button = new System.Windows.Forms.Button();
+            this.MaidReset_LeftToe_button = new System.Windows.Forms.Button();
+            this.MaidReset_RightFinger_button = new System.Windows.Forms.Button();
+            this.MaidReset_Upper_button = new System.Windows.Forms.Button();
+            this.MaidReset_LeftFinger_button = new System.Windows.Forms.Button();
+            this.MaidReset_All_button = new System.Windows.Forms.Button();
+            this.MaidReset_Lower_button = new System.Windows.Forms.Button();
+            this.MaidOffset_Pose_checkBox = new System.Windows.Forms.CheckBox();
+            this.groupBox21 = new System.Windows.Forms.GroupBox();
+            this.MaidOffset_Scale_textBox = new System.Windows.Forms.TextBox();
+            this.groupBox20 = new System.Windows.Forms.GroupBox();
+            this.MaidOffset_RotZ_textBox = new System.Windows.Forms.TextBox();
+            this.MaidOffset_RotY_textBox = new System.Windows.Forms.TextBox();
+            this.MaidOffset_RotX_textBox = new System.Windows.Forms.TextBox();
+            this.groupBox19 = new System.Windows.Forms.GroupBox();
+            this.MaidOffset_PosZ_textBox = new System.Windows.Forms.TextBox();
+            this.MaidOffset_PosY_textBox = new System.Windows.Forms.TextBox();
+            this.MaidOffset_PosX_textBox = new System.Windows.Forms.TextBox();
+            this.MaidOffset_Scale_checkBox = new System.Windows.Forms.CheckBox();
+            this.MaidOffset_Rot_checkBox = new System.Windows.Forms.CheckBox();
+            this.MaidOffset_Pos_checkBox = new System.Windows.Forms.CheckBox();
+            this.MaidOffset_Copy_button = new System.Windows.Forms.Button();
+            this.MaidOffset_Reset_button = new System.Windows.Forms.Button();
+            this.MaidOffset_Paste_button = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.MaidPose_ExportIcon_Button = new System.Windows.Forms.Button();
             this.label59 = new System.Windows.Forms.Label();
@@ -308,6 +374,17 @@ namespace COM3D2.EnhancedMaidEditScene.Plugin
             this.MaidPose_CopyPosition_checkBox = new System.Windows.Forms.CheckBox();
             this.MaidPose_Copy_Button = new System.Windows.Forms.Button();
             this.Items = new System.Windows.Forms.TabPage();
+            this.Items_List_tabControl = new System.Windows.Forms.TabControl();
+            this.Items_list_tabPage1 = new System.Windows.Forms.TabPage();
+            this.ReloadMaid_button = new System.Windows.Forms.Button();
+            this.Items_TryCreateSubHandle_button = new System.Windows.Forms.Button();
+            this.MaidPartsEdit_Enable_checkBox = new System.Windows.Forms.CheckBox();
+            this.Items_HandledObjects_listBox = new System.Windows.Forms.ListBox();
+            this.subItems_list_tabPage2 = new System.Windows.Forms.TabPage();
+            this.Items_SubObjects_SlotBodyHit_checkBox = new System.Windows.Forms.CheckBox();
+            this.Items_SubObjects_DynamicBone_checkBox = new System.Windows.Forms.CheckBox();
+            this.Items_SubObjects_TempDisableMaidHandle_checkBox = new System.Windows.Forms.CheckBox();
+            this.Items_SubObjects_listBox = new System.Windows.Forms.ListBox();
             this.Items_Settings_tabControl = new System.Windows.Forms.TabControl();
             this.ShaderAndShadow_tabPage = new System.Windows.Forms.TabPage();
             this.label63 = new System.Windows.Forms.Label();
@@ -354,8 +431,7 @@ namespace COM3D2.EnhancedMaidEditScene.Plugin
             this.Items_Handle_Visible_checkBox = new System.Windows.Forms.CheckBox();
             this.Items_Handle_Remove_Button = new System.Windows.Forms.Button();
             this.Items_Handle_Active_Button = new System.Windows.Forms.Button();
-            this.Items_HandledObjects_listBox = new System.Windows.Forms.ListBox();
-            this.Items_tabControl = new System.Windows.Forms.TabControl();
+            this.Items_Objects_tabControl = new System.Windows.Forms.TabControl();
             this.MyRoomCustomItems = new System.Windows.Forms.TabPage();
             this.MyRoomCustomObjects_Add_Button = new System.Windows.Forms.Button();
             this.MyRoomCustomObjects_Category_comboBox = new System.Windows.Forms.ComboBox();
@@ -390,11 +466,56 @@ namespace COM3D2.EnhancedMaidEditScene.Plugin
             this.Scene_Select_ComboBox = new System.Windows.Forms.ComboBox();
             this.Scene_Save_Button = new System.Windows.Forms.Button();
             this.CameraData = new System.Windows.Forms.TabPage();
+            this.groupBox25 = new System.Windows.Forms.GroupBox();
+            this.CameraPos_Tag5_textBox = new System.Windows.Forms.TextBox();
+            this.CameraPos_Tag4_textBox = new System.Windows.Forms.TextBox();
+            this.CameraPos_Tag3_textBox = new System.Windows.Forms.TextBox();
+            this.CameraPos_Tag2_textBox = new System.Windows.Forms.TextBox();
+            this.CameraPos_Tag1_textBox = new System.Windows.Forms.TextBox();
+            this.CameraPos_Load5_button = new System.Windows.Forms.Button();
+            this.CameraPos_Save5_button = new System.Windows.Forms.Button();
+            this.CameraPos_Load4_button = new System.Windows.Forms.Button();
+            this.CameraPos_Save4_button = new System.Windows.Forms.Button();
+            this.CameraPos_Load3_button = new System.Windows.Forms.Button();
+            this.CameraPos_Save3_button = new System.Windows.Forms.Button();
+            this.CameraPos_Load2_button = new System.Windows.Forms.Button();
+            this.CameraPos_Save2_button = new System.Windows.Forms.Button();
+            this.CameraPos_Load1_button = new System.Windows.Forms.Button();
+            this.CameraPos_Save1_button = new System.Windows.Forms.Button();
+            this.Camera_UI_Hide = new System.Windows.Forms.CheckBox();
+            this.CameraPos_FOV_trackBar = new System.Windows.Forms.TrackBar();
             this.CameraPos_FOV_textbox = new System.Windows.Forms.TextBox();
             this.label56 = new System.Windows.Forms.Label();
             this.groupBox16 = new System.Windows.Forms.GroupBox();
             this.CameraPos_QuickLoad_button = new System.Windows.Forms.Button();
             this.CameraPos_QuickSave_button = new System.Windows.Forms.Button();
+            this.LightSource = new System.Windows.Forms.TabPage();
+            this.tabControl3 = new System.Windows.Forms.TabControl();
+            this.mainlight_tabPage1 = new System.Windows.Forms.TabPage();
+            this.Light_Main_Color_pictureBox = new System.Windows.Forms.PictureBox();
+            this.Light_Main_Reset_button = new System.Windows.Forms.Button();
+            this.Light_Main_Shadow_trackBar = new System.Windows.Forms.TrackBar();
+            this.label33 = new System.Windows.Forms.Label();
+            this.Light_Main_Brightness_trackBar = new System.Windows.Forms.TrackBar();
+            this.label32 = new System.Windows.Forms.Label();
+            this.Light_Main_Y_trackBar = new System.Windows.Forms.TrackBar();
+            this.label29 = new System.Windows.Forms.Label();
+            this.Light_Main_X_trackBar = new System.Windows.Forms.TrackBar();
+            this.label31 = new System.Windows.Forms.Label();
+            this.sublight_tabPage2 = new System.Windows.Forms.TabPage();
+            this.SubLight_ShowLightPoint_checkBox = new System.Windows.Forms.CheckBox();
+            this.SubLight_enable_checkBox = new System.Windows.Forms.CheckBox();
+            this.SubLight_remove_button = new System.Windows.Forms.Button();
+            this.SubLight_add_button = new System.Windows.Forms.Button();
+            this.SubLight_index_comboBox = new System.Windows.Forms.ComboBox();
+            this.SubLight_type_comboBox = new System.Windows.Forms.ComboBox();
+            this.label34 = new System.Windows.Forms.Label();
+            this.SubLight_angle_trackBar = new System.Windows.Forms.TrackBar();
+            this.label35 = new System.Windows.Forms.Label();
+            this.SubLight_brightness_trackBar = new System.Windows.Forms.TrackBar();
+            this.label36 = new System.Windows.Forms.Label();
+            this.SubLight_range_trackBar = new System.Windows.Forms.TrackBar();
+            this.label37 = new System.Windows.Forms.Label();
             this.tabControl2 = new System.Windows.Forms.TabControl();
             this.DOF = new System.Windows.Forms.TabPage();
             this.Shader_DOF_blurType_comboBox = new System.Windows.Forms.ComboBox();
@@ -433,45 +554,28 @@ namespace COM3D2.EnhancedMaidEditScene.Plugin
             this.Shader_Bloom_Reset_Button = new System.Windows.Forms.Button();
             this.label9 = new System.Windows.Forms.Label();
             this.Shader_Bloom_sepBlurSpread_trackBar = new System.Windows.Forms.TrackBar();
-            this.Blur = new System.Windows.Forms.TabPage();
+            this.Vignette = new System.Windows.Forms.TabPage();
             this.label18 = new System.Windows.Forms.Label();
-            this.Shader_Blur_blurIterations_trackBar = new System.Windows.Forms.TrackBar();
-            this.label19 = new System.Windows.Forms.Label();
-            this.Shader_Blur_blurSize_trackBar = new System.Windows.Forms.TrackBar();
+            this.label74 = new System.Windows.Forms.Label();
+            this.Shader_Vignetting_blur_trackBar = new System.Windows.Forms.TrackBar();
             this.Shader_Blur_Enable_checkbox = new System.Windows.Forms.CheckBox();
+            this.Shader_Blur_blurIterations_trackBar = new System.Windows.Forms.TrackBar();
+            this.label76 = new System.Windows.Forms.Label();
+            this.Shader_Blur_blurSize_trackBar = new System.Windows.Forms.TrackBar();
+            this.Shader_Vignetting_blurSpread_trackBar = new System.Windows.Forms.TrackBar();
+            this.label19 = new System.Windows.Forms.Label();
+            this.Shader_Vignetting_Reset_button = new System.Windows.Forms.Button();
+            this.label71 = new System.Windows.Forms.Label();
+            this.Shader_Vignetting_chromaticAberration_trackBar = new System.Windows.Forms.TrackBar();
+            this.label73 = new System.Windows.Forms.Label();
+            this.Shader_Vignetting_intensity_trackBar = new System.Windows.Forms.TrackBar();
+            this.Shader_Vignette_Enable_checkBox = new System.Windows.Forms.CheckBox();
             this.MessageWindow = new System.Windows.Forms.TabPage();
             this.MessageWindow_text_textBox = new System.Windows.Forms.TextBox();
             this.MessageWindow_maidname_textBox = new System.Windows.Forms.TextBox();
             this.MessageWindow_maidname_comboBox = new System.Windows.Forms.ComboBox();
             this.MessageWindow_enable_checkBox = new System.Windows.Forms.CheckBox();
             this.label38 = new System.Windows.Forms.Label();
-            this.Light = new System.Windows.Forms.TabPage();
-            this.tabControl3 = new System.Windows.Forms.TabControl();
-            this.mainlight_tabPage1 = new System.Windows.Forms.TabPage();
-            this.Light_Main_Color_pictureBox = new System.Windows.Forms.PictureBox();
-            this.Light_Main_Reset_button = new System.Windows.Forms.Button();
-            this.Light_Main_Shadow_trackBar = new System.Windows.Forms.TrackBar();
-            this.label33 = new System.Windows.Forms.Label();
-            this.Light_Main_Brightness_trackBar = new System.Windows.Forms.TrackBar();
-            this.label32 = new System.Windows.Forms.Label();
-            this.Light_Main_Y_trackBar = new System.Windows.Forms.TrackBar();
-            this.label29 = new System.Windows.Forms.Label();
-            this.Light_Main_X_trackBar = new System.Windows.Forms.TrackBar();
-            this.label31 = new System.Windows.Forms.Label();
-            this.sublight_tabPage2 = new System.Windows.Forms.TabPage();
-            this.SubLight_ShowLightPoint_checkBox = new System.Windows.Forms.CheckBox();
-            this.SubLight_enable_checkBox = new System.Windows.Forms.CheckBox();
-            this.SubLight_remove_button = new System.Windows.Forms.Button();
-            this.SubLight_add_button = new System.Windows.Forms.Button();
-            this.SubLight_index_comboBox = new System.Windows.Forms.ComboBox();
-            this.SubLight_type_comboBox = new System.Windows.Forms.ComboBox();
-            this.label34 = new System.Windows.Forms.Label();
-            this.SubLight_angle_trackBar = new System.Windows.Forms.TrackBar();
-            this.label35 = new System.Windows.Forms.Label();
-            this.SubLight_brightness_trackBar = new System.Windows.Forms.TrackBar();
-            this.label36 = new System.Windows.Forms.Label();
-            this.SubLight_range_trackBar = new System.Windows.Forms.TrackBar();
-            this.label37 = new System.Windows.Forms.Label();
             this.groupBox11 = new System.Windows.Forms.GroupBox();
             this.Dance_BGMRandomPlay_Button = new System.Windows.Forms.Button();
             this.Dance_BGMPlay_button = new System.Windows.Forms.Button();
@@ -637,8 +741,9 @@ namespace COM3D2.EnhancedMaidEditScene.Plugin
             this.Maids.SuspendLayout();
             this.groupBox10.SuspendLayout();
             this.Face.SuspendLayout();
+            this.groupBox18.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.HandleSizeSliderTrackBar)).BeginInit();
             this.Debug_groupBox.SuspendLayout();
-            this.groupBox15.SuspendLayout();
             this.groupBox3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.mouthferar_trackBar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.mouthfera_trackBar)).BeginInit();
@@ -675,12 +780,23 @@ namespace COM3D2.EnhancedMaidEditScene.Plugin
             ((System.ComponentModel.ISupportInitialize)(this.eyeclose2_trackBar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.eyeclose_trackBar)).BeginInit();
             this.BonesIK.SuspendLayout();
-            this.groupBox18.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.HandleSizeSliderTrackBar)).BeginInit();
             this.groupBox17.SuspendLayout();
+            this.groupBox15.SuspendLayout();
             this.MaidPoseAndParts_tabControl.SuspendLayout();
             this.Body_tabPage.SuspendLayout();
             this.FingerAndToe_tabPage.SuspendLayout();
+            this.Kobushi_tabPage.SuspendLayout();
+            this.groupBox24.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.ToeBlend_Left_Fist_trackBar)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ToeBlend_Right_Fist_trackBar)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ToeBlend_Left_Open_trackBar)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ToeBlend_Right_Open_trackBar)).BeginInit();
+            this.groupBox23.SuspendLayout();
+            this.groupBox22.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.FingerBlend_Left_Fist_trackBar)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.FingerBlend_Right_Fist_trackBar)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.FingerBlend_Left_Open_trackBar)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.FingerBlend_Right_Open_trackBar)).BeginInit();
             this.MaidTails_tabPage.SuspendLayout();
             this.MaidTails_Cat_groupBox.SuspendLayout();
             this.MaidTails_groupBox.SuspendLayout();
@@ -689,11 +805,21 @@ namespace COM3D2.EnhancedMaidEditScene.Plugin
             ((System.ComponentModel.ISupportInitialize)(this.Gravity_z_trackBar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Gravity_y_trackBar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Gravity_x_trackBar)).BeginInit();
+            this.BoneSliderOffset_tabPage.SuspendLayout();
+            this.MaidPose_tabControl.SuspendLayout();
+            this.Mirrot_tabPage.SuspendLayout();
+            this.ResetPose_tabPage.SuspendLayout();
+            this.groupBox21.SuspendLayout();
+            this.groupBox20.SuspendLayout();
+            this.groupBox19.SuspendLayout();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.MaidPose_Icon_pictureBox)).BeginInit();
             this.groupBox6.SuspendLayout();
             this.BodyRotGroupBox4.SuspendLayout();
             this.Items.SuspendLayout();
+            this.Items_List_tabControl.SuspendLayout();
+            this.Items_list_tabPage1.SuspendLayout();
+            this.subItems_list_tabPage2.SuspendLayout();
             this.Items_Settings_tabControl.SuspendLayout();
             this.ShaderAndShadow_tabPage.SuspendLayout();
             this.Scale_tabPage.SuspendLayout();
@@ -702,7 +828,7 @@ namespace COM3D2.EnhancedMaidEditScene.Plugin
             this.Items_Information_groupBox.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.SS_pictureBox)).BeginInit();
             this.Items_Control_groupBox.SuspendLayout();
-            this.Items_tabControl.SuspendLayout();
+            this.Items_Objects_tabControl.SuspendLayout();
             this.MyRoomCustomItems.SuspendLayout();
             this.PhotoSceneItems.SuspendLayout();
             this.DeskItems.SuspendLayout();
@@ -713,7 +839,21 @@ namespace COM3D2.EnhancedMaidEditScene.Plugin
             this.SceneManagement.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Scene_PictureBox)).BeginInit();
             this.CameraData.SuspendLayout();
+            this.groupBox25.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.CameraPos_FOV_trackBar)).BeginInit();
             this.groupBox16.SuspendLayout();
+            this.LightSource.SuspendLayout();
+            this.tabControl3.SuspendLayout();
+            this.mainlight_tabPage1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.Light_Main_Color_pictureBox)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Light_Main_Shadow_trackBar)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Light_Main_Brightness_trackBar)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Light_Main_Y_trackBar)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Light_Main_X_trackBar)).BeginInit();
+            this.sublight_tabPage2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.SubLight_angle_trackBar)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.SubLight_brightness_trackBar)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.SubLight_range_trackBar)).BeginInit();
             this.tabControl2.SuspendLayout();
             this.DOF.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Shader_DOF_maxBlurSize_trackBar)).BeginInit();
@@ -729,22 +869,14 @@ namespace COM3D2.EnhancedMaidEditScene.Plugin
             this.Bloom.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Shader_Bloom_bloomBlurIterations_trackBar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Shader_Bloom_sepBlurSpread_trackBar)).BeginInit();
-            this.Blur.SuspendLayout();
+            this.Vignette.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.Shader_Vignetting_blur_trackBar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Shader_Blur_blurIterations_trackBar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Shader_Blur_blurSize_trackBar)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Shader_Vignetting_blurSpread_trackBar)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Shader_Vignetting_chromaticAberration_trackBar)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Shader_Vignetting_intensity_trackBar)).BeginInit();
             this.MessageWindow.SuspendLayout();
-            this.Light.SuspendLayout();
-            this.tabControl3.SuspendLayout();
-            this.mainlight_tabPage1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.Light_Main_Color_pictureBox)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.Light_Main_Shadow_trackBar)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.Light_Main_Brightness_trackBar)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.Light_Main_Y_trackBar)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.Light_Main_X_trackBar)).BeginInit();
-            this.sublight_tabPage2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.SubLight_angle_trackBar)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.SubLight_brightness_trackBar)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.SubLight_range_trackBar)).BeginInit();
             this.groupBox11.SuspendLayout();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.BackGroundPictureBox)).BeginInit();
@@ -1134,8 +1266,8 @@ namespace COM3D2.EnhancedMaidEditScene.Plugin
             // 
             // Face
             // 
+            this.Face.Controls.Add(this.groupBox18);
             this.Face.Controls.Add(this.Debug_groupBox);
-            this.Face.Controls.Add(this.groupBox15);
             this.Face.Controls.Add(this.groupBox3);
             this.Face.Location = new System.Drawing.Point(4, 29);
             this.Face.Name = "Face";
@@ -1145,18 +1277,75 @@ namespace COM3D2.EnhancedMaidEditScene.Plugin
             this.Face.Text = "顔";
             this.Face.UseVisualStyleBackColor = true;
             // 
+            // groupBox18
+            // 
+            this.groupBox18.Controls.Add(this.HandleSizeSliderCheckBox);
+            this.groupBox18.Controls.Add(this.HandleSizeSliderTrackBar);
+            this.groupBox18.Controls.Add(this.HideAllMaidsHandle);
+            this.groupBox18.Location = new System.Drawing.Point(6, 1025);
+            this.groupBox18.Name = "groupBox18";
+            this.groupBox18.Size = new System.Drawing.Size(390, 62);
+            this.groupBox18.TabIndex = 173;
+            this.groupBox18.TabStop = false;
+            this.groupBox18.Text = "ハンドル";
+            // 
+            // HandleSizeSliderCheckBox
+            // 
+            this.HandleSizeSliderCheckBox.AutoSize = true;
+            this.HandleSizeSliderCheckBox.Location = new System.Drawing.Point(10, 26);
+            this.HandleSizeSliderCheckBox.Name = "HandleSizeSliderCheckBox";
+            this.HandleSizeSliderCheckBox.Size = new System.Drawing.Size(83, 24);
+            this.HandleSizeSliderCheckBox.TabIndex = 169;
+            this.HandleSizeSliderCheckBox.Text = "サイズ";
+            this.HandleSizeSliderCheckBox.UseVisualStyleBackColor = true;
+            this.HandleSizeSliderCheckBox.CheckedChanged += new System.EventHandler(this.HandleSizeSliderCheckBox_CheckedChanged);
+            // 
+            // HandleSizeSliderTrackBar
+            // 
+            this.HandleSizeSliderTrackBar.AutoSize = false;
+            this.HandleSizeSliderTrackBar.Enabled = false;
+            this.HandleSizeSliderTrackBar.LargeChange = 200;
+            this.HandleSizeSliderTrackBar.Location = new System.Drawing.Point(104, 22);
+            this.HandleSizeSliderTrackBar.Maximum = 2000;
+            this.HandleSizeSliderTrackBar.Name = "HandleSizeSliderTrackBar";
+            this.HandleSizeSliderTrackBar.Size = new System.Drawing.Size(150, 27);
+            this.HandleSizeSliderTrackBar.SmallChange = 10;
+            this.HandleSizeSliderTrackBar.TabIndex = 168;
+            this.HandleSizeSliderTrackBar.TickFrequency = 500;
+            this.HandleSizeSliderTrackBar.Scroll += new System.EventHandler(this.HandleSizeSliderTrackBar_Scroll);
+            // 
+            // HideAllMaidsHandle
+            // 
+            this.HideAllMaidsHandle.Location = new System.Drawing.Point(284, 15);
+            this.HideAllMaidsHandle.Name = "HideAllMaidsHandle";
+            this.HideAllMaidsHandle.Size = new System.Drawing.Size(94, 40);
+            this.HideAllMaidsHandle.TabIndex = 170;
+            this.HideAllMaidsHandle.Text = "非表示";
+            this.HideAllMaidsHandle.UseVisualStyleBackColor = true;
+            this.HideAllMaidsHandle.Click += new System.EventHandler(this.HideAllMaidsHandle_Click);
+            // 
             // Debug_groupBox
             // 
+            this.Debug_groupBox.Controls.Add(this.button1);
             this.Debug_groupBox.Controls.Add(this.comboBox1);
             this.Debug_groupBox.Controls.Add(this.button2);
-            this.Debug_groupBox.Controls.Add(this.button1);
             this.Debug_groupBox.Controls.Add(this.textBox1);
-            this.Debug_groupBox.Location = new System.Drawing.Point(3, 992);
+            this.Debug_groupBox.Location = new System.Drawing.Point(6, 886);
             this.Debug_groupBox.Name = "Debug_groupBox";
-            this.Debug_groupBox.Size = new System.Drawing.Size(394, 96);
+            this.Debug_groupBox.Size = new System.Drawing.Size(390, 96);
             this.Debug_groupBox.TabIndex = 12;
             this.Debug_groupBox.TabStop = false;
             this.Debug_groupBox.Text = "Debug";
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(267, 50);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(116, 32);
+            this.button1.TabIndex = 7;
+            this.button1.Text = "button1";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // comboBox1
             // 
@@ -1182,16 +1371,6 @@ namespace COM3D2.EnhancedMaidEditScene.Plugin
             this.button2.UseVisualStyleBackColor = true;
             this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(276, 51);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(116, 32);
-            this.button1.TabIndex = 7;
-            this.button1.Text = "button1";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
-            // 
             // textBox1
             // 
             this.textBox1.Location = new System.Drawing.Point(14, 20);
@@ -1199,101 +1378,6 @@ namespace COM3D2.EnhancedMaidEditScene.Plugin
             this.textBox1.Size = new System.Drawing.Size(360, 26);
             this.textBox1.TabIndex = 9;
             this.textBox1.Text = "/";
-            // 
-            // groupBox15
-            // 
-            this.groupBox15.Controls.Add(this.MaidFace_ResetEyeRotation_button);
-            this.groupBox15.Controls.Add(this.MaidFace_ShowEyesHandleR_checkBox);
-            this.groupBox15.Controls.Add(this.MaidPose_FaceLock_checkBox);
-            this.groupBox15.Controls.Add(this.MaidFace_ShowEyesHandleL_checkBox);
-            this.groupBox15.Controls.Add(this.MaidFace_AddGazePoint_button);
-            this.groupBox15.Controls.Add(this.MaidFace_ShowGazePoint_checkBox);
-            this.groupBox15.Controls.Add(this.MaidFace_RemoveGazePoint_button);
-            this.groupBox15.Location = new System.Drawing.Point(8, 834);
-            this.groupBox15.Name = "groupBox15";
-            this.groupBox15.Size = new System.Drawing.Size(393, 152);
-            this.groupBox15.TabIndex = 8;
-            this.groupBox15.TabStop = false;
-            this.groupBox15.Text = "目";
-            // 
-            // MaidFace_ResetEyeRotation_button
-            // 
-            this.MaidFace_ResetEyeRotation_button.ForeColor = System.Drawing.Color.Red;
-            this.MaidFace_ResetEyeRotation_button.Location = new System.Drawing.Point(6, 94);
-            this.MaidFace_ResetEyeRotation_button.Name = "MaidFace_ResetEyeRotation_button";
-            this.MaidFace_ResetEyeRotation_button.Size = new System.Drawing.Size(100, 48);
-            this.MaidFace_ResetEyeRotation_button.TabIndex = 20;
-            this.MaidFace_ResetEyeRotation_button.Text = "セット";
-            this.MaidFace_ResetEyeRotation_button.UseVisualStyleBackColor = true;
-            this.MaidFace_ResetEyeRotation_button.Click += new System.EventHandler(this.MaidFace_ResetEyeRotation_button_Click);
-            // 
-            // MaidFace_ShowEyesHandleR_checkBox
-            // 
-            this.MaidFace_ShowEyesHandleR_checkBox.AutoSize = true;
-            this.MaidFace_ShowEyesHandleR_checkBox.Location = new System.Drawing.Point(105, 26);
-            this.MaidFace_ShowEyesHandleR_checkBox.Name = "MaidFace_ShowEyesHandleR_checkBox";
-            this.MaidFace_ShowEyesHandleR_checkBox.Size = new System.Drawing.Size(67, 24);
-            this.MaidFace_ShowEyesHandleR_checkBox.TabIndex = 19;
-            this.MaidFace_ShowEyesHandleR_checkBox.Text = "右目";
-            this.MaidFace_ShowEyesHandleR_checkBox.UseVisualStyleBackColor = true;
-            this.MaidFace_ShowEyesHandleR_checkBox.CheckedChanged += new System.EventHandler(this.MaidFace_ShowEyesHandle_checkBox_CheckedChanged);
-            // 
-            // MaidPose_FaceLock_checkBox
-            // 
-            this.MaidPose_FaceLock_checkBox.AutoSize = true;
-            this.MaidPose_FaceLock_checkBox.Location = new System.Drawing.Point(26, 56);
-            this.MaidPose_FaceLock_checkBox.Name = "MaidPose_FaceLock_checkBox";
-            this.MaidPose_FaceLock_checkBox.Size = new System.Drawing.Size(179, 24);
-            this.MaidPose_FaceLock_checkBox.TabIndex = 18;
-            this.MaidPose_FaceLock_checkBox.Text = "顔と目の機能を停止";
-            this.MaidPose_FaceLock_checkBox.UseVisualStyleBackColor = true;
-            this.MaidPose_FaceLock_checkBox.CheckedChanged += new System.EventHandler(this.MaidPose_FaceLock_checkBox_CheckedChanged);
-            // 
-            // MaidFace_ShowEyesHandleL_checkBox
-            // 
-            this.MaidFace_ShowEyesHandleL_checkBox.AutoSize = true;
-            this.MaidFace_ShowEyesHandleL_checkBox.CheckAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.MaidFace_ShowEyesHandleL_checkBox.Location = new System.Drawing.Point(226, 26);
-            this.MaidFace_ShowEyesHandleL_checkBox.Name = "MaidFace_ShowEyesHandleL_checkBox";
-            this.MaidFace_ShowEyesHandleL_checkBox.Size = new System.Drawing.Size(67, 24);
-            this.MaidFace_ShowEyesHandleL_checkBox.TabIndex = 18;
-            this.MaidFace_ShowEyesHandleL_checkBox.Text = "左目";
-            this.MaidFace_ShowEyesHandleL_checkBox.UseVisualStyleBackColor = true;
-            this.MaidFace_ShowEyesHandleL_checkBox.CheckedChanged += new System.EventHandler(this.MaidFace_ShowEyesHandle_checkBox_CheckedChanged);
-            // 
-            // MaidFace_AddGazePoint_button
-            // 
-            this.MaidFace_AddGazePoint_button.Location = new System.Drawing.Point(280, 94);
-            this.MaidFace_AddGazePoint_button.Name = "MaidFace_AddGazePoint_button";
-            this.MaidFace_AddGazePoint_button.Size = new System.Drawing.Size(104, 48);
-            this.MaidFace_AddGazePoint_button.TabIndex = 15;
-            this.MaidFace_AddGazePoint_button.Text = "注視点";
-            this.MaidFace_AddGazePoint_button.UseVisualStyleBackColor = true;
-            this.MaidFace_AddGazePoint_button.Click += new System.EventHandler(this.MaidPose_FaceAddGazePoint_button_Click);
-            // 
-            // MaidFace_ShowGazePoint_checkBox
-            // 
-            this.MaidFace_ShowGazePoint_checkBox.AutoSize = true;
-            this.MaidFace_ShowGazePoint_checkBox.CheckAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.MaidFace_ShowGazePoint_checkBox.Checked = true;
-            this.MaidFace_ShowGazePoint_checkBox.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.MaidFace_ShowGazePoint_checkBox.Location = new System.Drawing.Point(240, 56);
-            this.MaidFace_ShowGazePoint_checkBox.Name = "MaidFace_ShowGazePoint_checkBox";
-            this.MaidFace_ShowGazePoint_checkBox.Size = new System.Drawing.Size(131, 24);
-            this.MaidFace_ShowGazePoint_checkBox.TabIndex = 17;
-            this.MaidFace_ShowGazePoint_checkBox.Text = "注視点を表示";
-            this.MaidFace_ShowGazePoint_checkBox.UseVisualStyleBackColor = true;
-            this.MaidFace_ShowGazePoint_checkBox.CheckedChanged += new System.EventHandler(this.MaidPose_FaceShowGazePoint_checkBox_CheckedChanged);
-            // 
-            // MaidFace_RemoveGazePoint_button
-            // 
-            this.MaidFace_RemoveGazePoint_button.Location = new System.Drawing.Point(142, 94);
-            this.MaidFace_RemoveGazePoint_button.Name = "MaidFace_RemoveGazePoint_button";
-            this.MaidFace_RemoveGazePoint_button.Size = new System.Drawing.Size(104, 48);
-            this.MaidFace_RemoveGazePoint_button.TabIndex = 16;
-            this.MaidFace_RemoveGazePoint_button.Text = "削除";
-            this.MaidFace_RemoveGazePoint_button.UseVisualStyleBackColor = true;
-            this.MaidFace_RemoveGazePoint_button.Click += new System.EventHandler(this.MaidPose_FaceRemoveGazePoint_button_Click);
             // 
             // groupBox3
             // 
@@ -2191,8 +2275,8 @@ namespace COM3D2.EnhancedMaidEditScene.Plugin
             // 
             // BonesIK
             // 
-            this.BonesIK.Controls.Add(this.groupBox18);
             this.BonesIK.Controls.Add(this.groupBox17);
+            this.BonesIK.Controls.Add(this.groupBox15);
             this.BonesIK.Controls.Add(this.MaidPoseAndParts_tabControl);
             this.BonesIK.Controls.Add(this.groupBox1);
             this.BonesIK.Controls.Add(this.groupBox6);
@@ -2204,55 +2288,9 @@ namespace COM3D2.EnhancedMaidEditScene.Plugin
             this.BonesIK.Text = "骨格";
             this.BonesIK.UseVisualStyleBackColor = true;
             // 
-            // groupBox18
-            // 
-            this.groupBox18.Controls.Add(this.HandleSizeSliderCheckBox);
-            this.groupBox18.Controls.Add(this.HandleSizeSliderTrackBar);
-            this.groupBox18.Controls.Add(this.HideAllMaidsHandle);
-            this.groupBox18.Location = new System.Drawing.Point(8, 1022);
-            this.groupBox18.Name = "groupBox18";
-            this.groupBox18.Size = new System.Drawing.Size(390, 62);
-            this.groupBox18.TabIndex = 173;
-            this.groupBox18.TabStop = false;
-            this.groupBox18.Text = "ハンドル";
-            // 
-            // HandleSizeSliderCheckBox
-            // 
-            this.HandleSizeSliderCheckBox.AutoSize = true;
-            this.HandleSizeSliderCheckBox.Location = new System.Drawing.Point(10, 26);
-            this.HandleSizeSliderCheckBox.Name = "HandleSizeSliderCheckBox";
-            this.HandleSizeSliderCheckBox.Size = new System.Drawing.Size(83, 24);
-            this.HandleSizeSliderCheckBox.TabIndex = 169;
-            this.HandleSizeSliderCheckBox.Text = "サイズ";
-            this.HandleSizeSliderCheckBox.UseVisualStyleBackColor = true;
-            this.HandleSizeSliderCheckBox.CheckedChanged += new System.EventHandler(this.HandleSizeSliderCheckBox_CheckedChanged);
-            // 
-            // HandleSizeSliderTrackBar
-            // 
-            this.HandleSizeSliderTrackBar.AutoSize = false;
-            this.HandleSizeSliderTrackBar.Enabled = false;
-            this.HandleSizeSliderTrackBar.LargeChange = 200;
-            this.HandleSizeSliderTrackBar.Location = new System.Drawing.Point(104, 22);
-            this.HandleSizeSliderTrackBar.Maximum = 2000;
-            this.HandleSizeSliderTrackBar.Name = "HandleSizeSliderTrackBar";
-            this.HandleSizeSliderTrackBar.Size = new System.Drawing.Size(150, 27);
-            this.HandleSizeSliderTrackBar.SmallChange = 10;
-            this.HandleSizeSliderTrackBar.TabIndex = 168;
-            this.HandleSizeSliderTrackBar.TickFrequency = 500;
-            this.HandleSizeSliderTrackBar.Scroll += new System.EventHandler(this.HandleSizeSliderTrackBar_Scroll);
-            // 
-            // HideAllMaidsHandle
-            // 
-            this.HideAllMaidsHandle.Location = new System.Drawing.Point(284, 15);
-            this.HideAllMaidsHandle.Name = "HideAllMaidsHandle";
-            this.HideAllMaidsHandle.Size = new System.Drawing.Size(94, 40);
-            this.HideAllMaidsHandle.TabIndex = 170;
-            this.HideAllMaidsHandle.Text = "非表示";
-            this.HideAllMaidsHandle.UseVisualStyleBackColor = true;
-            this.HideAllMaidsHandle.Click += new System.EventHandler(this.HideAllMaidsHandle_Click);
-            // 
             // groupBox17
             // 
+            this.groupBox17.Controls.Add(this.MaidHandleSelectModle_None_radioButton);
             this.groupBox17.Controls.Add(this.MaidHandleSelectModle_Others_radioButton);
             this.groupBox17.Controls.Add(this.MaidHandleSelectModle_Current_radioButton);
             this.groupBox17.Controls.Add(this.MaidHandleSelectModle_All_radioButton);
@@ -2263,25 +2301,36 @@ namespace COM3D2.EnhancedMaidEditScene.Plugin
             this.groupBox17.TabStop = false;
             this.groupBox17.Text = "メイド選択モード";
             // 
+            // MaidHandleSelectModle_None_radioButton
+            // 
+            this.MaidHandleSelectModle_None_radioButton.AutoSize = true;
+            this.MaidHandleSelectModle_None_radioButton.Location = new System.Drawing.Point(311, 25);
+            this.MaidHandleSelectModle_None_radioButton.Name = "MaidHandleSelectModle_None_radioButton";
+            this.MaidHandleSelectModle_None_radioButton.Size = new System.Drawing.Size(50, 24);
+            this.MaidHandleSelectModle_None_radioButton.TabIndex = 18;
+            this.MaidHandleSelectModle_None_radioButton.Text = "無";
+            this.MaidHandleSelectModle_None_radioButton.UseVisualStyleBackColor = true;
+            this.MaidHandleSelectModle_None_radioButton.CheckedChanged += new System.EventHandler(this.MaidHandleSelectModle_radioButton_CheckedChanged);
+            // 
             // MaidHandleSelectModle_Others_radioButton
             // 
             this.MaidHandleSelectModle_Others_radioButton.AutoSize = true;
-            this.MaidHandleSelectModle_Others_radioButton.Location = new System.Drawing.Point(260, 26);
+            this.MaidHandleSelectModle_Others_radioButton.Location = new System.Drawing.Point(210, 25);
             this.MaidHandleSelectModle_Others_radioButton.Name = "MaidHandleSelectModle_Others_radioButton";
-            this.MaidHandleSelectModle_Others_radioButton.Size = new System.Drawing.Size(114, 24);
+            this.MaidHandleSelectModle_Others_radioButton.Size = new System.Drawing.Size(66, 24);
             this.MaidHandleSelectModle_Others_radioButton.TabIndex = 17;
-            this.MaidHandleSelectModle_Others_radioButton.Text = "他のメイド";
+            this.MaidHandleSelectModle_Others_radioButton.Text = "他人";
             this.MaidHandleSelectModle_Others_radioButton.UseVisualStyleBackColor = true;
             this.MaidHandleSelectModle_Others_radioButton.CheckedChanged += new System.EventHandler(this.MaidHandleSelectModle_radioButton_CheckedChanged);
             // 
             // MaidHandleSelectModle_Current_radioButton
             // 
             this.MaidHandleSelectModle_Current_radioButton.AutoSize = true;
-            this.MaidHandleSelectModle_Current_radioButton.Location = new System.Drawing.Point(104, 26);
+            this.MaidHandleSelectModle_Current_radioButton.Location = new System.Drawing.Point(109, 26);
             this.MaidHandleSelectModle_Current_radioButton.Name = "MaidHandleSelectModle_Current_radioButton";
-            this.MaidHandleSelectModle_Current_radioButton.Size = new System.Drawing.Size(130, 24);
+            this.MaidHandleSelectModle_Current_radioButton.Size = new System.Drawing.Size(66, 24);
             this.MaidHandleSelectModle_Current_radioButton.TabIndex = 16;
-            this.MaidHandleSelectModle_Current_radioButton.Text = "現在のメイド";
+            this.MaidHandleSelectModle_Current_radioButton.Text = "現在";
             this.MaidHandleSelectModle_Current_radioButton.UseVisualStyleBackColor = true;
             this.MaidHandleSelectModle_Current_radioButton.CheckedChanged += new System.EventHandler(this.MaidHandleSelectModle_radioButton_CheckedChanged);
             // 
@@ -2298,32 +2347,126 @@ namespace COM3D2.EnhancedMaidEditScene.Plugin
             this.MaidHandleSelectModle_All_radioButton.UseVisualStyleBackColor = true;
             this.MaidHandleSelectModle_All_radioButton.CheckedChanged += new System.EventHandler(this.MaidHandleSelectModle_radioButton_CheckedChanged);
             // 
+            // groupBox15
+            // 
+            this.groupBox15.Controls.Add(this.MaidFace_ResetEyeRotation_button);
+            this.groupBox15.Controls.Add(this.MaidFace_ShowEyesHandleR_checkBox);
+            this.groupBox15.Controls.Add(this.MaidPose_FaceLock_checkBox);
+            this.groupBox15.Controls.Add(this.MaidFace_ShowEyesHandleL_checkBox);
+            this.groupBox15.Controls.Add(this.MaidFace_AddGazePoint_button);
+            this.groupBox15.Controls.Add(this.MaidFace_ShowGazePoint_checkBox);
+            this.groupBox15.Controls.Add(this.MaidFace_RemoveGazePoint_button);
+            this.groupBox15.Location = new System.Drawing.Point(6, 881);
+            this.groupBox15.Name = "groupBox15";
+            this.groupBox15.Size = new System.Drawing.Size(393, 141);
+            this.groupBox15.TabIndex = 8;
+            this.groupBox15.TabStop = false;
+            this.groupBox15.Text = "目";
+            // 
+            // MaidFace_ResetEyeRotation_button
+            // 
+            this.MaidFace_ResetEyeRotation_button.ForeColor = System.Drawing.Color.Red;
+            this.MaidFace_ResetEyeRotation_button.Location = new System.Drawing.Point(6, 84);
+            this.MaidFace_ResetEyeRotation_button.Name = "MaidFace_ResetEyeRotation_button";
+            this.MaidFace_ResetEyeRotation_button.Size = new System.Drawing.Size(100, 51);
+            this.MaidFace_ResetEyeRotation_button.TabIndex = 20;
+            this.MaidFace_ResetEyeRotation_button.Text = "リセット";
+            this.MaidFace_ResetEyeRotation_button.UseVisualStyleBackColor = true;
+            this.MaidFace_ResetEyeRotation_button.Click += new System.EventHandler(this.MaidFace_ResetEyeRotation_button_Click);
+            // 
+            // MaidFace_ShowEyesHandleR_checkBox
+            // 
+            this.MaidFace_ShowEyesHandleR_checkBox.AutoSize = true;
+            this.MaidFace_ShowEyesHandleR_checkBox.Location = new System.Drawing.Point(105, 16);
+            this.MaidFace_ShowEyesHandleR_checkBox.Name = "MaidFace_ShowEyesHandleR_checkBox";
+            this.MaidFace_ShowEyesHandleR_checkBox.Size = new System.Drawing.Size(67, 24);
+            this.MaidFace_ShowEyesHandleR_checkBox.TabIndex = 19;
+            this.MaidFace_ShowEyesHandleR_checkBox.Text = "右目";
+            this.MaidFace_ShowEyesHandleR_checkBox.UseVisualStyleBackColor = true;
+            this.MaidFace_ShowEyesHandleR_checkBox.CheckedChanged += new System.EventHandler(this.MaidFace_ShowEyesHandle_checkBox_CheckedChanged);
+            // 
+            // MaidPose_FaceLock_checkBox
+            // 
+            this.MaidPose_FaceLock_checkBox.AutoSize = true;
+            this.MaidPose_FaceLock_checkBox.Location = new System.Drawing.Point(26, 46);
+            this.MaidPose_FaceLock_checkBox.Name = "MaidPose_FaceLock_checkBox";
+            this.MaidPose_FaceLock_checkBox.Size = new System.Drawing.Size(179, 24);
+            this.MaidPose_FaceLock_checkBox.TabIndex = 18;
+            this.MaidPose_FaceLock_checkBox.Text = "顔と目の機能を停止";
+            this.MaidPose_FaceLock_checkBox.UseVisualStyleBackColor = true;
+            this.MaidPose_FaceLock_checkBox.CheckedChanged += new System.EventHandler(this.MaidPose_FaceLock_checkBox_CheckedChanged);
+            // 
+            // MaidFace_ShowEyesHandleL_checkBox
+            // 
+            this.MaidFace_ShowEyesHandleL_checkBox.AutoSize = true;
+            this.MaidFace_ShowEyesHandleL_checkBox.CheckAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.MaidFace_ShowEyesHandleL_checkBox.Location = new System.Drawing.Point(226, 16);
+            this.MaidFace_ShowEyesHandleL_checkBox.Name = "MaidFace_ShowEyesHandleL_checkBox";
+            this.MaidFace_ShowEyesHandleL_checkBox.Size = new System.Drawing.Size(67, 24);
+            this.MaidFace_ShowEyesHandleL_checkBox.TabIndex = 18;
+            this.MaidFace_ShowEyesHandleL_checkBox.Text = "左目";
+            this.MaidFace_ShowEyesHandleL_checkBox.UseVisualStyleBackColor = true;
+            this.MaidFace_ShowEyesHandleL_checkBox.CheckedChanged += new System.EventHandler(this.MaidFace_ShowEyesHandle_checkBox_CheckedChanged);
+            // 
+            // MaidFace_AddGazePoint_button
+            // 
+            this.MaidFace_AddGazePoint_button.Location = new System.Drawing.Point(280, 84);
+            this.MaidFace_AddGazePoint_button.Name = "MaidFace_AddGazePoint_button";
+            this.MaidFace_AddGazePoint_button.Size = new System.Drawing.Size(104, 51);
+            this.MaidFace_AddGazePoint_button.TabIndex = 15;
+            this.MaidFace_AddGazePoint_button.Text = "注視点";
+            this.MaidFace_AddGazePoint_button.UseVisualStyleBackColor = true;
+            this.MaidFace_AddGazePoint_button.Click += new System.EventHandler(this.MaidPose_FaceAddGazePoint_button_Click);
+            // 
+            // MaidFace_ShowGazePoint_checkBox
+            // 
+            this.MaidFace_ShowGazePoint_checkBox.AutoSize = true;
+            this.MaidFace_ShowGazePoint_checkBox.CheckAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.MaidFace_ShowGazePoint_checkBox.Checked = true;
+            this.MaidFace_ShowGazePoint_checkBox.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.MaidFace_ShowGazePoint_checkBox.Location = new System.Drawing.Point(240, 46);
+            this.MaidFace_ShowGazePoint_checkBox.Name = "MaidFace_ShowGazePoint_checkBox";
+            this.MaidFace_ShowGazePoint_checkBox.Size = new System.Drawing.Size(131, 24);
+            this.MaidFace_ShowGazePoint_checkBox.TabIndex = 17;
+            this.MaidFace_ShowGazePoint_checkBox.Text = "注視点を表示";
+            this.MaidFace_ShowGazePoint_checkBox.UseVisualStyleBackColor = true;
+            this.MaidFace_ShowGazePoint_checkBox.CheckedChanged += new System.EventHandler(this.MaidPose_FaceShowGazePoint_checkBox_CheckedChanged);
+            // 
+            // MaidFace_RemoveGazePoint_button
+            // 
+            this.MaidFace_RemoveGazePoint_button.Location = new System.Drawing.Point(142, 84);
+            this.MaidFace_RemoveGazePoint_button.Name = "MaidFace_RemoveGazePoint_button";
+            this.MaidFace_RemoveGazePoint_button.Size = new System.Drawing.Size(104, 51);
+            this.MaidFace_RemoveGazePoint_button.TabIndex = 16;
+            this.MaidFace_RemoveGazePoint_button.Text = "削除";
+            this.MaidFace_RemoveGazePoint_button.UseVisualStyleBackColor = true;
+            this.MaidFace_RemoveGazePoint_button.Click += new System.EventHandler(this.MaidPose_FaceRemoveGazePoint_button_Click);
+            // 
             // MaidPoseAndParts_tabControl
             // 
             this.MaidPoseAndParts_tabControl.Controls.Add(this.Body_tabPage);
             this.MaidPoseAndParts_tabControl.Controls.Add(this.FingerAndToe_tabPage);
+            this.MaidPoseAndParts_tabControl.Controls.Add(this.Kobushi_tabPage);
             this.MaidPoseAndParts_tabControl.Controls.Add(this.MaidTails_tabPage);
             this.MaidPoseAndParts_tabControl.Controls.Add(this.Gravity_tabPage);
+            this.MaidPoseAndParts_tabControl.Controls.Add(this.BoneSliderOffset_tabPage);
             this.MaidPoseAndParts_tabControl.Location = new System.Drawing.Point(6, 410);
             this.MaidPoseAndParts_tabControl.Name = "MaidPoseAndParts_tabControl";
             this.MaidPoseAndParts_tabControl.SelectedIndex = 0;
-            this.MaidPoseAndParts_tabControl.Size = new System.Drawing.Size(396, 476);
+            this.MaidPoseAndParts_tabControl.Size = new System.Drawing.Size(396, 465);
             this.MaidPoseAndParts_tabControl.TabIndex = 17;
             // 
             // Body_tabPage
             // 
-            this.Body_tabPage.Controls.Add(this.label4);
+            this.Body_tabPage.Controls.Add(this.ResetSelectedBones_button);
             this.Body_tabPage.Controls.Add(this.Mune_R_checkBox);
             this.Body_tabPage.Controls.Add(this.Offset_RotationCheckbox);
             this.Body_tabPage.Controls.Add(this.Mune_L_checkBox);
-            this.Body_tabPage.Controls.Add(this.label3);
             this.Body_tabPage.Controls.Add(this.Bip01_Head);
             this.Body_tabPage.Controls.Add(this.Bip01_PositionCheckBox);
             this.Body_tabPage.Controls.Add(this.Offset_PositionCheckbox);
-            this.Body_tabPage.Controls.Add(this.RightHandPoseComboBox);
             this.Body_tabPage.Controls.Add(this.Bip01_Neck);
             this.Body_tabPage.Controls.Add(this.SelectAllSpine);
-            this.Body_tabPage.Controls.Add(this.LeftHandPoseComboBox);
             this.Body_tabPage.Controls.Add(this.Bip01_Spine1a);
             this.Body_tabPage.Controls.Add(this.SelectAllLeftLeg);
             this.Body_tabPage.Controls.Add(this.Bip01_Spine1);
@@ -2350,19 +2493,21 @@ namespace COM3D2.EnhancedMaidEditScene.Plugin
             this.Body_tabPage.Controls.Add(this.Bip01_R_UpperArm);
             this.Body_tabPage.Location = new System.Drawing.Point(4, 29);
             this.Body_tabPage.Name = "Body_tabPage";
-            this.Body_tabPage.Size = new System.Drawing.Size(388, 443);
+            this.Body_tabPage.Size = new System.Drawing.Size(388, 432);
             this.Body_tabPage.TabIndex = 3;
-            this.Body_tabPage.Text = "ボディー";
+            this.Body_tabPage.Text = "体";
             this.Body_tabPage.UseVisualStyleBackColor = true;
             // 
-            // label4
+            // ResetSelectedBones_button
             // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(216, 398);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(41, 20);
-            this.label4.TabIndex = 79;
-            this.label4.Text = "左手";
+            this.ResetSelectedBones_button.ForeColor = System.Drawing.Color.Red;
+            this.ResetSelectedBones_button.Location = new System.Drawing.Point(68, 388);
+            this.ResetSelectedBones_button.Name = "ResetSelectedBones_button";
+            this.ResetSelectedBones_button.Size = new System.Drawing.Size(247, 32);
+            this.ResetSelectedBones_button.TabIndex = 41;
+            this.ResetSelectedBones_button.Text = "選択したボーンをリセット";
+            this.ResetSelectedBones_button.UseVisualStyleBackColor = true;
+            this.ResetSelectedBones_button.Click += new System.EventHandler(this.ResetSelectedBones_button_Click);
             // 
             // Mune_R_checkBox
             // 
@@ -2396,15 +2541,6 @@ namespace COM3D2.EnhancedMaidEditScene.Plugin
             this.Mune_L_checkBox.Text = "左胸";
             this.Mune_L_checkBox.UseVisualStyleBackColor = true;
             this.Mune_L_checkBox.CheckedChanged += new System.EventHandler(this.Mune_CheckedChanged);
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(20, 398);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(41, 20);
-            this.label3.TabIndex = 78;
-            this.label3.Text = "右手";
             // 
             // Bip01_Head
             // 
@@ -2441,16 +2577,6 @@ namespace COM3D2.EnhancedMaidEditScene.Plugin
             this.Offset_PositionCheckbox.UseVisualStyleBackColor = true;
             this.Offset_PositionCheckbox.CheckedChanged += new System.EventHandler(this.Offset_Pos_Rot_CheckBox_CheckedChanged);
             // 
-            // RightHandPoseComboBox
-            // 
-            this.RightHandPoseComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.RightHandPoseComboBox.FormattingEnabled = true;
-            this.RightHandPoseComboBox.Location = new System.Drawing.Point(66, 394);
-            this.RightHandPoseComboBox.Name = "RightHandPoseComboBox";
-            this.RightHandPoseComboBox.Size = new System.Drawing.Size(98, 28);
-            this.RightHandPoseComboBox.TabIndex = 77;
-            this.RightHandPoseComboBox.SelectedIndexChanged += new System.EventHandler(this.RightHandPoseComboBox_SelectedIndexChanged);
-            // 
             // Bip01_Neck
             // 
             this.Bip01_Neck.AutoSize = true;
@@ -2471,16 +2597,6 @@ namespace COM3D2.EnhancedMaidEditScene.Plugin
             this.SelectAllSpine.Text = "開";
             this.SelectAllSpine.UseVisualStyleBackColor = true;
             this.SelectAllSpine.Click += new System.EventHandler(this.SelectBodyBoneSetType_Click);
-            // 
-            // LeftHandPoseComboBox
-            // 
-            this.LeftHandPoseComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.LeftHandPoseComboBox.FormattingEnabled = true;
-            this.LeftHandPoseComboBox.Location = new System.Drawing.Point(262, 394);
-            this.LeftHandPoseComboBox.Name = "LeftHandPoseComboBox";
-            this.LeftHandPoseComboBox.Size = new System.Drawing.Size(98, 28);
-            this.LeftHandPoseComboBox.TabIndex = 9;
-            this.LeftHandPoseComboBox.SelectedIndexChanged += new System.EventHandler(this.LeftHandPoseComboBox_SelectedIndexChanged);
             // 
             // Bip01_Spine1a
             // 
@@ -2746,18 +2862,21 @@ namespace COM3D2.EnhancedMaidEditScene.Plugin
             // FingerAndToe_tabPage
             // 
             this.FingerAndToe_tabPage.Controls.Add(this.Bip01_R_Finger);
+            this.FingerAndToe_tabPage.Controls.Add(this.label4);
             this.FingerAndToe_tabPage.Controls.Add(this.Bip01_R_Toe);
             this.FingerAndToe_tabPage.Controls.Add(this.Bip01_L_Toe);
             this.FingerAndToe_tabPage.Controls.Add(this.Bip01_L_Finger);
-            this.FingerAndToe_tabPage.Controls.Add(this.label2);
             this.FingerAndToe_tabPage.Controls.Add(this.Bip01_R_Finger0);
             this.FingerAndToe_tabPage.Controls.Add(this.ExportCurrentFingerPose);
             this.FingerAndToe_tabPage.Controls.Add(this.Bip01_R_Finger1);
             this.FingerAndToe_tabPage.Controls.Add(this.Bip01_L_Toe01);
+            this.FingerAndToe_tabPage.Controls.Add(this.label3);
             this.FingerAndToe_tabPage.Controls.Add(this.Bip01_R_Finger2);
             this.FingerAndToe_tabPage.Controls.Add(this.Bip01_L_Toe1);
             this.FingerAndToe_tabPage.Controls.Add(this.Bip01_R_Finger3);
+            this.FingerAndToe_tabPage.Controls.Add(this.LeftHandPoseComboBox);
             this.FingerAndToe_tabPage.Controls.Add(this.Bip01_L_Toe2);
+            this.FingerAndToe_tabPage.Controls.Add(this.RightHandPoseComboBox);
             this.FingerAndToe_tabPage.Controls.Add(this.Bip01_R_Finger4);
             this.FingerAndToe_tabPage.Controls.Add(this.Bip01_L_Toe21);
             this.FingerAndToe_tabPage.Controls.Add(this.Bip01_R_Finger41);
@@ -2796,7 +2915,7 @@ namespace COM3D2.EnhancedMaidEditScene.Plugin
             this.FingerAndToe_tabPage.Location = new System.Drawing.Point(4, 29);
             this.FingerAndToe_tabPage.Name = "FingerAndToe_tabPage";
             this.FingerAndToe_tabPage.Padding = new System.Windows.Forms.Padding(3);
-            this.FingerAndToe_tabPage.Size = new System.Drawing.Size(388, 443);
+            this.FingerAndToe_tabPage.Size = new System.Drawing.Size(388, 432);
             this.FingerAndToe_tabPage.TabIndex = 1;
             this.FingerAndToe_tabPage.Text = "指";
             this.FingerAndToe_tabPage.UseVisualStyleBackColor = true;
@@ -2811,6 +2930,15 @@ namespace COM3D2.EnhancedMaidEditScene.Plugin
             this.Bip01_R_Finger.Text = "右手";
             this.Bip01_R_Finger.UseVisualStyleBackColor = true;
             this.Bip01_R_Finger.CheckedChanged += new System.EventHandler(this.BipSelectAll_CheckedChanged);
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(220, 401);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(41, 20);
+            this.label4.TabIndex = 79;
+            this.label4.Text = "左手";
             // 
             // Bip01_R_Toe
             // 
@@ -2845,17 +2973,6 @@ namespace COM3D2.EnhancedMaidEditScene.Plugin
             this.Bip01_L_Finger.UseVisualStyleBackColor = true;
             this.Bip01_L_Finger.CheckedChanged += new System.EventHandler(this.BipSelectAll_CheckedChanged);
             // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("UD Digi Kyokasho NP-B", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.label2.ForeColor = System.Drawing.Color.DeepSkyBlue;
-            this.label2.Location = new System.Drawing.Point(111, 230);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(152, 18);
-            this.label2.TabIndex = 76;
-            this.label2.Text = "ポーズデータ募集中";
-            // 
             // Bip01_R_Finger0
             // 
             this.Bip01_R_Finger0.AutoSize = true;
@@ -2869,9 +2986,9 @@ namespace COM3D2.EnhancedMaidEditScene.Plugin
             // 
             // ExportCurrentFingerPose
             // 
-            this.ExportCurrentFingerPose.Location = new System.Drawing.Point(105, 252);
+            this.ExportCurrentFingerPose.Location = new System.Drawing.Point(107, 236);
             this.ExportCurrentFingerPose.Name = "ExportCurrentFingerPose";
-            this.ExportCurrentFingerPose.Size = new System.Drawing.Size(164, 27);
+            this.ExportCurrentFingerPose.Size = new System.Drawing.Size(164, 37);
             this.ExportCurrentFingerPose.TabIndex = 10;
             this.ExportCurrentFingerPose.Text = "ポーズエクスポート";
             this.ExportCurrentFingerPose.UseVisualStyleBackColor = true;
@@ -2898,6 +3015,15 @@ namespace COM3D2.EnhancedMaidEditScene.Plugin
             this.Bip01_L_Toe01.Text = "小指先";
             this.Bip01_L_Toe01.UseVisualStyleBackColor = true;
             this.Bip01_L_Toe01.CheckedChanged += new System.EventHandler(this.Bip_CheckedChanged);
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(24, 401);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(41, 20);
+            this.label3.TabIndex = 78;
+            this.label3.Text = "右手";
             // 
             // Bip01_R_Finger2
             // 
@@ -2932,6 +3058,16 @@ namespace COM3D2.EnhancedMaidEditScene.Plugin
             this.Bip01_R_Finger3.UseVisualStyleBackColor = true;
             this.Bip01_R_Finger3.CheckedChanged += new System.EventHandler(this.Bip_CheckedChanged);
             // 
+            // LeftHandPoseComboBox
+            // 
+            this.LeftHandPoseComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.LeftHandPoseComboBox.FormattingEnabled = true;
+            this.LeftHandPoseComboBox.Location = new System.Drawing.Point(266, 397);
+            this.LeftHandPoseComboBox.Name = "LeftHandPoseComboBox";
+            this.LeftHandPoseComboBox.Size = new System.Drawing.Size(98, 28);
+            this.LeftHandPoseComboBox.TabIndex = 9;
+            this.LeftHandPoseComboBox.SelectedIndexChanged += new System.EventHandler(this.LeftHandPoseComboBox_SelectedIndexChanged);
+            // 
             // Bip01_L_Toe2
             // 
             this.Bip01_L_Toe2.AutoSize = true;
@@ -2942,6 +3078,16 @@ namespace COM3D2.EnhancedMaidEditScene.Plugin
             this.Bip01_L_Toe2.Text = "親指";
             this.Bip01_L_Toe2.UseVisualStyleBackColor = true;
             this.Bip01_L_Toe2.CheckedChanged += new System.EventHandler(this.Bip_CheckedChanged);
+            // 
+            // RightHandPoseComboBox
+            // 
+            this.RightHandPoseComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.RightHandPoseComboBox.FormattingEnabled = true;
+            this.RightHandPoseComboBox.Location = new System.Drawing.Point(70, 397);
+            this.RightHandPoseComboBox.Name = "RightHandPoseComboBox";
+            this.RightHandPoseComboBox.Size = new System.Drawing.Size(98, 28);
+            this.RightHandPoseComboBox.TabIndex = 77;
+            this.RightHandPoseComboBox.SelectedIndexChanged += new System.EventHandler(this.RightHandPoseComboBox_SelectedIndexChanged);
             // 
             // Bip01_R_Finger4
             // 
@@ -3328,6 +3474,319 @@ namespace COM3D2.EnhancedMaidEditScene.Plugin
             this.Bip01_L_Finger42.UseVisualStyleBackColor = true;
             this.Bip01_L_Finger42.CheckedChanged += new System.EventHandler(this.Bip_CheckedChanged);
             // 
+            // Kobushi_tabPage
+            // 
+            this.Kobushi_tabPage.Controls.Add(this.groupBox24);
+            this.Kobushi_tabPage.Controls.Add(this.groupBox23);
+            this.Kobushi_tabPage.Controls.Add(this.label65);
+            this.Kobushi_tabPage.Controls.Add(this.label2);
+            this.Kobushi_tabPage.Controls.Add(this.groupBox22);
+            this.Kobushi_tabPage.Location = new System.Drawing.Point(4, 29);
+            this.Kobushi_tabPage.Name = "Kobushi_tabPage";
+            this.Kobushi_tabPage.Size = new System.Drawing.Size(388, 432);
+            this.Kobushi_tabPage.TabIndex = 5;
+            this.Kobushi_tabPage.Text = "こぶし";
+            this.Kobushi_tabPage.UseVisualStyleBackColor = true;
+            // 
+            // groupBox24
+            // 
+            this.groupBox24.Controls.Add(this.label68);
+            this.groupBox24.Controls.Add(this.label69);
+            this.groupBox24.Controls.Add(this.ToeBlend_Left_Sync_checkBox);
+            this.groupBox24.Controls.Add(this.ToeBlend_Right_Sync_checkBox);
+            this.groupBox24.Controls.Add(this.ToeBlend_Sync_Fist_checkBox);
+            this.groupBox24.Controls.Add(this.ToeBlend_Left_Fist_trackBar);
+            this.groupBox24.Controls.Add(this.ToeBlend_Right_Fist_trackBar);
+            this.groupBox24.Controls.Add(this.ToeBlend_Sync_Open_checkBox);
+            this.groupBox24.Controls.Add(this.ToeBlend_Left_Open_trackBar);
+            this.groupBox24.Controls.Add(this.ToeBlend_Right_Open_trackBar);
+            this.groupBox24.Location = new System.Drawing.Point(6, 175);
+            this.groupBox24.Name = "groupBox24";
+            this.groupBox24.Size = new System.Drawing.Size(375, 126);
+            this.groupBox24.TabIndex = 155;
+            this.groupBox24.TabStop = false;
+            this.groupBox24.Text = "つま先";
+            // 
+            // label68
+            // 
+            this.label68.AutoSize = true;
+            this.label68.Location = new System.Drawing.Point(2, 90);
+            this.label68.Name = "label68";
+            this.label68.Size = new System.Drawing.Size(57, 20);
+            this.label68.TabIndex = 154;
+            this.label68.Text = "こぶし";
+            // 
+            // label69
+            // 
+            this.label69.AutoSize = true;
+            this.label69.Location = new System.Drawing.Point(2, 30);
+            this.label69.Name = "label69";
+            this.label69.Size = new System.Drawing.Size(57, 20);
+            this.label69.TabIndex = 153;
+            this.label69.Text = "開いた";
+            // 
+            // ToeBlend_Left_Sync_checkBox
+            // 
+            this.ToeBlend_Left_Sync_checkBox.AutoSize = true;
+            this.ToeBlend_Left_Sync_checkBox.Location = new System.Drawing.Point(296, 56);
+            this.ToeBlend_Left_Sync_checkBox.Name = "ToeBlend_Left_Sync_checkBox";
+            this.ToeBlend_Left_Sync_checkBox.Size = new System.Drawing.Size(22, 21);
+            this.ToeBlend_Left_Sync_checkBox.TabIndex = 153;
+            this.ToeBlend_Left_Sync_checkBox.UseVisualStyleBackColor = true;
+            // 
+            // ToeBlend_Right_Sync_checkBox
+            // 
+            this.ToeBlend_Right_Sync_checkBox.AutoSize = true;
+            this.ToeBlend_Right_Sync_checkBox.Location = new System.Drawing.Point(124, 56);
+            this.ToeBlend_Right_Sync_checkBox.Name = "ToeBlend_Right_Sync_checkBox";
+            this.ToeBlend_Right_Sync_checkBox.Size = new System.Drawing.Size(22, 21);
+            this.ToeBlend_Right_Sync_checkBox.TabIndex = 152;
+            this.ToeBlend_Right_Sync_checkBox.UseVisualStyleBackColor = true;
+            // 
+            // ToeBlend_Sync_Fist_checkBox
+            // 
+            this.ToeBlend_Sync_Fist_checkBox.AutoSize = true;
+            this.ToeBlend_Sync_Fist_checkBox.Location = new System.Drawing.Point(205, 83);
+            this.ToeBlend_Sync_Fist_checkBox.Name = "ToeBlend_Sync_Fist_checkBox";
+            this.ToeBlend_Sync_Fist_checkBox.Size = new System.Drawing.Size(22, 21);
+            this.ToeBlend_Sync_Fist_checkBox.TabIndex = 151;
+            this.ToeBlend_Sync_Fist_checkBox.UseVisualStyleBackColor = true;
+            // 
+            // ToeBlend_Left_Fist_trackBar
+            // 
+            this.ToeBlend_Left_Fist_trackBar.AutoSize = false;
+            this.ToeBlend_Left_Fist_trackBar.Location = new System.Drawing.Point(240, 83);
+            this.ToeBlend_Left_Fist_trackBar.Maximum = 1000;
+            this.ToeBlend_Left_Fist_trackBar.Name = "ToeBlend_Left_Fist_trackBar";
+            this.ToeBlend_Left_Fist_trackBar.Size = new System.Drawing.Size(128, 27);
+            this.ToeBlend_Left_Fist_trackBar.TabIndex = 150;
+            this.ToeBlend_Left_Fist_trackBar.TickFrequency = 250;
+            this.ToeBlend_Left_Fist_trackBar.Scroll += new System.EventHandler(this.ToeBlend_trackBar_Scroll);
+            // 
+            // ToeBlend_Right_Fist_trackBar
+            // 
+            this.ToeBlend_Right_Fist_trackBar.AutoSize = false;
+            this.ToeBlend_Right_Fist_trackBar.Location = new System.Drawing.Point(65, 83);
+            this.ToeBlend_Right_Fist_trackBar.Maximum = 1000;
+            this.ToeBlend_Right_Fist_trackBar.Name = "ToeBlend_Right_Fist_trackBar";
+            this.ToeBlend_Right_Fist_trackBar.Size = new System.Drawing.Size(128, 27);
+            this.ToeBlend_Right_Fist_trackBar.TabIndex = 149;
+            this.ToeBlend_Right_Fist_trackBar.TickFrequency = 250;
+            this.ToeBlend_Right_Fist_trackBar.Scroll += new System.EventHandler(this.ToeBlend_trackBar_Scroll);
+            // 
+            // ToeBlend_Sync_Open_checkBox
+            // 
+            this.ToeBlend_Sync_Open_checkBox.AutoSize = true;
+            this.ToeBlend_Sync_Open_checkBox.Location = new System.Drawing.Point(205, 23);
+            this.ToeBlend_Sync_Open_checkBox.Name = "ToeBlend_Sync_Open_checkBox";
+            this.ToeBlend_Sync_Open_checkBox.Size = new System.Drawing.Size(22, 21);
+            this.ToeBlend_Sync_Open_checkBox.TabIndex = 148;
+            this.ToeBlend_Sync_Open_checkBox.UseVisualStyleBackColor = true;
+            // 
+            // ToeBlend_Left_Open_trackBar
+            // 
+            this.ToeBlend_Left_Open_trackBar.AutoSize = false;
+            this.ToeBlend_Left_Open_trackBar.Location = new System.Drawing.Point(239, 23);
+            this.ToeBlend_Left_Open_trackBar.Maximum = 1000;
+            this.ToeBlend_Left_Open_trackBar.Name = "ToeBlend_Left_Open_trackBar";
+            this.ToeBlend_Left_Open_trackBar.Size = new System.Drawing.Size(128, 27);
+            this.ToeBlend_Left_Open_trackBar.TabIndex = 147;
+            this.ToeBlend_Left_Open_trackBar.TickFrequency = 250;
+            this.ToeBlend_Left_Open_trackBar.Scroll += new System.EventHandler(this.ToeBlend_trackBar_Scroll);
+            // 
+            // ToeBlend_Right_Open_trackBar
+            // 
+            this.ToeBlend_Right_Open_trackBar.AutoSize = false;
+            this.ToeBlend_Right_Open_trackBar.Location = new System.Drawing.Point(65, 23);
+            this.ToeBlend_Right_Open_trackBar.Maximum = 1000;
+            this.ToeBlend_Right_Open_trackBar.Name = "ToeBlend_Right_Open_trackBar";
+            this.ToeBlend_Right_Open_trackBar.Size = new System.Drawing.Size(128, 27);
+            this.ToeBlend_Right_Open_trackBar.TabIndex = 146;
+            this.ToeBlend_Right_Open_trackBar.TickFrequency = 250;
+            this.ToeBlend_Right_Open_trackBar.Scroll += new System.EventHandler(this.ToeBlend_trackBar_Scroll);
+            // 
+            // groupBox23
+            // 
+            this.groupBox23.Controls.Add(this.Blend_LockSelected_radioButton);
+            this.groupBox23.Controls.Add(this.Blend_LockOthers_radioButton);
+            this.groupBox23.Controls.Add(this.Blend_LockNone_radioButton);
+            this.groupBox23.Location = new System.Drawing.Point(6, 373);
+            this.groupBox23.Name = "groupBox23";
+            this.groupBox23.Size = new System.Drawing.Size(375, 56);
+            this.groupBox23.TabIndex = 158;
+            this.groupBox23.TabStop = false;
+            this.groupBox23.Text = "ロック";
+            // 
+            // Blend_LockSelected_radioButton
+            // 
+            this.Blend_LockSelected_radioButton.AutoSize = true;
+            this.Blend_LockSelected_radioButton.Location = new System.Drawing.Point(100, 25);
+            this.Blend_LockSelected_radioButton.Name = "Blend_LockSelected_radioButton";
+            this.Blend_LockSelected_radioButton.Size = new System.Drawing.Size(146, 24);
+            this.Blend_LockSelected_radioButton.TabIndex = 156;
+            this.Blend_LockSelected_radioButton.Text = "選択されました";
+            this.Blend_LockSelected_radioButton.UseVisualStyleBackColor = true;
+            this.Blend_LockSelected_radioButton.Click += new System.EventHandler(this.FingerBlend_Lock_CheckedChanged);
+            // 
+            // Blend_LockOthers_radioButton
+            // 
+            this.Blend_LockOthers_radioButton.AutoSize = true;
+            this.Blend_LockOthers_radioButton.Location = new System.Drawing.Point(287, 25);
+            this.Blend_LockOthers_radioButton.Name = "Blend_LockOthers_radioButton";
+            this.Blend_LockOthers_radioButton.Size = new System.Drawing.Size(82, 24);
+            this.Blend_LockOthers_radioButton.TabIndex = 157;
+            this.Blend_LockOthers_radioButton.Text = "その他";
+            this.Blend_LockOthers_radioButton.UseVisualStyleBackColor = true;
+            this.Blend_LockOthers_radioButton.Click += new System.EventHandler(this.FingerBlend_Lock_CheckedChanged);
+            // 
+            // Blend_LockNone_radioButton
+            // 
+            this.Blend_LockNone_radioButton.AutoSize = true;
+            this.Blend_LockNone_radioButton.Checked = true;
+            this.Blend_LockNone_radioButton.Location = new System.Drawing.Point(9, 25);
+            this.Blend_LockNone_radioButton.Name = "Blend_LockNone_radioButton";
+            this.Blend_LockNone_radioButton.Size = new System.Drawing.Size(50, 24);
+            this.Blend_LockNone_radioButton.TabIndex = 155;
+            this.Blend_LockNone_radioButton.TabStop = true;
+            this.Blend_LockNone_radioButton.Text = "無";
+            this.Blend_LockNone_radioButton.UseVisualStyleBackColor = true;
+            this.Blend_LockNone_radioButton.Click += new System.EventHandler(this.FingerBlend_Lock_CheckedChanged);
+            // 
+            // label65
+            // 
+            this.label65.AutoSize = true;
+            this.label65.Location = new System.Drawing.Point(298, 20);
+            this.label65.Name = "label65";
+            this.label65.Size = new System.Drawing.Size(25, 20);
+            this.label65.TabIndex = 152;
+            this.label65.Text = "左";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(126, 20);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(25, 20);
+            this.label2.TabIndex = 151;
+            this.label2.Text = "右";
+            // 
+            // groupBox22
+            // 
+            this.groupBox22.Controls.Add(this.label67);
+            this.groupBox22.Controls.Add(this.label66);
+            this.groupBox22.Controls.Add(this.FingerBlend_Left_Sync_checkBox);
+            this.groupBox22.Controls.Add(this.FingerBlend_Right_Sync_checkBox);
+            this.groupBox22.Controls.Add(this.FingerBlend_Sync_Fist_checkBox);
+            this.groupBox22.Controls.Add(this.FingerBlend_Left_Fist_trackBar);
+            this.groupBox22.Controls.Add(this.FingerBlend_Right_Fist_trackBar);
+            this.groupBox22.Controls.Add(this.FingerBlend_Sync_Open_checkBox);
+            this.groupBox22.Controls.Add(this.FingerBlend_Left_Open_trackBar);
+            this.groupBox22.Controls.Add(this.FingerBlend_Right_Open_trackBar);
+            this.groupBox22.Location = new System.Drawing.Point(6, 43);
+            this.groupBox22.Name = "groupBox22";
+            this.groupBox22.Size = new System.Drawing.Size(375, 126);
+            this.groupBox22.TabIndex = 0;
+            this.groupBox22.TabStop = false;
+            this.groupBox22.Text = "指先";
+            // 
+            // label67
+            // 
+            this.label67.AutoSize = true;
+            this.label67.Location = new System.Drawing.Point(2, 90);
+            this.label67.Name = "label67";
+            this.label67.Size = new System.Drawing.Size(57, 20);
+            this.label67.TabIndex = 154;
+            this.label67.Text = "こぶし";
+            // 
+            // label66
+            // 
+            this.label66.AutoSize = true;
+            this.label66.Location = new System.Drawing.Point(2, 30);
+            this.label66.Name = "label66";
+            this.label66.Size = new System.Drawing.Size(57, 20);
+            this.label66.TabIndex = 153;
+            this.label66.Text = "開いた";
+            // 
+            // FingerBlend_Left_Sync_checkBox
+            // 
+            this.FingerBlend_Left_Sync_checkBox.AutoSize = true;
+            this.FingerBlend_Left_Sync_checkBox.Location = new System.Drawing.Point(296, 56);
+            this.FingerBlend_Left_Sync_checkBox.Name = "FingerBlend_Left_Sync_checkBox";
+            this.FingerBlend_Left_Sync_checkBox.Size = new System.Drawing.Size(22, 21);
+            this.FingerBlend_Left_Sync_checkBox.TabIndex = 153;
+            this.FingerBlend_Left_Sync_checkBox.UseVisualStyleBackColor = true;
+            // 
+            // FingerBlend_Right_Sync_checkBox
+            // 
+            this.FingerBlend_Right_Sync_checkBox.AutoSize = true;
+            this.FingerBlend_Right_Sync_checkBox.Location = new System.Drawing.Point(124, 56);
+            this.FingerBlend_Right_Sync_checkBox.Name = "FingerBlend_Right_Sync_checkBox";
+            this.FingerBlend_Right_Sync_checkBox.Size = new System.Drawing.Size(22, 21);
+            this.FingerBlend_Right_Sync_checkBox.TabIndex = 152;
+            this.FingerBlend_Right_Sync_checkBox.UseVisualStyleBackColor = true;
+            // 
+            // FingerBlend_Sync_Fist_checkBox
+            // 
+            this.FingerBlend_Sync_Fist_checkBox.AutoSize = true;
+            this.FingerBlend_Sync_Fist_checkBox.Location = new System.Drawing.Point(205, 83);
+            this.FingerBlend_Sync_Fist_checkBox.Name = "FingerBlend_Sync_Fist_checkBox";
+            this.FingerBlend_Sync_Fist_checkBox.Size = new System.Drawing.Size(22, 21);
+            this.FingerBlend_Sync_Fist_checkBox.TabIndex = 151;
+            this.FingerBlend_Sync_Fist_checkBox.UseVisualStyleBackColor = true;
+            // 
+            // FingerBlend_Left_Fist_trackBar
+            // 
+            this.FingerBlend_Left_Fist_trackBar.AutoSize = false;
+            this.FingerBlend_Left_Fist_trackBar.Location = new System.Drawing.Point(240, 83);
+            this.FingerBlend_Left_Fist_trackBar.Maximum = 1000;
+            this.FingerBlend_Left_Fist_trackBar.Name = "FingerBlend_Left_Fist_trackBar";
+            this.FingerBlend_Left_Fist_trackBar.Size = new System.Drawing.Size(128, 27);
+            this.FingerBlend_Left_Fist_trackBar.TabIndex = 150;
+            this.FingerBlend_Left_Fist_trackBar.TickFrequency = 250;
+            this.FingerBlend_Left_Fist_trackBar.Scroll += new System.EventHandler(this.FingerBlend_trackBar_Scroll);
+            // 
+            // FingerBlend_Right_Fist_trackBar
+            // 
+            this.FingerBlend_Right_Fist_trackBar.AutoSize = false;
+            this.FingerBlend_Right_Fist_trackBar.Location = new System.Drawing.Point(65, 83);
+            this.FingerBlend_Right_Fist_trackBar.Maximum = 1000;
+            this.FingerBlend_Right_Fist_trackBar.Name = "FingerBlend_Right_Fist_trackBar";
+            this.FingerBlend_Right_Fist_trackBar.Size = new System.Drawing.Size(128, 27);
+            this.FingerBlend_Right_Fist_trackBar.TabIndex = 149;
+            this.FingerBlend_Right_Fist_trackBar.TickFrequency = 250;
+            this.FingerBlend_Right_Fist_trackBar.Scroll += new System.EventHandler(this.FingerBlend_trackBar_Scroll);
+            // 
+            // FingerBlend_Sync_Open_checkBox
+            // 
+            this.FingerBlend_Sync_Open_checkBox.AutoSize = true;
+            this.FingerBlend_Sync_Open_checkBox.Location = new System.Drawing.Point(205, 23);
+            this.FingerBlend_Sync_Open_checkBox.Name = "FingerBlend_Sync_Open_checkBox";
+            this.FingerBlend_Sync_Open_checkBox.Size = new System.Drawing.Size(22, 21);
+            this.FingerBlend_Sync_Open_checkBox.TabIndex = 148;
+            this.FingerBlend_Sync_Open_checkBox.UseVisualStyleBackColor = true;
+            // 
+            // FingerBlend_Left_Open_trackBar
+            // 
+            this.FingerBlend_Left_Open_trackBar.AutoSize = false;
+            this.FingerBlend_Left_Open_trackBar.Location = new System.Drawing.Point(239, 23);
+            this.FingerBlend_Left_Open_trackBar.Maximum = 1000;
+            this.FingerBlend_Left_Open_trackBar.Name = "FingerBlend_Left_Open_trackBar";
+            this.FingerBlend_Left_Open_trackBar.Size = new System.Drawing.Size(128, 27);
+            this.FingerBlend_Left_Open_trackBar.TabIndex = 147;
+            this.FingerBlend_Left_Open_trackBar.TickFrequency = 250;
+            this.FingerBlend_Left_Open_trackBar.Scroll += new System.EventHandler(this.FingerBlend_trackBar_Scroll);
+            // 
+            // FingerBlend_Right_Open_trackBar
+            // 
+            this.FingerBlend_Right_Open_trackBar.AutoSize = false;
+            this.FingerBlend_Right_Open_trackBar.Location = new System.Drawing.Point(65, 23);
+            this.FingerBlend_Right_Open_trackBar.Maximum = 1000;
+            this.FingerBlend_Right_Open_trackBar.Name = "FingerBlend_Right_Open_trackBar";
+            this.FingerBlend_Right_Open_trackBar.Size = new System.Drawing.Size(128, 27);
+            this.FingerBlend_Right_Open_trackBar.TabIndex = 146;
+            this.FingerBlend_Right_Open_trackBar.TickFrequency = 250;
+            this.FingerBlend_Right_Open_trackBar.Scroll += new System.EventHandler(this.FingerBlend_trackBar_Scroll);
+            // 
             // MaidTails_tabPage
             // 
             this.MaidTails_tabPage.Controls.Add(this.MaidTails_listBox);
@@ -3336,9 +3795,9 @@ namespace COM3D2.EnhancedMaidEditScene.Plugin
             this.MaidTails_tabPage.Location = new System.Drawing.Point(4, 29);
             this.MaidTails_tabPage.Name = "MaidTails_tabPage";
             this.MaidTails_tabPage.Padding = new System.Windows.Forms.Padding(3);
-            this.MaidTails_tabPage.Size = new System.Drawing.Size(388, 443);
+            this.MaidTails_tabPage.Size = new System.Drawing.Size(388, 432);
             this.MaidTails_tabPage.TabIndex = 0;
-            this.MaidTails_tabPage.Text = "複数尻尾";
+            this.MaidTails_tabPage.Text = "尻尾";
             this.MaidTails_tabPage.UseVisualStyleBackColor = true;
             // 
             // MaidTails_listBox
@@ -3356,12 +3815,13 @@ namespace COM3D2.EnhancedMaidEditScene.Plugin
             "G"});
             this.MaidTails_listBox.Location = new System.Drawing.Point(6, 9);
             this.MaidTails_listBox.Name = "MaidTails_listBox";
-            this.MaidTails_listBox.Size = new System.Drawing.Size(376, 172);
+            this.MaidTails_listBox.Size = new System.Drawing.Size(376, 200);
             this.MaidTails_listBox.TabIndex = 0;
             this.MaidTails_listBox.SelectedIndexChanged += new System.EventHandler(this.MaidTails_listBox_SelectedIndexChanged);
             // 
             // MaidTails_Cat_groupBox
             // 
+            this.MaidTails_Cat_groupBox.Controls.Add(this.MaidTails_UnSelect_button);
             this.MaidTails_Cat_groupBox.Controls.Add(this.MaidTails_ShowRot_checkBox);
             this.MaidTails_Cat_groupBox.Controls.Add(this.MaidTails_ShowPos_checkBox);
             this.MaidTails_Cat_groupBox.Controls.Add(this.MaidTails_CatReset_button);
@@ -3374,6 +3834,16 @@ namespace COM3D2.EnhancedMaidEditScene.Plugin
             this.MaidTails_Cat_groupBox.TabStop = false;
             this.MaidTails_Cat_groupBox.Text = "複数尻尾Lite カタログ";
             this.MaidTails_Cat_groupBox.Visible = false;
+            // 
+            // MaidTails_UnSelect_button
+            // 
+            this.MaidTails_UnSelect_button.Location = new System.Drawing.Point(272, 64);
+            this.MaidTails_UnSelect_button.Name = "MaidTails_UnSelect_button";
+            this.MaidTails_UnSelect_button.Size = new System.Drawing.Size(96, 32);
+            this.MaidTails_UnSelect_button.TabIndex = 21;
+            this.MaidTails_UnSelect_button.Text = "解除";
+            this.MaidTails_UnSelect_button.UseVisualStyleBackColor = true;
+            this.MaidTails_UnSelect_button.Click += new System.EventHandler(this.MaidTails_UnSelect_button_Click);
             // 
             // MaidTails_ShowRot_checkBox
             // 
@@ -3552,7 +4022,7 @@ namespace COM3D2.EnhancedMaidEditScene.Plugin
             this.Gravity_tabPage.Location = new System.Drawing.Point(4, 29);
             this.Gravity_tabPage.Name = "Gravity_tabPage";
             this.Gravity_tabPage.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.Gravity_tabPage.Size = new System.Drawing.Size(388, 443);
+            this.Gravity_tabPage.Size = new System.Drawing.Size(388, 432);
             this.Gravity_tabPage.TabIndex = 2;
             this.Gravity_tabPage.Text = "重力";
             this.Gravity_tabPage.UseVisualStyleBackColor = true;
@@ -3687,6 +4157,388 @@ namespace COM3D2.EnhancedMaidEditScene.Plugin
             this.label42.Size = new System.Drawing.Size(73, 20);
             this.label42.TabIndex = 146;
             this.label42.Text = "左右強さ";
+            // 
+            // BoneSliderOffset_tabPage
+            // 
+            this.BoneSliderOffset_tabPage.Controls.Add(this.MaidPose_tabControl);
+            this.BoneSliderOffset_tabPage.Controls.Add(this.MaidOffset_Pose_checkBox);
+            this.BoneSliderOffset_tabPage.Controls.Add(this.groupBox21);
+            this.BoneSliderOffset_tabPage.Controls.Add(this.groupBox20);
+            this.BoneSliderOffset_tabPage.Controls.Add(this.groupBox19);
+            this.BoneSliderOffset_tabPage.Controls.Add(this.MaidOffset_Scale_checkBox);
+            this.BoneSliderOffset_tabPage.Controls.Add(this.MaidOffset_Rot_checkBox);
+            this.BoneSliderOffset_tabPage.Controls.Add(this.MaidOffset_Pos_checkBox);
+            this.BoneSliderOffset_tabPage.Controls.Add(this.MaidOffset_Copy_button);
+            this.BoneSliderOffset_tabPage.Controls.Add(this.MaidOffset_Reset_button);
+            this.BoneSliderOffset_tabPage.Controls.Add(this.MaidOffset_Paste_button);
+            this.BoneSliderOffset_tabPage.Location = new System.Drawing.Point(4, 29);
+            this.BoneSliderOffset_tabPage.Name = "BoneSliderOffset_tabPage";
+            this.BoneSliderOffset_tabPage.Size = new System.Drawing.Size(388, 432);
+            this.BoneSliderOffset_tabPage.TabIndex = 4;
+            this.BoneSliderOffset_tabPage.Text = "その他";
+            this.BoneSliderOffset_tabPage.UseVisualStyleBackColor = true;
+            // 
+            // MaidPose_tabControl
+            // 
+            this.MaidPose_tabControl.Controls.Add(this.Mirrot_tabPage);
+            this.MaidPose_tabControl.Controls.Add(this.ResetPose_tabPage);
+            this.MaidPose_tabControl.Location = new System.Drawing.Point(11, 307);
+            this.MaidPose_tabControl.Name = "MaidPose_tabControl";
+            this.MaidPose_tabControl.SelectedIndex = 0;
+            this.MaidPose_tabControl.Size = new System.Drawing.Size(371, 120);
+            this.MaidPose_tabControl.TabIndex = 174;
+            // 
+            // Mirrot_tabPage
+            // 
+            this.Mirrot_tabPage.Controls.Add(this.MaidMirror_Bip01_checkBox);
+            this.Mirrot_tabPage.Controls.Add(this.MaidMirror_Toes_button);
+            this.Mirrot_tabPage.Controls.Add(this.MaidMirror_Upper_button);
+            this.Mirrot_tabPage.Controls.Add(this.MaidMirror_Fingers_button);
+            this.Mirrot_tabPage.Controls.Add(this.MaidMirror_All_button);
+            this.Mirrot_tabPage.Controls.Add(this.MaidMirror_Lower_button);
+            this.Mirrot_tabPage.Location = new System.Drawing.Point(4, 29);
+            this.Mirrot_tabPage.Name = "Mirrot_tabPage";
+            this.Mirrot_tabPage.Padding = new System.Windows.Forms.Padding(3);
+            this.Mirrot_tabPage.Size = new System.Drawing.Size(363, 87);
+            this.Mirrot_tabPage.TabIndex = 0;
+            this.Mirrot_tabPage.Text = "ミラー";
+            this.Mirrot_tabPage.UseVisualStyleBackColor = true;
+            // 
+            // MaidMirror_Bip01_checkBox
+            // 
+            this.MaidMirror_Bip01_checkBox.AutoSize = true;
+            this.MaidMirror_Bip01_checkBox.Checked = true;
+            this.MaidMirror_Bip01_checkBox.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.MaidMirror_Bip01_checkBox.Location = new System.Drawing.Point(6, 52);
+            this.MaidMirror_Bip01_checkBox.Name = "MaidMirror_Bip01_checkBox";
+            this.MaidMirror_Bip01_checkBox.Size = new System.Drawing.Size(76, 24);
+            this.MaidMirror_Bip01_checkBox.TabIndex = 222;
+            this.MaidMirror_Bip01_checkBox.Text = "Bip01";
+            this.MaidMirror_Bip01_checkBox.UseVisualStyleBackColor = true;
+            // 
+            // MaidMirror_Toes_button
+            // 
+            this.MaidMirror_Toes_button.Location = new System.Drawing.Point(248, 44);
+            this.MaidMirror_Toes_button.Name = "MaidMirror_Toes_button";
+            this.MaidMirror_Toes_button.Size = new System.Drawing.Size(92, 32);
+            this.MaidMirror_Toes_button.TabIndex = 221;
+            this.MaidMirror_Toes_button.Text = "足指";
+            this.MaidMirror_Toes_button.UseVisualStyleBackColor = true;
+            this.MaidMirror_Toes_button.Click += new System.EventHandler(this.MaidMirror_All_button_Click);
+            // 
+            // MaidMirror_Upper_button
+            // 
+            this.MaidMirror_Upper_button.Location = new System.Drawing.Point(126, 6);
+            this.MaidMirror_Upper_button.Name = "MaidMirror_Upper_button";
+            this.MaidMirror_Upper_button.Size = new System.Drawing.Size(92, 32);
+            this.MaidMirror_Upper_button.TabIndex = 217;
+            this.MaidMirror_Upper_button.Text = "上半身";
+            this.MaidMirror_Upper_button.UseVisualStyleBackColor = true;
+            this.MaidMirror_Upper_button.Click += new System.EventHandler(this.MaidMirror_All_button_Click);
+            // 
+            // MaidMirror_Fingers_button
+            // 
+            this.MaidMirror_Fingers_button.Location = new System.Drawing.Point(126, 44);
+            this.MaidMirror_Fingers_button.Name = "MaidMirror_Fingers_button";
+            this.MaidMirror_Fingers_button.Size = new System.Drawing.Size(92, 32);
+            this.MaidMirror_Fingers_button.TabIndex = 220;
+            this.MaidMirror_Fingers_button.Text = "手指";
+            this.MaidMirror_Fingers_button.UseVisualStyleBackColor = true;
+            this.MaidMirror_Fingers_button.Click += new System.EventHandler(this.MaidMirror_All_button_Click);
+            // 
+            // MaidMirror_All_button
+            // 
+            this.MaidMirror_All_button.Location = new System.Drawing.Point(6, 6);
+            this.MaidMirror_All_button.Name = "MaidMirror_All_button";
+            this.MaidMirror_All_button.Size = new System.Drawing.Size(92, 32);
+            this.MaidMirror_All_button.TabIndex = 216;
+            this.MaidMirror_All_button.Text = "全体";
+            this.MaidMirror_All_button.UseVisualStyleBackColor = true;
+            this.MaidMirror_All_button.Click += new System.EventHandler(this.MaidMirror_All_button_Click);
+            // 
+            // MaidMirror_Lower_button
+            // 
+            this.MaidMirror_Lower_button.Location = new System.Drawing.Point(248, 6);
+            this.MaidMirror_Lower_button.Name = "MaidMirror_Lower_button";
+            this.MaidMirror_Lower_button.Size = new System.Drawing.Size(92, 32);
+            this.MaidMirror_Lower_button.TabIndex = 218;
+            this.MaidMirror_Lower_button.Text = "下半身";
+            this.MaidMirror_Lower_button.UseVisualStyleBackColor = true;
+            this.MaidMirror_Lower_button.Click += new System.EventHandler(this.MaidMirror_All_button_Click);
+            // 
+            // ResetPose_tabPage
+            // 
+            this.ResetPose_tabPage.Controls.Add(this.MaidReset_Head_button);
+            this.ResetPose_tabPage.Controls.Add(this.MaidReset_RightToe_button);
+            this.ResetPose_tabPage.Controls.Add(this.MaidReset_LeftToe_button);
+            this.ResetPose_tabPage.Controls.Add(this.MaidReset_RightFinger_button);
+            this.ResetPose_tabPage.Controls.Add(this.MaidReset_Upper_button);
+            this.ResetPose_tabPage.Controls.Add(this.MaidReset_LeftFinger_button);
+            this.ResetPose_tabPage.Controls.Add(this.MaidReset_All_button);
+            this.ResetPose_tabPage.Controls.Add(this.MaidReset_Lower_button);
+            this.ResetPose_tabPage.Location = new System.Drawing.Point(4, 29);
+            this.ResetPose_tabPage.Name = "ResetPose_tabPage";
+            this.ResetPose_tabPage.Padding = new System.Windows.Forms.Padding(3);
+            this.ResetPose_tabPage.Size = new System.Drawing.Size(363, 87);
+            this.ResetPose_tabPage.TabIndex = 1;
+            this.ResetPose_tabPage.Text = "リセット";
+            this.ResetPose_tabPage.UseVisualStyleBackColor = true;
+            // 
+            // MaidReset_Head_button
+            // 
+            this.MaidReset_Head_button.Location = new System.Drawing.Point(27, 44);
+            this.MaidReset_Head_button.Name = "MaidReset_Head_button";
+            this.MaidReset_Head_button.Size = new System.Drawing.Size(58, 32);
+            this.MaidReset_Head_button.TabIndex = 229;
+            this.MaidReset_Head_button.Text = "頭";
+            this.MaidReset_Head_button.UseVisualStyleBackColor = true;
+            this.MaidReset_Head_button.Click += new System.EventHandler(this.MaidReset_All_button_Click);
+            // 
+            // MaidReset_RightToe_button
+            // 
+            this.MaidReset_RightToe_button.Location = new System.Drawing.Point(299, 44);
+            this.MaidReset_RightToe_button.Name = "MaidReset_RightToe_button";
+            this.MaidReset_RightToe_button.Size = new System.Drawing.Size(58, 32);
+            this.MaidReset_RightToe_button.TabIndex = 228;
+            this.MaidReset_RightToe_button.Text = "右足";
+            this.MaidReset_RightToe_button.UseVisualStyleBackColor = true;
+            this.MaidReset_RightToe_button.Click += new System.EventHandler(this.MaidReset_All_button_Click);
+            // 
+            // MaidReset_LeftToe_button
+            // 
+            this.MaidReset_LeftToe_button.Location = new System.Drawing.Point(235, 44);
+            this.MaidReset_LeftToe_button.Name = "MaidReset_LeftToe_button";
+            this.MaidReset_LeftToe_button.Size = new System.Drawing.Size(58, 32);
+            this.MaidReset_LeftToe_button.TabIndex = 227;
+            this.MaidReset_LeftToe_button.Text = "左足";
+            this.MaidReset_LeftToe_button.UseVisualStyleBackColor = true;
+            this.MaidReset_LeftToe_button.Click += new System.EventHandler(this.MaidReset_All_button_Click);
+            // 
+            // MaidReset_RightFinger_button
+            // 
+            this.MaidReset_RightFinger_button.Location = new System.Drawing.Point(169, 44);
+            this.MaidReset_RightFinger_button.Name = "MaidReset_RightFinger_button";
+            this.MaidReset_RightFinger_button.Size = new System.Drawing.Size(58, 32);
+            this.MaidReset_RightFinger_button.TabIndex = 226;
+            this.MaidReset_RightFinger_button.Text = "右指";
+            this.MaidReset_RightFinger_button.UseVisualStyleBackColor = true;
+            this.MaidReset_RightFinger_button.Click += new System.EventHandler(this.MaidReset_All_button_Click);
+            // 
+            // MaidReset_Upper_button
+            // 
+            this.MaidReset_Upper_button.Location = new System.Drawing.Point(126, 6);
+            this.MaidReset_Upper_button.Name = "MaidReset_Upper_button";
+            this.MaidReset_Upper_button.Size = new System.Drawing.Size(92, 32);
+            this.MaidReset_Upper_button.TabIndex = 223;
+            this.MaidReset_Upper_button.Text = "上半身";
+            this.MaidReset_Upper_button.UseVisualStyleBackColor = true;
+            this.MaidReset_Upper_button.Click += new System.EventHandler(this.MaidReset_All_button_Click);
+            // 
+            // MaidReset_LeftFinger_button
+            // 
+            this.MaidReset_LeftFinger_button.Location = new System.Drawing.Point(105, 44);
+            this.MaidReset_LeftFinger_button.Name = "MaidReset_LeftFinger_button";
+            this.MaidReset_LeftFinger_button.Size = new System.Drawing.Size(58, 32);
+            this.MaidReset_LeftFinger_button.TabIndex = 225;
+            this.MaidReset_LeftFinger_button.Text = "左指";
+            this.MaidReset_LeftFinger_button.UseVisualStyleBackColor = true;
+            this.MaidReset_LeftFinger_button.Click += new System.EventHandler(this.MaidReset_All_button_Click);
+            // 
+            // MaidReset_All_button
+            // 
+            this.MaidReset_All_button.Location = new System.Drawing.Point(6, 6);
+            this.MaidReset_All_button.Name = "MaidReset_All_button";
+            this.MaidReset_All_button.Size = new System.Drawing.Size(92, 32);
+            this.MaidReset_All_button.TabIndex = 222;
+            this.MaidReset_All_button.Text = "全体";
+            this.MaidReset_All_button.UseVisualStyleBackColor = true;
+            this.MaidReset_All_button.Click += new System.EventHandler(this.MaidReset_All_button_Click);
+            // 
+            // MaidReset_Lower_button
+            // 
+            this.MaidReset_Lower_button.Location = new System.Drawing.Point(248, 6);
+            this.MaidReset_Lower_button.Name = "MaidReset_Lower_button";
+            this.MaidReset_Lower_button.Size = new System.Drawing.Size(92, 32);
+            this.MaidReset_Lower_button.TabIndex = 224;
+            this.MaidReset_Lower_button.Text = "下半身";
+            this.MaidReset_Lower_button.UseVisualStyleBackColor = true;
+            this.MaidReset_Lower_button.Click += new System.EventHandler(this.MaidReset_All_button_Click);
+            // 
+            // MaidOffset_Pose_checkBox
+            // 
+            this.MaidOffset_Pose_checkBox.AutoSize = true;
+            this.MaidOffset_Pose_checkBox.Checked = true;
+            this.MaidOffset_Pose_checkBox.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.MaidOffset_Pose_checkBox.Location = new System.Drawing.Point(292, 58);
+            this.MaidOffset_Pose_checkBox.Name = "MaidOffset_Pose_checkBox";
+            this.MaidOffset_Pose_checkBox.Size = new System.Drawing.Size(83, 24);
+            this.MaidOffset_Pose_checkBox.TabIndex = 228;
+            this.MaidOffset_Pose_checkBox.Text = "ポーズ";
+            this.MaidOffset_Pose_checkBox.UseVisualStyleBackColor = true;
+            // 
+            // groupBox21
+            // 
+            this.groupBox21.Controls.Add(this.MaidOffset_Scale_textBox);
+            this.groupBox21.Location = new System.Drawing.Point(9, 234);
+            this.groupBox21.Name = "groupBox21";
+            this.groupBox21.Size = new System.Drawing.Size(370, 67);
+            this.groupBox21.TabIndex = 226;
+            this.groupBox21.TabStop = false;
+            this.groupBox21.Text = "スケール";
+            // 
+            // MaidOffset_Scale_textBox
+            // 
+            this.MaidOffset_Scale_textBox.Location = new System.Drawing.Point(254, 25);
+            this.MaidOffset_Scale_textBox.Name = "MaidOffset_Scale_textBox";
+            this.MaidOffset_Scale_textBox.Size = new System.Drawing.Size(111, 26);
+            this.MaidOffset_Scale_textBox.TabIndex = 222;
+            this.MaidOffset_Scale_textBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.Items_Handle_Scale_textBox_KeyPress);
+            this.MaidOffset_Scale_textBox.KeyUp += new System.Windows.Forms.KeyEventHandler(this.MaidOffset_Scale_textBox_KeyUp);
+            // 
+            // groupBox20
+            // 
+            this.groupBox20.Controls.Add(this.MaidOffset_RotZ_textBox);
+            this.groupBox20.Controls.Add(this.MaidOffset_RotY_textBox);
+            this.groupBox20.Controls.Add(this.MaidOffset_RotX_textBox);
+            this.groupBox20.Location = new System.Drawing.Point(11, 161);
+            this.groupBox20.Name = "groupBox20";
+            this.groupBox20.Size = new System.Drawing.Size(370, 67);
+            this.groupBox20.TabIndex = 225;
+            this.groupBox20.TabStop = false;
+            this.groupBox20.Text = "回転";
+            // 
+            // MaidOffset_RotZ_textBox
+            // 
+            this.MaidOffset_RotZ_textBox.Location = new System.Drawing.Point(254, 25);
+            this.MaidOffset_RotZ_textBox.Name = "MaidOffset_RotZ_textBox";
+            this.MaidOffset_RotZ_textBox.Size = new System.Drawing.Size(111, 26);
+            this.MaidOffset_RotZ_textBox.TabIndex = 222;
+            this.MaidOffset_RotZ_textBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.Items_Handle_Scale_textBox_KeyPress);
+            this.MaidOffset_RotZ_textBox.KeyUp += new System.Windows.Forms.KeyEventHandler(this.MaidOffset_RotX_textBox_KeyUp);
+            // 
+            // MaidOffset_RotY_textBox
+            // 
+            this.MaidOffset_RotY_textBox.Location = new System.Drawing.Point(129, 25);
+            this.MaidOffset_RotY_textBox.Name = "MaidOffset_RotY_textBox";
+            this.MaidOffset_RotY_textBox.Size = new System.Drawing.Size(111, 26);
+            this.MaidOffset_RotY_textBox.TabIndex = 223;
+            this.MaidOffset_RotY_textBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.Items_Handle_Scale_textBox_KeyPress);
+            this.MaidOffset_RotY_textBox.KeyUp += new System.Windows.Forms.KeyEventHandler(this.MaidOffset_RotX_textBox_KeyUp);
+            // 
+            // MaidOffset_RotX_textBox
+            // 
+            this.MaidOffset_RotX_textBox.Location = new System.Drawing.Point(6, 25);
+            this.MaidOffset_RotX_textBox.Name = "MaidOffset_RotX_textBox";
+            this.MaidOffset_RotX_textBox.Size = new System.Drawing.Size(111, 26);
+            this.MaidOffset_RotX_textBox.TabIndex = 221;
+            this.MaidOffset_RotX_textBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.Items_Handle_Scale_textBox_KeyPress);
+            this.MaidOffset_RotX_textBox.KeyUp += new System.Windows.Forms.KeyEventHandler(this.MaidOffset_RotX_textBox_KeyUp);
+            // 
+            // groupBox19
+            // 
+            this.groupBox19.Controls.Add(this.MaidOffset_PosZ_textBox);
+            this.groupBox19.Controls.Add(this.MaidOffset_PosY_textBox);
+            this.groupBox19.Controls.Add(this.MaidOffset_PosX_textBox);
+            this.groupBox19.Location = new System.Drawing.Point(11, 88);
+            this.groupBox19.Name = "groupBox19";
+            this.groupBox19.Size = new System.Drawing.Size(370, 67);
+            this.groupBox19.TabIndex = 224;
+            this.groupBox19.TabStop = false;
+            this.groupBox19.Text = "位置";
+            // 
+            // MaidOffset_PosZ_textBox
+            // 
+            this.MaidOffset_PosZ_textBox.Location = new System.Drawing.Point(254, 25);
+            this.MaidOffset_PosZ_textBox.Name = "MaidOffset_PosZ_textBox";
+            this.MaidOffset_PosZ_textBox.Size = new System.Drawing.Size(111, 26);
+            this.MaidOffset_PosZ_textBox.TabIndex = 222;
+            this.MaidOffset_PosZ_textBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.Items_Handle_Pos_textBox_KeyPress);
+            this.MaidOffset_PosZ_textBox.KeyUp += new System.Windows.Forms.KeyEventHandler(this.MaidOffset_PosX_textBox_KeyUp);
+            // 
+            // MaidOffset_PosY_textBox
+            // 
+            this.MaidOffset_PosY_textBox.Location = new System.Drawing.Point(129, 25);
+            this.MaidOffset_PosY_textBox.Name = "MaidOffset_PosY_textBox";
+            this.MaidOffset_PosY_textBox.Size = new System.Drawing.Size(111, 26);
+            this.MaidOffset_PosY_textBox.TabIndex = 223;
+            this.MaidOffset_PosY_textBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.Items_Handle_Pos_textBox_KeyPress);
+            this.MaidOffset_PosY_textBox.KeyUp += new System.Windows.Forms.KeyEventHandler(this.MaidOffset_PosX_textBox_KeyUp);
+            // 
+            // MaidOffset_PosX_textBox
+            // 
+            this.MaidOffset_PosX_textBox.Location = new System.Drawing.Point(6, 25);
+            this.MaidOffset_PosX_textBox.Name = "MaidOffset_PosX_textBox";
+            this.MaidOffset_PosX_textBox.Size = new System.Drawing.Size(111, 26);
+            this.MaidOffset_PosX_textBox.TabIndex = 221;
+            this.MaidOffset_PosX_textBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.Items_Handle_Pos_textBox_KeyPress);
+            this.MaidOffset_PosX_textBox.KeyUp += new System.Windows.Forms.KeyEventHandler(this.MaidOffset_PosX_textBox_KeyUp);
+            // 
+            // MaidOffset_Scale_checkBox
+            // 
+            this.MaidOffset_Scale_checkBox.AutoSize = true;
+            this.MaidOffset_Scale_checkBox.Checked = true;
+            this.MaidOffset_Scale_checkBox.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.MaidOffset_Scale_checkBox.Location = new System.Drawing.Point(177, 58);
+            this.MaidOffset_Scale_checkBox.Name = "MaidOffset_Scale_checkBox";
+            this.MaidOffset_Scale_checkBox.Size = new System.Drawing.Size(99, 24);
+            this.MaidOffset_Scale_checkBox.TabIndex = 220;
+            this.MaidOffset_Scale_checkBox.Text = "スケール";
+            this.MaidOffset_Scale_checkBox.UseVisualStyleBackColor = true;
+            // 
+            // MaidOffset_Rot_checkBox
+            // 
+            this.MaidOffset_Rot_checkBox.AutoSize = true;
+            this.MaidOffset_Rot_checkBox.Checked = true;
+            this.MaidOffset_Rot_checkBox.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.MaidOffset_Rot_checkBox.Location = new System.Drawing.Point(94, 58);
+            this.MaidOffset_Rot_checkBox.Name = "MaidOffset_Rot_checkBox";
+            this.MaidOffset_Rot_checkBox.Size = new System.Drawing.Size(67, 24);
+            this.MaidOffset_Rot_checkBox.TabIndex = 219;
+            this.MaidOffset_Rot_checkBox.Text = "回転";
+            this.MaidOffset_Rot_checkBox.UseVisualStyleBackColor = true;
+            // 
+            // MaidOffset_Pos_checkBox
+            // 
+            this.MaidOffset_Pos_checkBox.AutoSize = true;
+            this.MaidOffset_Pos_checkBox.Checked = true;
+            this.MaidOffset_Pos_checkBox.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.MaidOffset_Pos_checkBox.Location = new System.Drawing.Point(11, 58);
+            this.MaidOffset_Pos_checkBox.Name = "MaidOffset_Pos_checkBox";
+            this.MaidOffset_Pos_checkBox.Size = new System.Drawing.Size(67, 24);
+            this.MaidOffset_Pos_checkBox.TabIndex = 218;
+            this.MaidOffset_Pos_checkBox.Text = "位置";
+            this.MaidOffset_Pos_checkBox.UseVisualStyleBackColor = true;
+            // 
+            // MaidOffset_Copy_button
+            // 
+            this.MaidOffset_Copy_button.Location = new System.Drawing.Point(149, 12);
+            this.MaidOffset_Copy_button.Name = "MaidOffset_Copy_button";
+            this.MaidOffset_Copy_button.Size = new System.Drawing.Size(92, 32);
+            this.MaidOffset_Copy_button.TabIndex = 215;
+            this.MaidOffset_Copy_button.Text = "コピー";
+            this.MaidOffset_Copy_button.UseVisualStyleBackColor = true;
+            this.MaidOffset_Copy_button.Click += new System.EventHandler(this.MaidOffset_button_Click);
+            // 
+            // MaidOffset_Reset_button
+            // 
+            this.MaidOffset_Reset_button.ForeColor = System.Drawing.Color.Red;
+            this.MaidOffset_Reset_button.Location = new System.Drawing.Point(11, 12);
+            this.MaidOffset_Reset_button.Name = "MaidOffset_Reset_button";
+            this.MaidOffset_Reset_button.Size = new System.Drawing.Size(92, 32);
+            this.MaidOffset_Reset_button.TabIndex = 217;
+            this.MaidOffset_Reset_button.Text = "リセット";
+            this.MaidOffset_Reset_button.UseVisualStyleBackColor = true;
+            this.MaidOffset_Reset_button.Click += new System.EventHandler(this.MaidOffset_button_Click);
+            // 
+            // MaidOffset_Paste_button
+            // 
+            this.MaidOffset_Paste_button.Location = new System.Drawing.Point(287, 12);
+            this.MaidOffset_Paste_button.Name = "MaidOffset_Paste_button";
+            this.MaidOffset_Paste_button.Size = new System.Drawing.Size(92, 32);
+            this.MaidOffset_Paste_button.TabIndex = 216;
+            this.MaidOffset_Paste_button.Text = "ペースト";
+            this.MaidOffset_Paste_button.UseVisualStyleBackColor = true;
+            this.MaidOffset_Paste_button.Click += new System.EventHandler(this.MaidOffset_button_Click);
             // 
             // groupBox1
             // 
@@ -3855,7 +4707,7 @@ namespace COM3D2.EnhancedMaidEditScene.Plugin
             this.groupBox6.Controls.Add(this.LeftLegIKCheckBox);
             this.groupBox6.Controls.Add(this.RightArmIKCheckBox);
             this.groupBox6.Controls.Add(this.LeftArmIKCheckBox);
-            this.groupBox6.Location = new System.Drawing.Point(6, 892);
+            this.groupBox6.Location = new System.Drawing.Point(5, 1028);
             this.groupBox6.Name = "groupBox6";
             this.groupBox6.Size = new System.Drawing.Size(393, 62);
             this.groupBox6.TabIndex = 8;
@@ -3951,11 +4803,11 @@ namespace COM3D2.EnhancedMaidEditScene.Plugin
             // 
             // Items
             // 
+            this.Items.Controls.Add(this.Items_List_tabControl);
             this.Items.Controls.Add(this.Items_Settings_tabControl);
             this.Items.Controls.Add(this.Items_Information_groupBox);
             this.Items.Controls.Add(this.Items_Control_groupBox);
-            this.Items.Controls.Add(this.Items_HandledObjects_listBox);
-            this.Items.Controls.Add(this.Items_tabControl);
+            this.Items.Controls.Add(this.Items_Objects_tabControl);
             this.Items.Controls.Add(this.Items_HandleSettings_groupBox);
             this.Items.Location = new System.Drawing.Point(4, 29);
             this.Items.Name = "Items";
@@ -3963,6 +4815,150 @@ namespace COM3D2.EnhancedMaidEditScene.Plugin
             this.Items.TabIndex = 6;
             this.Items.Text = "道具";
             this.Items.UseVisualStyleBackColor = true;
+            // 
+            // Items_List_tabControl
+            // 
+            this.Items_List_tabControl.Controls.Add(this.Items_list_tabPage1);
+            this.Items_List_tabControl.Controls.Add(this.subItems_list_tabPage2);
+            this.Items_List_tabControl.Location = new System.Drawing.Point(6, 573);
+            this.Items_List_tabControl.Name = "Items_List_tabControl";
+            this.Items_List_tabControl.SelectedIndex = 0;
+            this.Items_List_tabControl.Size = new System.Drawing.Size(393, 507);
+            this.Items_List_tabControl.TabIndex = 200;
+            this.Items_List_tabControl.SelectedIndexChanged += new System.EventHandler(this.Items_List_tabControl_SelectedIndexChanged);
+            // 
+            // Items_list_tabPage1
+            // 
+            this.Items_list_tabPage1.Controls.Add(this.ReloadMaid_button);
+            this.Items_list_tabPage1.Controls.Add(this.Items_TryCreateSubHandle_button);
+            this.Items_list_tabPage1.Controls.Add(this.MaidPartsEdit_Enable_checkBox);
+            this.Items_list_tabPage1.Controls.Add(this.Items_HandledObjects_listBox);
+            this.Items_list_tabPage1.Location = new System.Drawing.Point(4, 29);
+            this.Items_list_tabPage1.Name = "Items_list_tabPage1";
+            this.Items_list_tabPage1.Padding = new System.Windows.Forms.Padding(3);
+            this.Items_list_tabPage1.Size = new System.Drawing.Size(385, 474);
+            this.Items_list_tabPage1.TabIndex = 0;
+            this.Items_list_tabPage1.Text = "アイテム";
+            this.Items_list_tabPage1.UseVisualStyleBackColor = true;
+            // 
+            // ReloadMaid_button
+            // 
+            this.ReloadMaid_button.ForeColor = System.Drawing.Color.Red;
+            this.ReloadMaid_button.Location = new System.Drawing.Point(198, 436);
+            this.ReloadMaid_button.Name = "ReloadMaid_button";
+            this.ReloadMaid_button.Size = new System.Drawing.Size(39, 32);
+            this.ReloadMaid_button.TabIndex = 24;
+            this.ReloadMaid_button.Text = "R";
+            this.ReloadMaid_button.UseVisualStyleBackColor = true;
+            this.ReloadMaid_button.Click += new System.EventHandler(this.ReloadMaid_button_Click);
+            // 
+            // Items_TryCreateSubHandle_button
+            // 
+            this.Items_TryCreateSubHandle_button.Location = new System.Drawing.Point(250, 436);
+            this.Items_TryCreateSubHandle_button.Name = "Items_TryCreateSubHandle_button";
+            this.Items_TryCreateSubHandle_button.Size = new System.Drawing.Size(128, 32);
+            this.Items_TryCreateSubHandle_button.TabIndex = 15;
+            this.Items_TryCreateSubHandle_button.Text = "サブ展開";
+            this.Items_TryCreateSubHandle_button.UseVisualStyleBackColor = true;
+            this.Items_TryCreateSubHandle_button.Click += new System.EventHandler(this.Items_TryCreateSubHandle_button_Click);
+            // 
+            // MaidPartsEdit_Enable_checkBox
+            // 
+            this.MaidPartsEdit_Enable_checkBox.AutoSize = true;
+            this.MaidPartsEdit_Enable_checkBox.Location = new System.Drawing.Point(6, 441);
+            this.MaidPartsEdit_Enable_checkBox.Name = "MaidPartsEdit_Enable_checkBox";
+            this.MaidPartsEdit_Enable_checkBox.Size = new System.Drawing.Size(163, 24);
+            this.MaidPartsEdit_Enable_checkBox.TabIndex = 221;
+            this.MaidPartsEdit_Enable_checkBox.Text = "メイドパーツ編集";
+            this.MaidPartsEdit_Enable_checkBox.UseVisualStyleBackColor = true;
+            this.MaidPartsEdit_Enable_checkBox.CheckedChanged += new System.EventHandler(this.MaidPartsEdit_Enable_checkBox_CheckedChanged);
+            // 
+            // Items_HandledObjects_listBox
+            // 
+            this.Items_HandledObjects_listBox.Font = new System.Drawing.Font("UD Digi Kyokasho NK-R", 12F);
+            this.Items_HandledObjects_listBox.FormattingEnabled = true;
+            this.Items_HandledObjects_listBox.HorizontalScrollbar = true;
+            this.Items_HandledObjects_listBox.ItemHeight = 28;
+            this.Items_HandledObjects_listBox.Items.AddRange(new object[] {
+            "ら",
+            "り",
+            "る",
+            "れ",
+            "ろ"});
+            this.Items_HandledObjects_listBox.Location = new System.Drawing.Point(3, 6);
+            this.Items_HandledObjects_listBox.Name = "Items_HandledObjects_listBox";
+            this.Items_HandledObjects_listBox.Size = new System.Drawing.Size(376, 424);
+            this.Items_HandledObjects_listBox.TabIndex = 14;
+            this.Items_HandledObjects_listBox.SelectedIndexChanged += new System.EventHandler(this.Items_HandledObjects_listBox_SelectedIndexChanged);
+            this.Items_HandledObjects_listBox.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Items_HandledObjects_listBox_Key);
+            this.Items_HandledObjects_listBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.Items_HandledObjects_listBox_KeyPress);
+            this.Items_HandledObjects_listBox.KeyUp += new System.Windows.Forms.KeyEventHandler(this.Items_HandledObjects_listBox_Key);
+            // 
+            // subItems_list_tabPage2
+            // 
+            this.subItems_list_tabPage2.Controls.Add(this.Items_SubObjects_SlotBodyHit_checkBox);
+            this.subItems_list_tabPage2.Controls.Add(this.Items_SubObjects_DynamicBone_checkBox);
+            this.subItems_list_tabPage2.Controls.Add(this.Items_SubObjects_TempDisableMaidHandle_checkBox);
+            this.subItems_list_tabPage2.Controls.Add(this.Items_SubObjects_listBox);
+            this.subItems_list_tabPage2.Location = new System.Drawing.Point(4, 29);
+            this.subItems_list_tabPage2.Name = "subItems_list_tabPage2";
+            this.subItems_list_tabPage2.Padding = new System.Windows.Forms.Padding(3);
+            this.subItems_list_tabPage2.Size = new System.Drawing.Size(385, 474);
+            this.subItems_list_tabPage2.TabIndex = 1;
+            this.subItems_list_tabPage2.Text = "サブ";
+            this.subItems_list_tabPage2.UseVisualStyleBackColor = true;
+            // 
+            // Items_SubObjects_SlotBodyHit_checkBox
+            // 
+            this.Items_SubObjects_SlotBodyHit_checkBox.AutoSize = true;
+            this.Items_SubObjects_SlotBodyHit_checkBox.Location = new System.Drawing.Point(222, 437);
+            this.Items_SubObjects_SlotBodyHit_checkBox.Name = "Items_SubObjects_SlotBodyHit_checkBox";
+            this.Items_SubObjects_SlotBodyHit_checkBox.Size = new System.Drawing.Size(73, 24);
+            this.Items_SubObjects_SlotBodyHit_checkBox.TabIndex = 31;
+            this.Items_SubObjects_SlotBodyHit_checkBox.Text = "髪HIt";
+            this.Items_SubObjects_SlotBodyHit_checkBox.UseVisualStyleBackColor = true;
+            this.Items_SubObjects_SlotBodyHit_checkBox.CheckedChanged += new System.EventHandler(this.Items_SubObjects_SlotBodyHit_checkBox_CheckedChanged);
+            // 
+            // Items_SubObjects_DynamicBone_checkBox
+            // 
+            this.Items_SubObjects_DynamicBone_checkBox.AutoSize = true;
+            this.Items_SubObjects_DynamicBone_checkBox.Location = new System.Drawing.Point(310, 437);
+            this.Items_SubObjects_DynamicBone_checkBox.Name = "Items_SubObjects_DynamicBone_checkBox";
+            this.Items_SubObjects_DynamicBone_checkBox.Size = new System.Drawing.Size(67, 24);
+            this.Items_SubObjects_DynamicBone_checkBox.TabIndex = 30;
+            this.Items_SubObjects_DynamicBone_checkBox.Text = "重力";
+            this.Items_SubObjects_DynamicBone_checkBox.UseVisualStyleBackColor = true;
+            this.Items_SubObjects_DynamicBone_checkBox.Visible = false;
+            this.Items_SubObjects_DynamicBone_checkBox.CheckedChanged += new System.EventHandler(this.Items_SubObjects_DynamicBone_checkBox_CheckedChanged);
+            // 
+            // Items_SubObjects_TempDisableMaidHandle_checkBox
+            // 
+            this.Items_SubObjects_TempDisableMaidHandle_checkBox.AutoSize = true;
+            this.Items_SubObjects_TempDisableMaidHandle_checkBox.Location = new System.Drawing.Point(6, 437);
+            this.Items_SubObjects_TempDisableMaidHandle_checkBox.Name = "Items_SubObjects_TempDisableMaidHandle_checkBox";
+            this.Items_SubObjects_TempDisableMaidHandle_checkBox.Size = new System.Drawing.Size(195, 24);
+            this.Items_SubObjects_TempDisableMaidHandle_checkBox.TabIndex = 16;
+            this.Items_SubObjects_TempDisableMaidHandle_checkBox.Text = "メイドハンドルを隠す";
+            this.Items_SubObjects_TempDisableMaidHandle_checkBox.UseVisualStyleBackColor = true;
+            this.Items_SubObjects_TempDisableMaidHandle_checkBox.CheckedChanged += new System.EventHandler(this.Items_SubObjects_TempDisableMaidHandle_checkBox_CheckedChanged);
+            // 
+            // Items_SubObjects_listBox
+            // 
+            this.Items_SubObjects_listBox.Font = new System.Drawing.Font("UD Digi Kyokasho NK-R", 12F);
+            this.Items_SubObjects_listBox.FormattingEnabled = true;
+            this.Items_SubObjects_listBox.HorizontalScrollbar = true;
+            this.Items_SubObjects_listBox.ItemHeight = 28;
+            this.Items_SubObjects_listBox.Items.AddRange(new object[] {
+            "la",
+            "li",
+            "lu",
+            "le",
+            "lo"});
+            this.Items_SubObjects_listBox.Location = new System.Drawing.Point(3, 6);
+            this.Items_SubObjects_listBox.Name = "Items_SubObjects_listBox";
+            this.Items_SubObjects_listBox.Size = new System.Drawing.Size(376, 424);
+            this.Items_SubObjects_listBox.TabIndex = 15;
+            this.Items_SubObjects_listBox.SelectedIndexChanged += new System.EventHandler(this.Items_SubObjects_listBox_SelectedIndexChanged);
             // 
             // Items_Settings_tabControl
             // 
@@ -3996,9 +4992,9 @@ namespace COM3D2.EnhancedMaidEditScene.Plugin
             this.label63.AutoSize = true;
             this.label63.Location = new System.Drawing.Point(9, 61);
             this.label63.Name = "label63";
-            this.label63.Size = new System.Drawing.Size(105, 20);
+            this.label63.Size = new System.Drawing.Size(201, 20);
             this.label63.TabIndex = 204;
-            this.label63.Text = "シェーダ選択";
+            this.label63.Text = "シェーダーオーバーライド";
             // 
             // label60
             // 
@@ -4514,38 +5510,18 @@ namespace COM3D2.EnhancedMaidEditScene.Plugin
             this.Items_Handle_Active_Button.UseVisualStyleBackColor = true;
             this.Items_Handle_Active_Button.Click += new System.EventHandler(this.Items_Handle_Button_Click);
             // 
-            // Items_HandledObjects_listBox
+            // Items_Objects_tabControl
             // 
-            this.Items_HandledObjects_listBox.Font = new System.Drawing.Font("UD Digi Kyokasho NK-R", 12F);
-            this.Items_HandledObjects_listBox.FormattingEnabled = true;
-            this.Items_HandledObjects_listBox.ItemHeight = 28;
-            this.Items_HandledObjects_listBox.Items.AddRange(new object[] {
-            "ら",
-            "り",
-            "る",
-            "れ",
-            "ろ"});
-            this.Items_HandledObjects_listBox.Location = new System.Drawing.Point(6, 573);
-            this.Items_HandledObjects_listBox.Name = "Items_HandledObjects_listBox";
-            this.Items_HandledObjects_listBox.Size = new System.Drawing.Size(392, 508);
-            this.Items_HandledObjects_listBox.TabIndex = 14;
-            this.Items_HandledObjects_listBox.SelectedIndexChanged += new System.EventHandler(this.Items_HandledObjects_listBox_SelectedIndexChanged);
-            this.Items_HandledObjects_listBox.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Items_HandledObjects_listBox_Key);
-            this.Items_HandledObjects_listBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.Items_HandledObjects_listBox_KeyPress);
-            this.Items_HandledObjects_listBox.KeyUp += new System.Windows.Forms.KeyEventHandler(this.Items_HandledObjects_listBox_Key);
-            // 
-            // Items_tabControl
-            // 
-            this.Items_tabControl.Controls.Add(this.MyRoomCustomItems);
-            this.Items_tabControl.Controls.Add(this.PhotoSceneItems);
-            this.Items_tabControl.Controls.Add(this.DeskItems);
-            this.Items_tabControl.Controls.Add(this.ExternamImageItems);
-            this.Items_tabControl.Location = new System.Drawing.Point(6, 207);
-            this.Items_tabControl.Name = "Items_tabControl";
-            this.Items_tabControl.SelectedIndex = 0;
-            this.Items_tabControl.Size = new System.Drawing.Size(393, 124);
-            this.Items_tabControl.TabIndex = 12;
-            this.Items_tabControl.SelectedIndexChanged += new System.EventHandler(this.ITems_tabControl_SelectedIndexChanged);
+            this.Items_Objects_tabControl.Controls.Add(this.MyRoomCustomItems);
+            this.Items_Objects_tabControl.Controls.Add(this.PhotoSceneItems);
+            this.Items_Objects_tabControl.Controls.Add(this.DeskItems);
+            this.Items_Objects_tabControl.Controls.Add(this.ExternamImageItems);
+            this.Items_Objects_tabControl.Location = new System.Drawing.Point(6, 207);
+            this.Items_Objects_tabControl.Name = "Items_Objects_tabControl";
+            this.Items_Objects_tabControl.SelectedIndex = 0;
+            this.Items_Objects_tabControl.Size = new System.Drawing.Size(393, 124);
+            this.Items_Objects_tabControl.TabIndex = 12;
+            this.Items_Objects_tabControl.SelectedIndexChanged += new System.EventHandler(this.ITems_tabControl_SelectedIndexChanged);
             // 
             // MyRoomCustomItems
             // 
@@ -4798,6 +5774,7 @@ namespace COM3D2.EnhancedMaidEditScene.Plugin
             // 
             this.tabControl5.Controls.Add(this.SceneManagement);
             this.tabControl5.Controls.Add(this.CameraData);
+            this.tabControl5.Controls.Add(this.LightSource);
             this.tabControl5.Location = new System.Drawing.Point(6, 274);
             this.tabControl5.Name = "tabControl5";
             this.tabControl5.SelectedIndex = 0;
@@ -4916,6 +5893,9 @@ namespace COM3D2.EnhancedMaidEditScene.Plugin
             // 
             // CameraData
             // 
+            this.CameraData.Controls.Add(this.groupBox25);
+            this.CameraData.Controls.Add(this.Camera_UI_Hide);
+            this.CameraData.Controls.Add(this.CameraPos_FOV_trackBar);
             this.CameraData.Controls.Add(this.CameraPos_FOV_textbox);
             this.CameraData.Controls.Add(this.label56);
             this.CameraData.Controls.Add(this.groupBox16);
@@ -4927,11 +5907,200 @@ namespace COM3D2.EnhancedMaidEditScene.Plugin
             this.CameraData.Text = "カメラ";
             this.CameraData.UseVisualStyleBackColor = true;
             // 
+            // groupBox25
+            // 
+            this.groupBox25.Controls.Add(this.CameraPos_Tag5_textBox);
+            this.groupBox25.Controls.Add(this.CameraPos_Tag4_textBox);
+            this.groupBox25.Controls.Add(this.CameraPos_Tag3_textBox);
+            this.groupBox25.Controls.Add(this.CameraPos_Tag2_textBox);
+            this.groupBox25.Controls.Add(this.CameraPos_Tag1_textBox);
+            this.groupBox25.Controls.Add(this.CameraPos_Load5_button);
+            this.groupBox25.Controls.Add(this.CameraPos_Save5_button);
+            this.groupBox25.Controls.Add(this.CameraPos_Load4_button);
+            this.groupBox25.Controls.Add(this.CameraPos_Save4_button);
+            this.groupBox25.Controls.Add(this.CameraPos_Load3_button);
+            this.groupBox25.Controls.Add(this.CameraPos_Save3_button);
+            this.groupBox25.Controls.Add(this.CameraPos_Load2_button);
+            this.groupBox25.Controls.Add(this.CameraPos_Save2_button);
+            this.groupBox25.Controls.Add(this.CameraPos_Load1_button);
+            this.groupBox25.Controls.Add(this.CameraPos_Save1_button);
+            this.groupBox25.Location = new System.Drawing.Point(7, 144);
+            this.groupBox25.Name = "groupBox25";
+            this.groupBox25.Size = new System.Drawing.Size(372, 215);
+            this.groupBox25.TabIndex = 221;
+            this.groupBox25.TabStop = false;
+            this.groupBox25.Text = "カメラの位置";
+            // 
+            // CameraPos_Tag5_textBox
+            // 
+            this.CameraPos_Tag5_textBox.Location = new System.Drawing.Point(199, 169);
+            this.CameraPos_Tag5_textBox.Name = "CameraPos_Tag5_textBox";
+            this.CameraPos_Tag5_textBox.Size = new System.Drawing.Size(163, 26);
+            this.CameraPos_Tag5_textBox.TabIndex = 18;
+            this.CameraPos_Tag5_textBox.Text = "無";
+            // 
+            // CameraPos_Tag4_textBox
+            // 
+            this.CameraPos_Tag4_textBox.Location = new System.Drawing.Point(7, 134);
+            this.CameraPos_Tag4_textBox.Name = "CameraPos_Tag4_textBox";
+            this.CameraPos_Tag4_textBox.Size = new System.Drawing.Size(163, 26);
+            this.CameraPos_Tag4_textBox.TabIndex = 17;
+            this.CameraPos_Tag4_textBox.Text = "無";
+            // 
+            // CameraPos_Tag3_textBox
+            // 
+            this.CameraPos_Tag3_textBox.Location = new System.Drawing.Point(199, 99);
+            this.CameraPos_Tag3_textBox.Name = "CameraPos_Tag3_textBox";
+            this.CameraPos_Tag3_textBox.Size = new System.Drawing.Size(163, 26);
+            this.CameraPos_Tag3_textBox.TabIndex = 16;
+            this.CameraPos_Tag3_textBox.Text = "無";
+            // 
+            // CameraPos_Tag2_textBox
+            // 
+            this.CameraPos_Tag2_textBox.Location = new System.Drawing.Point(7, 61);
+            this.CameraPos_Tag2_textBox.Name = "CameraPos_Tag2_textBox";
+            this.CameraPos_Tag2_textBox.Size = new System.Drawing.Size(163, 26);
+            this.CameraPos_Tag2_textBox.TabIndex = 15;
+            this.CameraPos_Tag2_textBox.Text = "無";
+            // 
+            // CameraPos_Tag1_textBox
+            // 
+            this.CameraPos_Tag1_textBox.Location = new System.Drawing.Point(199, 26);
+            this.CameraPos_Tag1_textBox.Name = "CameraPos_Tag1_textBox";
+            this.CameraPos_Tag1_textBox.Size = new System.Drawing.Size(163, 26);
+            this.CameraPos_Tag1_textBox.TabIndex = 14;
+            this.CameraPos_Tag1_textBox.Text = "無";
+            // 
+            // CameraPos_Load5_button
+            // 
+            this.CameraPos_Load5_button.Location = new System.Drawing.Point(95, 166);
+            this.CameraPos_Load5_button.Name = "CameraPos_Load5_button";
+            this.CameraPos_Load5_button.Size = new System.Drawing.Size(75, 29);
+            this.CameraPos_Load5_button.TabIndex = 13;
+            this.CameraPos_Load5_button.Text = "ロード5";
+            this.CameraPos_Load5_button.UseVisualStyleBackColor = true;
+            this.CameraPos_Load5_button.Click += new System.EventHandler(this.CameraPos_SaveAndLoad_button_Click);
+            // 
+            // CameraPos_Save5_button
+            // 
+            this.CameraPos_Save5_button.Location = new System.Drawing.Point(7, 166);
+            this.CameraPos_Save5_button.Name = "CameraPos_Save5_button";
+            this.CameraPos_Save5_button.Size = new System.Drawing.Size(75, 29);
+            this.CameraPos_Save5_button.TabIndex = 12;
+            this.CameraPos_Save5_button.Text = "セーブ5";
+            this.CameraPos_Save5_button.UseVisualStyleBackColor = true;
+            this.CameraPos_Save5_button.Click += new System.EventHandler(this.CameraPos_SaveAndLoad_button_Click);
+            // 
+            // CameraPos_Load4_button
+            // 
+            this.CameraPos_Load4_button.Location = new System.Drawing.Point(287, 131);
+            this.CameraPos_Load4_button.Name = "CameraPos_Load4_button";
+            this.CameraPos_Load4_button.Size = new System.Drawing.Size(75, 29);
+            this.CameraPos_Load4_button.TabIndex = 10;
+            this.CameraPos_Load4_button.Text = "ロード4";
+            this.CameraPos_Load4_button.UseVisualStyleBackColor = true;
+            this.CameraPos_Load4_button.Click += new System.EventHandler(this.CameraPos_SaveAndLoad_button_Click);
+            // 
+            // CameraPos_Save4_button
+            // 
+            this.CameraPos_Save4_button.Location = new System.Drawing.Point(199, 131);
+            this.CameraPos_Save4_button.Name = "CameraPos_Save4_button";
+            this.CameraPos_Save4_button.Size = new System.Drawing.Size(75, 29);
+            this.CameraPos_Save4_button.TabIndex = 9;
+            this.CameraPos_Save4_button.Text = "セーブ4";
+            this.CameraPos_Save4_button.UseVisualStyleBackColor = true;
+            this.CameraPos_Save4_button.Click += new System.EventHandler(this.CameraPos_SaveAndLoad_button_Click);
+            // 
+            // CameraPos_Load3_button
+            // 
+            this.CameraPos_Load3_button.Location = new System.Drawing.Point(95, 96);
+            this.CameraPos_Load3_button.Name = "CameraPos_Load3_button";
+            this.CameraPos_Load3_button.Size = new System.Drawing.Size(75, 29);
+            this.CameraPos_Load3_button.TabIndex = 7;
+            this.CameraPos_Load3_button.Text = "ロード3";
+            this.CameraPos_Load3_button.UseVisualStyleBackColor = true;
+            this.CameraPos_Load3_button.Click += new System.EventHandler(this.CameraPos_SaveAndLoad_button_Click);
+            // 
+            // CameraPos_Save3_button
+            // 
+            this.CameraPos_Save3_button.Location = new System.Drawing.Point(7, 96);
+            this.CameraPos_Save3_button.Name = "CameraPos_Save3_button";
+            this.CameraPos_Save3_button.Size = new System.Drawing.Size(75, 29);
+            this.CameraPos_Save3_button.TabIndex = 6;
+            this.CameraPos_Save3_button.Text = "セーブ3";
+            this.CameraPos_Save3_button.UseVisualStyleBackColor = true;
+            this.CameraPos_Save3_button.Click += new System.EventHandler(this.CameraPos_SaveAndLoad_button_Click);
+            // 
+            // CameraPos_Load2_button
+            // 
+            this.CameraPos_Load2_button.Location = new System.Drawing.Point(287, 61);
+            this.CameraPos_Load2_button.Name = "CameraPos_Load2_button";
+            this.CameraPos_Load2_button.Size = new System.Drawing.Size(75, 29);
+            this.CameraPos_Load2_button.TabIndex = 4;
+            this.CameraPos_Load2_button.Text = "ロード2";
+            this.CameraPos_Load2_button.UseVisualStyleBackColor = true;
+            this.CameraPos_Load2_button.Click += new System.EventHandler(this.CameraPos_SaveAndLoad_button_Click);
+            // 
+            // CameraPos_Save2_button
+            // 
+            this.CameraPos_Save2_button.Location = new System.Drawing.Point(199, 61);
+            this.CameraPos_Save2_button.Name = "CameraPos_Save2_button";
+            this.CameraPos_Save2_button.Size = new System.Drawing.Size(75, 29);
+            this.CameraPos_Save2_button.TabIndex = 3;
+            this.CameraPos_Save2_button.Text = "セーブ2";
+            this.CameraPos_Save2_button.UseVisualStyleBackColor = true;
+            this.CameraPos_Save2_button.Click += new System.EventHandler(this.CameraPos_SaveAndLoad_button_Click);
+            // 
+            // CameraPos_Load1_button
+            // 
+            this.CameraPos_Load1_button.Location = new System.Drawing.Point(95, 26);
+            this.CameraPos_Load1_button.Name = "CameraPos_Load1_button";
+            this.CameraPos_Load1_button.Size = new System.Drawing.Size(75, 29);
+            this.CameraPos_Load1_button.TabIndex = 1;
+            this.CameraPos_Load1_button.Text = "ロード1";
+            this.CameraPos_Load1_button.UseVisualStyleBackColor = true;
+            this.CameraPos_Load1_button.Click += new System.EventHandler(this.CameraPos_SaveAndLoad_button_Click);
+            // 
+            // CameraPos_Save1_button
+            // 
+            this.CameraPos_Save1_button.Location = new System.Drawing.Point(7, 26);
+            this.CameraPos_Save1_button.Name = "CameraPos_Save1_button";
+            this.CameraPos_Save1_button.Size = new System.Drawing.Size(75, 29);
+            this.CameraPos_Save1_button.TabIndex = 0;
+            this.CameraPos_Save1_button.Text = "セーブ1";
+            this.CameraPos_Save1_button.UseVisualStyleBackColor = true;
+            this.CameraPos_Save1_button.Click += new System.EventHandler(this.CameraPos_SaveAndLoad_button_Click);
+            // 
+            // Camera_UI_Hide
+            // 
+            this.Camera_UI_Hide.AutoSize = true;
+            this.Camera_UI_Hide.Location = new System.Drawing.Point(13, 113);
+            this.Camera_UI_Hide.Name = "Camera_UI_Hide";
+            this.Camera_UI_Hide.Size = new System.Drawing.Size(164, 24);
+            this.Camera_UI_Hide.TabIndex = 220;
+            this.Camera_UI_Hide.Text = "UIを完全に非表示";
+            this.Camera_UI_Hide.UseVisualStyleBackColor = true;
+            this.Camera_UI_Hide.CheckedChanged += new System.EventHandler(this.Camera_UI_Hide_CheckedChanged);
+            // 
+            // CameraPos_FOV_trackBar
+            // 
+            this.CameraPos_FOV_trackBar.AutoSize = false;
+            this.CameraPos_FOV_trackBar.LargeChange = 10;
+            this.CameraPos_FOV_trackBar.Location = new System.Drawing.Point(125, 82);
+            this.CameraPos_FOV_trackBar.Maximum = 1799;
+            this.CameraPos_FOV_trackBar.Minimum = 1;
+            this.CameraPos_FOV_trackBar.Name = "CameraPos_FOV_trackBar";
+            this.CameraPos_FOV_trackBar.Size = new System.Drawing.Size(170, 25);
+            this.CameraPos_FOV_trackBar.TabIndex = 219;
+            this.CameraPos_FOV_trackBar.TickFrequency = 5000;
+            this.CameraPos_FOV_trackBar.Value = 350;
+            this.CameraPos_FOV_trackBar.Scroll += new System.EventHandler(this.CameraPos_FOV_trackBar_Scroll);
+            // 
             // CameraPos_FOV_textbox
             // 
-            this.CameraPos_FOV_textbox.Location = new System.Drawing.Point(154, 128);
+            this.CameraPos_FOV_textbox.Location = new System.Drawing.Point(312, 83);
             this.CameraPos_FOV_textbox.Name = "CameraPos_FOV_textbox";
-            this.CameraPos_FOV_textbox.Size = new System.Drawing.Size(80, 26);
+            this.CameraPos_FOV_textbox.Size = new System.Drawing.Size(64, 26);
             this.CameraPos_FOV_textbox.TabIndex = 71;
             this.CameraPos_FOV_textbox.Text = "35";
             this.CameraPos_FOV_textbox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.CameraPos_FOV_textbox_KeyPress);
@@ -4940,7 +6109,7 @@ namespace COM3D2.EnhancedMaidEditScene.Plugin
             // label56
             // 
             this.label56.AutoSize = true;
-            this.label56.Location = new System.Drawing.Point(10, 132);
+            this.label56.Location = new System.Drawing.Point(10, 86);
             this.label56.Name = "label56";
             this.label56.Size = new System.Drawing.Size(105, 20);
             this.label56.TabIndex = 70;
@@ -4952,7 +6121,7 @@ namespace COM3D2.EnhancedMaidEditScene.Plugin
             this.groupBox16.Controls.Add(this.CameraPos_QuickSave_button);
             this.groupBox16.Location = new System.Drawing.Point(6, 6);
             this.groupBox16.Name = "groupBox16";
-            this.groupBox16.Size = new System.Drawing.Size(374, 100);
+            this.groupBox16.Size = new System.Drawing.Size(374, 70);
             this.groupBox16.TabIndex = 28;
             this.groupBox16.TabStop = false;
             this.groupBox16.Text = "クイックセーブとロード";
@@ -4961,7 +6130,7 @@ namespace COM3D2.EnhancedMaidEditScene.Plugin
             // 
             this.CameraPos_QuickLoad_button.Location = new System.Drawing.Point(242, 26);
             this.CameraPos_QuickLoad_button.Name = "CameraPos_QuickLoad_button";
-            this.CameraPos_QuickLoad_button.Size = new System.Drawing.Size(126, 69);
+            this.CameraPos_QuickLoad_button.Size = new System.Drawing.Size(126, 32);
             this.CameraPos_QuickLoad_button.TabIndex = 27;
             this.CameraPos_QuickLoad_button.Text = "ロード";
             this.CameraPos_QuickLoad_button.UseVisualStyleBackColor = true;
@@ -4971,626 +6140,27 @@ namespace COM3D2.EnhancedMaidEditScene.Plugin
             // 
             this.CameraPos_QuickSave_button.Location = new System.Drawing.Point(8, 26);
             this.CameraPos_QuickSave_button.Name = "CameraPos_QuickSave_button";
-            this.CameraPos_QuickSave_button.Size = new System.Drawing.Size(126, 69);
+            this.CameraPos_QuickSave_button.Size = new System.Drawing.Size(126, 32);
             this.CameraPos_QuickSave_button.TabIndex = 26;
             this.CameraPos_QuickSave_button.Text = "セーブ";
             this.CameraPos_QuickSave_button.UseVisualStyleBackColor = true;
             this.CameraPos_QuickSave_button.Click += new System.EventHandler(this.CameraPos_QuickSave_button_Click);
             // 
-            // tabControl2
-            // 
-            this.tabControl2.Controls.Add(this.DOF);
-            this.tabControl2.Controls.Add(this.Fog);
-            this.tabControl2.Controls.Add(this.Bloom);
-            this.tabControl2.Controls.Add(this.Blur);
-            this.tabControl2.Controls.Add(this.MessageWindow);
-            this.tabControl2.Controls.Add(this.Light);
-            this.tabControl2.Location = new System.Drawing.Point(6, 676);
-            this.tabControl2.Name = "tabControl2";
-            this.tabControl2.SelectedIndex = 0;
-            this.tabControl2.Size = new System.Drawing.Size(393, 338);
-            this.tabControl2.TabIndex = 42;
-            // 
-            // DOF
-            // 
-            this.DOF.Controls.Add(this.Shader_DOF_blurType_comboBox);
-            this.DOF.Controls.Add(this.label24);
-            this.DOF.Controls.Add(this.Shader_DOF_visualizeFocus_checkBox);
-            this.DOF.Controls.Add(this.label22);
-            this.DOF.Controls.Add(this.Shader_DOF_maxBlurSize_trackBar);
-            this.DOF.Controls.Add(this.label23);
-            this.DOF.Controls.Add(this.Shader_DOF_aperture_trackBar);
-            this.DOF.Controls.Add(this.label21);
-            this.DOF.Controls.Add(this.Shader_DOF_focalSize_trackBar);
-            this.DOF.Controls.Add(this.label20);
-            this.DOF.Controls.Add(this.Shader_DOF_focalLength_trackBar);
-            this.DOF.Controls.Add(this.Shader_DOF_Enable_checkBox);
-            this.DOF.Location = new System.Drawing.Point(4, 29);
-            this.DOF.Name = "DOF";
-            this.DOF.Padding = new System.Windows.Forms.Padding(3);
-            this.DOF.Size = new System.Drawing.Size(385, 305);
-            this.DOF.TabIndex = 1;
-            this.DOF.Text = "深度";
-            this.DOF.UseVisualStyleBackColor = true;
-            // 
-            // Shader_DOF_blurType_comboBox
-            // 
-            this.Shader_DOF_blurType_comboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.Shader_DOF_blurType_comboBox.FormattingEnabled = true;
-            this.Shader_DOF_blurType_comboBox.Items.AddRange(new object[] {
-            "DiscBlur",
-            "DX11"});
-            this.Shader_DOF_blurType_comboBox.Location = new System.Drawing.Point(202, 129);
-            this.Shader_DOF_blurType_comboBox.Name = "Shader_DOF_blurType_comboBox";
-            this.Shader_DOF_blurType_comboBox.Size = new System.Drawing.Size(170, 28);
-            this.Shader_DOF_blurType_comboBox.TabIndex = 224;
-            this.Shader_DOF_blurType_comboBox.SelectedIndexChanged += new System.EventHandler(this.Shader_DOF_SyncData);
-            // 
-            // label24
-            // 
-            this.label24.AutoSize = true;
-            this.label24.ForeColor = System.Drawing.Color.Black;
-            this.label24.Location = new System.Drawing.Point(208, 94);
-            this.label24.Name = "label24";
-            this.label24.Size = new System.Drawing.Size(105, 20);
-            this.label24.TabIndex = 223;
-            this.label24.Text = "ぼかしタイプ";
-            // 
-            // Shader_DOF_visualizeFocus_checkBox
-            // 
-            this.Shader_DOF_visualizeFocus_checkBox.AutoSize = true;
-            this.Shader_DOF_visualizeFocus_checkBox.Location = new System.Drawing.Point(14, 262);
-            this.Shader_DOF_visualizeFocus_checkBox.Name = "Shader_DOF_visualizeFocus_checkBox";
-            this.Shader_DOF_visualizeFocus_checkBox.Size = new System.Drawing.Size(99, 24);
-            this.Shader_DOF_visualizeFocus_checkBox.TabIndex = 222;
-            this.Shader_DOF_visualizeFocus_checkBox.Text = "深度表示";
-            this.Shader_DOF_visualizeFocus_checkBox.UseVisualStyleBackColor = true;
-            this.Shader_DOF_visualizeFocus_checkBox.CheckedChanged += new System.EventHandler(this.Shader_DOF_SyncData);
-            // 
-            // label22
-            // 
-            this.label22.AutoSize = true;
-            this.label22.ForeColor = System.Drawing.Color.Black;
-            this.label22.Location = new System.Drawing.Point(202, 176);
-            this.label22.Name = "label22";
-            this.label22.Size = new System.Drawing.Size(73, 20);
-            this.label22.TabIndex = 221;
-            this.label22.Text = "ブレ強度";
-            // 
-            // Shader_DOF_maxBlurSize_trackBar
-            // 
-            this.Shader_DOF_maxBlurSize_trackBar.AutoSize = false;
-            this.Shader_DOF_maxBlurSize_trackBar.LargeChange = 100;
-            this.Shader_DOF_maxBlurSize_trackBar.Location = new System.Drawing.Point(202, 212);
-            this.Shader_DOF_maxBlurSize_trackBar.Maximum = 10000;
-            this.Shader_DOF_maxBlurSize_trackBar.Name = "Shader_DOF_maxBlurSize_trackBar";
-            this.Shader_DOF_maxBlurSize_trackBar.Size = new System.Drawing.Size(170, 27);
-            this.Shader_DOF_maxBlurSize_trackBar.TabIndex = 220;
-            this.Shader_DOF_maxBlurSize_trackBar.TickFrequency = 2500;
-            this.Shader_DOF_maxBlurSize_trackBar.Value = 2500;
-            this.Shader_DOF_maxBlurSize_trackBar.Scroll += new System.EventHandler(this.Shader_DOF_SyncData);
-            // 
-            // label23
-            // 
-            this.label23.AutoSize = true;
-            this.label23.ForeColor = System.Drawing.Color.Black;
-            this.label23.Location = new System.Drawing.Point(9, 176);
-            this.label23.Name = "label23";
-            this.label23.Size = new System.Drawing.Size(89, 20);
-            this.label23.TabIndex = 219;
-            this.label23.Text = "カメラ絞り";
-            // 
-            // Shader_DOF_aperture_trackBar
-            // 
-            this.Shader_DOF_aperture_trackBar.AutoSize = false;
-            this.Shader_DOF_aperture_trackBar.LargeChange = 10;
-            this.Shader_DOF_aperture_trackBar.Location = new System.Drawing.Point(10, 212);
-            this.Shader_DOF_aperture_trackBar.Maximum = 60000;
-            this.Shader_DOF_aperture_trackBar.Name = "Shader_DOF_aperture_trackBar";
-            this.Shader_DOF_aperture_trackBar.Size = new System.Drawing.Size(170, 27);
-            this.Shader_DOF_aperture_trackBar.TabIndex = 218;
-            this.Shader_DOF_aperture_trackBar.TickFrequency = 5000;
-            this.Shader_DOF_aperture_trackBar.Value = 5000;
-            this.Shader_DOF_aperture_trackBar.Scroll += new System.EventHandler(this.Shader_DOF_SyncData);
-            // 
-            // label21
-            // 
-            this.label21.AutoSize = true;
-            this.label21.ForeColor = System.Drawing.Color.Black;
-            this.label21.Location = new System.Drawing.Point(9, 94);
-            this.label21.Name = "label21";
-            this.label21.Size = new System.Drawing.Size(121, 20);
-            this.label21.TabIndex = 217;
-            this.label21.Text = "焦点領域サイズ";
-            // 
-            // Shader_DOF_focalSize_trackBar
-            // 
-            this.Shader_DOF_focalSize_trackBar.AutoSize = false;
-            this.Shader_DOF_focalSize_trackBar.LargeChange = 400;
-            this.Shader_DOF_focalSize_trackBar.Location = new System.Drawing.Point(10, 130);
-            this.Shader_DOF_focalSize_trackBar.Maximum = 4000;
-            this.Shader_DOF_focalSize_trackBar.Name = "Shader_DOF_focalSize_trackBar";
-            this.Shader_DOF_focalSize_trackBar.Size = new System.Drawing.Size(170, 27);
-            this.Shader_DOF_focalSize_trackBar.TabIndex = 216;
-            this.Shader_DOF_focalSize_trackBar.TickFrequency = 500;
-            this.Shader_DOF_focalSize_trackBar.Value = 500;
-            this.Shader_DOF_focalSize_trackBar.Scroll += new System.EventHandler(this.Shader_DOF_SyncData);
-            // 
-            // label20
-            // 
-            this.label20.AutoSize = true;
-            this.label20.ForeColor = System.Drawing.Color.Black;
-            this.label20.Location = new System.Drawing.Point(9, 10);
-            this.label20.Name = "label20";
-            this.label20.Size = new System.Drawing.Size(73, 20);
-            this.label20.TabIndex = 215;
-            this.label20.Text = "焦点距離";
-            // 
-            // Shader_DOF_focalLength_trackBar
-            // 
-            this.Shader_DOF_focalLength_trackBar.AutoSize = false;
-            this.Shader_DOF_focalLength_trackBar.LargeChange = 1000;
-            this.Shader_DOF_focalLength_trackBar.Location = new System.Drawing.Point(10, 45);
-            this.Shader_DOF_focalLength_trackBar.Maximum = 10000;
-            this.Shader_DOF_focalLength_trackBar.Name = "Shader_DOF_focalLength_trackBar";
-            this.Shader_DOF_focalLength_trackBar.Size = new System.Drawing.Size(363, 27);
-            this.Shader_DOF_focalLength_trackBar.TabIndex = 214;
-            this.Shader_DOF_focalLength_trackBar.TickFrequency = 2000;
-            this.Shader_DOF_focalLength_trackBar.Value = 1000;
-            this.Shader_DOF_focalLength_trackBar.Scroll += new System.EventHandler(this.Shader_DOF_SyncData);
-            // 
-            // Shader_DOF_Enable_checkBox
-            // 
-            this.Shader_DOF_Enable_checkBox.AutoSize = true;
-            this.Shader_DOF_Enable_checkBox.Location = new System.Drawing.Point(312, 6);
-            this.Shader_DOF_Enable_checkBox.Name = "Shader_DOF_Enable_checkBox";
-            this.Shader_DOF_Enable_checkBox.Size = new System.Drawing.Size(67, 24);
-            this.Shader_DOF_Enable_checkBox.TabIndex = 1;
-            this.Shader_DOF_Enable_checkBox.Text = "有効";
-            this.Shader_DOF_Enable_checkBox.UseVisualStyleBackColor = true;
-            this.Shader_DOF_Enable_checkBox.CheckedChanged += new System.EventHandler(this.Shader_DOF_SyncData);
-            // 
-            // Fog
-            // 
-            this.Fog.Controls.Add(this.Shader_Fog_Reset_button);
-            this.Fog.Controls.Add(this.label30);
-            this.Fog.Controls.Add(this.Shader_Fog_globalFogColor_pictureBox);
-            this.Fog.Controls.Add(this.Shader_Fog_Enable_checkBox);
-            this.Fog.Controls.Add(this.label25);
-            this.Fog.Controls.Add(this.Shader_Fog_height_trackBar);
-            this.Fog.Controls.Add(this.label26);
-            this.Fog.Controls.Add(this.Shader_Fog_heightScale_trackBar);
-            this.Fog.Controls.Add(this.label27);
-            this.Fog.Controls.Add(this.Shader_Fog_globalDensity_trackBar);
-            this.Fog.Controls.Add(this.label28);
-            this.Fog.Controls.Add(this.Shader_Fog_startDistance_trackBar);
-            this.Fog.Location = new System.Drawing.Point(4, 29);
-            this.Fog.Name = "Fog";
-            this.Fog.Size = new System.Drawing.Size(385, 305);
-            this.Fog.TabIndex = 4;
-            this.Fog.Text = "フォグ";
-            this.Fog.UseVisualStyleBackColor = true;
-            // 
-            // Shader_Fog_Reset_button
-            // 
-            this.Shader_Fog_Reset_button.Location = new System.Drawing.Point(267, 252);
-            this.Shader_Fog_Reset_button.Name = "Shader_Fog_Reset_button";
-            this.Shader_Fog_Reset_button.Size = new System.Drawing.Size(106, 34);
-            this.Shader_Fog_Reset_button.TabIndex = 234;
-            this.Shader_Fog_Reset_button.Text = "リセット";
-            this.Shader_Fog_Reset_button.UseVisualStyleBackColor = true;
-            this.Shader_Fog_Reset_button.Click += new System.EventHandler(this.Shader_Fog_Reset_button_Click);
-            // 
-            // label30
-            // 
-            this.label30.AutoSize = true;
-            this.label30.ForeColor = System.Drawing.Color.Black;
-            this.label30.Location = new System.Drawing.Point(9, 188);
-            this.label30.Name = "label30";
-            this.label30.Size = new System.Drawing.Size(89, 20);
-            this.label30.TabIndex = 231;
-            this.label30.Text = "フォグの色";
-            // 
-            // Shader_Fog_globalFogColor_pictureBox
-            // 
-            this.Shader_Fog_globalFogColor_pictureBox.BackColor = System.Drawing.Color.White;
-            this.Shader_Fog_globalFogColor_pictureBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.Shader_Fog_globalFogColor_pictureBox.Location = new System.Drawing.Point(124, 180);
-            this.Shader_Fog_globalFogColor_pictureBox.Name = "Shader_Fog_globalFogColor_pictureBox";
-            this.Shader_Fog_globalFogColor_pictureBox.Size = new System.Drawing.Size(78, 36);
-            this.Shader_Fog_globalFogColor_pictureBox.TabIndex = 195;
-            this.Shader_Fog_globalFogColor_pictureBox.TabStop = false;
-            this.Shader_Fog_globalFogColor_pictureBox.Click += new System.EventHandler(this.Shader_Fog_globalFogColor_pictureBox_Click);
-            // 
-            // Shader_Fog_Enable_checkBox
-            // 
-            this.Shader_Fog_Enable_checkBox.AutoSize = true;
-            this.Shader_Fog_Enable_checkBox.Location = new System.Drawing.Point(312, 6);
-            this.Shader_Fog_Enable_checkBox.Name = "Shader_Fog_Enable_checkBox";
-            this.Shader_Fog_Enable_checkBox.Size = new System.Drawing.Size(67, 24);
-            this.Shader_Fog_Enable_checkBox.TabIndex = 230;
-            this.Shader_Fog_Enable_checkBox.Text = "有効";
-            this.Shader_Fog_Enable_checkBox.UseVisualStyleBackColor = true;
-            this.Shader_Fog_Enable_checkBox.Click += new System.EventHandler(this.Shader_Fog_SyncData);
-            // 
-            // label25
-            // 
-            this.label25.AutoSize = true;
-            this.label25.ForeColor = System.Drawing.Color.Black;
-            this.label25.Location = new System.Drawing.Point(202, 94);
-            this.label25.Name = "label25";
-            this.label25.Size = new System.Drawing.Size(41, 20);
-            this.label25.TabIndex = 229;
-            this.label25.Text = "高さ";
-            // 
-            // Shader_Fog_height_trackBar
-            // 
-            this.Shader_Fog_height_trackBar.AutoSize = false;
-            this.Shader_Fog_height_trackBar.LargeChange = 100;
-            this.Shader_Fog_height_trackBar.Location = new System.Drawing.Point(202, 130);
-            this.Shader_Fog_height_trackBar.Maximum = 100000;
-            this.Shader_Fog_height_trackBar.Minimum = -100000;
-            this.Shader_Fog_height_trackBar.Name = "Shader_Fog_height_trackBar";
-            this.Shader_Fog_height_trackBar.Size = new System.Drawing.Size(170, 27);
-            this.Shader_Fog_height_trackBar.TabIndex = 228;
-            this.Shader_Fog_height_trackBar.TickFrequency = 50000;
-            this.Shader_Fog_height_trackBar.Value = 250;
-            this.Shader_Fog_height_trackBar.Scroll += new System.EventHandler(this.Shader_Fog_SyncData);
-            // 
-            // label26
-            // 
-            this.label26.AutoSize = true;
-            this.label26.ForeColor = System.Drawing.Color.Black;
-            this.label26.Location = new System.Drawing.Point(9, 94);
-            this.label26.Name = "label26";
-            this.label26.Size = new System.Drawing.Size(105, 20);
-            this.label26.TabIndex = 227;
-            this.label26.Text = "フェード强度";
-            // 
-            // Shader_Fog_heightScale_trackBar
-            // 
-            this.Shader_Fog_heightScale_trackBar.AutoSize = false;
-            this.Shader_Fog_heightScale_trackBar.LargeChange = 100;
-            this.Shader_Fog_heightScale_trackBar.Location = new System.Drawing.Point(10, 130);
-            this.Shader_Fog_heightScale_trackBar.Maximum = 100000;
-            this.Shader_Fog_heightScale_trackBar.Minimum = -50000;
-            this.Shader_Fog_heightScale_trackBar.Name = "Shader_Fog_heightScale_trackBar";
-            this.Shader_Fog_heightScale_trackBar.Size = new System.Drawing.Size(170, 27);
-            this.Shader_Fog_heightScale_trackBar.TabIndex = 226;
-            this.Shader_Fog_heightScale_trackBar.TickFrequency = 50000;
-            this.Shader_Fog_heightScale_trackBar.Value = 5000;
-            this.Shader_Fog_heightScale_trackBar.Scroll += new System.EventHandler(this.Shader_Fog_SyncData);
-            // 
-            // label27
-            // 
-            this.label27.AutoSize = true;
-            this.label27.ForeColor = System.Drawing.Color.Black;
-            this.label27.Location = new System.Drawing.Point(202, 10);
-            this.label27.Name = "label27";
-            this.label27.Size = new System.Drawing.Size(41, 20);
-            this.label27.TabIndex = 225;
-            this.label27.Text = "密度";
-            // 
-            // Shader_Fog_globalDensity_trackBar
-            // 
-            this.Shader_Fog_globalDensity_trackBar.AutoSize = false;
-            this.Shader_Fog_globalDensity_trackBar.LargeChange = 100;
-            this.Shader_Fog_globalDensity_trackBar.Location = new System.Drawing.Point(202, 45);
-            this.Shader_Fog_globalDensity_trackBar.Maximum = 10000;
-            this.Shader_Fog_globalDensity_trackBar.Name = "Shader_Fog_globalDensity_trackBar";
-            this.Shader_Fog_globalDensity_trackBar.Size = new System.Drawing.Size(170, 27);
-            this.Shader_Fog_globalDensity_trackBar.TabIndex = 224;
-            this.Shader_Fog_globalDensity_trackBar.TickFrequency = 2500;
-            this.Shader_Fog_globalDensity_trackBar.Value = 2500;
-            this.Shader_Fog_globalDensity_trackBar.Scroll += new System.EventHandler(this.Shader_Fog_SyncData);
-            // 
-            // label28
-            // 
-            this.label28.AutoSize = true;
-            this.label28.ForeColor = System.Drawing.Color.Black;
-            this.label28.Location = new System.Drawing.Point(9, 10);
-            this.label28.Name = "label28";
-            this.label28.Size = new System.Drawing.Size(73, 20);
-            this.label28.TabIndex = 223;
-            this.label28.Text = "発生距離";
-            // 
-            // Shader_Fog_startDistance_trackBar
-            // 
-            this.Shader_Fog_startDistance_trackBar.AutoSize = false;
-            this.Shader_Fog_startDistance_trackBar.LargeChange = 100;
-            this.Shader_Fog_startDistance_trackBar.Location = new System.Drawing.Point(10, 45);
-            this.Shader_Fog_startDistance_trackBar.Maximum = 10000;
-            this.Shader_Fog_startDistance_trackBar.Name = "Shader_Fog_startDistance_trackBar";
-            this.Shader_Fog_startDistance_trackBar.Size = new System.Drawing.Size(170, 27);
-            this.Shader_Fog_startDistance_trackBar.TabIndex = 222;
-            this.Shader_Fog_startDistance_trackBar.TickFrequency = 5000;
-            this.Shader_Fog_startDistance_trackBar.Value = 2500;
-            this.Shader_Fog_startDistance_trackBar.Scroll += new System.EventHandler(this.Shader_Fog_SyncData);
-            // 
-            // Bloom
-            // 
-            this.Bloom.Controls.Add(this.Shader_Sepia_Enable_checkbox);
-            this.Bloom.Controls.Add(this.label17);
-            this.Bloom.Controls.Add(this.Shader_Bloom_bloomBlurIterations_trackBar);
-            this.Bloom.Controls.Add(this.Shader_Bloom_screenBlendMode_comboBox);
-            this.Bloom.Controls.Add(this.label16);
-            this.Bloom.Controls.Add(this.Shader_Bloom_BloomQuality_comboBox);
-            this.Bloom.Controls.Add(this.label15);
-            this.Bloom.Controls.Add(this.Shader_Bloom_Reset_Button);
-            this.Bloom.Controls.Add(this.label9);
-            this.Bloom.Controls.Add(this.Shader_Bloom_sepBlurSpread_trackBar);
-            this.Bloom.ForeColor = System.Drawing.Color.Black;
-            this.Bloom.Location = new System.Drawing.Point(4, 29);
-            this.Bloom.Name = "Bloom";
-            this.Bloom.Padding = new System.Windows.Forms.Padding(3);
-            this.Bloom.Size = new System.Drawing.Size(385, 305);
-            this.Bloom.TabIndex = 0;
-            this.Bloom.Text = "発光";
-            this.Bloom.UseVisualStyleBackColor = true;
-            // 
-            // Shader_Sepia_Enable_checkbox
-            // 
-            this.Shader_Sepia_Enable_checkbox.AutoSize = true;
-            this.Shader_Sepia_Enable_checkbox.Location = new System.Drawing.Point(14, 261);
-            this.Shader_Sepia_Enable_checkbox.Name = "Shader_Sepia_Enable_checkbox";
-            this.Shader_Sepia_Enable_checkbox.Size = new System.Drawing.Size(83, 24);
-            this.Shader_Sepia_Enable_checkbox.TabIndex = 224;
-            this.Shader_Sepia_Enable_checkbox.Text = "セピア";
-            this.Shader_Sepia_Enable_checkbox.UseVisualStyleBackColor = true;
-            this.Shader_Sepia_Enable_checkbox.CheckedChanged += new System.EventHandler(this.Shader_Sepia_Enable_checkbox_CheckedChanged);
-            // 
-            // label17
-            // 
-            this.label17.AutoSize = true;
-            this.label17.ForeColor = System.Drawing.Color.Black;
-            this.label17.Location = new System.Drawing.Point(9, 94);
-            this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(41, 20);
-            this.label17.TabIndex = 223;
-            this.label17.Text = "反復";
-            // 
-            // Shader_Bloom_bloomBlurIterations_trackBar
-            // 
-            this.Shader_Bloom_bloomBlurIterations_trackBar.AutoSize = false;
-            this.Shader_Bloom_bloomBlurIterations_trackBar.LargeChange = 100;
-            this.Shader_Bloom_bloomBlurIterations_trackBar.Location = new System.Drawing.Point(10, 130);
-            this.Shader_Bloom_bloomBlurIterations_trackBar.Name = "Shader_Bloom_bloomBlurIterations_trackBar";
-            this.Shader_Bloom_bloomBlurIterations_trackBar.Size = new System.Drawing.Size(170, 27);
-            this.Shader_Bloom_bloomBlurIterations_trackBar.TabIndex = 222;
-            this.Shader_Bloom_bloomBlurIterations_trackBar.Value = 2;
-            this.Shader_Bloom_bloomBlurIterations_trackBar.Scroll += new System.EventHandler(this.Shader_Bloom_SyncData);
-            // 
-            // Shader_Bloom_screenBlendMode_comboBox
-            // 
-            this.Shader_Bloom_screenBlendMode_comboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.Shader_Bloom_screenBlendMode_comboBox.FormattingEnabled = true;
-            this.Shader_Bloom_screenBlendMode_comboBox.Items.AddRange(new object[] {
-            "画面",
-            "追加"});
-            this.Shader_Bloom_screenBlendMode_comboBox.Location = new System.Drawing.Point(206, 44);
-            this.Shader_Bloom_screenBlendMode_comboBox.Name = "Shader_Bloom_screenBlendMode_comboBox";
-            this.Shader_Bloom_screenBlendMode_comboBox.Size = new System.Drawing.Size(170, 28);
-            this.Shader_Bloom_screenBlendMode_comboBox.TabIndex = 221;
-            this.Shader_Bloom_screenBlendMode_comboBox.SelectedIndexChanged += new System.EventHandler(this.Shader_Bloom_SyncData);
-            // 
-            // label16
-            // 
-            this.label16.AutoSize = true;
-            this.label16.ForeColor = System.Drawing.Color.Black;
-            this.label16.Location = new System.Drawing.Point(208, 10);
-            this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(121, 20);
-            this.label16.TabIndex = 220;
-            this.label16.Text = "ブレンドモード";
-            // 
-            // Shader_Bloom_BloomQuality_comboBox
-            // 
-            this.Shader_Bloom_BloomQuality_comboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.Shader_Bloom_BloomQuality_comboBox.FormattingEnabled = true;
-            this.Shader_Bloom_BloomQuality_comboBox.Items.AddRange(new object[] {
-            "安い",
-            "高い"});
-            this.Shader_Bloom_BloomQuality_comboBox.Location = new System.Drawing.Point(206, 130);
-            this.Shader_Bloom_BloomQuality_comboBox.Name = "Shader_Bloom_BloomQuality_comboBox";
-            this.Shader_Bloom_BloomQuality_comboBox.Size = new System.Drawing.Size(170, 28);
-            this.Shader_Bloom_BloomQuality_comboBox.TabIndex = 219;
-            this.Shader_Bloom_BloomQuality_comboBox.SelectedIndexChanged += new System.EventHandler(this.Shader_Bloom_SyncData);
-            // 
-            // label15
-            // 
-            this.label15.AutoSize = true;
-            this.label15.ForeColor = System.Drawing.Color.Black;
-            this.label15.Location = new System.Drawing.Point(208, 94);
-            this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(105, 20);
-            this.label15.TabIndex = 218;
-            this.label15.Text = "ブルーム品質";
-            // 
-            // Shader_Bloom_Reset_Button
-            // 
-            this.Shader_Bloom_Reset_Button.Location = new System.Drawing.Point(267, 252);
-            this.Shader_Bloom_Reset_Button.Name = "Shader_Bloom_Reset_Button";
-            this.Shader_Bloom_Reset_Button.Size = new System.Drawing.Size(106, 34);
-            this.Shader_Bloom_Reset_Button.TabIndex = 198;
-            this.Shader_Bloom_Reset_Button.Text = "リセット";
-            this.Shader_Bloom_Reset_Button.UseVisualStyleBackColor = true;
-            this.Shader_Bloom_Reset_Button.Click += new System.EventHandler(this.Shader_Bloom_Reset_Button_Click);
-            // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.ForeColor = System.Drawing.Color.Black;
-            this.label9.Location = new System.Drawing.Point(9, 10);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(41, 20);
-            this.label9.TabIndex = 213;
-            this.label9.Text = "拡散";
-            // 
-            // Shader_Bloom_sepBlurSpread_trackBar
-            // 
-            this.Shader_Bloom_sepBlurSpread_trackBar.AutoSize = false;
-            this.Shader_Bloom_sepBlurSpread_trackBar.LargeChange = 100;
-            this.Shader_Bloom_sepBlurSpread_trackBar.Location = new System.Drawing.Point(10, 45);
-            this.Shader_Bloom_sepBlurSpread_trackBar.Maximum = 1000;
-            this.Shader_Bloom_sepBlurSpread_trackBar.Name = "Shader_Bloom_sepBlurSpread_trackBar";
-            this.Shader_Bloom_sepBlurSpread_trackBar.Size = new System.Drawing.Size(170, 27);
-            this.Shader_Bloom_sepBlurSpread_trackBar.TabIndex = 212;
-            this.Shader_Bloom_sepBlurSpread_trackBar.TickFrequency = 250;
-            this.Shader_Bloom_sepBlurSpread_trackBar.Value = 250;
-            this.Shader_Bloom_sepBlurSpread_trackBar.Scroll += new System.EventHandler(this.Shader_Bloom_SyncData);
-            // 
-            // Blur
-            // 
-            this.Blur.Controls.Add(this.label18);
-            this.Blur.Controls.Add(this.Shader_Blur_blurIterations_trackBar);
-            this.Blur.Controls.Add(this.label19);
-            this.Blur.Controls.Add(this.Shader_Blur_blurSize_trackBar);
-            this.Blur.Controls.Add(this.Shader_Blur_Enable_checkbox);
-            this.Blur.Location = new System.Drawing.Point(4, 29);
-            this.Blur.Name = "Blur";
-            this.Blur.Size = new System.Drawing.Size(385, 305);
-            this.Blur.TabIndex = 2;
-            this.Blur.Text = "ぼかし";
-            this.Blur.UseVisualStyleBackColor = true;
-            // 
-            // label18
-            // 
-            this.label18.AutoSize = true;
-            this.label18.ForeColor = System.Drawing.Color.Black;
-            this.label18.Location = new System.Drawing.Point(202, 10);
-            this.label18.Name = "label18";
-            this.label18.Size = new System.Drawing.Size(41, 20);
-            this.label18.TabIndex = 227;
-            this.label18.Text = "反復";
-            // 
-            // Shader_Blur_blurIterations_trackBar
-            // 
-            this.Shader_Blur_blurIterations_trackBar.AutoSize = false;
-            this.Shader_Blur_blurIterations_trackBar.LargeChange = 100;
-            this.Shader_Blur_blurIterations_trackBar.Location = new System.Drawing.Point(202, 45);
-            this.Shader_Blur_blurIterations_trackBar.Maximum = 4;
-            this.Shader_Blur_blurIterations_trackBar.Minimum = 1;
-            this.Shader_Blur_blurIterations_trackBar.Name = "Shader_Blur_blurIterations_trackBar";
-            this.Shader_Blur_blurIterations_trackBar.Size = new System.Drawing.Size(170, 27);
-            this.Shader_Blur_blurIterations_trackBar.TabIndex = 226;
-            this.Shader_Blur_blurIterations_trackBar.Value = 2;
-            this.Shader_Blur_blurIterations_trackBar.Scroll += new System.EventHandler(this.Shader_Blur_SyncData);
-            // 
-            // label19
-            // 
-            this.label19.AutoSize = true;
-            this.label19.ForeColor = System.Drawing.Color.Black;
-            this.label19.Location = new System.Drawing.Point(9, 10);
-            this.label19.Name = "label19";
-            this.label19.Size = new System.Drawing.Size(57, 20);
-            this.label19.TabIndex = 225;
-            this.label19.Text = "サイズ";
-            // 
-            // Shader_Blur_blurSize_trackBar
-            // 
-            this.Shader_Blur_blurSize_trackBar.AutoSize = false;
-            this.Shader_Blur_blurSize_trackBar.LargeChange = 100;
-            this.Shader_Blur_blurSize_trackBar.Location = new System.Drawing.Point(10, 45);
-            this.Shader_Blur_blurSize_trackBar.Maximum = 1000;
-            this.Shader_Blur_blurSize_trackBar.Name = "Shader_Blur_blurSize_trackBar";
-            this.Shader_Blur_blurSize_trackBar.Size = new System.Drawing.Size(170, 27);
-            this.Shader_Blur_blurSize_trackBar.TabIndex = 224;
-            this.Shader_Blur_blurSize_trackBar.TickFrequency = 250;
-            this.Shader_Blur_blurSize_trackBar.Value = 250;
-            this.Shader_Blur_blurSize_trackBar.Scroll += new System.EventHandler(this.Shader_Blur_SyncData);
-            // 
-            // Shader_Blur_Enable_checkbox
-            // 
-            this.Shader_Blur_Enable_checkbox.AutoSize = true;
-            this.Shader_Blur_Enable_checkbox.Location = new System.Drawing.Point(312, 6);
-            this.Shader_Blur_Enable_checkbox.Name = "Shader_Blur_Enable_checkbox";
-            this.Shader_Blur_Enable_checkbox.Size = new System.Drawing.Size(67, 24);
-            this.Shader_Blur_Enable_checkbox.TabIndex = 1;
-            this.Shader_Blur_Enable_checkbox.Text = "有効";
-            this.Shader_Blur_Enable_checkbox.UseVisualStyleBackColor = true;
-            this.Shader_Blur_Enable_checkbox.CheckedChanged += new System.EventHandler(this.Shader_Blur_SyncData);
-            // 
-            // MessageWindow
-            // 
-            this.MessageWindow.Controls.Add(this.MessageWindow_text_textBox);
-            this.MessageWindow.Controls.Add(this.MessageWindow_maidname_textBox);
-            this.MessageWindow.Controls.Add(this.MessageWindow_maidname_comboBox);
-            this.MessageWindow.Controls.Add(this.MessageWindow_enable_checkBox);
-            this.MessageWindow.Controls.Add(this.label38);
-            this.MessageWindow.Location = new System.Drawing.Point(4, 29);
-            this.MessageWindow.Name = "MessageWindow";
-            this.MessageWindow.Size = new System.Drawing.Size(385, 305);
-            this.MessageWindow.TabIndex = 6;
-            this.MessageWindow.Text = "対話";
-            this.MessageWindow.UseVisualStyleBackColor = true;
-            // 
-            // MessageWindow_text_textBox
-            // 
-            this.MessageWindow_text_textBox.Location = new System.Drawing.Point(10, 76);
-            this.MessageWindow_text_textBox.Multiline = true;
-            this.MessageWindow_text_textBox.Name = "MessageWindow_text_textBox";
-            this.MessageWindow_text_textBox.ScrollBars = System.Windows.Forms.ScrollBars.Horizontal;
-            this.MessageWindow_text_textBox.Size = new System.Drawing.Size(362, 100);
-            this.MessageWindow_text_textBox.TabIndex = 202;
-            this.MessageWindow_text_textBox.Text = "こんにちは\r\n初めまして、どうぞよろしくお願いいたします。";
-            // 
-            // MessageWindow_maidname_textBox
-            // 
-            this.MessageWindow_maidname_textBox.Location = new System.Drawing.Point(156, 44);
-            this.MessageWindow_maidname_textBox.Name = "MessageWindow_maidname_textBox";
-            this.MessageWindow_maidname_textBox.Size = new System.Drawing.Size(217, 26);
-            this.MessageWindow_maidname_textBox.TabIndex = 201;
-            this.MessageWindow_maidname_textBox.Text = "システム";
-            // 
-            // MessageWindow_maidname_comboBox
-            // 
-            this.MessageWindow_maidname_comboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.MessageWindow_maidname_comboBox.FormattingEnabled = true;
-            this.MessageWindow_maidname_comboBox.Items.AddRange(new object[] {
-            "呼び出し名",
-            "名",
-            "苗字",
-            "カスタム"});
-            this.MessageWindow_maidname_comboBox.Location = new System.Drawing.Point(10, 42);
-            this.MessageWindow_maidname_comboBox.Name = "MessageWindow_maidname_comboBox";
-            this.MessageWindow_maidname_comboBox.Size = new System.Drawing.Size(140, 28);
-            this.MessageWindow_maidname_comboBox.TabIndex = 200;
-            // 
-            // MessageWindow_enable_checkBox
-            // 
-            this.MessageWindow_enable_checkBox.AutoSize = true;
-            this.MessageWindow_enable_checkBox.Location = new System.Drawing.Point(312, 6);
-            this.MessageWindow_enable_checkBox.Name = "MessageWindow_enable_checkBox";
-            this.MessageWindow_enable_checkBox.Size = new System.Drawing.Size(67, 24);
-            this.MessageWindow_enable_checkBox.TabIndex = 199;
-            this.MessageWindow_enable_checkBox.Text = "有効";
-            this.MessageWindow_enable_checkBox.UseVisualStyleBackColor = true;
-            this.MessageWindow_enable_checkBox.CheckedChanged += new System.EventHandler(this.MessageWindow_enable_checkBox_CheckedChanged);
-            // 
-            // label38
-            // 
-            this.label38.AutoSize = true;
-            this.label38.Location = new System.Drawing.Point(6, 10);
-            this.label38.Name = "label38";
-            this.label38.Size = new System.Drawing.Size(169, 20);
-            this.label38.TabIndex = 198;
-            this.label38.Text = "メッセージウィンドウ";
-            // 
-            // Light
-            // 
-            this.Light.Controls.Add(this.tabControl3);
-            this.Light.Location = new System.Drawing.Point(4, 29);
-            this.Light.Name = "Light";
-            this.Light.Size = new System.Drawing.Size(385, 305);
-            this.Light.TabIndex = 5;
-            this.Light.Text = "光源";
-            this.Light.UseVisualStyleBackColor = true;
+            // LightSource
+            // 
+            this.LightSource.Controls.Add(this.tabControl3);
+            this.LightSource.Location = new System.Drawing.Point(4, 29);
+            this.LightSource.Name = "LightSource";
+            this.LightSource.Size = new System.Drawing.Size(385, 365);
+            this.LightSource.TabIndex = 2;
+            this.LightSource.Text = "光源";
+            this.LightSource.UseVisualStyleBackColor = true;
             // 
             // tabControl3
             // 
             this.tabControl3.Controls.Add(this.mainlight_tabPage1);
             this.tabControl3.Controls.Add(this.sublight_tabPage2);
-            this.tabControl3.Location = new System.Drawing.Point(6, 12);
+            this.tabControl3.Location = new System.Drawing.Point(6, 15);
             this.tabControl3.Name = "tabControl3";
             this.tabControl3.SelectedIndex = 0;
             this.tabControl3.Size = new System.Drawing.Size(376, 290);
@@ -5891,6 +6461,729 @@ namespace COM3D2.EnhancedMaidEditScene.Plugin
             this.label37.Size = new System.Drawing.Size(41, 20);
             this.label37.TabIndex = 156;
             this.label37.Text = "範囲";
+            // 
+            // tabControl2
+            // 
+            this.tabControl2.Controls.Add(this.DOF);
+            this.tabControl2.Controls.Add(this.Fog);
+            this.tabControl2.Controls.Add(this.Bloom);
+            this.tabControl2.Controls.Add(this.Vignette);
+            this.tabControl2.Controls.Add(this.MessageWindow);
+            this.tabControl2.Location = new System.Drawing.Point(6, 678);
+            this.tabControl2.Name = "tabControl2";
+            this.tabControl2.SelectedIndex = 0;
+            this.tabControl2.Size = new System.Drawing.Size(393, 338);
+            this.tabControl2.TabIndex = 42;
+            // 
+            // DOF
+            // 
+            this.DOF.Controls.Add(this.Shader_DOF_blurType_comboBox);
+            this.DOF.Controls.Add(this.label24);
+            this.DOF.Controls.Add(this.Shader_DOF_visualizeFocus_checkBox);
+            this.DOF.Controls.Add(this.label22);
+            this.DOF.Controls.Add(this.Shader_DOF_maxBlurSize_trackBar);
+            this.DOF.Controls.Add(this.label23);
+            this.DOF.Controls.Add(this.Shader_DOF_aperture_trackBar);
+            this.DOF.Controls.Add(this.label21);
+            this.DOF.Controls.Add(this.Shader_DOF_focalSize_trackBar);
+            this.DOF.Controls.Add(this.label20);
+            this.DOF.Controls.Add(this.Shader_DOF_focalLength_trackBar);
+            this.DOF.Controls.Add(this.Shader_DOF_Enable_checkBox);
+            this.DOF.Location = new System.Drawing.Point(4, 29);
+            this.DOF.Name = "DOF";
+            this.DOF.Padding = new System.Windows.Forms.Padding(3);
+            this.DOF.Size = new System.Drawing.Size(385, 305);
+            this.DOF.TabIndex = 1;
+            this.DOF.Text = "深度";
+            this.DOF.UseVisualStyleBackColor = true;
+            // 
+            // Shader_DOF_blurType_comboBox
+            // 
+            this.Shader_DOF_blurType_comboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.Shader_DOF_blurType_comboBox.FormattingEnabled = true;
+            this.Shader_DOF_blurType_comboBox.Items.AddRange(new object[] {
+            "DiscBlur",
+            "DX11"});
+            this.Shader_DOF_blurType_comboBox.Location = new System.Drawing.Point(202, 129);
+            this.Shader_DOF_blurType_comboBox.Name = "Shader_DOF_blurType_comboBox";
+            this.Shader_DOF_blurType_comboBox.Size = new System.Drawing.Size(170, 28);
+            this.Shader_DOF_blurType_comboBox.TabIndex = 224;
+            this.Shader_DOF_blurType_comboBox.SelectedIndexChanged += new System.EventHandler(this.Shader_DOF_SyncData);
+            // 
+            // label24
+            // 
+            this.label24.AutoSize = true;
+            this.label24.ForeColor = System.Drawing.Color.Black;
+            this.label24.Location = new System.Drawing.Point(208, 94);
+            this.label24.Name = "label24";
+            this.label24.Size = new System.Drawing.Size(105, 20);
+            this.label24.TabIndex = 223;
+            this.label24.Text = "ぼかしタイプ";
+            // 
+            // Shader_DOF_visualizeFocus_checkBox
+            // 
+            this.Shader_DOF_visualizeFocus_checkBox.AutoSize = true;
+            this.Shader_DOF_visualizeFocus_checkBox.Location = new System.Drawing.Point(14, 262);
+            this.Shader_DOF_visualizeFocus_checkBox.Name = "Shader_DOF_visualizeFocus_checkBox";
+            this.Shader_DOF_visualizeFocus_checkBox.Size = new System.Drawing.Size(99, 24);
+            this.Shader_DOF_visualizeFocus_checkBox.TabIndex = 222;
+            this.Shader_DOF_visualizeFocus_checkBox.Text = "深度表示";
+            this.Shader_DOF_visualizeFocus_checkBox.UseVisualStyleBackColor = true;
+            this.Shader_DOF_visualizeFocus_checkBox.CheckedChanged += new System.EventHandler(this.Shader_DOF_SyncData);
+            // 
+            // label22
+            // 
+            this.label22.AutoSize = true;
+            this.label22.ForeColor = System.Drawing.Color.Black;
+            this.label22.Location = new System.Drawing.Point(202, 176);
+            this.label22.Name = "label22";
+            this.label22.Size = new System.Drawing.Size(73, 20);
+            this.label22.TabIndex = 221;
+            this.label22.Text = "ブレ強度";
+            // 
+            // Shader_DOF_maxBlurSize_trackBar
+            // 
+            this.Shader_DOF_maxBlurSize_trackBar.AutoSize = false;
+            this.Shader_DOF_maxBlurSize_trackBar.LargeChange = 100;
+            this.Shader_DOF_maxBlurSize_trackBar.Location = new System.Drawing.Point(202, 212);
+            this.Shader_DOF_maxBlurSize_trackBar.Maximum = 10000;
+            this.Shader_DOF_maxBlurSize_trackBar.Name = "Shader_DOF_maxBlurSize_trackBar";
+            this.Shader_DOF_maxBlurSize_trackBar.Size = new System.Drawing.Size(170, 27);
+            this.Shader_DOF_maxBlurSize_trackBar.TabIndex = 220;
+            this.Shader_DOF_maxBlurSize_trackBar.TickFrequency = 2500;
+            this.Shader_DOF_maxBlurSize_trackBar.Value = 2500;
+            this.Shader_DOF_maxBlurSize_trackBar.Scroll += new System.EventHandler(this.Shader_DOF_SyncData);
+            // 
+            // label23
+            // 
+            this.label23.AutoSize = true;
+            this.label23.ForeColor = System.Drawing.Color.Black;
+            this.label23.Location = new System.Drawing.Point(9, 176);
+            this.label23.Name = "label23";
+            this.label23.Size = new System.Drawing.Size(89, 20);
+            this.label23.TabIndex = 219;
+            this.label23.Text = "カメラ絞り";
+            // 
+            // Shader_DOF_aperture_trackBar
+            // 
+            this.Shader_DOF_aperture_trackBar.AutoSize = false;
+            this.Shader_DOF_aperture_trackBar.LargeChange = 10;
+            this.Shader_DOF_aperture_trackBar.Location = new System.Drawing.Point(10, 212);
+            this.Shader_DOF_aperture_trackBar.Maximum = 60000;
+            this.Shader_DOF_aperture_trackBar.Name = "Shader_DOF_aperture_trackBar";
+            this.Shader_DOF_aperture_trackBar.Size = new System.Drawing.Size(170, 27);
+            this.Shader_DOF_aperture_trackBar.TabIndex = 218;
+            this.Shader_DOF_aperture_trackBar.TickFrequency = 5000;
+            this.Shader_DOF_aperture_trackBar.Value = 5000;
+            this.Shader_DOF_aperture_trackBar.Scroll += new System.EventHandler(this.Shader_DOF_SyncData);
+            // 
+            // label21
+            // 
+            this.label21.AutoSize = true;
+            this.label21.ForeColor = System.Drawing.Color.Black;
+            this.label21.Location = new System.Drawing.Point(9, 94);
+            this.label21.Name = "label21";
+            this.label21.Size = new System.Drawing.Size(121, 20);
+            this.label21.TabIndex = 217;
+            this.label21.Text = "焦点領域サイズ";
+            // 
+            // Shader_DOF_focalSize_trackBar
+            // 
+            this.Shader_DOF_focalSize_trackBar.AutoSize = false;
+            this.Shader_DOF_focalSize_trackBar.LargeChange = 400;
+            this.Shader_DOF_focalSize_trackBar.Location = new System.Drawing.Point(10, 130);
+            this.Shader_DOF_focalSize_trackBar.Maximum = 4000;
+            this.Shader_DOF_focalSize_trackBar.Name = "Shader_DOF_focalSize_trackBar";
+            this.Shader_DOF_focalSize_trackBar.Size = new System.Drawing.Size(170, 27);
+            this.Shader_DOF_focalSize_trackBar.TabIndex = 216;
+            this.Shader_DOF_focalSize_trackBar.TickFrequency = 500;
+            this.Shader_DOF_focalSize_trackBar.Value = 500;
+            this.Shader_DOF_focalSize_trackBar.Scroll += new System.EventHandler(this.Shader_DOF_SyncData);
+            // 
+            // label20
+            // 
+            this.label20.AutoSize = true;
+            this.label20.ForeColor = System.Drawing.Color.Black;
+            this.label20.Location = new System.Drawing.Point(9, 10);
+            this.label20.Name = "label20";
+            this.label20.Size = new System.Drawing.Size(73, 20);
+            this.label20.TabIndex = 215;
+            this.label20.Text = "焦点距離";
+            // 
+            // Shader_DOF_focalLength_trackBar
+            // 
+            this.Shader_DOF_focalLength_trackBar.AutoSize = false;
+            this.Shader_DOF_focalLength_trackBar.LargeChange = 1000;
+            this.Shader_DOF_focalLength_trackBar.Location = new System.Drawing.Point(10, 45);
+            this.Shader_DOF_focalLength_trackBar.Maximum = 10000;
+            this.Shader_DOF_focalLength_trackBar.Name = "Shader_DOF_focalLength_trackBar";
+            this.Shader_DOF_focalLength_trackBar.Size = new System.Drawing.Size(363, 27);
+            this.Shader_DOF_focalLength_trackBar.TabIndex = 214;
+            this.Shader_DOF_focalLength_trackBar.TickFrequency = 2000;
+            this.Shader_DOF_focalLength_trackBar.Value = 1000;
+            this.Shader_DOF_focalLength_trackBar.Scroll += new System.EventHandler(this.Shader_DOF_SyncData);
+            // 
+            // Shader_DOF_Enable_checkBox
+            // 
+            this.Shader_DOF_Enable_checkBox.AutoSize = true;
+            this.Shader_DOF_Enable_checkBox.Location = new System.Drawing.Point(312, 6);
+            this.Shader_DOF_Enable_checkBox.Name = "Shader_DOF_Enable_checkBox";
+            this.Shader_DOF_Enable_checkBox.Size = new System.Drawing.Size(67, 24);
+            this.Shader_DOF_Enable_checkBox.TabIndex = 1;
+            this.Shader_DOF_Enable_checkBox.Text = "有効";
+            this.Shader_DOF_Enable_checkBox.UseVisualStyleBackColor = true;
+            this.Shader_DOF_Enable_checkBox.CheckedChanged += new System.EventHandler(this.Shader_DOF_SyncData);
+            // 
+            // Fog
+            // 
+            this.Fog.Controls.Add(this.Shader_Fog_Reset_button);
+            this.Fog.Controls.Add(this.label30);
+            this.Fog.Controls.Add(this.Shader_Fog_globalFogColor_pictureBox);
+            this.Fog.Controls.Add(this.Shader_Fog_Enable_checkBox);
+            this.Fog.Controls.Add(this.label25);
+            this.Fog.Controls.Add(this.Shader_Fog_height_trackBar);
+            this.Fog.Controls.Add(this.label26);
+            this.Fog.Controls.Add(this.Shader_Fog_heightScale_trackBar);
+            this.Fog.Controls.Add(this.label27);
+            this.Fog.Controls.Add(this.Shader_Fog_globalDensity_trackBar);
+            this.Fog.Controls.Add(this.label28);
+            this.Fog.Controls.Add(this.Shader_Fog_startDistance_trackBar);
+            this.Fog.Location = new System.Drawing.Point(4, 29);
+            this.Fog.Name = "Fog";
+            this.Fog.Size = new System.Drawing.Size(385, 305);
+            this.Fog.TabIndex = 4;
+            this.Fog.Text = "フォグ";
+            this.Fog.UseVisualStyleBackColor = true;
+            // 
+            // Shader_Fog_Reset_button
+            // 
+            this.Shader_Fog_Reset_button.Location = new System.Drawing.Point(266, 163);
+            this.Shader_Fog_Reset_button.Name = "Shader_Fog_Reset_button";
+            this.Shader_Fog_Reset_button.Size = new System.Drawing.Size(106, 34);
+            this.Shader_Fog_Reset_button.TabIndex = 234;
+            this.Shader_Fog_Reset_button.Text = "リセット";
+            this.Shader_Fog_Reset_button.UseVisualStyleBackColor = true;
+            this.Shader_Fog_Reset_button.Click += new System.EventHandler(this.Shader_Fog_Reset_button_Click);
+            // 
+            // label30
+            // 
+            this.label30.AutoSize = true;
+            this.label30.ForeColor = System.Drawing.Color.Black;
+            this.label30.Location = new System.Drawing.Point(9, 170);
+            this.label30.Name = "label30";
+            this.label30.Size = new System.Drawing.Size(89, 20);
+            this.label30.TabIndex = 231;
+            this.label30.Text = "フォグの色";
+            // 
+            // Shader_Fog_globalFogColor_pictureBox
+            // 
+            this.Shader_Fog_globalFogColor_pictureBox.BackColor = System.Drawing.Color.White;
+            this.Shader_Fog_globalFogColor_pictureBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.Shader_Fog_globalFogColor_pictureBox.Location = new System.Drawing.Point(124, 162);
+            this.Shader_Fog_globalFogColor_pictureBox.Name = "Shader_Fog_globalFogColor_pictureBox";
+            this.Shader_Fog_globalFogColor_pictureBox.Size = new System.Drawing.Size(78, 36);
+            this.Shader_Fog_globalFogColor_pictureBox.TabIndex = 195;
+            this.Shader_Fog_globalFogColor_pictureBox.TabStop = false;
+            this.Shader_Fog_globalFogColor_pictureBox.Click += new System.EventHandler(this.Shader_Fog_globalFogColor_pictureBox_Click);
+            // 
+            // Shader_Fog_Enable_checkBox
+            // 
+            this.Shader_Fog_Enable_checkBox.AutoSize = true;
+            this.Shader_Fog_Enable_checkBox.Location = new System.Drawing.Point(312, 6);
+            this.Shader_Fog_Enable_checkBox.Name = "Shader_Fog_Enable_checkBox";
+            this.Shader_Fog_Enable_checkBox.Size = new System.Drawing.Size(67, 24);
+            this.Shader_Fog_Enable_checkBox.TabIndex = 230;
+            this.Shader_Fog_Enable_checkBox.Text = "有効";
+            this.Shader_Fog_Enable_checkBox.UseVisualStyleBackColor = true;
+            this.Shader_Fog_Enable_checkBox.Click += new System.EventHandler(this.Shader_Fog_SyncData);
+            // 
+            // label25
+            // 
+            this.label25.AutoSize = true;
+            this.label25.ForeColor = System.Drawing.Color.Black;
+            this.label25.Location = new System.Drawing.Point(208, 83);
+            this.label25.Name = "label25";
+            this.label25.Size = new System.Drawing.Size(41, 20);
+            this.label25.TabIndex = 229;
+            this.label25.Text = "高さ";
+            // 
+            // Shader_Fog_height_trackBar
+            // 
+            this.Shader_Fog_height_trackBar.AutoSize = false;
+            this.Shader_Fog_height_trackBar.LargeChange = 100;
+            this.Shader_Fog_height_trackBar.Location = new System.Drawing.Point(202, 119);
+            this.Shader_Fog_height_trackBar.Maximum = 100000;
+            this.Shader_Fog_height_trackBar.Minimum = -100000;
+            this.Shader_Fog_height_trackBar.Name = "Shader_Fog_height_trackBar";
+            this.Shader_Fog_height_trackBar.Size = new System.Drawing.Size(170, 27);
+            this.Shader_Fog_height_trackBar.TabIndex = 228;
+            this.Shader_Fog_height_trackBar.TickFrequency = 50000;
+            this.Shader_Fog_height_trackBar.Value = 250;
+            this.Shader_Fog_height_trackBar.Scroll += new System.EventHandler(this.Shader_Fog_SyncData);
+            // 
+            // label26
+            // 
+            this.label26.AutoSize = true;
+            this.label26.ForeColor = System.Drawing.Color.Black;
+            this.label26.Location = new System.Drawing.Point(9, 83);
+            this.label26.Name = "label26";
+            this.label26.Size = new System.Drawing.Size(105, 20);
+            this.label26.TabIndex = 227;
+            this.label26.Text = "フェード强度";
+            // 
+            // Shader_Fog_heightScale_trackBar
+            // 
+            this.Shader_Fog_heightScale_trackBar.AutoSize = false;
+            this.Shader_Fog_heightScale_trackBar.LargeChange = 100;
+            this.Shader_Fog_heightScale_trackBar.Location = new System.Drawing.Point(10, 119);
+            this.Shader_Fog_heightScale_trackBar.Maximum = 100000;
+            this.Shader_Fog_heightScale_trackBar.Minimum = -50000;
+            this.Shader_Fog_heightScale_trackBar.Name = "Shader_Fog_heightScale_trackBar";
+            this.Shader_Fog_heightScale_trackBar.Size = new System.Drawing.Size(170, 27);
+            this.Shader_Fog_heightScale_trackBar.TabIndex = 226;
+            this.Shader_Fog_heightScale_trackBar.TickFrequency = 50000;
+            this.Shader_Fog_heightScale_trackBar.Value = 5000;
+            this.Shader_Fog_heightScale_trackBar.Scroll += new System.EventHandler(this.Shader_Fog_SyncData);
+            // 
+            // label27
+            // 
+            this.label27.AutoSize = true;
+            this.label27.ForeColor = System.Drawing.Color.Black;
+            this.label27.Location = new System.Drawing.Point(208, 10);
+            this.label27.Name = "label27";
+            this.label27.Size = new System.Drawing.Size(41, 20);
+            this.label27.TabIndex = 225;
+            this.label27.Text = "密度";
+            // 
+            // Shader_Fog_globalDensity_trackBar
+            // 
+            this.Shader_Fog_globalDensity_trackBar.AutoSize = false;
+            this.Shader_Fog_globalDensity_trackBar.LargeChange = 100;
+            this.Shader_Fog_globalDensity_trackBar.Location = new System.Drawing.Point(202, 45);
+            this.Shader_Fog_globalDensity_trackBar.Maximum = 10000;
+            this.Shader_Fog_globalDensity_trackBar.Name = "Shader_Fog_globalDensity_trackBar";
+            this.Shader_Fog_globalDensity_trackBar.Size = new System.Drawing.Size(170, 27);
+            this.Shader_Fog_globalDensity_trackBar.TabIndex = 224;
+            this.Shader_Fog_globalDensity_trackBar.TickFrequency = 2500;
+            this.Shader_Fog_globalDensity_trackBar.Value = 2500;
+            this.Shader_Fog_globalDensity_trackBar.Scroll += new System.EventHandler(this.Shader_Fog_SyncData);
+            // 
+            // label28
+            // 
+            this.label28.AutoSize = true;
+            this.label28.ForeColor = System.Drawing.Color.Black;
+            this.label28.Location = new System.Drawing.Point(9, 10);
+            this.label28.Name = "label28";
+            this.label28.Size = new System.Drawing.Size(73, 20);
+            this.label28.TabIndex = 223;
+            this.label28.Text = "発生距離";
+            // 
+            // Shader_Fog_startDistance_trackBar
+            // 
+            this.Shader_Fog_startDistance_trackBar.AutoSize = false;
+            this.Shader_Fog_startDistance_trackBar.LargeChange = 100;
+            this.Shader_Fog_startDistance_trackBar.Location = new System.Drawing.Point(10, 45);
+            this.Shader_Fog_startDistance_trackBar.Maximum = 10000;
+            this.Shader_Fog_startDistance_trackBar.Name = "Shader_Fog_startDistance_trackBar";
+            this.Shader_Fog_startDistance_trackBar.Size = new System.Drawing.Size(170, 27);
+            this.Shader_Fog_startDistance_trackBar.TabIndex = 222;
+            this.Shader_Fog_startDistance_trackBar.TickFrequency = 5000;
+            this.Shader_Fog_startDistance_trackBar.Value = 2500;
+            this.Shader_Fog_startDistance_trackBar.Scroll += new System.EventHandler(this.Shader_Fog_SyncData);
+            // 
+            // Bloom
+            // 
+            this.Bloom.Controls.Add(this.Shader_Sepia_Enable_checkbox);
+            this.Bloom.Controls.Add(this.label17);
+            this.Bloom.Controls.Add(this.Shader_Bloom_bloomBlurIterations_trackBar);
+            this.Bloom.Controls.Add(this.Shader_Bloom_screenBlendMode_comboBox);
+            this.Bloom.Controls.Add(this.label16);
+            this.Bloom.Controls.Add(this.Shader_Bloom_BloomQuality_comboBox);
+            this.Bloom.Controls.Add(this.label15);
+            this.Bloom.Controls.Add(this.Shader_Bloom_Reset_Button);
+            this.Bloom.Controls.Add(this.label9);
+            this.Bloom.Controls.Add(this.Shader_Bloom_sepBlurSpread_trackBar);
+            this.Bloom.ForeColor = System.Drawing.Color.Black;
+            this.Bloom.Location = new System.Drawing.Point(4, 29);
+            this.Bloom.Name = "Bloom";
+            this.Bloom.Padding = new System.Windows.Forms.Padding(3);
+            this.Bloom.Size = new System.Drawing.Size(385, 305);
+            this.Bloom.TabIndex = 0;
+            this.Bloom.Text = "発光";
+            this.Bloom.UseVisualStyleBackColor = true;
+            // 
+            // Shader_Sepia_Enable_checkbox
+            // 
+            this.Shader_Sepia_Enable_checkbox.AutoSize = true;
+            this.Shader_Sepia_Enable_checkbox.Location = new System.Drawing.Point(14, 261);
+            this.Shader_Sepia_Enable_checkbox.Name = "Shader_Sepia_Enable_checkbox";
+            this.Shader_Sepia_Enable_checkbox.Size = new System.Drawing.Size(83, 24);
+            this.Shader_Sepia_Enable_checkbox.TabIndex = 224;
+            this.Shader_Sepia_Enable_checkbox.Text = "セピア";
+            this.Shader_Sepia_Enable_checkbox.UseVisualStyleBackColor = true;
+            this.Shader_Sepia_Enable_checkbox.CheckedChanged += new System.EventHandler(this.Shader_Sepia_Enable_checkbox_CheckedChanged);
+            // 
+            // label17
+            // 
+            this.label17.AutoSize = true;
+            this.label17.ForeColor = System.Drawing.Color.Black;
+            this.label17.Location = new System.Drawing.Point(9, 83);
+            this.label17.Name = "label17";
+            this.label17.Size = new System.Drawing.Size(41, 20);
+            this.label17.TabIndex = 223;
+            this.label17.Text = "反復";
+            // 
+            // Shader_Bloom_bloomBlurIterations_trackBar
+            // 
+            this.Shader_Bloom_bloomBlurIterations_trackBar.AutoSize = false;
+            this.Shader_Bloom_bloomBlurIterations_trackBar.LargeChange = 100;
+            this.Shader_Bloom_bloomBlurIterations_trackBar.Location = new System.Drawing.Point(10, 119);
+            this.Shader_Bloom_bloomBlurIterations_trackBar.Name = "Shader_Bloom_bloomBlurIterations_trackBar";
+            this.Shader_Bloom_bloomBlurIterations_trackBar.Size = new System.Drawing.Size(170, 27);
+            this.Shader_Bloom_bloomBlurIterations_trackBar.TabIndex = 222;
+            this.Shader_Bloom_bloomBlurIterations_trackBar.Value = 2;
+            this.Shader_Bloom_bloomBlurIterations_trackBar.Scroll += new System.EventHandler(this.Shader_Bloom_SyncData);
+            // 
+            // Shader_Bloom_screenBlendMode_comboBox
+            // 
+            this.Shader_Bloom_screenBlendMode_comboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.Shader_Bloom_screenBlendMode_comboBox.FormattingEnabled = true;
+            this.Shader_Bloom_screenBlendMode_comboBox.Items.AddRange(new object[] {
+            "画面",
+            "追加"});
+            this.Shader_Bloom_screenBlendMode_comboBox.Location = new System.Drawing.Point(206, 44);
+            this.Shader_Bloom_screenBlendMode_comboBox.Name = "Shader_Bloom_screenBlendMode_comboBox";
+            this.Shader_Bloom_screenBlendMode_comboBox.Size = new System.Drawing.Size(170, 28);
+            this.Shader_Bloom_screenBlendMode_comboBox.TabIndex = 221;
+            this.Shader_Bloom_screenBlendMode_comboBox.SelectedIndexChanged += new System.EventHandler(this.Shader_Bloom_SyncData);
+            // 
+            // label16
+            // 
+            this.label16.AutoSize = true;
+            this.label16.ForeColor = System.Drawing.Color.Black;
+            this.label16.Location = new System.Drawing.Point(208, 10);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(121, 20);
+            this.label16.TabIndex = 220;
+            this.label16.Text = "ブレンドモード";
+            // 
+            // Shader_Bloom_BloomQuality_comboBox
+            // 
+            this.Shader_Bloom_BloomQuality_comboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.Shader_Bloom_BloomQuality_comboBox.FormattingEnabled = true;
+            this.Shader_Bloom_BloomQuality_comboBox.Items.AddRange(new object[] {
+            "安い",
+            "高い"});
+            this.Shader_Bloom_BloomQuality_comboBox.Location = new System.Drawing.Point(206, 119);
+            this.Shader_Bloom_BloomQuality_comboBox.Name = "Shader_Bloom_BloomQuality_comboBox";
+            this.Shader_Bloom_BloomQuality_comboBox.Size = new System.Drawing.Size(170, 28);
+            this.Shader_Bloom_BloomQuality_comboBox.TabIndex = 219;
+            this.Shader_Bloom_BloomQuality_comboBox.SelectedIndexChanged += new System.EventHandler(this.Shader_Bloom_SyncData);
+            // 
+            // label15
+            // 
+            this.label15.AutoSize = true;
+            this.label15.ForeColor = System.Drawing.Color.Black;
+            this.label15.Location = new System.Drawing.Point(208, 83);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(105, 20);
+            this.label15.TabIndex = 218;
+            this.label15.Text = "ブルーム品質";
+            // 
+            // Shader_Bloom_Reset_Button
+            // 
+            this.Shader_Bloom_Reset_Button.Location = new System.Drawing.Point(266, 163);
+            this.Shader_Bloom_Reset_Button.Name = "Shader_Bloom_Reset_Button";
+            this.Shader_Bloom_Reset_Button.Size = new System.Drawing.Size(106, 34);
+            this.Shader_Bloom_Reset_Button.TabIndex = 198;
+            this.Shader_Bloom_Reset_Button.Text = "リセット";
+            this.Shader_Bloom_Reset_Button.UseVisualStyleBackColor = true;
+            this.Shader_Bloom_Reset_Button.Click += new System.EventHandler(this.Shader_Bloom_Reset_Button_Click);
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.ForeColor = System.Drawing.Color.Black;
+            this.label9.Location = new System.Drawing.Point(9, 10);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(41, 20);
+            this.label9.TabIndex = 213;
+            this.label9.Text = "拡散";
+            // 
+            // Shader_Bloom_sepBlurSpread_trackBar
+            // 
+            this.Shader_Bloom_sepBlurSpread_trackBar.AutoSize = false;
+            this.Shader_Bloom_sepBlurSpread_trackBar.LargeChange = 100;
+            this.Shader_Bloom_sepBlurSpread_trackBar.Location = new System.Drawing.Point(10, 45);
+            this.Shader_Bloom_sepBlurSpread_trackBar.Maximum = 1000;
+            this.Shader_Bloom_sepBlurSpread_trackBar.Name = "Shader_Bloom_sepBlurSpread_trackBar";
+            this.Shader_Bloom_sepBlurSpread_trackBar.Size = new System.Drawing.Size(170, 27);
+            this.Shader_Bloom_sepBlurSpread_trackBar.TabIndex = 212;
+            this.Shader_Bloom_sepBlurSpread_trackBar.TickFrequency = 250;
+            this.Shader_Bloom_sepBlurSpread_trackBar.Value = 250;
+            this.Shader_Bloom_sepBlurSpread_trackBar.Scroll += new System.EventHandler(this.Shader_Bloom_SyncData);
+            // 
+            // Vignette
+            // 
+            this.Vignette.Controls.Add(this.label18);
+            this.Vignette.Controls.Add(this.label74);
+            this.Vignette.Controls.Add(this.Shader_Vignetting_blur_trackBar);
+            this.Vignette.Controls.Add(this.Shader_Blur_Enable_checkbox);
+            this.Vignette.Controls.Add(this.Shader_Blur_blurIterations_trackBar);
+            this.Vignette.Controls.Add(this.label76);
+            this.Vignette.Controls.Add(this.Shader_Blur_blurSize_trackBar);
+            this.Vignette.Controls.Add(this.Shader_Vignetting_blurSpread_trackBar);
+            this.Vignette.Controls.Add(this.label19);
+            this.Vignette.Controls.Add(this.Shader_Vignetting_Reset_button);
+            this.Vignette.Controls.Add(this.label71);
+            this.Vignette.Controls.Add(this.Shader_Vignetting_chromaticAberration_trackBar);
+            this.Vignette.Controls.Add(this.label73);
+            this.Vignette.Controls.Add(this.Shader_Vignetting_intensity_trackBar);
+            this.Vignette.Controls.Add(this.Shader_Vignette_Enable_checkBox);
+            this.Vignette.Location = new System.Drawing.Point(4, 29);
+            this.Vignette.Name = "Vignette";
+            this.Vignette.Size = new System.Drawing.Size(385, 305);
+            this.Vignette.TabIndex = 2;
+            this.Vignette.Text = "ビネット";
+            this.Vignette.UseVisualStyleBackColor = true;
+            // 
+            // label18
+            // 
+            this.label18.AutoSize = true;
+            this.label18.ForeColor = System.Drawing.Color.Black;
+            this.label18.Location = new System.Drawing.Point(208, 228);
+            this.label18.Name = "label18";
+            this.label18.Size = new System.Drawing.Size(41, 20);
+            this.label18.TabIndex = 227;
+            this.label18.Text = "反復";
+            // 
+            // label74
+            // 
+            this.label74.AutoSize = true;
+            this.label74.ForeColor = System.Drawing.Color.Black;
+            this.label74.Location = new System.Drawing.Point(202, 86);
+            this.label74.Name = "label74";
+            this.label74.Size = new System.Drawing.Size(57, 20);
+            this.label74.TabIndex = 250;
+            this.label74.Text = "ぼかし";
+            // 
+            // Shader_Vignetting_blur_trackBar
+            // 
+            this.Shader_Vignetting_blur_trackBar.AutoSize = false;
+            this.Shader_Vignetting_blur_trackBar.LargeChange = 100;
+            this.Shader_Vignetting_blur_trackBar.Location = new System.Drawing.Point(202, 121);
+            this.Shader_Vignetting_blur_trackBar.Maximum = 5000;
+            this.Shader_Vignetting_blur_trackBar.Name = "Shader_Vignetting_blur_trackBar";
+            this.Shader_Vignetting_blur_trackBar.Size = new System.Drawing.Size(170, 27);
+            this.Shader_Vignetting_blur_trackBar.TabIndex = 249;
+            this.Shader_Vignetting_blur_trackBar.TickFrequency = 1000;
+            this.Shader_Vignetting_blur_trackBar.Scroll += new System.EventHandler(this.Shader_Vignetting_SyncData);
+            // 
+            // Shader_Blur_Enable_checkbox
+            // 
+            this.Shader_Blur_Enable_checkbox.AutoSize = true;
+            this.Shader_Blur_Enable_checkbox.Location = new System.Drawing.Point(289, 227);
+            this.Shader_Blur_Enable_checkbox.Name = "Shader_Blur_Enable_checkbox";
+            this.Shader_Blur_Enable_checkbox.Size = new System.Drawing.Size(83, 24);
+            this.Shader_Blur_Enable_checkbox.TabIndex = 1;
+            this.Shader_Blur_Enable_checkbox.Text = "ぼかし";
+            this.Shader_Blur_Enable_checkbox.UseVisualStyleBackColor = true;
+            this.Shader_Blur_Enable_checkbox.CheckedChanged += new System.EventHandler(this.Shader_Blur_SyncData);
+            // 
+            // Shader_Blur_blurIterations_trackBar
+            // 
+            this.Shader_Blur_blurIterations_trackBar.AutoSize = false;
+            this.Shader_Blur_blurIterations_trackBar.LargeChange = 100;
+            this.Shader_Blur_blurIterations_trackBar.Location = new System.Drawing.Point(202, 263);
+            this.Shader_Blur_blurIterations_trackBar.Maximum = 4;
+            this.Shader_Blur_blurIterations_trackBar.Minimum = 1;
+            this.Shader_Blur_blurIterations_trackBar.Name = "Shader_Blur_blurIterations_trackBar";
+            this.Shader_Blur_blurIterations_trackBar.Size = new System.Drawing.Size(170, 27);
+            this.Shader_Blur_blurIterations_trackBar.TabIndex = 226;
+            this.Shader_Blur_blurIterations_trackBar.Value = 2;
+            this.Shader_Blur_blurIterations_trackBar.Scroll += new System.EventHandler(this.Shader_Blur_SyncData);
+            // 
+            // label76
+            // 
+            this.label76.AutoSize = true;
+            this.label76.ForeColor = System.Drawing.Color.Black;
+            this.label76.Location = new System.Drawing.Point(9, 86);
+            this.label76.Name = "label76";
+            this.label76.Size = new System.Drawing.Size(137, 20);
+            this.label76.TabIndex = 246;
+            this.label76.Text = "ぼかしスプレッド";
+            // 
+            // Shader_Blur_blurSize_trackBar
+            // 
+            this.Shader_Blur_blurSize_trackBar.AutoSize = false;
+            this.Shader_Blur_blurSize_trackBar.LargeChange = 100;
+            this.Shader_Blur_blurSize_trackBar.Location = new System.Drawing.Point(10, 263);
+            this.Shader_Blur_blurSize_trackBar.Maximum = 1000;
+            this.Shader_Blur_blurSize_trackBar.Name = "Shader_Blur_blurSize_trackBar";
+            this.Shader_Blur_blurSize_trackBar.Size = new System.Drawing.Size(170, 27);
+            this.Shader_Blur_blurSize_trackBar.TabIndex = 224;
+            this.Shader_Blur_blurSize_trackBar.TickFrequency = 250;
+            this.Shader_Blur_blurSize_trackBar.Value = 250;
+            this.Shader_Blur_blurSize_trackBar.Scroll += new System.EventHandler(this.Shader_Blur_SyncData);
+            // 
+            // Shader_Vignetting_blurSpread_trackBar
+            // 
+            this.Shader_Vignetting_blurSpread_trackBar.AutoSize = false;
+            this.Shader_Vignetting_blurSpread_trackBar.LargeChange = 10;
+            this.Shader_Vignetting_blurSpread_trackBar.Location = new System.Drawing.Point(10, 121);
+            this.Shader_Vignetting_blurSpread_trackBar.Maximum = 6000;
+            this.Shader_Vignetting_blurSpread_trackBar.Minimum = -6000;
+            this.Shader_Vignetting_blurSpread_trackBar.Name = "Shader_Vignetting_blurSpread_trackBar";
+            this.Shader_Vignetting_blurSpread_trackBar.Size = new System.Drawing.Size(170, 27);
+            this.Shader_Vignetting_blurSpread_trackBar.TabIndex = 245;
+            this.Shader_Vignetting_blurSpread_trackBar.TickFrequency = 1000;
+            this.Shader_Vignetting_blurSpread_trackBar.Value = 82;
+            this.Shader_Vignetting_blurSpread_trackBar.Scroll += new System.EventHandler(this.Shader_Vignetting_SyncData);
+            // 
+            // label19
+            // 
+            this.label19.AutoSize = true;
+            this.label19.ForeColor = System.Drawing.Color.Black;
+            this.label19.Location = new System.Drawing.Point(9, 228);
+            this.label19.Name = "label19";
+            this.label19.Size = new System.Drawing.Size(57, 20);
+            this.label19.TabIndex = 225;
+            this.label19.Text = "サイズ";
+            // 
+            // Shader_Vignetting_Reset_button
+            // 
+            this.Shader_Vignetting_Reset_button.Location = new System.Drawing.Point(266, 163);
+            this.Shader_Vignetting_Reset_button.Name = "Shader_Vignetting_Reset_button";
+            this.Shader_Vignetting_Reset_button.Size = new System.Drawing.Size(106, 34);
+            this.Shader_Vignetting_Reset_button.TabIndex = 243;
+            this.Shader_Vignetting_Reset_button.Text = "リセット";
+            this.Shader_Vignetting_Reset_button.UseVisualStyleBackColor = true;
+            this.Shader_Vignetting_Reset_button.Click += new System.EventHandler(this.Shader_Vignetting_Reset_button_Click);
+            // 
+            // label71
+            // 
+            this.label71.AutoSize = true;
+            this.label71.ForeColor = System.Drawing.Color.Black;
+            this.label71.Location = new System.Drawing.Point(201, 9);
+            this.label71.Name = "label71";
+            this.label71.Size = new System.Drawing.Size(57, 20);
+            this.label71.TabIndex = 240;
+            this.label71.Text = "色収差";
+            // 
+            // Shader_Vignetting_chromaticAberration_trackBar
+            // 
+            this.Shader_Vignetting_chromaticAberration_trackBar.AutoSize = false;
+            this.Shader_Vignetting_chromaticAberration_trackBar.LargeChange = 10;
+            this.Shader_Vignetting_chromaticAberration_trackBar.Location = new System.Drawing.Point(202, 45);
+            this.Shader_Vignetting_chromaticAberration_trackBar.Maximum = 10000;
+            this.Shader_Vignetting_chromaticAberration_trackBar.Minimum = -10000;
+            this.Shader_Vignetting_chromaticAberration_trackBar.Name = "Shader_Vignetting_chromaticAberration_trackBar";
+            this.Shader_Vignetting_chromaticAberration_trackBar.Size = new System.Drawing.Size(170, 27);
+            this.Shader_Vignetting_chromaticAberration_trackBar.TabIndex = 239;
+            this.Shader_Vignetting_chromaticAberration_trackBar.TickFrequency = 5000;
+            this.Shader_Vignetting_chromaticAberration_trackBar.Value = 200;
+            this.Shader_Vignetting_chromaticAberration_trackBar.Scroll += new System.EventHandler(this.Shader_Vignetting_SyncData);
+            // 
+            // label73
+            // 
+            this.label73.AutoSize = true;
+            this.label73.ForeColor = System.Drawing.Color.Black;
+            this.label73.Location = new System.Drawing.Point(9, 10);
+            this.label73.Name = "label73";
+            this.label73.Size = new System.Drawing.Size(41, 20);
+            this.label73.TabIndex = 236;
+            this.label73.Text = "強度";
+            // 
+            // Shader_Vignetting_intensity_trackBar
+            // 
+            this.Shader_Vignetting_intensity_trackBar.AutoSize = false;
+            this.Shader_Vignetting_intensity_trackBar.LargeChange = 100;
+            this.Shader_Vignetting_intensity_trackBar.Location = new System.Drawing.Point(10, 45);
+            this.Shader_Vignetting_intensity_trackBar.Maximum = 12000;
+            this.Shader_Vignetting_intensity_trackBar.Minimum = -12000;
+            this.Shader_Vignetting_intensity_trackBar.Name = "Shader_Vignetting_intensity_trackBar";
+            this.Shader_Vignetting_intensity_trackBar.Size = new System.Drawing.Size(170, 27);
+            this.Shader_Vignetting_intensity_trackBar.TabIndex = 235;
+            this.Shader_Vignetting_intensity_trackBar.TickFrequency = 2000;
+            this.Shader_Vignetting_intensity_trackBar.Value = -398;
+            this.Shader_Vignetting_intensity_trackBar.Scroll += new System.EventHandler(this.Shader_Vignetting_SyncData);
+            // 
+            // Shader_Vignette_Enable_checkBox
+            // 
+            this.Shader_Vignette_Enable_checkBox.AutoSize = true;
+            this.Shader_Vignette_Enable_checkBox.Location = new System.Drawing.Point(312, 6);
+            this.Shader_Vignette_Enable_checkBox.Name = "Shader_Vignette_Enable_checkBox";
+            this.Shader_Vignette_Enable_checkBox.Size = new System.Drawing.Size(67, 24);
+            this.Shader_Vignette_Enable_checkBox.TabIndex = 220;
+            this.Shader_Vignette_Enable_checkBox.Text = "有効";
+            this.Shader_Vignette_Enable_checkBox.UseVisualStyleBackColor = true;
+            this.Shader_Vignette_Enable_checkBox.Click += new System.EventHandler(this.Shader_Vignetting_SyncData);
+            // 
+            // MessageWindow
+            // 
+            this.MessageWindow.Controls.Add(this.MessageWindow_text_textBox);
+            this.MessageWindow.Controls.Add(this.MessageWindow_maidname_textBox);
+            this.MessageWindow.Controls.Add(this.MessageWindow_maidname_comboBox);
+            this.MessageWindow.Controls.Add(this.MessageWindow_enable_checkBox);
+            this.MessageWindow.Controls.Add(this.label38);
+            this.MessageWindow.Location = new System.Drawing.Point(4, 29);
+            this.MessageWindow.Name = "MessageWindow";
+            this.MessageWindow.Size = new System.Drawing.Size(385, 305);
+            this.MessageWindow.TabIndex = 6;
+            this.MessageWindow.Text = "対話";
+            this.MessageWindow.UseVisualStyleBackColor = true;
+            // 
+            // MessageWindow_text_textBox
+            // 
+            this.MessageWindow_text_textBox.Location = new System.Drawing.Point(10, 76);
+            this.MessageWindow_text_textBox.Multiline = true;
+            this.MessageWindow_text_textBox.Name = "MessageWindow_text_textBox";
+            this.MessageWindow_text_textBox.ScrollBars = System.Windows.Forms.ScrollBars.Horizontal;
+            this.MessageWindow_text_textBox.Size = new System.Drawing.Size(362, 100);
+            this.MessageWindow_text_textBox.TabIndex = 202;
+            this.MessageWindow_text_textBox.Text = "こんにちは\r\n初めまして、どうぞよろしくお願いいたします。";
+            // 
+            // MessageWindow_maidname_textBox
+            // 
+            this.MessageWindow_maidname_textBox.Location = new System.Drawing.Point(156, 44);
+            this.MessageWindow_maidname_textBox.Name = "MessageWindow_maidname_textBox";
+            this.MessageWindow_maidname_textBox.Size = new System.Drawing.Size(217, 26);
+            this.MessageWindow_maidname_textBox.TabIndex = 201;
+            this.MessageWindow_maidname_textBox.Text = "システム";
+            // 
+            // MessageWindow_maidname_comboBox
+            // 
+            this.MessageWindow_maidname_comboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.MessageWindow_maidname_comboBox.FormattingEnabled = true;
+            this.MessageWindow_maidname_comboBox.Items.AddRange(new object[] {
+            "呼び出し名",
+            "名",
+            "苗字",
+            "カスタム"});
+            this.MessageWindow_maidname_comboBox.Location = new System.Drawing.Point(10, 42);
+            this.MessageWindow_maidname_comboBox.Name = "MessageWindow_maidname_comboBox";
+            this.MessageWindow_maidname_comboBox.Size = new System.Drawing.Size(140, 28);
+            this.MessageWindow_maidname_comboBox.TabIndex = 200;
+            // 
+            // MessageWindow_enable_checkBox
+            // 
+            this.MessageWindow_enable_checkBox.AutoSize = true;
+            this.MessageWindow_enable_checkBox.Location = new System.Drawing.Point(312, 6);
+            this.MessageWindow_enable_checkBox.Name = "MessageWindow_enable_checkBox";
+            this.MessageWindow_enable_checkBox.Size = new System.Drawing.Size(67, 24);
+            this.MessageWindow_enable_checkBox.TabIndex = 199;
+            this.MessageWindow_enable_checkBox.Text = "有効";
+            this.MessageWindow_enable_checkBox.UseVisualStyleBackColor = true;
+            this.MessageWindow_enable_checkBox.CheckedChanged += new System.EventHandler(this.MessageWindow_enable_checkBox_CheckedChanged);
+            // 
+            // label38
+            // 
+            this.label38.AutoSize = true;
+            this.label38.Location = new System.Drawing.Point(6, 10);
+            this.label38.Name = "label38";
+            this.label38.Size = new System.Drawing.Size(169, 20);
+            this.label38.TabIndex = 198;
+            this.label38.Text = "メッセージウィンドウ";
             // 
             // groupBox11
             // 
@@ -7582,10 +8875,11 @@ namespace COM3D2.EnhancedMaidEditScene.Plugin
             this.groupBox10.ResumeLayout(false);
             this.groupBox10.PerformLayout();
             this.Face.ResumeLayout(false);
+            this.groupBox18.ResumeLayout(false);
+            this.groupBox18.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.HandleSizeSliderTrackBar)).EndInit();
             this.Debug_groupBox.ResumeLayout(false);
             this.Debug_groupBox.PerformLayout();
-            this.groupBox15.ResumeLayout(false);
-            this.groupBox15.PerformLayout();
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.mouthferar_trackBar)).EndInit();
@@ -7623,16 +8917,31 @@ namespace COM3D2.EnhancedMaidEditScene.Plugin
             ((System.ComponentModel.ISupportInitialize)(this.eyeclose2_trackBar)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.eyeclose_trackBar)).EndInit();
             this.BonesIK.ResumeLayout(false);
-            this.groupBox18.ResumeLayout(false);
-            this.groupBox18.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.HandleSizeSliderTrackBar)).EndInit();
             this.groupBox17.ResumeLayout(false);
             this.groupBox17.PerformLayout();
+            this.groupBox15.ResumeLayout(false);
+            this.groupBox15.PerformLayout();
             this.MaidPoseAndParts_tabControl.ResumeLayout(false);
             this.Body_tabPage.ResumeLayout(false);
             this.Body_tabPage.PerformLayout();
             this.FingerAndToe_tabPage.ResumeLayout(false);
             this.FingerAndToe_tabPage.PerformLayout();
+            this.Kobushi_tabPage.ResumeLayout(false);
+            this.Kobushi_tabPage.PerformLayout();
+            this.groupBox24.ResumeLayout(false);
+            this.groupBox24.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.ToeBlend_Left_Fist_trackBar)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ToeBlend_Right_Fist_trackBar)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ToeBlend_Left_Open_trackBar)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ToeBlend_Right_Open_trackBar)).EndInit();
+            this.groupBox23.ResumeLayout(false);
+            this.groupBox23.PerformLayout();
+            this.groupBox22.ResumeLayout(false);
+            this.groupBox22.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.FingerBlend_Left_Fist_trackBar)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.FingerBlend_Right_Fist_trackBar)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.FingerBlend_Left_Open_trackBar)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.FingerBlend_Right_Open_trackBar)).EndInit();
             this.MaidTails_tabPage.ResumeLayout(false);
             this.MaidTails_Cat_groupBox.ResumeLayout(false);
             this.MaidTails_Cat_groupBox.PerformLayout();
@@ -7644,6 +8953,18 @@ namespace COM3D2.EnhancedMaidEditScene.Plugin
             ((System.ComponentModel.ISupportInitialize)(this.Gravity_z_trackBar)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.Gravity_y_trackBar)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.Gravity_x_trackBar)).EndInit();
+            this.BoneSliderOffset_tabPage.ResumeLayout(false);
+            this.BoneSliderOffset_tabPage.PerformLayout();
+            this.MaidPose_tabControl.ResumeLayout(false);
+            this.Mirrot_tabPage.ResumeLayout(false);
+            this.Mirrot_tabPage.PerformLayout();
+            this.ResetPose_tabPage.ResumeLayout(false);
+            this.groupBox21.ResumeLayout(false);
+            this.groupBox21.PerformLayout();
+            this.groupBox20.ResumeLayout(false);
+            this.groupBox20.PerformLayout();
+            this.groupBox19.ResumeLayout(false);
+            this.groupBox19.PerformLayout();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.MaidPose_Icon_pictureBox)).EndInit();
@@ -7652,6 +8973,11 @@ namespace COM3D2.EnhancedMaidEditScene.Plugin
             this.BodyRotGroupBox4.ResumeLayout(false);
             this.BodyRotGroupBox4.PerformLayout();
             this.Items.ResumeLayout(false);
+            this.Items_List_tabControl.ResumeLayout(false);
+            this.Items_list_tabPage1.ResumeLayout(false);
+            this.Items_list_tabPage1.PerformLayout();
+            this.subItems_list_tabPage2.ResumeLayout(false);
+            this.subItems_list_tabPage2.PerformLayout();
             this.Items_Settings_tabControl.ResumeLayout(false);
             this.ShaderAndShadow_tabPage.ResumeLayout(false);
             this.ShaderAndShadow_tabPage.PerformLayout();
@@ -7666,7 +8992,7 @@ namespace COM3D2.EnhancedMaidEditScene.Plugin
             ((System.ComponentModel.ISupportInitialize)(this.SS_pictureBox)).EndInit();
             this.Items_Control_groupBox.ResumeLayout(false);
             this.Items_Control_groupBox.PerformLayout();
-            this.Items_tabControl.ResumeLayout(false);
+            this.Items_Objects_tabControl.ResumeLayout(false);
             this.MyRoomCustomItems.ResumeLayout(false);
             this.PhotoSceneItems.ResumeLayout(false);
             this.DeskItems.ResumeLayout(false);
@@ -7681,7 +9007,24 @@ namespace COM3D2.EnhancedMaidEditScene.Plugin
             ((System.ComponentModel.ISupportInitialize)(this.Scene_PictureBox)).EndInit();
             this.CameraData.ResumeLayout(false);
             this.CameraData.PerformLayout();
+            this.groupBox25.ResumeLayout(false);
+            this.groupBox25.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.CameraPos_FOV_trackBar)).EndInit();
             this.groupBox16.ResumeLayout(false);
+            this.LightSource.ResumeLayout(false);
+            this.tabControl3.ResumeLayout(false);
+            this.mainlight_tabPage1.ResumeLayout(false);
+            this.mainlight_tabPage1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.Light_Main_Color_pictureBox)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Light_Main_Shadow_trackBar)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Light_Main_Brightness_trackBar)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Light_Main_Y_trackBar)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Light_Main_X_trackBar)).EndInit();
+            this.sublight_tabPage2.ResumeLayout(false);
+            this.sublight_tabPage2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.SubLight_angle_trackBar)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.SubLight_brightness_trackBar)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.SubLight_range_trackBar)).EndInit();
             this.tabControl2.ResumeLayout(false);
             this.DOF.ResumeLayout(false);
             this.DOF.PerformLayout();
@@ -7700,26 +9043,16 @@ namespace COM3D2.EnhancedMaidEditScene.Plugin
             this.Bloom.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Shader_Bloom_bloomBlurIterations_trackBar)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.Shader_Bloom_sepBlurSpread_trackBar)).EndInit();
-            this.Blur.ResumeLayout(false);
-            this.Blur.PerformLayout();
+            this.Vignette.ResumeLayout(false);
+            this.Vignette.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.Shader_Vignetting_blur_trackBar)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.Shader_Blur_blurIterations_trackBar)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.Shader_Blur_blurSize_trackBar)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Shader_Vignetting_blurSpread_trackBar)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Shader_Vignetting_chromaticAberration_trackBar)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Shader_Vignetting_intensity_trackBar)).EndInit();
             this.MessageWindow.ResumeLayout(false);
             this.MessageWindow.PerformLayout();
-            this.Light.ResumeLayout(false);
-            this.tabControl3.ResumeLayout(false);
-            this.mainlight_tabPage1.ResumeLayout(false);
-            this.mainlight_tabPage1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.Light_Main_Color_pictureBox)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.Light_Main_Shadow_trackBar)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.Light_Main_Brightness_trackBar)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.Light_Main_Y_trackBar)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.Light_Main_X_trackBar)).EndInit();
-            this.sublight_tabPage2.ResumeLayout(false);
-            this.sublight_tabPage2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.SubLight_angle_trackBar)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.SubLight_brightness_trackBar)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.SubLight_range_trackBar)).EndInit();
             this.groupBox11.ResumeLayout(false);
             this.groupBox11.PerformLayout();
             this.groupBox2.ResumeLayout(false);
@@ -7940,7 +9273,6 @@ namespace COM3D2.EnhancedMaidEditScene.Plugin
         private System.Windows.Forms.Button SelectAllRightReg;
         private System.Windows.Forms.Button SelectAllLeftArm;
         private System.Windows.Forms.Button SelectAllRightArm;
-        private System.Windows.Forms.Label label2;
         private System.Windows.Forms.ComboBox RightHandPoseComboBox;
         private System.Windows.Forms.ComboBox LeftHandPoseComboBox;
         private System.Windows.Forms.Label label4;
@@ -8088,7 +9420,7 @@ namespace COM3D2.EnhancedMaidEditScene.Plugin
         private System.Windows.Forms.TabControl tabControl2;
         private System.Windows.Forms.TabPage Bloom;
         private System.Windows.Forms.TabPage DOF;
-        private System.Windows.Forms.TabPage Blur;
+        private System.Windows.Forms.TabPage Vignette;
         private System.Windows.Forms.CheckBox Shader_Blur_Enable_checkbox;
         private System.Windows.Forms.CheckBox Shader_DOF_Enable_checkBox;
         private System.Windows.Forms.TrackBar Shader_Bloom_sepBlurSpread_trackBar;
@@ -8149,7 +9481,6 @@ namespace COM3D2.EnhancedMaidEditScene.Plugin
         private System.Windows.Forms.CheckBox MaidLoading_KeepPose_checkBox;
         private System.Windows.Forms.CheckBox MaidLoading_KeepPosRot_checkBox;
         private System.Windows.Forms.ComboBox Prefab_Bone_comboBox;
-        private System.Windows.Forms.TabPage Light;
         private System.Windows.Forms.TabControl tabControl3;
         private System.Windows.Forms.TabPage mainlight_tabPage1;
         private System.Windows.Forms.TabPage sublight_tabPage2;
@@ -8277,7 +9608,7 @@ namespace COM3D2.EnhancedMaidEditScene.Plugin
         private System.Windows.Forms.CheckBox Settings_HotkeyCameraScreenShot_CheckBox;
         private System.Windows.Forms.CheckBox Settings_HotkeyCameraScreenShotNoUI_CheckBox;
         private System.Windows.Forms.TabPage Items;
-        private System.Windows.Forms.TabControl Items_tabControl;
+        private System.Windows.Forms.TabControl Items_Objects_tabControl;
         private System.Windows.Forms.TabPage PhotoSceneItems;
         private System.Windows.Forms.PictureBox SS_pictureBox;
         private System.Windows.Forms.TabPage MyRoomCustomItems;
@@ -8360,5 +9691,111 @@ namespace COM3D2.EnhancedMaidEditScene.Plugin
         private System.Windows.Forms.TextBox Items_Handle_PosY_textBox;
         private System.Windows.Forms.TextBox Items_Handle_PosZ_textBox;
         private System.Windows.Forms.TextBox Items_Handle_PosX_textBox;
+        private System.Windows.Forms.TabPage BoneSliderOffset_tabPage;
+        private System.Windows.Forms.Button MaidMirror_Fingers_button;
+        private System.Windows.Forms.Button MaidMirror_Lower_button;
+        private System.Windows.Forms.Button MaidMirror_Upper_button;
+        private System.Windows.Forms.Button MaidMirror_All_button;
+        private System.Windows.Forms.GroupBox groupBox21;
+        private System.Windows.Forms.TextBox MaidOffset_Scale_textBox;
+        private System.Windows.Forms.GroupBox groupBox20;
+        private System.Windows.Forms.TextBox MaidOffset_RotZ_textBox;
+        private System.Windows.Forms.TextBox MaidOffset_RotY_textBox;
+        private System.Windows.Forms.TextBox MaidOffset_RotX_textBox;
+        private System.Windows.Forms.GroupBox groupBox19;
+        private System.Windows.Forms.TextBox MaidOffset_PosZ_textBox;
+        private System.Windows.Forms.TextBox MaidOffset_PosY_textBox;
+        private System.Windows.Forms.TextBox MaidOffset_PosX_textBox;
+        private System.Windows.Forms.CheckBox MaidOffset_Scale_checkBox;
+        private System.Windows.Forms.CheckBox MaidOffset_Rot_checkBox;
+        private System.Windows.Forms.CheckBox MaidOffset_Pos_checkBox;
+        private System.Windows.Forms.Button MaidOffset_Copy_button;
+        private System.Windows.Forms.Button MaidOffset_Reset_button;
+        private System.Windows.Forms.Button MaidOffset_Paste_button;
+        private System.Windows.Forms.Button MaidMirror_Toes_button;
+        private System.Windows.Forms.CheckBox MaidOffset_Pose_checkBox;
+        private System.Windows.Forms.TabControl MaidPose_tabControl;
+        private System.Windows.Forms.TabPage Mirrot_tabPage;
+        private System.Windows.Forms.TabPage ResetPose_tabPage;
+        private System.Windows.Forms.Button MaidReset_RightToe_button;
+        private System.Windows.Forms.Button MaidReset_LeftToe_button;
+        private System.Windows.Forms.Button MaidReset_RightFinger_button;
+        private System.Windows.Forms.Button MaidReset_Upper_button;
+        private System.Windows.Forms.Button MaidReset_LeftFinger_button;
+        private System.Windows.Forms.Button MaidReset_All_button;
+        private System.Windows.Forms.Button MaidReset_Lower_button;
+        private System.Windows.Forms.Button MaidReset_Head_button;
+        private System.Windows.Forms.TrackBar FingerBlend_Left_Open_trackBar;
+        private System.Windows.Forms.TrackBar FingerBlend_Right_Open_trackBar;
+        private System.Windows.Forms.CheckBox FingerBlend_Sync_Open_checkBox;
+        private System.Windows.Forms.RadioButton MaidHandleSelectModle_None_radioButton;
+        private System.Windows.Forms.TabPage Kobushi_tabPage;
+        private System.Windows.Forms.GroupBox groupBox22;
+        private System.Windows.Forms.Label label65;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.TrackBar FingerBlend_Left_Fist_trackBar;
+        private System.Windows.Forms.TrackBar FingerBlend_Right_Fist_trackBar;
+        private System.Windows.Forms.Label label67;
+        private System.Windows.Forms.Label label66;
+        private System.Windows.Forms.CheckBox FingerBlend_Left_Sync_checkBox;
+        private System.Windows.Forms.CheckBox FingerBlend_Right_Sync_checkBox;
+        private System.Windows.Forms.CheckBox FingerBlend_Sync_Fist_checkBox;
+        private System.Windows.Forms.GroupBox groupBox23;
+        private System.Windows.Forms.RadioButton Blend_LockOthers_radioButton;
+        private System.Windows.Forms.RadioButton Blend_LockSelected_radioButton;
+        private System.Windows.Forms.RadioButton Blend_LockNone_radioButton;
+        private System.Windows.Forms.GroupBox groupBox24;
+        private System.Windows.Forms.Label label68;
+        private System.Windows.Forms.Label label69;
+        private System.Windows.Forms.CheckBox ToeBlend_Left_Sync_checkBox;
+        private System.Windows.Forms.CheckBox ToeBlend_Right_Sync_checkBox;
+        private System.Windows.Forms.CheckBox ToeBlend_Sync_Fist_checkBox;
+        private System.Windows.Forms.TrackBar ToeBlend_Left_Fist_trackBar;
+        private System.Windows.Forms.TrackBar ToeBlend_Right_Fist_trackBar;
+        private System.Windows.Forms.CheckBox ToeBlend_Sync_Open_checkBox;
+        private System.Windows.Forms.TrackBar ToeBlend_Left_Open_trackBar;
+        private System.Windows.Forms.TrackBar ToeBlend_Right_Open_trackBar;
+        private System.Windows.Forms.Button ResetSelectedBones_button;
+        private System.Windows.Forms.TrackBar CameraPos_FOV_trackBar;
+        private System.Windows.Forms.CheckBox Shader_Vignette_Enable_checkBox;
+        private System.Windows.Forms.Label label74;
+        private System.Windows.Forms.TrackBar Shader_Vignetting_blur_trackBar;
+        private System.Windows.Forms.Label label76;
+        private System.Windows.Forms.TrackBar Shader_Vignetting_blurSpread_trackBar;
+        private System.Windows.Forms.Button Shader_Vignetting_Reset_button;
+        private System.Windows.Forms.Label label71;
+        private System.Windows.Forms.TrackBar Shader_Vignetting_chromaticAberration_trackBar;
+        private System.Windows.Forms.Label label73;
+        private System.Windows.Forms.TrackBar Shader_Vignetting_intensity_trackBar;
+        private System.Windows.Forms.Button MaidTails_UnSelect_button;
+        private System.Windows.Forms.TabPage LightSource;
+        private System.Windows.Forms.CheckBox Camera_UI_Hide;
+        private System.Windows.Forms.TabControl Items_List_tabControl;
+        private System.Windows.Forms.TabPage Items_list_tabPage1;
+        private System.Windows.Forms.TabPage subItems_list_tabPage2;
+        private System.Windows.Forms.ListBox Items_SubObjects_listBox;
+        private System.Windows.Forms.Button Items_TryCreateSubHandle_button;
+        private System.Windows.Forms.CheckBox MaidMirror_Bip01_checkBox;
+        private System.Windows.Forms.CheckBox MaidPartsEdit_Enable_checkBox;
+        private System.Windows.Forms.CheckBox Items_SubObjects_TempDisableMaidHandle_checkBox;
+        private System.Windows.Forms.CheckBox Items_SubObjects_DynamicBone_checkBox;
+        private System.Windows.Forms.Button ReloadMaid_button;
+        private System.Windows.Forms.CheckBox Items_SubObjects_SlotBodyHit_checkBox;
+        private System.Windows.Forms.GroupBox groupBox25;
+        private System.Windows.Forms.Button CameraPos_Load5_button;
+        private System.Windows.Forms.Button CameraPos_Save5_button;
+        private System.Windows.Forms.Button CameraPos_Load4_button;
+        private System.Windows.Forms.Button CameraPos_Save4_button;
+        private System.Windows.Forms.Button CameraPos_Load3_button;
+        private System.Windows.Forms.Button CameraPos_Save3_button;
+        private System.Windows.Forms.Button CameraPos_Load2_button;
+        private System.Windows.Forms.Button CameraPos_Save2_button;
+        private System.Windows.Forms.Button CameraPos_Load1_button;
+        private System.Windows.Forms.Button CameraPos_Save1_button;
+        private System.Windows.Forms.TextBox CameraPos_Tag5_textBox;
+        private System.Windows.Forms.TextBox CameraPos_Tag4_textBox;
+        private System.Windows.Forms.TextBox CameraPos_Tag3_textBox;
+        private System.Windows.Forms.TextBox CameraPos_Tag2_textBox;
+        private System.Windows.Forms.TextBox CameraPos_Tag1_textBox;
     }
 }

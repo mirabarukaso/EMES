@@ -139,6 +139,11 @@ namespace COM3D2.EnhancedMaidEditScene.Plugin
             }
         }
 
+        public bool CheckParentAlive()
+        {
+            return (null == goHandleMasterObject) ? false : true;
+        }
+
         private GameObject goHandleMasterObject;
         private GameObject goAngleHandle;
         private GameObject goPositionHandle;

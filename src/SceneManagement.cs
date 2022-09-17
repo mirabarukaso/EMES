@@ -36,6 +36,20 @@ namespace COM3D2.EnhancedMaidEditScene.Plugin
 			public float fov;
 		}
 
+		public class CameraDataSlot
+		{
+			public float pos_x;
+			public float pos_y;
+			public float pos_z;
+			public float rot_x;
+			public float rot_y;
+			public float rot_z;
+			public float distance;
+			public float fov;
+			public string tag;
+		}
+
+		//v1.2
 		public class ShaderData
         {
 			public bool sBloom_enabled;
@@ -66,6 +80,67 @@ namespace COM3D2.EnhancedMaidEditScene.Plugin
 			public float sGlobalFog_globalFogColor_b;
 			public float sGlobalFog_globalFogColor_a;
 
+			public bool sSepia_enabled;
+		}
+
+		//v1.3
+		public class Shader_Bloom
+        {
+			public bool enabled;
+			public int screenBlendMode;
+			public int quality;
+			public float sepBlurSpread;
+			public int bloomBlurIterations;
+		}
+
+		public class Shader_Blur
+        {
+			public bool enabled;
+			public float blurSize;
+			public int blurIterations;
+		}
+
+		public class Shader_DepthOfField
+		{
+			public bool enabled;
+			public bool visualizeFocus;
+			public float focalLength;
+			public float focalSize;
+			public float aperture;
+			public float maxBlurSize;
+			public int blurType;
+		}
+
+		public class Shader_GlobalFog
+		{
+
+			public bool enabled;
+			public float startDistance;
+			public float globalDensity;
+			public float heightScale;
+			public float height;
+			public float r;
+			public float g;
+			public float b;
+			public float a;
+		}
+
+		public class Shader_Vignetting
+		{
+			public bool enabled;
+			public float intensity;
+			public float chromaticAberration;
+			public float blurSpread;
+			public float blur;
+		}
+
+		public class ShaderDataNew
+        {
+			public Shader_Bloom sBloom = new Shader_Bloom();
+			public Shader_Blur sBlur = new Shader_Blur();
+			public Shader_DepthOfField sDepthOfField = new Shader_DepthOfField();
+			public Shader_GlobalFog sGlobalFog = new Shader_GlobalFog();
+			public Shader_Vignetting sVignetting = new Shader_Vignetting();
 			public bool sSepia_enabled;
 		}
 
@@ -141,7 +216,31 @@ namespace COM3D2.EnhancedMaidEditScene.Plugin
 			public string sOptions;
 		}
 
-		//1.0.0.0
+		//1.1.0.0 v1.3
+		public class SceneDataNew
+		{
+			public string XmlDataVersion = "1.3";
+
+			public byte[] ScreenShot;
+			public string ScreenShotName;
+			public string DateTime;
+			public string BackGround;
+
+			public CameraData cameraData = new CameraData();
+			public List<CameraDataSlot> cameraDataSlot = new List<CameraDataSlot>();
+			public ShaderDataNew shaderData = new ShaderDataNew();
+
+			public MainLightData mainLight = new MainLightData();
+			public List<SubLightData> subLight = new List<SubLightData>();
+
+			public List<MaidData> Maids = new List<MaidData>();
+			public List<List<BonePosRotScaleInfo>> maidTailsBoneData = new List<List<BonePosRotScaleInfo>>();
+
+			public List<ItemsHandleInfo> itemsHandleInfo = new List<ItemsHandleInfo>();
+		}
+		public List<SceneDataNew> MaidSceneData;
+
+		//1.0.0.0 v1.2
 		public class SceneData
         {
 			public string XmlDataVersion = "1.2";
@@ -162,9 +261,10 @@ namespace COM3D2.EnhancedMaidEditScene.Plugin
 
 			public List<ItemsHandleInfo> itemsHandleInfo = new List<ItemsHandleInfo>();
 		}
-		public List<SceneData> MaidSceneData;
+		public List<SceneData> MaidSceneDataOld;
 
-		//0.7.5.0
+		/*
+		//0.7.5.0  v1.1
 		public class SceneDataNew
 		{
 			public string XmlDataVersion = "1.1";
@@ -186,7 +286,6 @@ namespace COM3D2.EnhancedMaidEditScene.Plugin
 		public List<SceneDataNew> MaidSceneDataOld;
 
 		//0.7.2.0 v1.0
-		/*
 		public class SceneData
 		{
 			public byte[] ScreenShot;
@@ -209,7 +308,7 @@ namespace COM3D2.EnhancedMaidEditScene.Plugin
 		private bool hide_ui_;
 		private string sceneDataFileName;
 
-		private readonly string xmlVersion = "1.2";
+		private readonly string xmlVersion = "1.3";
 
 		public EMES_SceneManagement(string configDir)
         {
@@ -221,6 +320,8 @@ namespace COM3D2.EnhancedMaidEditScene.Plugin
 #if DEBUG
 			Debuginfo.Log("EMES_SceneManagement Finalize ...", 2);
 #endif
+			HideUI(false);
+
 			MaidSceneData.Clear();
 			if (null != MaidSceneDataOld)
 				MaidSceneDataOld.Clear();
@@ -268,67 +369,132 @@ namespace COM3D2.EnhancedMaidEditScene.Plugin
 			if (null == MaidSceneData)
 				return;
 
-			XmlSerializer xs = new XmlSerializer(typeof(List<SceneData>));
-			TextWriter tw = new StreamWriter(sceneDataFileName);
-			xs.Serialize(tw, MaidSceneData);
-			tw.Close();
 #if DEBUG
 			Debuginfo.Log("Save XML FileName=" + sceneDataFileName, 2);
 #endif
+			XmlSerializer xs = new XmlSerializer(typeof(List<SceneDataNew>));
+			TextWriter tw = new StreamWriter(sceneDataFileName);
+			xs.Serialize(tw, MaidSceneData);
+			tw.Close();
+
 		}
 
-		public SceneData ImportSceneData(string sXMLFileName, string sXMLFilePath, string sNameNoExt)
+		public SceneDataNew ImportSceneData(string sXMLFileName, string sXMLFilePath, string sNameNoExt)
         {
 #if DEBUG
 			Debuginfo.Log("Import XML=" + sXMLFileName, 2);
 #endif
-			SceneData sd = null;
-			XmlSerializer xs = new XmlSerializer(typeof(SceneData));
-			try
+
+			bool oldXML = false;
+			using (var xml = new StreamReader(sXMLFileName))
 			{
-				using (var sr = new StreamReader(sXMLFileName))
+				for (int i = 0; i < 10; i++)
 				{
-					sd = (SceneData)xs.Deserialize(sr);
+					string Line = xml.ReadLine();
+
+					if (true == Line.Contains("XmlDataVersion"))
+					{
+						if (true == Line.Contains("1.2"))
+						{
+							oldXML = true;
+							break;
+						}
+						else if (true == Line.Contains("1.3"))
+						{
+							oldXML = false;
+							break;
+						}
+						else
+                        {
+							Debuginfo.Warning("不明なシーンデータバージョン、インポートに失敗しました " + sXMLFileName, 0);
+							Debuginfo.Warning("["+ Line+"]", 0);
+							return null;
+						}
+					}
 				}
 			}
-			catch(Exception e)
+
+			SceneDataNew sceneDataNew = null;
+			if (oldXML)
+			{
+				SceneData sd = null;
+				XmlSerializer xs = new XmlSerializer(typeof(SceneData));
+				try
+				{
+					using (var sr = new StreamReader(sXMLFileName))
+					{
+						sd = (SceneData)xs.Deserialize(sr);
+					}
+				}
+				catch (Exception e)
+				{
+					Debuginfo.Warning("不正なXMLシーンファイル、無視する", 0);
+					Debuginfo.Warning("Exception: [" + e + "]", 2);
+					return null;
+				}
+
+				sceneDataNew = UpgradeSceneData(sd);
+			}
+			else
             {
-				Debuginfo.Warning("不正なXMLシーンファイル、無視する", 0);
-				Debuginfo.Warning("Exception: [" + e + "]", 2);
-				return null;
-			}
-
-			foreach (ItemsHandleInfo ihi in sd.itemsHandleInfo)
-			{
-				if (true == string.Equals("ExternalImage", ihi.sCategory))
+				XmlSerializer xs = new XmlSerializer(typeof(SceneDataNew));
+				try
 				{
-					string sFullPath = sXMLFilePath + "\\" + ihi.sItemFullName.Split('|')[1];
-
-					ihi.sItemFullName = sFullPath;
-					Debuginfo.Log("外部PNG [" + ihi.sItemFullName + "]", 0);
+					using (var sr = new StreamReader(sXMLFileName))
+					{
+						sceneDataNew = (SceneDataNew)xs.Deserialize(sr);
+					}
+				}
+				catch (Exception e)
+				{
+					Debuginfo.Warning("不正なXMLシーンファイル、無視する", 0);
+					Debuginfo.Warning("Exception: [" + e + "]", 2);
+					return null;
 				}
 			}
 
-			MaidSceneData.Add(sd);
-			SaveMaidSceneData();
+			if (null != sceneDataNew)
+			{
+				foreach (ItemsHandleInfo ihi in sceneDataNew.itemsHandleInfo)
+				{
+					if (true == string.Equals("ExternalImage", ihi.sCategory))
+					{
+						string sFullPath = sXMLFilePath + "\\" + ihi.sItemFullName.Split('|')[1];
+
+						ihi.sItemFullName = sFullPath;
+						Debuginfo.Log("外部PNG [" + ihi.sItemFullName + "]", 0);
+					}
+				}
+
+				MaidSceneData.Add(sceneDataNew);
+				SaveMaidSceneData();
 #if DEBUG
-			Debuginfo.Log("Done", 2);
+				Debuginfo.Log("Done", 2);
 #endif
-			return sd;
+			}
+			else
+            {
+#if DEBUG
+				Debuginfo.Log("Failed", 2);
+#endif
+			}
+
+			return sceneDataNew;
 		}
 
-		public void ExportSceneData(string sXMLFileName, string sXMLFilePath, string sNameNoExt, EMES_SceneManagement.SceneData sdo)
+		public void ExportSceneData(string sXMLFileName, string sXMLFilePath, string sNameNoExt, EMES_SceneManagement.SceneDataNew sdo)
 		{
 #if DEBUG
 			Debuginfo.Log("Export XML=" + sXMLFileName, 2);
 #endif
-			SceneData sd = new SceneData()
+			SceneDataNew sd = new SceneDataNew()
 			{
 				ScreenShot = sdo.ScreenShot,
 				ScreenShotName = sNameNoExt,
 				DateTime = sdo.DateTime,
 				BackGround = sdo.BackGround,
 				cameraData = sdo.cameraData,
+				cameraDataSlot = sdo.cameraDataSlot,
 				shaderData = sdo.shaderData,
 				mainLight = sdo.mainLight,
 				subLight = sdo.subLight,
@@ -355,7 +521,7 @@ namespace COM3D2.EnhancedMaidEditScene.Plugin
 				}
 			}
 
-			XmlSerializer xs = new XmlSerializer(typeof(SceneData));
+			XmlSerializer xs = new XmlSerializer(typeof(SceneDataNew));
 			TextWriter tw = new StreamWriter(sXMLFileName);
 			xs.Serialize(tw, sd);
 			tw.Close();
@@ -364,6 +530,14 @@ namespace COM3D2.EnhancedMaidEditScene.Plugin
 			Debuginfo.Log("Done", 2);
 #endif
 		}
+
+		public void HideUI(bool bHide)
+        {
+			if (true == bHide)
+				UIHide();
+			else
+				UIResume();
+        }
 
 		#region private method
 		private void Init(string configDir)
@@ -375,7 +549,7 @@ namespace COM3D2.EnhancedMaidEditScene.Plugin
 			sceneDataFileName = configDir + "EMES_MaidsceneData.xml";
 			if (!File.Exists(sceneDataFileName))
 			{
-				MaidSceneData = new List<SceneData>();
+				MaidSceneData = new List<SceneDataNew>();
 			}
 			else
 			{
@@ -402,19 +576,24 @@ namespace COM3D2.EnhancedMaidEditScene.Plugin
 #if DEBUG
 					Debuginfo.Warning("アップグレード EMES_MaidsceneData.xml", 2);
 #endif
-					MaidSceneDataOld = new List<SceneDataNew>();
-					XmlSerializer xs = new XmlSerializer(typeof(List<SceneDataNew>));
+					MaidSceneDataOld = new List<SceneData>();
+					XmlSerializer xs = new XmlSerializer(typeof(List<SceneData>));
 					using (var sr = new StreamReader(sceneDataFileName))
 					{
-						MaidSceneDataOld = (List<SceneDataNew>)xs.Deserialize(sr);
+						MaidSceneDataOld = (List<SceneData>)xs.Deserialize(sr);
 					}
 
-					MaidSceneData = new List<SceneData>();
+					MaidSceneData = new List<SceneDataNew>();
 					UpgradeXML();
 
-					Debuginfo.Warning("バックアップして名前を変更" + sceneDataFileName + "_11_backup", 0);
-
-					File.Move(sceneDataFileName, sceneDataFileName+"_11_backup");
+					string sBackupname = sceneDataFileName + "_12_backup";
+					if(true == File.Exists(sBackupname))
+                    {
+						Debuginfo.Log("削除: " + sBackupname, 0);
+						File.Delete(sBackupname);
+                    }
+					Debuginfo.Warning("バックアップして名前を変更" + sBackupname, 0);
+					File.Move(sceneDataFileName, sBackupname);
 					SaveMaidSceneData();
 #if DEBUG
 					Debuginfo.Warning("アップグレード完了", 2);
@@ -422,10 +601,10 @@ namespace COM3D2.EnhancedMaidEditScene.Plugin
 				}
 				else
 				{
-					XmlSerializer xs = new XmlSerializer(typeof(List<SceneData>));
+					XmlSerializer xs = new XmlSerializer(typeof(List<SceneDataNew>));
 					using (var sr = new StreamReader(sceneDataFileName))
 					{
-						MaidSceneData = (List<SceneData>)xs.Deserialize(sr);
+						MaidSceneData = (List<SceneDataNew>)xs.Deserialize(sr);
 					}
 				}
 			}
@@ -435,28 +614,90 @@ namespace COM3D2.EnhancedMaidEditScene.Plugin
 #endif
 		}
 
+		//v1.2 to v1.3
+		private SceneDataNew UpgradeSceneData(SceneData sdo)
+        {
+#if DEBUG
+			Debuginfo.Log("アップグレード " + sdo.DateTime, 2);
+#endif
+			SceneDataNew sceneDataNew = new SceneDataNew()
+			{
+				ScreenShot = sdo.ScreenShot,
+				ScreenShotName = sdo.ScreenShotName,
+				DateTime = sdo.DateTime,
+				BackGround = sdo.BackGround,
+				cameraData = sdo.cameraData,
+				mainLight = sdo.mainLight,
+				subLight = sdo.subLight,
+				Maids = sdo.Maids,
+				maidTailsBoneData = sdo.maidTailsBoneData
+			};
+
+			Action<int> actionCameraDataSlot = delegate (int index)
+			{
+				sceneDataNew.cameraDataSlot[index].pos_x = 0;
+                sceneDataNew.cameraDataSlot[index].pos_y = 0f;
+				sceneDataNew.cameraDataSlot[index].pos_z = 1.5f;
+				sceneDataNew.cameraDataSlot[index].rot_x = 0;
+				sceneDataNew.cameraDataSlot[index].rot_y = 0;
+				sceneDataNew.cameraDataSlot[index].rot_z = 0;
+				sceneDataNew.cameraDataSlot[index].distance = 2f;
+				sceneDataNew.cameraDataSlot[index].fov = 35f;
+				sceneDataNew.cameraDataSlot[index].tag = "TAG_無";
+			};
+
+			for (int index = 0; index < 5; index++)
+			{
+				sceneDataNew.cameraDataSlot.Add(new CameraDataSlot());
+				actionCameraDataSlot(index);
+			}
+
+			sceneDataNew.shaderData.sBloom.enabled = sdo.shaderData.sBloom_enabled;		
+			sceneDataNew.shaderData.sBloom.screenBlendMode = sdo.shaderData.sBloom_screenBlendMode;
+			sceneDataNew.shaderData.sBloom.quality = sdo.shaderData.sBloom_quality;
+			sceneDataNew.shaderData.sBloom.sepBlurSpread = sdo.shaderData.sBloom_sepBlurSpread;
+			sceneDataNew.shaderData.sBloom.bloomBlurIterations = sdo.shaderData.sBloom_bloomBlurIterations;
+
+			sceneDataNew.shaderData.sBlur.enabled = sdo.shaderData.sBlur_enabled;
+			sceneDataNew.shaderData.sBlur.blurSize = sdo.shaderData.sBlur_blurSize;
+			sceneDataNew.shaderData.sBlur.blurIterations = sdo.shaderData.sBlur_blurIterations;
+
+			sceneDataNew.shaderData.sDepthOfField.enabled = sdo.shaderData.sDepthOfField_enabled;
+			sceneDataNew.shaderData.sDepthOfField.visualizeFocus = sdo.shaderData.sDepthOfField_visualizeFocus;
+			sceneDataNew.shaderData.sDepthOfField.focalLength = sdo.shaderData.sDepthOfField_focalLength;
+			sceneDataNew.shaderData.sDepthOfField.focalSize = sdo.shaderData.sDepthOfField_focalSize;
+			sceneDataNew.shaderData.sDepthOfField.aperture = sdo.shaderData.sDepthOfField_aperture;
+			sceneDataNew.shaderData.sDepthOfField.maxBlurSize = sdo.shaderData.sDepthOfField_maxBlurSize;
+			sceneDataNew.shaderData.sDepthOfField.blurType = sdo.shaderData.sDepthOfField_blurType;
+
+			sceneDataNew.shaderData.sGlobalFog.enabled = sdo.shaderData.sGlobalFog_enabled;
+			sceneDataNew.shaderData.sGlobalFog.startDistance = sdo.shaderData.sGlobalFog_startDistance;
+			sceneDataNew.shaderData.sGlobalFog.globalDensity = sdo.shaderData.sGlobalFog_globalDensity;
+			sceneDataNew.shaderData.sGlobalFog.heightScale = sdo.shaderData.sGlobalFog_heightScale;
+			sceneDataNew.shaderData.sGlobalFog.height = sdo.shaderData.sGlobalFog_height;
+			sceneDataNew.shaderData.sGlobalFog.r = sdo.shaderData.sGlobalFog_globalFogColor_r;
+			sceneDataNew.shaderData.sGlobalFog.g = sdo.shaderData.sGlobalFog_globalFogColor_g;
+			sceneDataNew.shaderData.sGlobalFog.b = sdo.shaderData.sGlobalFog_globalFogColor_b;
+			sceneDataNew.shaderData.sGlobalFog.a = sdo.shaderData.sGlobalFog_globalFogColor_a;
+
+			sceneDataNew.shaderData.sVignetting.enabled = false;
+			sceneDataNew.shaderData.sVignetting.intensity = -3.98f;
+			sceneDataNew.shaderData.sVignetting.chromaticAberration = 2f;
+			sceneDataNew.shaderData.sVignetting.blur = 0;
+			sceneDataNew.shaderData.sVignetting.blurSpread = 0.82f;
+
+			sceneDataNew.shaderData.sSepia_enabled = sdo.shaderData.sSepia_enabled;
+
+			return sceneDataNew;
+		}
 
 		private void UpgradeXML()
         {
-			foreach (SceneDataNew sdo in MaidSceneDataOld)
+			foreach (SceneData sdo in MaidSceneDataOld)
             {
-#if DEBUG
-				Debuginfo.Log("アップグレード " + sdo.DateTime, 2);
-#endif
-				SceneData sd = new SceneData()
-				{
-					ScreenShot = sdo.ScreenShot,
-					ScreenShotName = sdo.ScreenShotName,
-					DateTime = sdo.DateTime,
-					BackGround = sdo.BackGround,
-					cameraData = sdo.cameraData,
-					shaderData = sdo.shaderData,
-					mainLight = sdo.mainLight,
-					subLight = sdo.subLight,
-					Maids = sdo.Maids,
-					maidTailsBoneData = sdo.maidTailsBoneData
-				};
-				MaidSceneData.Add(sd);
+				SceneDataNew sceneDataNew = UpgradeSceneData(sdo);
+				if(null != sceneDataNew)
+					MaidSceneData.Add(sceneDataNew);
 			}
 		}
 

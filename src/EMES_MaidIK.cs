@@ -148,7 +148,9 @@ namespace COM3D2.EnhancedMaidEditScene.Plugin
             Toe_R2,
             Toe_L0,
             Toe_L1,
-            Toe_L2
+            Toe_L2,
+            Clavicle_L,
+            Clavicle_R
         }
 
         public enum IKBoneBinding
@@ -455,11 +457,13 @@ namespace COM3D2.EnhancedMaidEditScene.Plugin
             if (true == MaidsIK.ContainsKey(maidStockID))
             {
                 Debuginfo.Log("IK更新 " + maid.status.firstName + " " + maid.status.lastName, 1);
+                /*
                 foreach(KeyValuePair<BoneType, HandleEx> handle in MaidsIK[maidStockID].handleEx)
                 {
                     handle.Value.Visible = false;
                     handle.Value.Destroy();
                 }
+                */
                 MaidsIK[maidStockID].IKCMO.Clear();
                 MaidsIK[maidStockID].handleEx.Clear();
                 MaidsIK.Remove(maidStockID);
@@ -473,8 +477,12 @@ namespace COM3D2.EnhancedMaidEditScene.Plugin
             foreach (KeyValuePair<BoneType, KeyValuePair<BoneSetType, GameObject>> bone in newIK.BoneDict)
             {
                 HandleEx handle = new HandleEx(bone.Key, bone.Value.Key, bone.Value.Value, false, true);
+                handle.SetupItem(null, bone.Key.ToString(), null);
                 handle.IKmode = HandleEx.IKMODE.None;
                 newIK.handleEx.Add(bone.Key, handle);
+#if DEBUG
+                //Debuginfo.Log("newIK.handleEx.Add(bone.Key = " + bone.Key.ToString() + "   bone.Value.Key = "+ bone.Value.Key, 2);
+#endif
             }
             newIK.bInvisible = true;
             newIK.Bakcup_Eye_L = maid.body0.trsEyeL.localRotation;
@@ -900,8 +908,11 @@ namespace COM3D2.EnhancedMaidEditScene.Plugin
 
             foreach (EMES_IK.IK ik in MaidsIK[MaidStockID].IKCMO)
             {
-                Vector3 pos = ik.handle.GetParentBone().position + ik.handle.DeltaVector();
-                ik.GetIKCMO.Porc(ik.hip, ik.knee, ik.ankle, pos, default(Vector3));
+                if (true == ik.handle.ControllDragged())
+                {
+                    Vector3 pos = ik.handle.GetParentBone().position + ik.handle.DeltaVector();
+                    ik.GetIKCMO.Porc(ik.hip, ik.knee, ik.ankle, pos, Vector3.zero);
+                }
             }
         }
 
@@ -929,29 +940,33 @@ namespace COM3D2.EnhancedMaidEditScene.Plugin
         public bool IK_SyncHandle(Maid maid, HandleEx posHandle)
         {
             Transform parentBone = posHandle.GetParentBone();
+            bool bDragged = false;
 
             if (null == parentBone)
-                return false;
+                return bDragged;
 
-#if DEBUG
             //ボーンを強制的に移動させておく
-            if (true == FlexKeycode.GetKey("shift"))
+            if (HandleEx.IKMODE.UniversalIK != posHandle.IKmode)
             {
-                if (false == posHandle.IK_GetHandleKunPosotionMode() && (parentBone.name.Contains("Bip01") || parentBone.name.Contains("Mune")) && "Bip01" != parentBone.name)
+                if (true == FlexKeycode.GetKey("shift"))
                 {
-                    posHandle.IK_ChangeHandleKunModePosition(true);
+                    if (false == posHandle.IK_GetHandleKunPosotionMode() && (parentBone.name.Contains("Bip01") || parentBone.name.Contains("Mune")) && "Bip01" != parentBone.name)
+                    {
+                        posHandle.IK_ChangeHandleKunModePosition(true);
+                    }
+                }
+                else
+                {
+                    if (true == posHandle.IK_GetHandleKunPosotionMode() && (parentBone.name.Contains("Bip01") || parentBone.name.Contains("Mune")) && "Bip01" != parentBone.name)
+                    {
+                        posHandle.IK_ChangeHandleKunModePosition(false);
+                    }
                 }
             }
-            else
-            {
-                if (true == posHandle.IK_GetHandleKunPosotionMode() && (parentBone.name.Contains("Bip01") || parentBone.name.Contains("Mune")) && "Bip01" != parentBone.name)
-                {
-                    posHandle.IK_ChangeHandleKunModePosition(false);
-                }
-            }
-#endif
+
             if (posHandle.ControllDragged() && true == posHandle.Visible)
             {
+                bDragged = true;
                 LockIK();
                 if (BoneType.Offset != posHandle.boneType)
                 {
@@ -1000,21 +1015,30 @@ namespace COM3D2.EnhancedMaidEditScene.Plugin
                 UnLockIK();
             }
 
-            return true;
+            return bDragged;
         }
 
-        public void IK_SyncFromHandle(int MaidStockID)
+        public bool IK_SyncFromHandle(int MaidStockID)
         {
+            bool ret = false;
             if (false == MaidsIK.ContainsKey(MaidStockID))
-                return;
+                return ret;
 
             if (true == MaidsIK[MaidStockID].bInvisible)
-                return;
+                return ret;
 
             foreach (KeyValuePair<BoneType, HandleEx> handle in MaidsIK[MaidStockID].handleEx)
             {
-                IK_SyncHandle(GameMain.Instance.CharacterMgr.GetStockMaid(MaidStockID), handle.Value);
+                if (true == IK_SyncHandle(GameMain.Instance.CharacterMgr.GetStockMaid(MaidStockID), handle.Value)) 
+                {
+                    if (true == string.Equals("Offset", handle.Value.sItemName))
+                    {
+                        ret = true;
+                    }
+                }
             }
+
+            return ret;
         }
         #endregion
 

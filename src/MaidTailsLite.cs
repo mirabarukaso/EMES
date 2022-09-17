@@ -166,7 +166,7 @@ namespace COM3D2.EnhancedMaidEditScene.Plugin
         public bool DFS_Init()
         {
             DFS_LastKey = System.DateTime.Now.ToString();
-            DFS_BonesPriorityWords = Super.settingsXml.BonesPriority.Split(',');
+            DFS_BonesPriorityWords = (Super.settingsXml.BonesPriority.ToLower()).Split(',');
             DFS_ParentBones.Clear();
             for (int Index = 0; Index < DFS_BonesPriorityWords.Count(); Index++)
             {
@@ -199,35 +199,31 @@ namespace COM3D2.EnhancedMaidEditScene.Plugin
 
             objList.Clear();
 
-            for (int Index = 0; Index < maid.body0.goSlot.Count; Index++)
+            if(true == maid.body0.GetSlotLoaded(TBody.SlotID.body))
             {
-                TBodySkin tbs = maid.body0.goSlot[Index];
-                if (null != tbs.obj)
-                {
-                    if (TBody.SlotID.body == tbs.SlotId)
-                    {
-                        objList.Add(tbs);
-                    }
+                objList.Add(maid.body0.GetSlot((int)TBody.SlotID.body));
+            }
 
-                    if (TBody.SlotID.accShippo == tbs.SlotId)
-                    {
-                        if (accShippoObjectInstanceID != tbs.obj.GetInstanceID())
-                        {
-                            Change = true;
-                        }
-                        objList.Add(tbs);
-                        tmp_accShippoObjectInstanceID = tbs.obj.GetInstanceID();
-                    }
-                    else if (TBody.SlotID.accSenaka == tbs.SlotId)
-                    {
-                        if (accSenakaObjectInstanceID != tbs.obj.GetInstanceID())
-                        {
-                            Change = true;
-                        }
-                        objList.Add(tbs);
-                        tmp_accSenakaObjectInstanceID = tbs.obj.GetInstanceID();
-                    }
+            if (true == maid.body0.GetSlotLoaded(TBody.SlotID.accShippo))
+            {
+                TBodySkin tbs = maid.body0.GetSlot((int)TBody.SlotID.accShippo);
+                if (accShippoObjectInstanceID != tbs.obj.GetInstanceID())
+                {
+                    Change = true;
                 }
+                objList.Add(tbs);
+                tmp_accShippoObjectInstanceID = tbs.obj.GetInstanceID();
+            }
+
+            if (true == maid.body0.GetSlotLoaded(TBody.SlotID.accSenaka))
+            {
+                TBodySkin tbs = maid.body0.GetSlot((int)TBody.SlotID.accSenaka);
+                if (accSenakaObjectInstanceID != tbs.obj.GetInstanceID())
+                {
+                    Change = true;
+                }
+                objList.Add(tbs);
+                tmp_accSenakaObjectInstanceID = tbs.obj.GetInstanceID();
             }
 
             if ((accShippoObjectInstanceID != tmp_accShippoObjectInstanceID) || (accSenakaObjectInstanceID != tmp_accSenakaObjectInstanceID))
@@ -729,10 +725,13 @@ namespace COM3D2.EnhancedMaidEditScene.Plugin
                 CheckedNameLeft = Name.Substring(("Bip01 BoneTail").Length).Split('_')[0];
             }
 
-            if (DFS_BonesPriorityWords.Contains(CheckedNameLeft))
+            if (null != CheckedNameLeft)
             {
-                TargetString = string.Copy(CheckedNameLeft);
-                return true;
+                if (DFS_BonesPriorityWords.Contains(CheckedNameLeft.ToLower()))
+                {
+                    TargetString = CheckedNameLeft.ToLower();
+                    return true;
+                }
             }
 
             TargetString = DFS_LastKey;
@@ -829,7 +828,7 @@ namespace COM3D2.EnhancedMaidEditScene.Plugin
 #endif
                     continue;
                 }
-
+                /*
                 bool NotMailTail = false;
 
                 try
@@ -837,7 +836,7 @@ namespace COM3D2.EnhancedMaidEditScene.Plugin
                     for (int Index = 0; Index < tmpBone.transform.childCount; Index++)
                     {
 #if DEBUG
-                        //Debuginfo.Log("Try >>> " + tmpBone.transform.GetChild(Index).name, 2);
+                        Debuginfo.Log("Try >>> " + tmpBone.transform.GetChild(Index).name, 2);
 #endif
                         if ("Bip01 Pelvis" != tmpBone.transform.GetChild(Index).name 
                             && false == tmpBone.transform.GetChild(Index).name.Contains("BoneTail") 
@@ -886,6 +885,7 @@ namespace COM3D2.EnhancedMaidEditScene.Plugin
 #endif
                     continue;
                 }
+                */
 
                 //Bone_center
                 Transform ThisBoneTransform;
@@ -928,10 +928,11 @@ namespace COM3D2.EnhancedMaidEditScene.Plugin
                             if ((ThisBoneTransform.name.Contains("_nub"))
                                 || (ThisBoneTransform.name.Contains("_base"))
                                 || (ThisBoneTransform.name.Contains("_yure_")) || (ThisBoneTransform.name.Contains("_Base"))
+                                || (ThisBoneTransform.name.Contains("_SCL_"))
                                )
                             {
 #if DEBUG
-                                Debuginfo.Log("DFS: 特別にマークされたボーンを無視する (" + ThisBoneTransform.gameObject + ")", 2);
+                                //Debuginfo.Log("DFS: 特別にマークされたボーンを無視する (" + ThisBoneTransform.gameObject + ")", 2);
 #endif
                             }
                             else if (false == ThisBoneTransform.name.Contains("BoneTail")
@@ -941,7 +942,7 @@ namespace COM3D2.EnhancedMaidEditScene.Plugin
                                     && "Bone_nub" != ThisBoneTransform.name
                                     )
                             {
-                                Debuginfo.Warning("DFS: DestroyImmediate ダングリングブジェクト (" + ThisBoneTransform.name + ") Index=" + ThisBoneCurrentIndex + " 心配しないで（多分）", 1);
+                                Debuginfo.Warning("DFS: DestroyImmediate ダングリングブジェクト (" + ThisBoneTransform.gameObject + ") Index=" + ThisBoneCurrentIndex + " 心配しないで（多分）", 1);
                                 UnityEngine.Object.DestroyImmediate(ThisBoneTransform.gameObject);
                                 continue;
                             }
@@ -1098,6 +1099,7 @@ namespace COM3D2.EnhancedMaidEditScene.Plugin
                                 || (CurrentBone.Key.name.Contains("_base"))
                                 || (CurrentBone.Key.name.Contains("_yure_")) || (CurrentBone.Key.name.Contains("_Base"))
                                 || (CurrentBone.Key.name.Contains("_HIDE_"))
+                                || (CurrentBone.Key.name.Contains("_SCL_"))
                                 )
                     {
                         //無視する
@@ -1128,6 +1130,7 @@ namespace COM3D2.EnhancedMaidEditScene.Plugin
                                 || (CurrentBone.Key.name.Contains("_base"))
                                 || (CurrentBone.Key.name.Contains("_yure_")) || (CurrentBone.Key.name.Contains("_Base"))
                                 || (CurrentBone.Key.name.Contains("_HIDE_"))
+                                || (CurrentBone.Key.name.Contains("_SCL_"))
                                 )
                     {
                         Debuginfo.Log("非表示マークで「" + CurrentBone.Key.name + "」を非表示にします", 1);
@@ -1152,24 +1155,16 @@ namespace COM3D2.EnhancedMaidEditScene.Plugin
                     };
                     if(true == string.IsNullOrEmpty(bi.ShortName))
                     {
-                        CurrentBone.Value.ShortName = "Bone";
+                        CurrentBone.Value.ShortName = bi.name;
                     }
                     DefaultBoneData.Add(CurrentBone.Value.BoneTransform, bi);
-
-                    string BoneShowName = CurrentBone.Value.ShortName + "(" + "l" + CurrentBone.Value.Level.ToString() + "->i" + CurrentBone.Value.Index.ToString() + ")";
 #if DEBUG
-                    BoneTails.Add(BoneShowName, CurrentBone.Value.BoneTransform);
+                    string BoneShowName = CurrentBone.Value.ShortName + "(" + "l" + CurrentBone.Value.Level.ToString() + "->i" + CurrentBone.Value.Index.ToString() + ")";
+                    //Debuginfo.Log("BoneShowName=" + BoneShowName, 2);
 #else
-                    BoneShowName = CurrentBone.Value.ShortName;
-                    int WarpIndex = 1;
-                    while (true == BoneTails.ContainsKey(BoneShowName))
-                    {
-                        BoneShowName = CurrentBone.Value.ShortName + "(" + WarpIndex.ToString() + ")";
-                        WarpIndex++;
-                    }
-                    BoneTails.Add(BoneShowName, CurrentBone.Value.BoneTransform);
+                    string BoneShowName = CurrentBone.Value.ShortName;
 #endif
-
+                    BoneTails.Add(BoneShowName, CurrentBone.Value.BoneTransform);
                     BoneCounts++;
                 }
             }

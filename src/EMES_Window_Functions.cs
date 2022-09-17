@@ -1,18 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
 using System.IO;
 using System.Linq;
 using System.Reflection;
-using System.Text;
 using System.Windows.Forms;
 using UnityEngine;
-using PrivateMaidMode;
-using Random = System.Random;
-using wf;
-using UnityEngine.Audio;
 using System.Collections;
 using UnityEngine.Rendering;
 
@@ -43,12 +36,20 @@ namespace COM3D2.EnhancedMaidEditScene.Plugin
 
         public List<HandleEx> CamPlus_SubLightHandleList;
 
+        private class BackupMaidPosRotScale
+        {
+            public Vector3 Pos;
+            public Vector3 Rot;
+            public Vector3 Scale;
+        };
+        private BackupMaidPosRotScale MaidOffset_BackupMaidPosRotScale;
+
         public enum HandleSelectMode
         {
             All,
             Current,
             Others,
-            None            
+            None
         };
 
         enum LastPerformedPose
@@ -259,18 +260,7 @@ namespace COM3D2.EnhancedMaidEditScene.Plugin
 
         private void button1_Click(object sender, EventArgs e)
         {
-#if DEBUG
-            foreach(KeyValuePair<string, AFileSystemBase> kvp in GameUty.BgFiles)
-            {
-                Debuginfo.Log("BG >> " + kvp.Key, 2);
-            }
 
-            UnityEngine.Object[] obj = Resources.FindObjectsOfTypeAll<Shader>();
-            foreach (Shader s in obj)
-            {
-                Debuginfo.Log("Shader:" + s.name, 0);
-            }
-#endif
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -299,14 +289,16 @@ namespace COM3D2.EnhancedMaidEditScene.Plugin
 #if DEBUG
             Debuginfo.Log("EMES_Window Finalize ...", 2);
 #endif
+            MaidOffset_BackupMaidPosRotScale = null;
+
             Shader_DOF_Enable_checkBox.Checked = false;
             Super.exShader.Reset_GlobalFogData();
             Shader_Fog_Enable_checkBox.Checked = false;
             Shader_Sepia_Enable_checkbox.Checked = false;
             Super.exShader.Reset_BloomData();
             Shader_Blur_Enable_checkbox.Checked = false;
+            Super.exShader.Reset_VignettingData();
             MessageWindow_enable_checkBox.Checked = false;
-            CameraPlus_ShaderWindowInit();
             Light_Main_Reset_button_Click(this, EventArgs.Empty);
 
             string selectedName = SubLight_index_comboBox.SelectedItem.ToString();
@@ -522,6 +514,12 @@ namespace COM3D2.EnhancedMaidEditScene.Plugin
 #endif
             Super.Items.Items_Init();
             Items_RealtimeLoadThumbIcon_checkBox.Checked = Super.settingsXml.bCreatePreviewIcon;
+            MaidOffset_BackupMaidPosRotScale = new BackupMaidPosRotScale()
+            {
+                Pos = new Vector3(0, 0, 0),
+                Rot = new Vector3(0, 0, 0),
+                Scale = new Vector3(1, 1, 1)
+            };
 #if DEBUG
             Debuginfo.Log("Items_Init DONE", 2);
             Debuginfo.Log("INIT ALL DONE", 2);
@@ -641,6 +639,14 @@ namespace COM3D2.EnhancedMaidEditScene.Plugin
                 return;
             }
 
+            /*
+            HandleSelectMode handleSelectMode = GetMaidHandleSelectMode();
+            if (HandleSelectMode.None == handleSelectMode || HandleSelectMode.Others == handleSelectMode)
+            {
+                return;
+            }
+            */
+
             foreach (string Key in ActivedSettingsHotkey)
             {
                 if (true == FlexKeycode.GetMultipleKeyUp(GetFieldValue<SettingsXML, string>(Super.settingsXml, "sHotkey" + Key)))
@@ -754,15 +760,33 @@ namespace COM3D2.EnhancedMaidEditScene.Plugin
             }
             else
             {
+                Items_HandledObjects_listBox.ClearSelected();
                 Items_HandledObjects_listBox.DataSource = null;
                 Items_HandledObjects_listBox.SelectedIndex = -1;
-                
+                Items_ClearSubItems();
             }
             UnlockBusy();
 
             Items_UpdateCurrentHandleFunc();
         }
-       
+
+        public void Items_ClearSubItems()
+        {
+            if (subItems_list_tabPage2 == Items_List_tabControl.SelectedTab)
+            {
+                Items_List_tabControl.SelectedTab = Items_list_tabPage1;
+                Items_List_tabControl.Select();
+            }
+            
+            Items_SubObjects_TempDisableMaidHandle_checkBox.Checked = false;
+
+            LockBusy();
+            Super.Items.Items_Sub_RemoveAll();
+            Items_SubObjects_listBox.DataSource = null;
+            Items_SubObjects_listBox.SelectedIndex = -1;
+            Items_SubObjects_listBox.ClearSelected();
+            UnlockBusy();
+        }
 
         public void SwitchToCurrentSelectedMaids()
         {
@@ -909,26 +933,23 @@ namespace COM3D2.EnhancedMaidEditScene.Plugin
             return Items_All_radioButton.Checked || Items_Single_radioButton.Checked;
         }
 
-        public void Items_UpdateItemHandleScaleInfo(HandleEx handle)
+        public void Items_UpdateItemHandleScaleInfo(GameObject gameObject)
         {
-            if ((HandleEx)Items_HandledObjects_listBox.SelectedValue == handle)
-            {
-                Items_Handle_Scale_textBox.Text = ((handle.GetParentBone().localScale.x + handle.GetParentBone().localScale.y + handle.GetParentBone().localScale.z) / 3).ToString("F4");
+            Items_Handle_Scale_textBox.Text = ((gameObject.transform.localScale.x + gameObject.transform.localScale.y + gameObject.transform.localScale.z) / 3).ToString("F4");
 
-                Items_Handle_ScaleX_textBox.Text = (handle.GetParentBone().localScale.x).ToString("F4");
-                Items_Handle_ScaleY_textBox.Text = (handle.GetParentBone().localScale.y).ToString("F4");
-                Items_Handle_ScaleZ_textBox.Text = (handle.GetParentBone().localScale.z).ToString("F4");
+            Items_Handle_ScaleX_textBox.Text = (gameObject.transform.localScale.x).ToString("F4");
+            Items_Handle_ScaleY_textBox.Text = (gameObject.transform.localScale.y).ToString("F4");
+            Items_Handle_ScaleZ_textBox.Text = (gameObject.transform.localScale.z).ToString("F4");
 
-                Vector3 rot = handle.GetParentBone().rotation.eulerAngles;
-                Items_Handle_RotX_textBox.Text = (rot.x).ToString("F4");
-                Items_Handle_RotY_textBox.Text = (rot.y).ToString("F4");
-                Items_Handle_RotZ_textBox.Text = (rot.z).ToString("F4");
+            Vector3 rot = gameObject.transform.rotation.eulerAngles;
+            Items_Handle_RotX_textBox.Text = (rot.x).ToString("F4");
+            Items_Handle_RotY_textBox.Text = (rot.y).ToString("F4");
+            Items_Handle_RotZ_textBox.Text = (rot.z).ToString("F4");
 
-                Vector3 pos  = handle.GetParentBone().position;
-                Items_Handle_PosX_textBox.Text = (pos.x).ToString("F4");
-                Items_Handle_PosY_textBox.Text = (pos.y).ToString("F4");
-                Items_Handle_PosZ_textBox.Text = (pos.z).ToString("F4");                
-            }
+            Vector3 pos = gameObject.transform.position;
+            Items_Handle_PosX_textBox.Text = (pos.x).ToString("F4");
+            Items_Handle_PosY_textBox.Text = (pos.y).ToString("F4");
+            Items_Handle_PosZ_textBox.Text = (pos.z).ToString("F4");
         }
 
         public void CamPlus_UpdateFOV()
@@ -948,6 +969,29 @@ namespace COM3D2.EnhancedMaidEditScene.Plugin
             return HandleSelectMode.None;
         }
 
+        public bool CheckMaidSelectMode(HandleSelectMode hsMode, int iIndex, int iID)
+        {
+            if (HandleSelectMode.All != hsMode)
+            {
+                if (HandleSelectMode.None == hsMode)
+                {
+                    return false;
+                }
+                else if (HandleSelectMode.Current == hsMode)
+                {
+                    if (CurrentMaidsStockID[iIndex] != iID)
+                        return false;
+                }
+                else if (HandleSelectMode.Others == hsMode)
+                {
+                    if (CurrentMaidsStockID[iIndex] == iID)
+                        return false;
+                }
+            }
+
+            return true;
+        }
+
         public string GetCurrentMainTab()
         {
             return MainTab_tabControl.SelectedTab.Name;
@@ -961,6 +1005,104 @@ namespace COM3D2.EnhancedMaidEditScene.Plugin
         public int GetItemsHandleScaleFactor()
         {
             return Items_Handle_ScaleFactor_comboBox.SelectedIndex;
+        }
+
+        public void MaidOffset_UpdateOffsetInfo(Maid maid)
+        {
+            Vector3 Pos = maid.GetPos();
+            Vector3 Rot = maid.GetRot();
+            float Scale = maid.body0.transform.localScale.x;
+
+            MaidOffset_PosX_textBox.Text = Pos.x.ToString("F4");
+            MaidOffset_PosY_textBox.Text = Pos.y.ToString("F4");
+            MaidOffset_PosZ_textBox.Text = Pos.z.ToString("F4");
+
+            MaidOffset_RotX_textBox.Text = Rot.x.ToString("F4");
+            MaidOffset_RotY_textBox.Text = Rot.y.ToString("F4");
+            MaidOffset_RotZ_textBox.Text = Rot.z.ToString("F4");
+
+            MaidOffset_Scale_textBox.Text = Scale.ToString("F4");
+        }
+
+        public bool GetFingerToeLock(string sBone)
+        {
+            bool ret = false;
+
+            if (false == Blend_LockNone_radioButton.Checked)
+            {
+                CheckBox cb = Controls.Find(sBone.Replace(" ", "_"), true)[0] as CheckBox;
+                if (null != cb)
+                {
+                    ret = cb.Checked;
+                }
+
+                if (false == Blend_LockSelected_radioButton.Checked)
+                {
+                    ret = !ret;
+                }
+            }
+            return ret;
+        }
+
+        public bool GetBonesSelected(string sBone)
+        {
+            bool ret = false;
+
+            CheckBox cb = Controls.Find(sBone.Replace(" ", "_"), true)[0] as CheckBox;
+            if (null != cb)
+            {
+                ret = cb.Checked;
+            }
+
+            return ret;
+        }
+
+        public void UpdateCameraFOVinfo()
+        {
+            SetTrackBarValue(CameraPos_FOV_trackBar, (int)(GameMain.Instance.MainCamera.camera.fieldOfView * 10.0f));
+            CameraPos_FOV_textbox.Text = GameMain.Instance.MainCamera.camera.fieldOfView.ToString("F1");
+        }
+
+        public bool isItems_list_tabPage1()
+        {
+            return (Items_list_tabPage1 == Items_List_tabControl.SelectedTab);
+        }
+
+        public bool issubItems_list_tabPage2()
+        {
+            return (subItems_list_tabPage2 == Items_List_tabControl.SelectedTab);
+        }
+
+        public bool isMirrorBip01Checked()
+        {
+            return MaidMirror_Bip01_checkBox.Checked;
+        }
+
+        public void ReloadedMaid(int MaidIndex)
+        {
+            SetSceneEditMaid(MaidIndex, true);
+            SetupSelectedMaid(MaidIndex);
+        }
+
+        public void CheckIfNeedAddCustomFaceBlend(Maid maid)
+        {
+            if (null == maid)
+            {
+                return;
+            }
+
+            try
+            {
+                if (false == maid.body0.Face.morph.dicBlendSet.ContainsKey("カスタム"))
+                {
+                    AddCustomFaceBlend(maid);
+                }
+            }
+            catch(Exception e)
+            {
+                Debuginfo.Warning("ボディスワップによるエラーの可能性があります、心配しないで\n" + e, 1);
+            }
+            
         }
         #endregion
 
@@ -1082,6 +1224,8 @@ namespace COM3D2.EnhancedMaidEditScene.Plugin
             Items_LoadImage_Shader_comboBox.SelectedIndex = 2;
             Items_LoadImage_Type_comboBox.SelectedIndex = 5;
 
+            Items_SubObjects_listBox.Items.Clear();
+
             //prefabs
             Prefab_Nyou_comboBox.Items.Clear();
             foreach (string Key in EMES_Yotogi.Perfab.Nyou)
@@ -1146,7 +1290,7 @@ namespace COM3D2.EnhancedMaidEditScene.Plugin
 
             MyRoomCustomObjects_Items_comboBox.DataSource = new BindingSource(Super.Items.myCustomRoomObject.Data[MyRoomCustomObjects_Category_comboBox.SelectedItem.ToString()], null);
             MyRoomCustomObjects_Items_comboBox.DisplayMember = "Value";
-            MyRoomCustomObjects_Items_comboBox.ValueMember = "Key";            
+            MyRoomCustomObjects_Items_comboBox.ValueMember = "Key";
 
             //desk
             DeskObjects_Category_comboBox.Items.Clear();
@@ -1168,7 +1312,7 @@ namespace COM3D2.EnhancedMaidEditScene.Plugin
             Scene_Select_ComboBox.Items.Clear();
             if (Super.sceneManagement.MaidSceneData.Count > 0)
             {
-                foreach (EMES_SceneManagement.SceneData sd in Super.sceneManagement.MaidSceneData)
+                foreach (EMES_SceneManagement.SceneDataNew sd in Super.sceneManagement.MaidSceneData)
                 {
                     if (true == sd.ScreenShotName.Contains("EMES_screen_"))
                         Scene_Select_ComboBox.Items.Add(sd.Maids.Count.ToString() + "人：" + sd.DateTime);
@@ -1192,7 +1336,7 @@ namespace COM3D2.EnhancedMaidEditScene.Plugin
             UnlockBusy();
         }
 
-        private void SceneManagement_UpdateWindow(EMES_SceneManagement.SceneData sd, string sShowName)
+        private void SceneManagement_UpdateWindow(EMES_SceneManagement.SceneDataNew sd, string sShowName)
         {
             string selectedName = Scene_Select_ComboBox.SelectedItem.ToString();
             if ("無" == selectedName)
@@ -1202,7 +1346,7 @@ namespace COM3D2.EnhancedMaidEditScene.Plugin
             LockBusy();
             if (null == sShowName)
             {
-                if(true == sd.ScreenShotName.Contains("EMES_screen_"))
+                if (true == sd.ScreenShotName.Contains("EMES_screen_"))
                     Scene_Select_ComboBox.Items.Add(sd.Maids.Count.ToString() + "人：" + sd.DateTime);
                 else
                     Scene_Select_ComboBox.Items.Add(sd.Maids.Count.ToString() + "人：" + sd.ScreenShotName);
@@ -1270,8 +1414,14 @@ namespace COM3D2.EnhancedMaidEditScene.Plugin
             Debuginfo.Log("MaidTails Init", 2);
 #endif
             MaidTails_Init();
+            MaidPartsEdit_Enable_checkBox.Checked = false;
 #if DEBUG
             Debuginfo.Log("MaidTails Init DONE", 2);
+            Debuginfo.Log("MaidOffset_UpdateOffsetInfo", 2);
+#endif
+            MaidOffset_UpdateOffsetInfo(CurrentSelectedMaid);
+#if DEBUG
+            Debuginfo.Log("MaidOffset_UpdateOffsetInfo DONE", 2);
 #endif
         }
 
@@ -1292,14 +1442,14 @@ namespace COM3D2.EnhancedMaidEditScene.Plugin
             if (Value > tb.Maximum)
             {
 #if DEBUG
-                Debuginfo.Error(tb.Name + " Value = " + Value.ToString() + " > Maximum " + tb.Maximum.ToString());
+                Debuginfo.Warning(tb.Name + " Value = " + Value.ToString() + " > Maximum " + tb.Maximum.ToString(), 2);
 #endif
-                Value = tb.Minimum;
+                Value = tb.Maximum;
             }
             else if (Value < tb.Minimum)
             {
 #if DEBUG
-                Debuginfo.Error(tb.Name + " Value = " + Value.ToString() + " < Minimum " + tb.Minimum.ToString());
+                Debuginfo.Warning(tb.Name + " Value = " + Value.ToString() + " < Minimum " + tb.Minimum.ToString(), 2);
 #endif
                 Value = tb.Minimum;
             }
@@ -1690,12 +1840,15 @@ namespace COM3D2.EnhancedMaidEditScene.Plugin
                 CheckBox hand = (Controls.Find("Bip01_" + Key + "_Hand", true)[0] as CheckBox);
                 CheckBox forearm = (Controls.Find("Bip01_" + Key + "_Forearm", true)[0] as CheckBox);
                 CheckBox upperarm = (Controls.Find("Bip01_" + Key + "_UpperArm", true)[0] as CheckBox);
+                CheckBox clavicle = (Controls.Find("Bip01_" + Key + "_Clavicle", true)[0] as CheckBox);
                 hand.Checked = bChecked;
                 hand.Enabled = bEnable;
                 forearm.Checked = bChecked;
                 forearm.Enabled = bEnable;
                 upperarm.Checked = bChecked;
                 upperarm.Enabled = bEnable;
+                clavicle.Checked = bChecked;
+                clavicle.Enabled = bEnable;
             }
             else
             {
@@ -2000,6 +2153,21 @@ namespace COM3D2.EnhancedMaidEditScene.Plugin
             bool bSepiaEnable;
             Super.exShader.Get_SepiaData(out bSepiaEnable);
             Shader_Sepia_Enable_checkbox.Checked = bSepiaEnable;
+
+#if DEBUG
+            Debuginfo.Log("Load Vignetting", 2);
+#endif
+            bool bVignettingEnable;
+            int iVignettingintensity;
+            int iVignettingchromaticAberration;
+            int iVignettingblurSpread;
+            int iVignettingblur;
+            Super.exShader.Get_VignettingData(out bVignettingEnable, out iVignettingintensity, out iVignettingchromaticAberration, out iVignettingblurSpread, out iVignettingblur);
+            Shader_Vignette_Enable_checkBox.Checked = bVignettingEnable;
+            SetTrackBarValue(Shader_Vignetting_intensity_trackBar, iVignettingintensity);
+            SetTrackBarValue(Shader_Vignetting_chromaticAberration_trackBar, iVignettingchromaticAberration);
+            SetTrackBarValue(Shader_Vignetting_blurSpread_trackBar, iVignettingblurSpread);
+            SetTrackBarValue(Shader_Vignetting_blur_trackBar, iVignettingblur);
         }
 
         private void CameraPlus_WindowInit()
@@ -2101,19 +2269,26 @@ namespace COM3D2.EnhancedMaidEditScene.Plugin
 
             Vector3 softG = new Vector3(x, y, z) * -0.1f;
 
-            for (int index = 0; index < CurrentMaidsList[Index].body0.goSlot.Count; index++)
+            foreach (TBody.SlotID slotID in Enum.GetValues(typeof(TBody.SlotID)))
             {
+                string sSlotName = Enum.GetName(typeof(TBody.SlotID), slotID);
 
-                if (CurrentMaidsList[Index].body0.goSlot[index].obj != null)
+                if (true == sSlotName.Equals("end"))
+                    break;
+
+                if (true == CurrentMaidsList[Index].body0.GetSlotLoaded(slotID))
                 {
-                    DynamicBone component2 = CurrentMaidsList[Index].body0.goSlot[index].obj.GetComponent<DynamicBone>();
-                    if (component2 != null && component2.enabled)
+                    DynamicBone component2 = CurrentMaidsList[Index].body0.GetSlot((int)slotID).obj.GetComponent<DynamicBone>();
+                    if (null != component2)
                     {
-                        component2.m_Gravity = new Vector3(softG.x, softG.y, softG.z);
+                        if (true == component2.enabled)
+                        {
+                            component2.m_Gravity = new Vector3(softG.x, softG.y, softG.z);
+                        }
                     }
                 }
             }
-
+            
             CurrentMaidsList[Index].body0.BoneHitHeightY = sy;
         }
 
@@ -2147,7 +2322,7 @@ namespace COM3D2.EnhancedMaidEditScene.Plugin
                 case "左足":
                     return CMT.SearchObjName(CurrentSelectedMaid.body0.transform, "Bip01 L Foot", true).gameObject;
                 case "右足":
-                    return CMT.SearchObjName(CurrentSelectedMaid.body0.transform, "Bip01 R Foot", true).gameObject;                    
+                    return CMT.SearchObjName(CurrentSelectedMaid.body0.transform, "Bip01 R Foot", true).gameObject;
                 case "XXX前":
                     return CMT.SearchObjName(CurrentSelectedMaid.body0.transform, "_IK_vagina", true).gameObject;
                 case "XXX後":
@@ -2157,104 +2332,216 @@ namespace COM3D2.EnhancedMaidEditScene.Plugin
             return null;
         }
 
+        private void Items_UpdateDynamicBoneSataus()
+        {
+            LockBusy();
+            HandleEx posHandle = (HandleEx)Items_SubObjects_listBox.SelectedValue;
+            DynamicBone dynamicBone = posHandle.parentBone.GetComponent<DynamicBone>();
+            if (null != dynamicBone)
+            {
+#if DEBUG
+                Debuginfo.Log(posHandle.parentBone.name + ": DynamicBone.enabled = " + dynamicBone.enabled, 2);
+#endif
+                Items_SubObjects_DynamicBone_checkBox.Checked = dynamicBone.enabled;
+            }
+            UnlockBusy();
+        }
+
         private void Items_UpdateCurrentHandleFunc()
         {
-            Super.Items.Items_UpdateSelectedHandleExList(Items_HandledObjects_listBox.SelectedItems);
-
-            Action<Renderer> action_UpdateLoadImage = delegate (Renderer render)
+            Action<bool> action_ToggleEnable = delegate (bool bTrigger)
             {
-                LockBusy();
-                Items_LoadImage_Projection_checkBox.Enabled = true;
-                Items_LoadImage_Shadow_comboBox.Enabled = true;
-                Items_LoadImage_Shader_comboBox.Enabled = true;
-                Items_LoadImage_Projection_checkBox.Checked = render.receiveShadows;
-                Items_LoadImage_Shadow_comboBox.SelectedIndex = (int)render.shadowCastingMode;
-                Items_LoadImage_Shadow_comboBox.Select();
-                UnlockBusy();
-
-#if DEBUG
-                Debuginfo.Log("posHandle.parentBone.GetComponent<Renderer>().material = " + render.material.name, 2);
-                Debuginfo.Log("posHandle.parentBone.GetComponent<Renderer>().receiveShadows = " + render.receiveShadows, 2);
-                Debuginfo.Log("posHandle.parentBone.GetComponent<Renderer>().shadowCastingMode = " + render.shadowCastingMode, 2);
-#endif
+                Items_LoadImage_Projection_checkBox.Enabled = bTrigger;
+                Items_LoadImage_Shadow_comboBox.Enabled = bTrigger;
+                Items_LoadImage_Shader_comboBox.Enabled = bTrigger;
             };
 
-            if (Items_HandledObjects_listBox.SelectedItems.Count > 0)
+            Action<GameObject> action_UpdateLoadImageGameObject = delegate (GameObject gameObject)
             {
-                Items_Control_groupBox.Enabled = true;
-                if (1 == Items_HandledObjects_listBox.SelectedItems.Count)
+                Renderer render = gameObject.GetComponent<Renderer>();
+                LockBusy();
+                if (null == render)
                 {
-                    Items_UpdateItemHandleScaleInfo((HandleEx)Items_HandledObjects_listBox.SelectedValue);
-
-                    HandleEx posHandle = (HandleEx)Items_HandledObjects_listBox.SelectedValue;
-                    if ("効果" == posHandle.sCategory || "ボディー" == posHandle.sCategory)
-                    {
-                        Items_Handle_Active_Button.Enabled = true;
-                        Items_Handle_Visible_checkBox.Enabled = false;
-                    }
-                    else
-                    {
-                        Items_Handle_Active_Button.Enabled = false;
-                        Items_Handle_Visible_checkBox.Enabled = true;
-                    }
-
-                    if ("WildHandle" != posHandle.sCategory)
-                    {
-                        bool bRendererInChild = false;
-                        Renderer render = posHandle.parentBone.GetComponent<Renderer>();
-                        if (null == render)
-                        {
-                            UnityEngine.Component[] componentsChildren = posHandle.parentBone.GetComponentsInChildren(typeof(UnityEngine.Component));
-                            for (int i = 0; i < componentsChildren.Length; i++)
-                            {
-                                render = componentsChildren[i].gameObject.GetComponent<Renderer>();
-                                if (null != render)
-                                {
-                                    bRendererInChild = true;
-                                    action_UpdateLoadImage(render);
-                                }
-                            }
-
-                            if (false == bRendererInChild)
-                            {
-                                Debuginfo.Log("Rendererが見つかりません、無視する　" + posHandle.sItemName, 0);
-                                Items_LoadImage_Projection_checkBox.Enabled = false;
-                                Items_LoadImage_Shadow_comboBox.Enabled = false;
-                                Items_LoadImage_Shader_comboBox.Enabled = false;
-                            }
-                        }
-                        else
-                        {
-                            action_UpdateLoadImage(render);
-                        }
-                    }
-                    else
-                    {
-                        Items_LoadImage_Projection_checkBox.Enabled = false;
-                        Items_LoadImage_Shadow_comboBox.Enabled = false;
-                        Items_LoadImage_Shader_comboBox.Enabled = false;
-                    }
-
-                    Items_Settings_tabControl.Enabled = true;
-
-                    LockBusy();
-                    Items_Handle_Visible_checkBox.Checked = posHandle.parentBone.activeSelf;
-                    UnlockBusy();
+                    action_ToggleEnable(false);
                 }
                 else
                 {
-                    Items_Settings_tabControl.Enabled = false;
-
-                    LockBusy();
-                    Items_Handle_Visible_checkBox.Checked = true;
-                    UnlockBusy();
+                    action_ToggleEnable(true);
+                    Items_LoadImage_Projection_checkBox.Checked = render.receiveShadows;
+                    Items_LoadImage_Shadow_comboBox.SelectedIndex = (int)render.shadowCastingMode;
+                    Items_LoadImage_Shadow_comboBox.Select();
                 }
-            }
-            else
+                UnlockBusy();
+            };
+
+            Action<HandleEx> action_UpdateMaterialInfo = delegate (HandleEx posHandle)
+            {
+                GameObject gameObject = posHandle.parentBone;
+                Renderer render = gameObject.GetComponent<Renderer>();
+                if (null != render)
+                {
+                    if (null != render.material.shader)
+                    {
+                        string shaderName = render.material.shader.name;
+                        if (true == Items_LoadImage_Shader_comboBox.Items.Contains(shaderName))
+                        {
+                            Items_LoadImage_Shader_comboBox.SelectedIndex = Items_LoadImage_Shader_comboBox.Items.IndexOf(shaderName);
+                            Items_LoadImage_Shader_comboBox.Select();
+                        }
+                    }
+
+                    Items_LoadImage_Projection_checkBox.Checked = render.receiveShadows;
+                    Items_LoadImage_Shadow_comboBox.SelectedIndex = (int)render.shadowCastingMode;
+                    Items_LoadImage_Shadow_comboBox.Select();
+                }
+
+                if (true == posHandle.sItemName.Contains("D>"))
+                {
+                    Items_SubObjects_DynamicBone_checkBox.Visible = true;
+                }
+                else
+                {
+                    Items_SubObjects_DynamicBone_checkBox.Visible = false;
+                }
+            };
+
+            Action<bool, bool> action_DisableFunctions = delegate (bool bTab, bool bVisible)
+            {
+                Items_Settings_tabControl.Enabled = bTab;
+
+                LockBusy();
+                Items_Handle_Visible_checkBox.Checked = bVisible;
+                UnlockBusy();
+
+                Items_SubObjects_DynamicBone_checkBox.Visible = false;
+            };
+
+            Action action_DisableAll = delegate ()
             {
                 Items_Control_groupBox.Enabled = false;
                 Items_Settings_tabControl.Enabled = false;
                 Items_Handle_Visible_checkBox.Enabled = false;
+            };
+
+            Action action_ReloadMaidParts = delegate ()
+            {
+#if DEBUG
+                Debuginfo.Log("Items_UpdateCurrentHandleFunc() posHandle.goHandleMasterObject == null  再初期化", 2);
+#endif
+                action_DisableAll();
+                if (true == Super.Parts.Init(CurrentSelectedMaid))
+                {
+                    Items_UpdateCurrentHandleCount();
+                }
+            };
+
+            if (Items_list_tabPage1 == Items_List_tabControl.SelectedTab)
+            {
+                if (Items_HandledObjects_listBox.SelectedItems.Count > 0)
+                {
+                    Super.Items.Items_UpdateSelectedHandleExList(Items_HandledObjects_listBox.SelectedItems);
+
+                    Items_Control_groupBox.Enabled = true;
+                    Items_Handle_Remove_Button.Enabled = true;
+
+                    HandleEx posHandle = (HandleEx)Items_HandledObjects_listBox.SelectedValue;
+                    if (false == posHandle.CheckParentAlive())
+                    {
+                        action_ReloadMaidParts();
+                    }
+                    else
+                    {
+                        if (1 == Items_HandledObjects_listBox.SelectedItems.Count)
+                        {
+                            Items_UpdateItemHandleScaleInfo(posHandle.parentBone);
+
+                            if (true == posHandle.sCategory.Equals("効果") || true == posHandle.sCategory.Equals("ボディー"))
+                            {
+                                Items_Handle_Active_Button.Enabled = true;
+                                Items_Handle_Visible_checkBox.Enabled = false;
+                            }
+                            else if (true == posHandle.sCategory.Equals("MaidPartsHandle"))
+                            {
+                                Items_Handle_Active_Button.Enabled = false;
+                                Items_Handle_Visible_checkBox.Enabled = false;
+                            }
+                            else
+                            {
+                                Items_Handle_Active_Button.Enabled = false;
+                                Items_Handle_Visible_checkBox.Enabled = true;
+                            }
+
+                            if (false == posHandle.sCategory.Equals("WildHandle"))
+                            {
+                                action_UpdateLoadImageGameObject(posHandle.parentBone);
+                                action_ToggleEnable(true);
+                            }
+                            else
+                            {
+                                action_ToggleEnable(false);
+                            }
+
+                            Items_Settings_tabControl.Enabled = true;
+
+                            LockBusy();
+                            Items_Handle_Visible_checkBox.Checked = posHandle.parentBone.activeSelf;
+                            action_UpdateMaterialInfo(posHandle);
+                            UnlockBusy();
+                        }
+                        else
+                        {
+                            action_DisableFunctions(false, true);
+                        }
+                    }
+                }
+                else
+                {
+                    action_DisableAll();
+                }
+            }
+            else if (subItems_list_tabPage2 == Items_List_tabControl.SelectedTab)
+            {
+                Items_Handle_Remove_Button.Enabled = false;
+
+                if (Items_SubObjects_listBox.SelectedItems.Count > 0)
+                {
+                    HandleEx posHandle = (HandleEx)Items_SubObjects_listBox.SelectedValue;
+                    if (false == posHandle.CheckParentAlive())
+                    {
+                        Items_ClearSubItems();
+                        action_ReloadMaidParts();
+                    }
+                    else
+                    {
+                        Super.Items.Items_Sub_UpdateSelectedHandleExList(Items_SubObjects_listBox.SelectedItems);
+                        if (1 == Items_HandledObjects_listBox.SelectedItems.Count)
+                        {
+                            GameObject gameObject = posHandle.parentBone;
+                            Items_UpdateItemHandleScaleInfo(gameObject);
+
+                            Items_Handle_Active_Button.Enabled = false;
+                            Items_Handle_Visible_checkBox.Enabled = true;
+                            Items_Settings_tabControl.Enabled = true;
+
+                            action_UpdateLoadImageGameObject(gameObject);
+
+                            LockBusy();
+                            Items_Handle_Visible_checkBox.Checked = gameObject.activeSelf;
+                            action_UpdateMaterialInfo(posHandle);
+                            UnlockBusy();
+
+                            Items_UpdateDynamicBoneSataus();
+                        }
+                        else
+                        {
+                            action_DisableFunctions(false, true);
+                        }
+                    }
+                }
+                else
+                {
+                    action_DisableAll();
+                }
             }
         }
 
@@ -2485,7 +2772,7 @@ namespace COM3D2.EnhancedMaidEditScene.Plugin
                 goItem = Super.Items.Items_CreatShadow(prefix, selectedItem.Key.asset_name, pos, rot, null, selectedItem.Key);
             }
 
-            CreatePreviewIcon(goItem, pBox,true);
+            CreatePreviewIcon(goItem, pBox, true);
         }
 
         private void CreatePreviewIcon(GameObject goItem, PictureBox pBox, bool bDestoryObject)
@@ -2514,7 +2801,7 @@ namespace COM3D2.EnhancedMaidEditScene.Plugin
 #endif
                     pBox.Image = pBox.InitialImage;
                 }
-                if(true == bDestoryObject)
+                if (true == bDestoryObject)
                     UnityEngine.Object.DestroyImmediate(goItem);
             }
             else
@@ -2529,10 +2816,10 @@ namespace COM3D2.EnhancedMaidEditScene.Plugin
         private void MaidPosAutoCenter()
         {
 #if DEBUG
-            Debuginfo.Log(CurrentSelectedMaid.status.callName+"をルートセンターに調整する " + DateTime.Now, 2);
+            Debuginfo.Log(CurrentSelectedMaid.status.callName + "をルートセンターに調整する ", 2);
 #endif
             Transform trBone = CMT.SearchObjName(CurrentSelectedMaid.transform, "Bip01", true);
-            trBone.position = new Vector3(0, trBone.position.y, 0);
+            trBone.localPosition = new Vector3(0, 0, 0);
         }
 
         private void MaidPoseCreateIcon(string ANMName, string FullPathPngFile)
@@ -2602,9 +2889,6 @@ namespace COM3D2.EnhancedMaidEditScene.Plugin
                     render = componentsChildren[i].gameObject.GetComponent<Renderer>();
                     if (null != render)
                     {
-#if DEBUG
-                        Debuginfo.Log(">R>" + componentsChildren[i].name, 2);
-#endif
                         render.receiveShadows = receiveShadows;
                         bRendererInChild = true;
                     }
@@ -2644,16 +2928,13 @@ namespace COM3D2.EnhancedMaidEditScene.Plugin
                     render = componentsChildren[i].gameObject.GetComponent<Renderer>();
                     if (null != render)
                     {
-#if DEBUG
-                        Debuginfo.Log(">C>" + componentsChildren[i].name, 2);
-#endif
                         render.shadowCastingMode = shadowCastingMode;
                         bRendererInChild = true;
                     }
                 }
             }
 
-            if(false == bRendererInChild)
+            if (false == bRendererInChild)
                 render.shadowCastingMode = shadowCastingMode;
 
             if (true == string.Equals("無", handle.sOptions))
@@ -2664,7 +2945,7 @@ namespace COM3D2.EnhancedMaidEditScene.Plugin
             {
                 string[] options = handle.sOptions.Split('|');
                 handle.SetOptions(options[(int)SceneOptions.PrimitiveType] + "|" + options[(int)SceneOptions.ReceiveShadows] + "|" +
-                                  ((int)render.shadowCastingMode).ToString() + "|" + 
+                                  ((int)render.shadowCastingMode).ToString() + "|" +
                                   options[(int)SceneOptions.Shader]);
             }
         }
@@ -2685,17 +2966,12 @@ namespace COM3D2.EnhancedMaidEditScene.Plugin
             Renderer render = handle.parentBone.GetComponent<Renderer>();
             if (null == render)
             {
-                //Debuginfo.Log("Rendererが見つかりません、無視する　" + handle.sItemName, 0);
-                //return;
                 UnityEngine.Component[] componentsChildren = handle.parentBone.GetComponentsInChildren(typeof(UnityEngine.Component));
                 for (int i = 0; i < componentsChildren.Length; i++)
                 {
                     render = componentsChildren[i].gameObject.GetComponent<Renderer>();
                     if (null != render)
                     {
-#if DEBUG
-                        Debuginfo.Log(">S>" + componentsChildren[i].name, 2);
-#endif
                         Shader shader = Shader.Find(sShaderName);
                         if (null != shader)
                         {
@@ -2710,16 +2986,14 @@ namespace COM3D2.EnhancedMaidEditScene.Plugin
                 }
             }
 
-#if DEBUG
-            Debuginfo.Log("sShaderName " + sShaderName, 2);
-            Debuginfo.Log("handle.sItemFullName " + handle.sItemFullName, 2);
-            Debuginfo.Log("handle.parentBone " + handle.parentBone.name, 2);
-#endif
             if (false == bRendererInChild)
             {
                 Shader shader = Shader.Find(sShaderName);
                 if (null != shader)
                 {
+#if DEBUG
+                    Debuginfo.Log("get  render.material.shader = " + render.material.shader.name + " >> " + shader, 0);
+#endif 
                     render.material.shader = shader;
                 }
                 else
@@ -2736,8 +3010,223 @@ namespace COM3D2.EnhancedMaidEditScene.Plugin
             {
                 string[] options = handle.sOptions.Split('|');
                 handle.SetOptions(options[(int)SceneOptions.PrimitiveType] + "|" + options[(int)SceneOptions.ReceiveShadows] + "|" +
-                                  options[(int)SceneOptions.ShadowCastingMode] + "|" + 
+                                  options[(int)SceneOptions.ShadowCastingMode] + "|" +
                                   sShaderName);
+            }
+        }
+
+        private bool CheckSubItems(HandleEx handle)
+        {
+            if (true == handle.sCategory.Equals("WildHandle") || true == handle.sCategory.Equals("ExternalImage"))
+                return false;
+
+            bool ret = false;
+#if DEBUG
+            Debuginfo.Log("Load sub objects....   " + DateTime.Now, 0);
+#endif
+
+            Component[] com = handle.parentBone.GetComponentsInChildren(typeof(Component));
+
+            this.Enabled = false;
+            Super.Items.Items_Sub_RemoveAll();
+
+            for (int i = 0; i < com.Length; i++)
+            {               
+                Type tCom = com[i].GetType();
+#if DEBUG
+                Debuginfo.Log("Type [" + tCom + "] >>  [" + (i + 1).ToString() + "] >>> " + com[i].name, 0);
+#endif
+                string guid = System.Guid.NewGuid().ToString();
+                if (typeof(Transform) == tCom)  
+                {
+                    if (false == com[i].name.EndsWith("nub")
+                            && false == com[i].name.StartsWith("_SM_")
+                            && false == com[i].name.StartsWith("Arm")
+                            && false == com[i].name.StartsWith("Hip_")
+                            && false == com[i].name.StartsWith("Foretwist")
+                            && false == com[i].name.StartsWith("Uppertwist")
+                            && false == com[i].name.StartsWith("Kata_")
+                            && false == com[i].name.StartsWith("Mune")
+                            && false == com[i].name.StartsWith("momo")
+                            && false == com[i].name.StartsWith("Reg")
+                            && false == com[i].name.StartsWith("Hara")
+                            && false == com[i].name.StartsWith("Skirt_P_")  //DynamicSkirtBone BoneHair3.DynamicUpdate()なエラーの回避
+                            //&& false == com[i].name.Contains("_yure_")
+                            && false == com[i].name.Contains("_SCL_")
+                            && false == com[i].name.Contains("Bip")
+                            && false == com[i].name.Contains("_HIDE_")
+                            //&& false == com[i].name.Equals("center") && false == com[i].name.Equals("center2")
+                            //&& false == com[i].name.Equals(handle.parentBone.name)
+                            )
+                    {
+                        if (true == com[i].name.Contains("_yure_skirt"))    //制御不能なボーンを非表示
+                        {
+                            if (true == com[i].name.Contains("_A_"))
+                                Super.Items.Items_Sub_CreateHandle(guid + "_" + com[i].name, "[" + (i + 1).ToString() + "]T>" + com[i].name, "SubItemHandle", com[i].gameObject);
+                        }
+                        else
+                        {
+                            Super.Items.Items_Sub_CreateHandle(guid + "_" + com[i].name, "[" + (i + 1).ToString() + "]T>" + com[i].name, "SubItemHandle", com[i].gameObject);
+                        }
+                    }
+                }
+                else if (true == tCom.ToString().StartsWith("Dynamic"))
+                {
+                    if (typeof(DynamicBone) == tCom)    //髪、尻尾．．．
+                        Super.Items.Items_Sub_CreateHandle(guid + "_" + com[i].name, "[" + (i + 1).ToString() + "]D>" + com[i].name, "SubItemHandle", com[i].gameObject);
+                }
+                else //MeshRenderer  Renderer
+                {
+                    Renderer render = com[i].gameObject.GetComponent<Renderer>();
+                    if (null != render)
+                    {
+                        Super.Items.Items_Sub_CreateHandle(guid + "_" + com[i].name, "[" + (i + 1).ToString() + "]S>" + com[i].name, "SubItemHandle", com[i].gameObject);
+                    }
+                }
+            }
+
+            if (Super.Items.Items_Sub_ItemHandle.Count > 0)
+            {
+                ret = true;
+                Items_SubObjects_listBox.DataSource = new BindingSource(Super.Items.Items_Sub_ItemHandle, null);
+                Items_SubObjects_listBox.DisplayMember = "Value";
+                Items_SubObjects_listBox.ValueMember = "Key";
+            }
+            else
+            {
+                Items_SubObjects_listBox.DataSource = null;
+                Items_SubObjects_listBox.SelectedIndex = -1;
+                Items_SubObjects_listBox.ClearSelected();
+            }
+            this.Enabled = true;
+#if DEBUG
+            Debuginfo.Log("Load sub objects.... ret = " + ret + "   " + DateTime.Now, 0);
+#endif
+            return ret;
+        }
+
+        private void SetSubItemOptions(GameObject goComponent, bool receiveShadows)
+        {
+            Renderer render = goComponent.GetComponent<Renderer>();
+            if (null != render)
+                render.receiveShadows = receiveShadows;
+        }
+
+        private void SetSubItemOptions(GameObject goComponent, ShadowCastingMode shadowCastingMode)
+        {
+            Renderer render = goComponent.GetComponent<Renderer>();
+            if (null != render)
+                render.shadowCastingMode = shadowCastingMode;
+        }
+
+        private void SetSubItemOptions(GameObject goComponent, string sShaderName)
+        {
+            if (true == string.Equals("無", sShaderName))
+            {
+                return;
+            }
+
+            Renderer render = goComponent.GetComponent<Renderer>();
+            if (null != render)
+            {
+                Shader shader = Shader.Find(sShaderName);
+                if (null != shader)
+                {
+                    render.material.shader = shader;
+                }
+            }
+        }
+
+        private void MaidOffset_CopyMaidOffset(Maid maid)
+        {
+            if (null == MaidOffset_BackupMaidPosRotScale)
+            {
+                MaidOffset_BackupMaidPosRotScale = new BackupMaidPosRotScale();
+            }
+
+            MaidOffset_BackupMaidPosRotScale.Pos = maid.GetPos();
+            MaidOffset_BackupMaidPosRotScale.Rot = maid.GetRot();
+            MaidOffset_BackupMaidPosRotScale.Scale = maid.body0.transform.localScale;
+            Super.Pose.Pose_Copy(CurrentSelectedMaid);
+            Super.maidTails.CopyBonesInfoAll();
+        }
+
+        private void MaidOffset_PasteMaidOffset(Maid maid)
+        {
+            if (null == MaidOffset_BackupMaidPosRotScale)
+            {
+                MaidOffset_BackupMaidPosRotScale = new BackupMaidPosRotScale()
+                {
+                    Pos = new Vector3(0, 0, 0),
+                    Rot = new Vector3(0, 0, 0),
+                    Scale = new Vector3(1, 1, 1)
+                };
+            }
+
+            if (true == MaidOffset_Pos_checkBox.Checked)
+            {
+                maid.SetPos(MaidOffset_BackupMaidPosRotScale.Pos);
+            }
+
+            if (true == MaidOffset_Rot_checkBox.Checked)
+            {
+                maid.SetRot(MaidOffset_BackupMaidPosRotScale.Rot);
+            }
+
+            if (true == MaidOffset_Scale_checkBox.Checked)
+            {
+                maid.body0.transform.localScale = MaidOffset_BackupMaidPosRotScale.Scale;
+            }
+
+            if (true == MaidOffset_Pose_checkBox.Checked)
+            {
+                Super.Pose.Pose_Paste(CurrentSelectedMaid);
+                Super.maidTails.PasteBonesInfoAll();
+            }
+        }
+
+        private void SetSlotBodyHit(bool bTrigger)
+        {
+            if (true == IsBusy())
+                return;
+
+            string sSlotName = Items_HandledObjects_listBox.SelectedItem.ToString().Split('_')[1].Replace("]", "");
+            if (true == sSlotName.Contains("hair"))
+            {
+                string[] sSlotID = Enum.GetNames(typeof(TBody.SlotID));
+                if (true == sSlotID.Contains(sSlotName))
+                {
+                    int iSlotID = sSlotID.ToList().IndexOf(sSlotName);
+                    TBodySkin tbs = CurrentSelectedMaid.body0.GetSlot(iSlotID);
+                    if (null != tbs)
+                    {
+                        EMES.SetFieldValue<TBoneHair_, bool>(tbs.bonehair, "m_bEnable", bTrigger);
+                    }
+                }
+            }
+        }
+
+        private void GetSlotBodyHit(CheckBox cb)
+        {
+            string sSlotName = Items_HandledObjects_listBox.SelectedItem.ToString().Split('_')[1].Replace("]", "");
+            if (true == sSlotName.Contains("hair"))
+            {
+                string[] sSlotID = Enum.GetNames(typeof(TBody.SlotID));
+                if (true == sSlotID.Contains(sSlotName))
+                {
+                    int iSlotID = sSlotID.ToList().IndexOf(sSlotName);
+                    TBodySkin tbs = CurrentSelectedMaid.body0.GetSlot(iSlotID);
+                    if (null != tbs)
+                    {
+                        cb.Visible = true;
+                        cb.Checked = EMES.GetFieldValue<TBoneHair_, bool>(tbs.bonehair, "m_bEnable");
+                    }
+                }
+            }
+            else
+            {
+                cb.Visible = false;
+                cb.Checked = false;
             }
         }
         #endregion

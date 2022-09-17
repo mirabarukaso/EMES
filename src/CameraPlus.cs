@@ -18,6 +18,9 @@ namespace COM3D2.EnhancedMaidEditScene.Plugin
         private GlobalFog sGlobalFog;
         private GlobalFog sGlobalFog_Backup;
         private SepiaToneEffect sSepia;
+        private Vignetting sVignetting;
+        private Vignetting sVignetting_Backup;
+
         public ExtraShader()
         {
 #if DEBUG
@@ -51,7 +54,6 @@ namespace COM3D2.EnhancedMaidEditScene.Plugin
                 sBlur.blurShader = Shader.Find("Hidden/FastBlur");
                 sBlur.enabled = false;
             }
-
 
 #if DEBUG
             Debuginfo.Log("sDepthOfField", 2);
@@ -92,6 +94,23 @@ namespace COM3D2.EnhancedMaidEditScene.Plugin
 #endif
             //Image Effects/Color Adjustments/Sepia Tone
             sSepia = MainCameraObject.GetComponent<SepiaToneEffect>();
+
+#if DEBUG
+            Debuginfo.Log("Vignetting", 2);
+#endif
+            //Image Effects/Camera/Vignette and Chromatic Aberration
+            sVignetting = MainCameraObject.GetComponent<Vignetting>();
+            sVignetting_Backup = new Vignetting()
+            {
+                mode = sVignetting.mode,
+                intensity = sVignetting.intensity,
+                chromaticAberration = sVignetting.chromaticAberration,
+                axialAberration = sVignetting.axialAberration,
+                blur = sVignetting.blur,
+                blurSpread = sVignetting.blurSpread,
+                luminanceDependency = sVignetting.luminanceDependency,
+                blurDistance = sVignetting.blurDistance
+            };
 
             CameraQuickSave();
 #if DEBUG
@@ -203,72 +222,8 @@ namespace COM3D2.EnhancedMaidEditScene.Plugin
             sGlobalFog.fogMode = sGlobalFog_Backup.fogMode;
             sGlobalFog.globalFogColor = sGlobalFog_Backup.globalFogColor;
         }
-
-        public void GetAllData(out EMES_SceneManagement.ShaderData shaderData)
-        {
-            shaderData = new EMES_SceneManagement.ShaderData();
-
-            shaderData.sBloom_enabled = sBloom.enabled;
-            shaderData.sBloom_screenBlendMode = (int)sBloom.screenBlendMode;
-            shaderData.sBloom_quality = (int)sBloom.quality;
-            shaderData.sBloom_sepBlurSpread = sBloom.sepBlurSpread;
-            shaderData.sBloom_bloomBlurIterations = sBloom.bloomBlurIterations;
-
-            shaderData.sBlur_enabled = sBlur.enabled;
-            shaderData.sBlur_blurSize = sBlur.blurSize;
-            shaderData.sBlur_blurIterations = sBlur.blurIterations;
-
-            shaderData.sDepthOfField_enabled = sDepthOfField.enabled;
-            shaderData.sDepthOfField_visualizeFocus = sDepthOfField.visualizeFocus;
-            shaderData.sDepthOfField_focalLength = sDepthOfField.focalLength;
-            shaderData.sDepthOfField_focalSize = sDepthOfField.focalSize;
-            shaderData.sDepthOfField_aperture = sDepthOfField.aperture;
-            shaderData.sDepthOfField_maxBlurSize = sDepthOfField.maxBlurSize;
-            shaderData.sDepthOfField_blurType = (int)sDepthOfField.blurType;
-
-            shaderData.sGlobalFog_enabled = sGlobalFog.enabled;
-            shaderData.sGlobalFog_startDistance = sGlobalFog.startDistance;
-            shaderData.sGlobalFog_globalDensity = sGlobalFog.globalDensity;
-            shaderData.sGlobalFog_heightScale = sGlobalFog.heightScale;
-            shaderData.sGlobalFog_height = sGlobalFog.height;
-            shaderData.sGlobalFog_globalFogColor_r = sGlobalFog.globalFogColor.r;
-            shaderData.sGlobalFog_globalFogColor_g = sGlobalFog.globalFogColor.g;
-            shaderData.sGlobalFog_globalFogColor_b = sGlobalFog.globalFogColor.b;
-            shaderData.sGlobalFog_globalFogColor_a = sGlobalFog.globalFogColor.a;
-
-            shaderData.sSepia_enabled = sSepia.enabled;
-        }
-
-        public void SetAllData(EMES_SceneManagement.ShaderData shaderData)
-        {
-            sBloom.enabled = shaderData.sBloom_enabled;
-            sBloom.screenBlendMode = (Bloom.BloomScreenBlendMode)shaderData.sBloom_screenBlendMode;
-            sBloom.quality = (Bloom.BloomQuality)shaderData.sBloom_quality;
-            sBloom.sepBlurSpread = shaderData.sBloom_sepBlurSpread;
-            sBloom.bloomBlurIterations = shaderData.sBloom_bloomBlurIterations;
-
-            sBlur.enabled = shaderData.sBlur_enabled;
-            sBlur.blurSize = shaderData.sBlur_blurSize;
-            sBlur.blurIterations = shaderData.sBlur_blurIterations;
-
-            sDepthOfField.enabled = shaderData.sDepthOfField_enabled;
-            sDepthOfField.visualizeFocus = shaderData.sDepthOfField_visualizeFocus;
-            sDepthOfField.focalLength = shaderData.sDepthOfField_focalLength;
-            sDepthOfField.focalSize = shaderData.sDepthOfField_focalSize;
-            sDepthOfField.aperture = shaderData.sDepthOfField_aperture;
-            sDepthOfField.maxBlurSize = shaderData.sDepthOfField_maxBlurSize;
-            sDepthOfField.blurType = (DepthOfFieldScatter.BlurType)shaderData.sDepthOfField_blurType;
-
-            sGlobalFog.enabled = shaderData.sGlobalFog_enabled;
-            sGlobalFog.startDistance = shaderData.sGlobalFog_startDistance;
-            sGlobalFog.globalDensity = shaderData.sGlobalFog_globalDensity;
-            sGlobalFog.heightScale = shaderData.sGlobalFog_heightScale;
-            sGlobalFog.height = shaderData.sGlobalFog_height;
-            sGlobalFog.globalFogColor = new Color(shaderData.sGlobalFog_globalFogColor_a, shaderData.sGlobalFog_globalFogColor_r, shaderData.sGlobalFog_globalFogColor_g, shaderData.sGlobalFog_globalFogColor_b);
-
-            sSepia.enabled = shaderData.sSepia_enabled;
-        }
         #endregion
+
 
         #region public SepiaToneEffect
         public void Set_SepiaData(bool bEnable)
@@ -279,6 +234,118 @@ namespace COM3D2.EnhancedMaidEditScene.Plugin
         public void Get_SepiaData(out bool bEnable)
         {
             bEnable = sSepia.enabled;
+        }
+        #endregion
+
+        #region public Vignetting
+        public void Get_VignettingData(out bool bEnable, out int intensity, out int chromaticAberration, out int blurSpread, out int blur)
+        {
+            bEnable = sVignetting.enabled;
+            intensity = (int)(sVignetting.intensity * 100);
+            chromaticAberration = (int)(sVignetting.chromaticAberration * 100);
+            blurSpread = (int)(sVignetting.blurSpread * 100);
+            blur = (int)(sVignetting.blur * 100);
+        }
+
+        public void Set_VignettingData(bool bEnable, int intensity, int chromaticAberration, int blurSpread, int blur)
+        {
+            sVignetting.enabled = bEnable;
+            sVignetting.intensity = ((float)intensity) / 100;
+            sVignetting.chromaticAberration = ((float)chromaticAberration) / 100;
+            sVignetting.blurSpread = ((float)blurSpread) / 100;
+            sVignetting.blur = ((float)blur) / 100;
+        }
+
+        public void Reset_VignettingData()
+        {
+            sVignetting.enabled = false;
+            sVignetting.mode = sVignetting_Backup.mode;
+            sVignetting.intensity = sVignetting_Backup.intensity;
+            sVignetting.chromaticAberration = sVignetting_Backup.chromaticAberration;
+            sVignetting.axialAberration = sVignetting_Backup.axialAberration;
+            sVignetting.blur = sVignetting_Backup.blur;
+            sVignetting.blurSpread = sVignetting_Backup.blurSpread;
+            sVignetting.luminanceDependency = sVignetting_Backup.luminanceDependency;
+            sVignetting.blurDistance = sVignetting_Backup.blurDistance;
+        }
+        #endregion
+
+        #region Scene Data
+        public void GetAllData(out EMES_SceneManagement.ShaderDataNew shaderData)
+        {
+            shaderData = new EMES_SceneManagement.ShaderDataNew();
+
+            shaderData.sBloom.enabled = sBloom.enabled;
+            shaderData.sBloom.screenBlendMode = (int)sBloom.screenBlendMode;
+            shaderData.sBloom.quality = (int)sBloom.quality;
+            shaderData.sBloom.sepBlurSpread = sBloom.sepBlurSpread;
+            shaderData.sBloom.bloomBlurIterations = sBloom.bloomBlurIterations;
+
+            shaderData.sBlur.enabled = sBlur.enabled;
+            shaderData.sBlur.blurSize = sBlur.blurSize;
+            shaderData.sBlur.blurIterations = sBlur.blurIterations;
+
+            shaderData.sDepthOfField.enabled = sDepthOfField.enabled;
+            shaderData.sDepthOfField.visualizeFocus = sDepthOfField.visualizeFocus;
+            shaderData.sDepthOfField.focalLength = sDepthOfField.focalLength;
+            shaderData.sDepthOfField.focalSize = sDepthOfField.focalSize;
+            shaderData.sDepthOfField.aperture = sDepthOfField.aperture;
+            shaderData.sDepthOfField.maxBlurSize = sDepthOfField.maxBlurSize;
+            shaderData.sDepthOfField.blurType = (int)sDepthOfField.blurType;
+
+            shaderData.sGlobalFog.enabled = sGlobalFog.enabled;
+            shaderData.sGlobalFog.startDistance = sGlobalFog.startDistance;
+            shaderData.sGlobalFog.globalDensity = sGlobalFog.globalDensity;
+            shaderData.sGlobalFog.heightScale = sGlobalFog.heightScale;
+            shaderData.sGlobalFog.height = sGlobalFog.height;
+            shaderData.sGlobalFog.r = sGlobalFog.globalFogColor.r;
+            shaderData.sGlobalFog.g = sGlobalFog.globalFogColor.g;
+            shaderData.sGlobalFog.b = sGlobalFog.globalFogColor.b;
+            shaderData.sGlobalFog.a = sGlobalFog.globalFogColor.a;
+
+            shaderData.sSepia_enabled = sSepia.enabled;
+
+            shaderData.sVignetting.enabled = sVignetting.enabled;
+            shaderData.sVignetting.intensity = sVignetting.intensity;
+            shaderData.sVignetting.chromaticAberration = sVignetting.chromaticAberration;
+            shaderData.sVignetting.blur = sVignetting.blur;
+            shaderData.sVignetting.blurSpread = sVignetting.blurSpread;
+        }
+
+        public void SetAllData(EMES_SceneManagement.ShaderDataNew shaderData)
+        {
+            sBloom.enabled = shaderData.sBloom.enabled;
+            sBloom.screenBlendMode = (Bloom.BloomScreenBlendMode)shaderData.sBloom.screenBlendMode;
+            sBloom.quality = (Bloom.BloomQuality)shaderData.sBloom.quality;
+            sBloom.sepBlurSpread = shaderData.sBloom.sepBlurSpread;
+            sBloom.bloomBlurIterations = shaderData.sBloom.bloomBlurIterations;
+
+            sBlur.enabled = shaderData.sBlur.enabled;
+            sBlur.blurSize = shaderData.sBlur.blurSize;
+            sBlur.blurIterations = shaderData.sBlur.blurIterations;
+
+            sDepthOfField.enabled = shaderData.sDepthOfField.enabled;
+            sDepthOfField.visualizeFocus = shaderData.sDepthOfField.visualizeFocus;
+            sDepthOfField.focalLength = shaderData.sDepthOfField.focalLength;
+            sDepthOfField.focalSize = shaderData.sDepthOfField.focalSize;
+            sDepthOfField.aperture = shaderData.sDepthOfField.aperture;
+            sDepthOfField.maxBlurSize = shaderData.sDepthOfField.maxBlurSize;
+            sDepthOfField.blurType = (DepthOfFieldScatter.BlurType)shaderData.sDepthOfField.blurType;
+
+            sGlobalFog.enabled = shaderData.sGlobalFog.enabled;
+            sGlobalFog.startDistance = shaderData.sGlobalFog.startDistance;
+            sGlobalFog.globalDensity = shaderData.sGlobalFog.globalDensity;
+            sGlobalFog.heightScale = shaderData.sGlobalFog.heightScale;
+            sGlobalFog.height = shaderData.sGlobalFog.height;
+            sGlobalFog.globalFogColor = new Color(shaderData.sGlobalFog.a, shaderData.sGlobalFog.r, shaderData.sGlobalFog.g, shaderData.sGlobalFog.b);
+
+            sSepia.enabled = shaderData.sSepia_enabled;
+
+            sVignetting.enabled = shaderData.sVignetting.enabled;
+            sVignetting.intensity = shaderData.sVignetting.intensity;
+            sVignetting.chromaticAberration = shaderData.sVignetting.chromaticAberration;
+            sVignetting.blur = shaderData.sVignetting.blur;
+            sVignetting.blurSpread = shaderData.sVignetting.blurSpread;
         }
         #endregion
     }
@@ -300,6 +367,7 @@ namespace COM3D2.EnhancedMaidEditScene.Plugin
         //カメラ位置
         private Dictionary<string, float> CameraPosData;
         private float CameraSpeed = 0.05f;
+        public List<Dictionary<string, float>> CameraPosDataList { get; private set; }
 
         //サブライト
         private GameObject goSubLightMaster;
@@ -327,6 +395,20 @@ namespace COM3D2.EnhancedMaidEditScene.Plugin
 #endif
             m_objInstance = this;
             CameraPosData = new Dictionary<string, float>();
+            CameraPosDataList = new List<Dictionary<string, float>>();
+            for(int index = 0; index <5; index++)
+            {
+                CameraPosDataList.Add(new Dictionary<string, float>());
+                CameraPosDataList[index].Add("px", 0);
+                CameraPosDataList[index].Add("py", 0);
+                CameraPosDataList[index].Add("pz", 0);
+                CameraPosDataList[index].Add("rx", 0);
+                CameraPosDataList[index].Add("ry", 0);
+                CameraPosDataList[index].Add("rz", 1.5f);
+                CameraPosDataList[index].Add("d", 2f);
+                CameraPosDataList[index].Add("fov", 35f);
+                CameraPosDataList[index].Add("TAG_無", index);
+            }
             MainCamera = GameMain.Instance.MainCamera;
             MainCameraObject = GameMain.Instance.MainCamera.camera.gameObject;
 
@@ -346,6 +428,8 @@ namespace COM3D2.EnhancedMaidEditScene.Plugin
             {
                 CameraPosData.Clear();
                 CameraPosData = null;
+                CameraPosDataList.Clear();
+                CameraPosDataList = null;
             }
 
             if (null != SubLightList)
@@ -361,8 +445,61 @@ namespace COM3D2.EnhancedMaidEditScene.Plugin
 #endif
         }
 
-#region camera pos
+        #region camera pos
         //カメラ位置
+        public void CameraDataSlotInit(int iIndex, EMES_SceneManagement.CameraDataSlot cameraDataSlot)
+        {
+            if (iIndex >= CameraPosDataList.Count)
+                return;
+
+            CameraPosDataList[iIndex].Clear();
+            CameraPosDataList[iIndex].Add("px", cameraDataSlot.pos_x);
+            CameraPosDataList[iIndex].Add("py", cameraDataSlot.pos_y);
+            CameraPosDataList[iIndex].Add("pz", cameraDataSlot.pos_z);
+            CameraPosDataList[iIndex].Add("rx", cameraDataSlot.rot_x);
+            CameraPosDataList[iIndex].Add("ry", cameraDataSlot.rot_y);
+            CameraPosDataList[iIndex].Add("rz", cameraDataSlot.rot_z);
+            CameraPosDataList[iIndex].Add("d", cameraDataSlot.distance);
+            CameraPosDataList[iIndex].Add("fov", cameraDataSlot.fov);
+            CameraPosDataList[iIndex].Add(cameraDataSlot.tag, iIndex);
+        }
+
+        public void CameraDataSlotSave(int iIndex, string sTag)
+        {
+            if (iIndex >= CameraPosDataList.Count)
+                return;
+
+            Vector3 CameraPos = MainCamera.GetTargetPos();
+            Vector3 CameraRotation = MainCamera.camera.transform.rotation.eulerAngles;
+
+            CameraPosDataList[iIndex].Clear();
+            CameraPosDataList[iIndex].Add("px", CameraPos.x);
+            CameraPosDataList[iIndex].Add("py", CameraPos.y);
+            CameraPosDataList[iIndex].Add("pz", CameraPos.z);
+            CameraPosDataList[iIndex].Add("rx", CameraRotation.x);
+            CameraPosDataList[iIndex].Add("ry", CameraRotation.y);
+            CameraPosDataList[iIndex].Add("rz", CameraRotation.z);
+            CameraPosDataList[iIndex].Add("d", MainCamera.GetDistance());
+            CameraPosDataList[iIndex].Add("fov", MainCamera.camera.fieldOfView);
+            CameraPosDataList[iIndex].Add("TAG_"+sTag, iIndex);
+        }
+
+        public void CameraDataSlotLoad(int iIndex)
+        {
+            if (iIndex >= CameraPosDataList.Count)
+                return;
+
+            if (CameraPosDataList[iIndex].Count < 1)
+                return;
+
+            MainCamera.SetTargetPos(new Vector3(CameraPosDataList[iIndex]["px"], CameraPosDataList[iIndex]["py"], CameraPosDataList[iIndex]["pz"]), false);
+            MainCamera.SetDistance(CameraPosDataList[iIndex]["d"], false);
+            MainCamera.camera.fieldOfView = CameraPosDataList[iIndex]["fov"];
+            MainCamera.SetRotation(new Vector3(CameraPosDataList[iIndex]["rx"], CameraPosDataList[iIndex]["ry"], CameraPosDataList[iIndex]["rz"]));
+
+            Super.Window.UpdateCameraFOVinfo();
+        }
+
         public void CameraQuickSave()
         {
             Vector3 CameraPos = MainCamera.GetTargetPos();
@@ -381,13 +518,15 @@ namespace COM3D2.EnhancedMaidEditScene.Plugin
 
         public void CameraQuickLoad()
         {
-            if (CameraPosData.Count() < 1)
+            if (CameraPosData.Count < 1)
                 return;
 
             MainCamera.SetTargetPos(new Vector3(CameraPosData["px"], CameraPosData["py"], CameraPosData["pz"]), false);
             MainCamera.SetDistance(CameraPosData["d"], false);
             MainCamera.camera.fieldOfView = CameraPosData["fov"];
             MainCamera.SetRotation(new Vector3(CameraPosData["rx"], CameraPosData["ry"], CameraPosData["rz"]));
+
+            Super.Window.UpdateCameraFOVinfo();
         }
 
         public void CameraKeyProcess(SettingsXML settingsXml, Maid maid, Transform Target)

@@ -24,7 +24,7 @@ using System.Xml;
 //c　スペシャルリリース
 //d　改造リリース
 #if SYBARIS
-[assembly: AssemblyVersion("1.0.0.0")]
+[assembly: AssemblyVersion("1.1.0.0")]
 [assembly: AssemblyTitle("Enhanced Maid Edit Scene")]
 #endif
 [assembly: AssemblyCopyright("Free @Mirabarukaso")]
@@ -33,15 +33,15 @@ namespace COM3D2.EnhancedMaidEditScene.Plugin
 {
 #if SYBARIS
     [PluginFilter("COM3D2x64"), PluginFilter("COM3D2OHx64")]
-    [PluginName("EnhancedMaidEditScene"), PluginVersion("1.0.0.0")]
+    [PluginName("EnhancedMaidEditScene"), PluginVersion("1.1.0.0")]
 #endif
 #if BEPINEX
     [BepInProcess("COM3D2x64"), BepInProcess("COM3D2OHx64")]
-    [BepInPlugin("org.bepinex.plugins.enhancedmaideditscene", "Enhanced Maid Edit Scene", "1.0.0.1")]
+    [BepInPlugin("org.bepinex.plugins.enhancedmaideditscene", "Enhanced Maid Edit Scene", "1.1.0.1")]
 #endif
 
 #if SYBARIS
-    public partial class EMES : PluginBase
+    public class EMES : PluginBase
 #endif
 #if BEPINEX
     public class EMES : BaseUnityPlugin
@@ -50,10 +50,10 @@ namespace COM3D2.EnhancedMaidEditScene.Plugin
 #region Constants
         public const string PluginName = "EnhancedMaidEditScene";
 #if SYBARIS
-        public const string PluginVersion = "1.0.0.0";
+        public const string PluginVersion = "1.1.0.0";
 #endif
 #if BEPINEX
-        public const string PluginVersion = "1.0.0.1";
+        public const string PluginVersion = "1.1.0.1";
 #endif
 
         private readonly int iSceneEdit = 5; //メイン版エディットモード
@@ -78,11 +78,15 @@ namespace COM3D2.EnhancedMaidEditScene.Plugin
         private int ActivedMaidCount = 1;
         private float Xwarp = 0.4f;
 
+        private bool bReloadingMaid = false;
+        private int CustomMaidIndexID;
+
         public EMES_MaidIK MaidIK;
         public EMES_Yotogi Yotogi;
         public EMES_Pose Pose;
         public EMES_Items Items;
         public EMES_Dance Dance;
+        public EMES_MaidParts Parts;
 
         public EMES_Window Window;
         public SettingsXML settingsXml;
@@ -91,7 +95,7 @@ namespace COM3D2.EnhancedMaidEditScene.Plugin
 
         public EMES_SceneManagement sceneManagement;
         public MaidTailsLite maidTails;
-#endregion
+        #endregion
 
         EMES()
         {
@@ -103,6 +107,7 @@ namespace COM3D2.EnhancedMaidEditScene.Plugin
             Pose = new EMES_Pose(this);
             Items = new EMES_Items(this);
             Dance = new EMES_Dance();
+            Parts = new EMES_MaidParts(this);
         }
 
 #region MonoBehaviour methods
@@ -120,6 +125,14 @@ namespace COM3D2.EnhancedMaidEditScene.Plugin
         {
             Finalized();
             SceneManager.sceneLoaded -= OnSceneLoaded;
+        }
+
+        public void SetReloadingMaid(bool bTrigger, int iCustomMaidIndexID)
+        {
+            bInitCompleted = !bTrigger;
+            bReloadingMaid = bTrigger;
+            CustomMaidIndexID = iCustomMaidIndexID;
+            Window.ToggleWindow(!bTrigger);
         }
 
         public void OnSceneLoaded(Scene scene, LoadSceneMode mode)
@@ -152,6 +165,7 @@ namespace COM3D2.EnhancedMaidEditScene.Plugin
                     }
 #endif
                     FingerPose.LoadFingerPose(GetConfigDirectory());
+                    FingerBlendCustom.LoadFingerBlendData();
                     bIniLoaded = true;
                 }
 
@@ -182,26 +196,45 @@ namespace COM3D2.EnhancedMaidEditScene.Plugin
 
         public void Update()
         {
-            if (sceneLevel == GetEditModeSceneNo() && true == bInitCompleted && false == bRequestLoadMaids)
+            if (true == bInitCompleted)
             {
-                Window.ProcessShortcurtHotkey();
-                Items.Items_SyncPosRotFromHandle();
-
-                maidTails.ProcessHandle();
-                if (true == maidTails.CheckShippoChange(Window.CurrentSelectedMaid))
+                if (sceneLevel == GetEditModeSceneNo() && false == bRequestLoadMaids)
                 {
-                    Window.MaidTails_DisableAutoIK();
-                    Window.MaidTails_Init();
+                    Window.ProcessShortcurtHotkey();
+                    Items.Items_SyncPosRotFromHandle();
+
+                    maidTails.ProcessHandle();
+                    if (true == maidTails.CheckShippoChange(Window.CurrentSelectedMaid))
+                    {
+                        Window.MaidTails_DisableAutoIK();
+                        Window.MaidTails_Init();
+                    }
+
+                    if (true == Window.GetCameraMovement())
+                    {
+                        camPlus.CameraKeyProcess(settingsXml, Window.CurrentSelectedMaid, Window.CurrentSelectedMaid.body0.transform);
+                    }
                 }
-
-                if (true == Window.GetCameraMovement())
+                else if (sceneLevel != GetEditModeSceneNo())
                 {
-                    camPlus.CameraKeyProcess(settingsXml, Window.CurrentSelectedMaid, Window.CurrentSelectedMaid.body0.transform);
+                    Finalized();
                 }
             }
-            else if(sceneLevel != GetEditModeSceneNo() && true == bInitCompleted)
+            else
             {
-                Finalized();
+                if(true == bReloadingMaid)
+                {
+                    if (true == GameMain.Instance.CharacterMgr.IsBusy())
+                    {
+                        Debuginfo.Log("リロード中...", 0);
+                    }
+                    else
+                    {
+                        Window.ReloadedMaid(CustomMaidIndexID);
+                        SetReloadingMaid(false, -1);
+                        Debuginfo.Log("リロード完了", 0);
+                    }
+                }
             }
         }
 
@@ -215,31 +248,33 @@ namespace COM3D2.EnhancedMaidEditScene.Plugin
                 }
                 else if(false == MaidIK.IsLockIK())
                 {
-                    for (int i = 0; i < Window.CurrentMaidsStockID.Count; i++)
+                    EMES_Window.HandleSelectMode hsMode = Window.GetMaidHandleSelectMode();
+                    int iID = Window.GetCurrentMaidStockID();
+                    if (EMES_Window.HandleSelectMode.None != hsMode)
                     {
-                        if (EMES_Window.HandleSelectMode.All != Window.GetMaidHandleSelectMode())
+                        for (int i = 0; i < Window.CurrentMaidsStockID.Count; i++)
                         {
-                            if (EMES_Window.HandleSelectMode.Current == Window.GetMaidHandleSelectMode())
+                            if (false == Window.CheckMaidSelectMode(hsMode, i, iID))
+                                continue;
+
+                            Window.CheckIfNeedAddCustomFaceBlend(Window.CurrentSelectedMaid);
+
+                            if (null == MaidIK.MaidsIK[Window.CurrentMaidsStockID[i]].handleEx[EMES_MaidIK.BoneType.Root].GetParentBone())
                             {
-                                if (Window.CurrentMaidsStockID[i] != Window.GetCurrentMaidStockID())
-                                    continue;
+                                MaidIK.IK_Init(Window.CurrentMaidsList[i].status.guid, Window.CurrentMaidsStockID[i]);
                             }
-                            else if (EMES_Window.HandleSelectMode.Others == Window.GetMaidHandleSelectMode())
+
+                            bool bBip01Dragged = false;
+                            //パフォーマンスの向上
+                            MaidIK.IK_CheckInvisible(Window.CurrentMaidsStockID[i]);
+                            bBip01Dragged = MaidIK.IK_SyncFromHandle(Window.CurrentMaidsStockID[i]);
+                            MaidIK.IK_Porc(Window.CurrentMaidsStockID[i]);
+
+                            if (true == bBip01Dragged && Window.CurrentSelectedMaid == GameMain.Instance.CharacterMgr.GetStockMaid(Window.CurrentMaidsStockID[i]))
                             {
-                                if (Window.CurrentMaidsStockID[i] == Window.GetCurrentMaidStockID())
-                                    continue;
+                                Window.MaidOffset_UpdateOffsetInfo(Window.CurrentSelectedMaid);
                             }
                         }
-
-                        if (null == MaidIK.MaidsIK[Window.CurrentMaidsStockID[i]].handleEx[EMES_MaidIK.BoneType.Root].GetParentBone())
-                        {
-                            MaidIK.IK_Init(Window.CurrentMaidsList[i].status.guid, Window.CurrentMaidsStockID[i]);
-                        }
-
-                        //パフォーマンスの向上
-                        MaidIK.IK_CheckInvisible(Window.CurrentMaidsStockID[i]);
-                        MaidIK.IK_SyncFromHandle(Window.CurrentMaidsStockID[i]);
-                        MaidIK.IK_Porc(Window.CurrentMaidsStockID[i]);
                     }
 
                     if (true == maidTails.bIsAutoIK)
@@ -249,12 +284,7 @@ namespace COM3D2.EnhancedMaidEditScene.Plugin
                             if (true == MaidIK.IK_SyncHandle(Window.CurrentSelectedMaid, ik.handle))
                             {
                                 Vector3 pos = ik.handle.GetParentBone().position + ik.handle.DeltaVector();
-                                ik.GetIKCMO.Porc(ik.hip, ik.knee, ik.ankle, pos, default(Vector3));
-                            }
-                            else
-                            {
-                                Window.MaidTails_DisableAutoIK();
-                                break;
+                                ik.GetIKCMO.Porc(ik.hip, ik.knee, ik.ankle, pos, Vector3.zero);
                             }
                         }
                     }
@@ -551,7 +581,7 @@ namespace COM3D2.EnhancedMaidEditScene.Plugin
         {
             try
             {
-                Pose.Pose_InitMaidPoseANM();
+                Pose.Pose_Init();
                 Items.Items_PreInit();
                 Dance.Dance_InitDanceDataList();
 
@@ -694,7 +724,7 @@ namespace COM3D2.EnhancedMaidEditScene.Plugin
             if (false == bInitCompleted)
                 return;
 
-            Debuginfo.Log("finalize...", 0);
+            Debuginfo.Log("EMES finalize...", 0);
             bInitCompleted = false;
 
             if (null != Window)
@@ -715,12 +745,13 @@ namespace COM3D2.EnhancedMaidEditScene.Plugin
             maidTails.Finalized();
             maidTails = null;
 
+            Parts.Parts_Finalized();
             Dance.Dance_Finalized();
             MaidIK.IK_Finalized();
             Items.Items_Finalized();
             Pose.Pose_Finalized();
             //Yotogi
-            Debuginfo.Log("finalize... all DONE!", 0);
+            Debuginfo.Log("EMES finalize... all DONE!", 0);
         }
 
         public string GetConfigDirectory()

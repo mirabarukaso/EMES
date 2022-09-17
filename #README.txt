@@ -36,7 +36,7 @@ EMES_MaidScenceData.xml
 ■改造、再配布、二次配布について
 オープンソースです、複製・改変・再配布は自己責任でご自由にどうぞ。
 再配布、二次配布にはすべてのファイルが含まれている必要があります。
-販売禁止
+ＧＮＵ　ＧＰＬ３
 
 ■ホットキー
 ホットキーは単一または複雑なマルチキーコンボを受け入れます。
@@ -68,10 +68,12 @@ EMES_MaidScenceData.xml
 ・・・鏡を必要としなくても、それは無視する
 
 ■「複数尻尾✕自動IKチェーン」サンプル
+・台座「一本釣り」
+・・https://www.dropbox.com/s/xln3gvy7qw8vodb/Daiza_Ippon_v1.0.7z?dl=0
 ・「ナナチ全年齢 ver1.2」
-・・https://ux.getuploader.com/COM3D2/download/28
+・・https://www.dropbox.com/s/1ajm2hxqn0brhd5/Nanachi_A_v1.2.7z?dl=0
 ・「雪玉」
-・・https://ux.getuploader.com/COM3D2/download/19		
+・・https://www.dropbox.com/s/pnmoxxkwsgoepwu/SnowBall.7z?dl=0
 
 ■「自動IKチェーン」が正常に動作しない場合があります
 
@@ -89,6 +91,15 @@ EMES_MaidScenceData.xml
 Ｈ＿Ｓｈｉｆｔ	＋	矢印キー（上下）		カメラの距離
 Ｈ＿Ｓｈｉｆｔ	＋	Ｈｏｍｅ／Ｅｎｄ		カメラの視野
 Ｓ							スクリーンショット
+
+■パーツ移動
+（変更可）		（変更可）
+Ｚ							上下左右移動
+Ｘ							回転
+Ｃ							サイズ調整
+Ｄ							削除
+Ｈ＿Ｃｔｒｌ	＋	Ａ				プレハブを有効にする
+
 
 ■BepinExに移行
 ・フォルダを作成
@@ -110,7 +121,45 @@ EMES_MaidScenceData.xml
 ・・・EMES_MaidScenceData.xml
 ・・「COM3D2_5\BepInEx\plugins\EnhancedMaidEditScene\config」に移動
 
+■EMES_MaidScenceData.xml
+v1.0  v0.7.1.0
+v1.1  v0.8.0.0
+v1.2  v1.0.0.0
+v1.3  v1.1.0.0
+
+■パーツドラッグまたは回転できません
+パーツ名には「_yure_」が含まれます
+・解決
+ ①「サブ展開」
+ ②「髪Hit」のチェックを外して「ボディヒット」を無効にする
+
 ■更新履歴
+2022 9.18 Ver 1.1.0.1
+・機能追加
+・・骨格
+・・・「こぶし」「指を屈する」
+・・・「複数尻尾」選択を解除できます
+・・・「その他」 BoneSlider Lite
+・・環境
+・・・「シーン情報」に「カメラの位置✕５」を追加
+・・・「カメラ」「UIを完全に非表示」
+・・・「シェーダー」に「ビネット」を追加
+・・道具
+・・・「サブパーツ」を展開
+・・・背景移動
+・・・「メイドパーツ」移動
+・既存のEMES_MaidScenceData.xmlが自動的にアップグレードします（１．２➞１．３）
+・いくつかのバグを修正した
+・・ポーズを保存した後の名前が混乱
+・BepInEx 5.4.21.0対応
+・BepInExとSybarisの間で互換性があります
+・カスタムオーダーメイド3D2本体Ver2.23.0対応
+・・COM3D2.EnhancedMaidEditScene.Plugin.dll
+・・BepInEx.COM3D2.EnhancedMaidEditScene.Plugin.dll
+・カスタムオーダーメイド3D2.5本体Ver3.23.0対応
+・・COM3D25.EnhancedMaidEditScene.Plugin.dll
+・・BepInEx.COM3D25.EnhancedMaidEditScene.Plugin.dll
+
 2021.12.22 Ver 1.0.0.0
 ・機能追加
 ・・道具
