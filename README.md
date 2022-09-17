@@ -16,8 +16,8 @@
 # これは○○○○を置き換えるプラグインです
 
 ## 使い方
-フォルダの中身をしばりすのCOM3D2(_5)\Sybaris\UnityInjectorフォルダに入れて下さい。
-又は  
+フォルダの中身をしばりすのCOM3D2(_5)\Sybaris\UnityInjectorフォルダに入れて下さい。   
+又は   
 フォルダの中身をBepinexのCOM3D2_5\BepInEx\plugins\EnhancedMaidEditSceneフォルダに入れて下さい。  
 
 エディットモードにてＦ７キー（変更可）を押すとGUIが起動します。  
