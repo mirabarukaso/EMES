@@ -17,8 +17,9 @@
 
 ## 使い方
 フォルダの中身をしばりすのCOM3D2(_5)\Sybaris\UnityInjectorフォルダに入れて下さい。
-#### 又は
+又は  
 フォルダの中身をBepinexのCOM3D2_5\BepInEx\plugins\EnhancedMaidEditSceneフォルダに入れて下さい。  
+
 エディットモードにてＦ７キー（変更可）を押すとGUIが起動します。  
 コントロールを押した場合に複数のメイドを選択します。  
 エラーが発生した場合は、config/emes.xmlを削除する。  
