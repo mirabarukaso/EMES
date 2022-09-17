@@ -106,3 +106,7 @@ EMES_MaidScenceData.xml
 ・・・EMES_FingerPose.txt  
 ・・・EMES_MaidScenceData.xml  
 ・・「COM3D2_5\BepInEx\plugins\EnhancedMaidEditScene\config」に移動  
+
+# サンプル
+<img src="https://github.com/mirabarukaso/EMES/raw/main/sample1.jpg" width=50% height=50%>  
+<img src="https://github.com/mirabarukaso/EMES/raw/main/sample2.jpg" width=50% height=50%>
