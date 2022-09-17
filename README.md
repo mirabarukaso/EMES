@@ -69,10 +69,13 @@ EMES_MaidScenceData.xml
 ・・・鏡を必要としなくても、それは無視する  
 
 ## 「複数尻尾✕自動IKチェーン」サンプル  
+・台座「一本釣り」  
+・・https://www.dropbox.com/s/xln3gvy7qw8vodb/Daiza_Ippon_v1.0.7z?dl=0  
 ・「ナナチ全年齢 ver1.2」  
 ・・https://www.dropbox.com/s/1ajm2hxqn0brhd5/Nanachi_A_v1.2.7z?dl=0  
 ・「雪玉」  
 ・・https://www.dropbox.com/s/pnmoxxkwsgoepwu/SnowBall.7z?dl=0  
+
 
 ## 「自動IKチェーン」が正常に動作しない場合があります  
 
