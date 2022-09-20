@@ -744,6 +744,9 @@ namespace COM3D2.EnhancedMaidEditScene.Plugin
             {
                 return;
             }
+            
+            string DFS_TargetString;
+            int DFS_Count = 1;
 
             //Body_Bip01
             Transform Body_Bip01 = null;
@@ -753,6 +756,7 @@ namespace COM3D2.EnhancedMaidEditScene.Plugin
             Transform Bip01 = null;
             Transform Bip01_Pelvis = null;
 
+            Stack<Transform> BoneTransformStack = new Stack<Transform>();
             if (DFS_ParentBones.Count > 0)
             {
                 foreach (KeyValuePair<string, Dictionary<Transform, BoneData>> CurrentBone in DFS_ParentBones)
@@ -824,357 +828,290 @@ namespace COM3D2.EnhancedMaidEditScene.Plugin
 #endif
                     continue;
                 }
-
-                //〆マーク _DO_NOT_ENUM_
+                /*
                 bool NotMailTail = false;
-                for (int i = 0; i < tmpBone.transform.childCount; i++)
-                {
-#if DEBUG
-                    Debuginfo.Log("特別マーク照合 " + tmpBone.transform.GetChild(i).name, 2);
-#endif
-                    if (true == tmpBone.transform.GetChild(i).name.EndsWith("_DO_NOT_ENUM_"))
-                    {
-                        if (true == Super.settingsXml.MaidTailsSpecialMarkMethodIgnore)
-                        {
-                            Debuginfo.Warning("特別に〆マークされた、スキップ " + tmpBone.transform.GetChild(i).name, 1);
-                            NotMailTail = true;
-                            break;
-                        }
-#if DEBUG
-                        else
-                        {
-                            Debuginfo.Warning("特別に〆マークされた、継続する " + tmpBone.transform.GetChild(i).name, 2);
-                            NotMailTail = false;
-                        }
-#endif
-                    }
 
-                    if (true == tmpBone.transform.GetChild(i).name.Equals("Bip01 Spine"))
+                try
+                {
+                    for (int Index = 0; Index < tmpBone.transform.childCount; Index++)
                     {
-                        Debuginfo.Warning("BIP01を使用しているパーツは「複数尻尾」機能できません、スキップ " + tmpBone.transform.GetChild(i).name, 1);
-                        NotMailTail = true;
-                        break;
+#if DEBUG
+                        Debuginfo.Log("Try >>> " + tmpBone.transform.GetChild(Index).name, 2);
+#endif
+                        if ("Bip01 Pelvis" != tmpBone.transform.GetChild(Index).name 
+                            && false == tmpBone.transform.GetChild(Index).name.Contains("BoneTail") 
+                            && false == tmpBone.transform.GetChild(Index).name.Contains("nub"))
+                        {
+#if DEBUG
+                            Debuginfo.Log("\"BoneTail\" マークが見つかりません、無視する。 Index>>> " + tmpBone.transform.GetChild(Index).name, 2);
+#endif
+                            NotMailTail = true;
+                        }
+                        else if ("Bip01 Pelvis" == tmpBone.transform.GetChild(Index).name)
+                        {
+                            for (int IndexPelvis = 0; IndexPelvis < tmpBone.transform.GetChild(Index).childCount; IndexPelvis++)
+                            {
+                                if (false == tmpBone.transform.GetChild(Index).GetChild(IndexPelvis).name.Contains("BoneTail") 
+                                    && false == tmpBone.transform.GetChild(Index).GetChild(IndexPelvis).name.Contains("nub"))
+                                {
+#if DEBUG
+                                    Debuginfo.Log("\"BoneTail\" マークが見つかりません、無視する。 IndexPelvis>>> " + tmpBone.transform.GetChild(Index).GetChild(IndexPelvis).name, 2);
+#endif
+                                    NotMailTail = true;
+                                }
+                            }
+                        }
                     }
                 }
+#if DEBUG
+                catch (Exception Error)
+                {
+
+                    Debuginfo.Warning("エラー（自動無視する）: " + Error, 2);
+                    NotMailTail = true;
+                }
+#else
+                catch
+                {
+                    NotMailTail = true;
+                }
+#endif
 
                 if (true == NotMailTail)
-                    continue;
-
-                //DFS
-                if (true == Super.settingsXml.MaidTailsUseDFS)
                 {
-                    string DFS_TargetString;
+#if DEBUG
+                    Debuginfo.Log("\"BoneTail\" マークが見つかりません、無視する。", 2);
 
-                    //Bone_center
-                    Transform ThisBoneTransform;
-                    int ThisBoneCurrentIndex = 0;
-                    int ThisBoneCurrentLevel = 1;
+#endif
+                    continue;
+                }
+                */
 
-                    BoneData Bone_center = new BoneData()
+                //Bone_center
+                Transform ThisBoneTransform;
+                int ThisBoneCurrentIndex = 0;
+                int ThisBoneCurrentLevel = 1;
+
+                BoneData Bone_center = new BoneData()
+                {
+                    BoneTransform = tmpBone,
+                    Level = 0,
+                    Index = 0,
+                    CurrentIndex = 0,
+                    ChildrenCount = tmpBone.childCount,
+                    BoneSliderIndex = 0
+                };
+
+                //DFS 深さ優先探索
+                BoneTransformStack.Push(tmpBone);
+                DFS_CheckBonesPriorityName(tmpBone.name, out DFS_TargetString);
+                DFS_ParentBones[DFS_TargetString].Add(Bone_center.BoneTransform, Bone_center);
+
+                while (BoneTransformStack.Count > 0)
+                {
+                    bool bEnumBones = EnumBones(tmpBone, ThisBoneCurrentIndex, out ThisBoneTransform);
+#if DEBUG
+                    /*
+                    Debuginfo.Log("tmpBone=" + tmpBone.name, 2);
+                    Debuginfo.Log("ThisBoneCurrentIndex=" + ThisBoneCurrentIndex.ToString() ,2);
+                    if(true == bEnumBones) 
+                        Debuginfo.Log("bEnumBones = true ThisBoneTransform =" + ThisBoneTransform.name, 2);
+                    else
+                        Debuginfo.Log("bEnumBones = false", 2);
+                    //*/
+#endif
+                    if (true == bEnumBones)
                     {
-                        BoneTransform = tmpBone,
-                        Level = 0,
-                        Index = 0,
-                        CurrentIndex = 0,
-                        ChildrenCount = tmpBone.childCount,
-                        BoneSliderIndex = 0
-                    };
-
-                    //DFS 深さ優先探索
-                    Stack<Transform> BoneTransformStack = new Stack<Transform>();
-                    BoneTransformStack.Push(tmpBone);
-                    DFS_CheckBonesPriorityName(tmpBone.name, out DFS_TargetString);
-                    DFS_ParentBones[DFS_TargetString].Add(Bone_center.BoneTransform, Bone_center);
-
-                    while (BoneTransformStack.Count > 0)
-                    {
-                        bool bEnumBones = EnumBones(tmpBone, ThisBoneCurrentIndex, out ThisBoneTransform);
-                        if (true == bEnumBones)
+                        DFS_CheckBonesPriorityName(ThisBoneTransform.name, out DFS_TargetString);
+                        if (false == DFS_ParentBones[DFS_TargetString].ContainsKey(ThisBoneTransform))
                         {
-                            DFS_CheckBonesPriorityName(ThisBoneTransform.name, out DFS_TargetString);
-#if DEBUG
-                            //Debuginfo.Log("DFS: name = " + ThisBoneTransform.name, 2);
-#endif
-                            if (false == DFS_ParentBones[DFS_TargetString].ContainsKey(ThisBoneTransform))
+                            if ((ThisBoneTransform.name.Contains("_nub"))
+                                || (ThisBoneTransform.name.Contains("_base"))
+                                || (ThisBoneTransform.name.Contains("_yure_")) || (ThisBoneTransform.name.Contains("_Base"))
+                                || (ThisBoneTransform.name.Contains("_SCL_"))
+                               )
                             {
-                                if ((ThisBoneTransform.name.Contains("_nub"))
-                                    || (ThisBoneTransform.name.Contains("_base"))
-                                    || (ThisBoneTransform.name.Contains("_yure_")) || (ThisBoneTransform.name.Contains("_Base"))
-                                    || (ThisBoneTransform.name.Contains("_SCL_"))
-                                   || (ThisBoneTransform.name.EndsWith("_DO_NOT_ENUM_"))
-                                   )
-                                {
 #if DEBUG
-                                    Debuginfo.Log("DFS: 特別にマークされたボーンを無視する (" + ThisBoneTransform.gameObject + ")", 2);
+                                //Debuginfo.Log("DFS: 特別にマークされたボーンを無視する (" + ThisBoneTransform.gameObject + ")", 2);
 #endif
-                                }
-                                else if (false == ThisBoneTransform.name.Contains("BoneTail")
-                                        && "Bone_center" != ThisBoneTransform.name
-                                        && "Bip01" != ThisBoneTransform.name
-                                        && false == ThisBoneTransform.name.Contains("Bip01")
-                                        && "Bone_nub" != ThisBoneTransform.name
-                                        )
+                            }
+                            else if (false == ThisBoneTransform.name.Contains("BoneTail")
+                                    && "Bone_center" != ThisBoneTransform.name
+                                    && "Bip01" != ThisBoneTransform.name
+                                    && false == ThisBoneTransform.name.Contains("Bip01")
+                                    && "Bone_nub" != ThisBoneTransform.name
+                                    )
+                            {
+                                Debuginfo.Warning("DFS: DestroyImmediate ダングリングブジェクト (" + ThisBoneTransform.gameObject + ") Index=" + ThisBoneCurrentIndex + " 心配しないで（多分）", 1);
+                                UnityEngine.Object.DestroyImmediate(ThisBoneTransform.gameObject);
+                                continue;
+                            }
+
+                            BoneData ThisBone = new BoneData()
+                            {
+                                BoneTransform = ThisBoneTransform,
+
+                                Level = ThisBoneCurrentLevel,
+                                Index = ThisBoneCurrentIndex,
+                                CurrentIndex = 0,
+                                ChildrenCount = ThisBoneTransform.transform.childCount
+                            };
+
+                            if ("Bip01 Pelvis" == ThisBone.BoneTransform.name)
+                                Bip01_Pelvis = ThisBone.BoneTransform;
+
+                            ThisBone.BoneSliderIndex = 65535;
+                            string[] CurrentPrefix = ThisBone.BoneTransform.name.Split('_');
+                            if (CurrentPrefix != null)
+                            {
+                                if (CurrentPrefix.Length == 3)
                                 {
-                                    Debuginfo.Warning("DFS: DestroyImmediate ダングリングブジェクト (" + ThisBoneTransform.gameObject + ") Index=" + ThisBoneCurrentIndex + " 心配しないで（多分）", 1);
-                                    UnityEngine.Object.DestroyImmediate(ThisBoneTransform.gameObject);
-                                    continue;
-                                }
-
-                                BoneData ThisBone = new BoneData()
-                                {
-                                    BoneTransform = ThisBoneTransform,
-
-                                    Level = ThisBoneCurrentLevel,
-                                    Index = ThisBoneCurrentIndex,
-                                    CurrentIndex = 0,
-                                    ChildrenCount = ThisBoneTransform.transform.childCount
-                                };
-
-                                if ("Bip01 Pelvis" == ThisBone.BoneTransform.name)
-                                    Bip01_Pelvis = ThisBone.BoneTransform;
-
-                                ThisBone.BoneSliderIndex = 65535;
-                                string[] CurrentPrefix = ThisBone.BoneTransform.name.Split('_');
-                                if (CurrentPrefix != null)
-                                {
-                                    if (CurrentPrefix.Length == 3)
+                                    try
                                     {
-                                        try
-                                        {
-                                            int Index = Int32.Parse(CurrentPrefix[1]);
-                                            ThisBone.BoneSliderIndex = Index;
-                                        }
-                                        catch
-                                        {
-                                            //無視する
-                                        }
+                                        int Index = Int32.Parse(CurrentPrefix[1]);
+                                        ThisBone.BoneSliderIndex = Index;
                                     }
-                                    //DFS_LastKey
-                                    if (DFS_LastKey == DFS_TargetString)
+                                    catch
                                     {
-                                        if (CurrentPrefix[CurrentPrefix.Length - 1].Contains("Bip01 BoneTail"))
-                                            ThisBone.ShortName = CurrentPrefix[CurrentPrefix.Length - 1].Substring(("Bip01 BoneTail").Length);
-                                        else if (CurrentPrefix[CurrentPrefix.Length - 1].Contains("BoneTail"))
-                                            ThisBone.ShortName = CurrentPrefix[CurrentPrefix.Length - 1].Substring(("BoneTail").Length);
-                                        else
-                                            ThisBone.ShortName = CurrentPrefix[CurrentPrefix.Length - 1];
+                                        //無視する
                                     }
+                                }
+                                //DFS_LastKey
+                                if (DFS_LastKey == DFS_TargetString)
+                                {
+                                    if (CurrentPrefix[CurrentPrefix.Length - 1].Contains("Bip01 BoneTail"))
+                                        ThisBone.ShortName = CurrentPrefix[CurrentPrefix.Length - 1].Substring(("Bip01 BoneTail").Length);
+                                    else if (CurrentPrefix[CurrentPrefix.Length - 1].Contains("BoneTail"))
+                                        ThisBone.ShortName = CurrentPrefix[CurrentPrefix.Length - 1].Substring(("BoneTail").Length);
                                     else
-                                    {
-                                        ThisBone.ShortName = DFS_TargetString + "_" + CurrentPrefix[CurrentPrefix.Length - 1];
-                                    }
+                                        ThisBone.ShortName = CurrentPrefix[CurrentPrefix.Length - 1];
                                 }
                                 else
                                 {
-                                    ThisBone.ShortName = ThisBone.BoneTransform.name;
+                                    ThisBone.ShortName = DFS_TargetString + "_" + CurrentPrefix[CurrentPrefix.Length - 1];
                                 }
-
-                                DFS_ParentBones[DFS_TargetString].Add(ThisBone.BoneTransform, ThisBone);
-
-                                BoneTransformStack.Push(ThisBone.BoneTransform);
-                                ThisBoneCurrentLevel++;
-                                tmpBone = ThisBone.BoneTransform;
-                                ThisBoneCurrentIndex = 0;
                             }
                             else
                             {
-                                //すでに存在します、無視する
-                                ThisBoneCurrentIndex++;
+                                ThisBone.ShortName = ThisBone.BoneTransform.name;
                             }
+
+                            DFS_ParentBones[DFS_TargetString].Add(ThisBone.BoneTransform, ThisBone);
+
+                            BoneTransformStack.Push(ThisBone.BoneTransform);
+                            ThisBoneCurrentLevel++;
+                            tmpBone = ThisBone.BoneTransform;
+                            ThisBoneCurrentIndex = 0;
                         }
                         else
                         {
-                            BoneTransformStack.Pop();
-                            ThisBoneCurrentLevel--;
-                            if (BoneTransformStack.Count > 0)
-                            {
-                                tmpBone = BoneTransformStack.Peek();
-
-                                DFS_CheckBonesPriorityName(tmpBone.name, out DFS_TargetString);
-                                if (true == DFS_ParentBones[DFS_TargetString].ContainsKey(tmpBone))
-                                {
-                                    ThisBoneCurrentIndex = DFS_ParentBones[DFS_TargetString][tmpBone].CurrentIndex++;
-                                }
-                                else
-                                {
-                                    if (tmpBone.name.Contains("_nub"))
-                                    {
-                                        //無視する
-                                    }
-                                    else if (tmpBone.name.Contains("_base"))
-                                    {
-                                        //無視する
-                                    }
-                                    else
-                                    {
-                                        Debuginfo.Warning("DFS: *** 致命的なエラー " + tmpBone.name + " 見つかりません", 1);
-                                    }
-                                }
-                            }
+                            //すでに存在します、無視する
+                            ThisBoneCurrentIndex++;
                         }
                     }
-
-                    BoneTransformStack.Clear();
-                    BoneTransformStack = null;
-                }
-                else
-                {
-                    //新しい方法
-                    Component[] com_bones = tmpBone.GetComponentsInChildren(typeof(Component));
-                    string Enum_TargetString;
-                    for (int index = 0; index < com_bones.Length; index++)
+                    else
                     {
-                        if (typeof(Transform) == com_bones[index].GetType())
+                        BoneTransformStack.Pop();
+                        ThisBoneCurrentLevel--;
+                        if (BoneTransformStack.Count > 0)
                         {
-                            Transform ThisBoneTransform = com_bones[index].transform;
-                            DFS_CheckBonesPriorityName(ThisBoneTransform.name, out Enum_TargetString);
-#if DEBUG
-                            //Debuginfo.Log("Enum: name = " + ThisBoneTransform.name, 2);
-#endif
+                            tmpBone = BoneTransformStack.Peek();
 
-                            if (false == DFS_ParentBones[Enum_TargetString].ContainsKey(ThisBoneTransform))
+                            DFS_CheckBonesPriorityName(tmpBone.name, out DFS_TargetString);
+                            if (true == DFS_ParentBones[DFS_TargetString].ContainsKey(tmpBone))
                             {
-                                if ((true == ThisBoneTransform.name.ToLower().Contains("_nub"))
-                                    || (true == ThisBoneTransform.name.ToLower().Contains("twist"))
-                                    || (true == ThisBoneTransform.name.ToLower().Contains("_pos_"))
-                                    || (true == ThisBoneTransform.name.Contains("_base"))
-                                    || (true == ThisBoneTransform.name.Contains("_yure_"))
-                                    || (true == ThisBoneTransform.name.Contains("_Base"))
-                                    || (true == ThisBoneTransform.name.Contains("_SCL_"))
-                                    || (true == ThisBoneTransform.name.Contains("_HIDE_"))
-                                    || (true == ThisBoneTransform.name.Equals("Bone_center"))
-                                    || (true == ThisBoneTransform.name.ToLower().EndsWith("_end"))
-                                    || (true == ThisBoneTransform.name.ToLower().EndsWith("nub"))
-                                    || (true == ThisBoneTransform.name.EndsWith("_DO_NOT_ENUM_"))
-                                   )
+                                ThisBoneCurrentIndex = DFS_ParentBones[DFS_TargetString][tmpBone].CurrentIndex++;
+                            }
+                            else
+                            {
+                                if (tmpBone.name.Contains("_nub"))
                                 {
-#if DEBUG
-                                    Debuginfo.Log("Enum: 特別にマークされたボーンを無視する (" + ThisBoneTransform.gameObject + ")", 2);
-#endif
-                                    continue;
+                                    //無視する
                                 }
-                                else if (false == ThisBoneTransform.name.Contains("BoneTail")
-                                        && false == ThisBoneTransform.name.Contains("Bip01")
-                                        && false == ThisBoneTransform.name.Equals("Bone_center")
-                                        && false == ThisBoneTransform.name.Equals("Bip01")
-                                        && false == ThisBoneTransform.name.Equals("Bone_nub")
-                                        )
+                                else if (tmpBone.name.Contains("_base"))
                                 {
-                                    if (true == Super.settingsXml.MaidTailsSpecialMarkMethodIgnore)
-                                    {
-                                        Debuginfo.Warning("Enum: DestroyImmediate ダングリングブジェクト (" + ThisBoneTransform.gameObject + ") 心配しないで（多分）", 1);
-                                        UnityEngine.Object.DestroyImmediate(ThisBoneTransform.gameObject);
-                                        continue;
-                                    }
-                                }
-
-                                BoneData ThisBone = new BoneData()
-                                {
-                                    BoneTransform = ThisBoneTransform,
-                                    Level = 1,
-                                    Index = 1,
-                                    CurrentIndex = 1,
-                                    ChildrenCount = ThisBoneTransform.childCount,
-                                    BoneSliderIndex = 65535,
-                                };
-
-                                if ("Bip01 Pelvis" == ThisBone.BoneTransform.name)
-                                    Bip01_Pelvis = ThisBone.BoneTransform;
-
-                                Action<string, string> action_shortName = delegate (string prefix, string longName)
-                                {
-                                    if (true == prefix.StartsWith("Bip01 BoneTail"))
-                                        ThisBone.ShortName = longName.Substring(("Bip01 BoneTail").Length);
-                                    else if (true == prefix.StartsWith("BoneTail"))
-                                        ThisBone.ShortName = longName.Substring(("BoneTail").Length);
-                                    else
-                                        ThisBone.ShortName = longName;
-                                };
-
-                                string[] CurrentPrefix = ThisBone.BoneTransform.name.Split('_');
-                                if (CurrentPrefix.Length == 3)
-                                {
-                                    if (true == EMES.IsNumeric(CurrentPrefix[1]))
-                                    {
-                                        ThisBone.BoneSliderIndex = Int32.Parse(CurrentPrefix[1]);
-                                        ThisBone.ShortName = CurrentPrefix[2];
-                                    }
-                                    else
-                                    {
-                                        action_shortName(CurrentPrefix[0], ThisBone.BoneTransform.name);
-                                    }
+                                    //無視する
                                 }
                                 else
                                 {
-                                    action_shortName(CurrentPrefix[0], ThisBone.BoneTransform.name);
+                                    Debuginfo.Warning("DFS: *** 致命的なエラー " + tmpBone.name + " 見つかりません", 1);
                                 }
-
-                                DFS_ParentBones[Enum_TargetString].Add(com_bones[index].transform, ThisBone);
                             }
                         }
                     }
                 }
-            }
 
-            //整合性チェック
-            string TargetString;
-            if (null != Bip01)
-            {
-                DFS_CheckBonesPriorityName(Bip01.name, out TargetString);
-                if (true == DFS_ParentBones[TargetString].ContainsKey(Bip01))
+                //整合性チェック
+                BoneTransformStack.Clear();
+                if (null != Bip01)
                 {
-                    if (null != Body_Bip01)
+                    DFS_CheckBonesPriorityName(Bip01.name, out DFS_TargetString);
+                    if (true == DFS_ParentBones[DFS_TargetString].ContainsKey(Bip01))
                     {
-                        Bip01.transform.position = Body_Bip01.transform.position;
-                        Bip01.transform.localPosition = Body_Bip01.transform.localPosition;
-                        Bip01.transform.rotation = Body_Bip01.transform.rotation;
-                        Bip01.transform.localRotation = Body_Bip01.transform.localRotation;
-                        Bip01.transform.localScale = Body_Bip01.transform.localScale;
-                    }
-                    Body_Bip01 = null;
+                        if (null != Body_Bip01)
+                        {
+                            Bip01.transform.position = Body_Bip01.transform.position;
+                            Bip01.transform.localPosition = Body_Bip01.transform.localPosition;
+                            Bip01.transform.rotation = Body_Bip01.transform.rotation;
+                            Bip01.transform.localRotation = Body_Bip01.transform.localRotation;
+                            Bip01.transform.localScale = Body_Bip01.transform.localScale;
+                        }
+                        Body_Bip01 = null;
 #if DEBUG
-                    Debuginfo.Log(Bip01.name + "はリストから削除されました", 2);
+                        Debuginfo.Log("DFS: " + Bip01.name + "はリストから削除されました", 2);
 #endif
-                    DFS_ParentBones[TargetString].Remove(Bip01);
-                }
-            }
-
-            if (null != Bip01_Pelvis)
-            {
-                DFS_CheckBonesPriorityName(Bip01_Pelvis.name, out TargetString);
-                if (true == DFS_ParentBones[TargetString].ContainsKey(Bip01_Pelvis))
-                {
-                    if (null != Body_Bip01_Pelvis)
-                    {
-                        Bip01_Pelvis.transform.position = Body_Bip01_Pelvis.transform.position;
-                        Bip01_Pelvis.transform.localPosition = Body_Bip01_Pelvis.transform.localPosition;
-                        Bip01_Pelvis.transform.rotation = Body_Bip01_Pelvis.transform.rotation;
-                        Bip01_Pelvis.transform.localRotation = Body_Bip01_Pelvis.transform.localRotation;
-                        //Bip01_Pelvis.transform.localScale = Body_Bip01_Pelvis.transform.localScale;
+                        DFS_ParentBones[DFS_TargetString].Remove(Bip01);
                     }
-                    Body_Bip01_Pelvis = null;
+                }
+
+                if (null != Bip01_Pelvis)
+                {
+                    DFS_CheckBonesPriorityName(Bip01_Pelvis.name, out DFS_TargetString);
+                    if (true == DFS_ParentBones[DFS_TargetString].ContainsKey(Bip01_Pelvis))
+                    {
+                        if (null != Body_Bip01_Pelvis)
+                        {
+                            Bip01_Pelvis.transform.position = Body_Bip01_Pelvis.transform.position;
+                            Bip01_Pelvis.transform.localPosition = Body_Bip01_Pelvis.transform.localPosition;
+                            Bip01_Pelvis.transform.rotation = Body_Bip01_Pelvis.transform.rotation;
+                            Bip01_Pelvis.transform.localRotation = Body_Bip01_Pelvis.transform.localRotation;
+                            //Bip01_Pelvis.transform.localScale = Body_Bip01_Pelvis.transform.localScale;
+                        }
+                        Body_Bip01_Pelvis = null;
 #if DEBUG
-                    Debuginfo.Log(Bip01_Pelvis.name + "はリストから削除されました", 2);
+                        Debuginfo.Log("DFS: " + Bip01_Pelvis.name + "はリストから削除されました", 2);
 #endif
-                    DFS_ParentBones[TargetString].Remove(Bip01_Pelvis);
-                }
-            }
-
-#if DEBUG
-            int Count = 0;
-            if (DFS_ParentBones.Count > 0)
-            {
-                foreach (KeyValuePair<string, Dictionary<Transform, BoneData>> CurrentCategory in DFS_ParentBones.ToList())
-                {
-                    foreach (KeyValuePair<Transform, BoneData> CurrentBone in CurrentCategory.Value.ToList())
-                    {
-
-                        //Debuginfo.Log("Check 略称: " + CurrentBone.Value.ShortName + " / 名前: " + CurrentBone.Key.name + " / レベル: " + CurrentBone.Value.Level + " / 索引: " + CurrentBone.Value.Index + " / 派生:" + CurrentBone.Value.ChildrenCount + "", 2);
-                        Count++;
+                        DFS_ParentBones[DFS_TargetString].Remove(Bip01_Pelvis);
                     }
                 }
             }
-            Debuginfo.Log("ボーンデータ合計 " + Count, 2);
+            BoneTransformStack = null;
+
+            DFS_Count = 0;
+            foreach (KeyValuePair<string, Dictionary<Transform, BoneData>> CurrentCategory in DFS_ParentBones)
+            {
+                foreach (KeyValuePair<Transform, BoneData> CurrentBone in CurrentCategory.Value)
+                {
+#if DEBUG
+                    //Debuginfo.Log("DFS: 種別: " + CurrentCategory.Key + " / 名前: " + CurrentBone.Key.name + " / レベル: " + CurrentBone.Value.Level + " / 索引: " + CurrentBone.Value.Index + " / 派生:" + CurrentBone.Value.ChildrenCount + "", 2);
+#endif
+                    if ((CurrentBone.Key.name.Contains("_nub"))
+                                || (CurrentBone.Key.name.Contains("_base"))
+                                || (CurrentBone.Key.name.Contains("_yure_")) || (CurrentBone.Key.name.Contains("_Base"))
+                                || (CurrentBone.Key.name.Contains("_HIDE_"))
+                                || (CurrentBone.Key.name.Contains("_SCL_"))
+                                )
+                    {
+                        //無視する
+                    }
+                    else
+                    {
+                        DFS_Count++;
+                    }
+                }
+            }
+#if DEBUG
+            Debuginfo.Log("DFS: ボーンデータ合計 " + DFS_Count, 2);
 #endif
         }
 
@@ -1206,7 +1143,7 @@ namespace COM3D2.EnhancedMaidEditScene.Plugin
                         continue;
                     }
 #if DEBUG
-                    Debuginfo.Log("Add 略称: " + CurrentBone.Value.ShortName + " / 名前: " + CurrentBone.Key.name + " / レベル: " + CurrentBone.Value.Level + " / 索引: " + CurrentBone.Value.Index + " / 派生:" + CurrentBone.Value.ChildrenCount + "", 2);
+                    //Debuginfo.Log("DFS: 種別: " + CurrentCategory.Key + " / 名前: " + CurrentBone.Key.name + " / レベル: " + CurrentBone.Value.Level + " / 索引: " + CurrentBone.Value.Index + " / 派生:" + CurrentBone.Value.ChildrenCount + "", 2);
 #endif
                     BonePosRotScaleInfo bi = new BonePosRotScaleInfo()
                     {
@@ -1221,8 +1158,12 @@ namespace COM3D2.EnhancedMaidEditScene.Plugin
                         CurrentBone.Value.ShortName = bi.name;
                     }
                     DefaultBoneData.Add(CurrentBone.Value.BoneTransform, bi);
-
+#if DEBUG
+                    string BoneShowName = CurrentBone.Value.ShortName + "(" + "l" + CurrentBone.Value.Level.ToString() + "->i" + CurrentBone.Value.Index.ToString() + ")";
+                    //Debuginfo.Log("BoneShowName=" + BoneShowName, 2);
+#else
                     string BoneShowName = CurrentBone.Value.ShortName;
+#endif
                     BoneTails.Add(BoneShowName, CurrentBone.Value.BoneTransform);
                     BoneCounts++;
                 }
@@ -1288,7 +1229,7 @@ namespace COM3D2.EnhancedMaidEditScene.Plugin
                         continue;
                     }
 
-                    if (CurrentBone.Value.Level == 0)
+                        if (CurrentBone.Value.Level == 0)
                     {
                         //L0 無視する
                         continue;

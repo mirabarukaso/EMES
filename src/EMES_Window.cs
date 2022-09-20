@@ -4586,61 +4586,6 @@ namespace COM3D2.EnhancedMaidEditScene.Plugin
             }
         }
 
-        private void MaidTails_SpecialMark_Method_ForceEnum_radioButton1_Click(object sender, EventArgs e)
-        {
-            string sSenderName = ((RadioButton)sender).Name.Split('_')[2];
-
-            if (true == Super.settingsXml.MaidTailsUseDFS)
-            {
-                Debuginfo.Warning("DFS: 深さ優先モードでは「強制列挙」を使用できません", 0);
-                MaidTails_SpecialMarkMethod_ForceEnum_radioButton.Checked = false;
-                MaidTails_SpecialMarkMethod_Ignore_radioButton.Checked = true;
-                Super.settingsXml.MaidTailsSpecialMarkMethodIgnore = true;
-                Super.SaveConfigurefile();
-            }
-            else
-            {
-                if (true == sSenderName.Equals("ForceEnum"))
-                {
-                    MaidTails_SpecialMarkMethod_Ignore_radioButton.Checked = false;
-                    Super.settingsXml.MaidTailsSpecialMarkMethodIgnore = false;
-                    Super.SaveConfigurefile();
-                }
-                else
-                {
-                    MaidTails_SpecialMarkMethod_ForceEnum_radioButton.Checked = false;
-                    Super.settingsXml.MaidTailsSpecialMarkMethodIgnore = true;
-                    Super.SaveConfigurefile();
-                }
-            }
-        }
-
-        private void MaidTails_BoneEnumMethod_Enum_radioButton_Click(object sender, EventArgs e)
-        {
-            string sSenderName = ((RadioButton)sender).Name.Split('_')[2];
-
-            if (true == sSenderName.Equals("DFS"))
-            {
-                MaidTails_BoneEnumMethod_Enum_radioButton.Checked = false;
-                Super.settingsXml.MaidTailsUseDFS = true;
-
-                MaidTails_SpecialMarkMethod_Ignore_radioButton.Checked = true;
-                MaidTails_SpecialMarkMethod_ForceEnum_radioButton.Checked = false;
-                Super.settingsXml.MaidTailsSpecialMarkMethodIgnore = true;
-                Settings_MaidTails_SpecialMark_groupBox.Enabled = false;
-
-                Super.SaveConfigurefile();
-            }
-            else
-            {
-                MaidTails_BoneEnumMethod_DFS_radioButton.Checked = false;
-                Super.settingsXml.MaidTailsUseDFS = false;
-
-                Settings_MaidTails_SpecialMark_groupBox.Enabled = true;
-
-                Super.SaveConfigurefile();
-            }
-        }
         #endregion
     }
 }

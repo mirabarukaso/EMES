@@ -627,56 +627,6 @@ namespace COM3D2.EnhancedMaidEditScene.Plugin
             this.SkirtUpCheckBox = new System.Windows.Forms.CheckBox();
             this.PanzMizugiZurashiCheckBox = new System.Windows.Forms.CheckBox();
             this.GlobalSettings = new System.Windows.Forms.TabPage();
-            this.HotKeys_tabControl = new System.Windows.Forms.TabControl();
-            this.HotKey_Maid_tabPage1 = new System.Windows.Forms.TabPage();
-            this.Settings_HotkeyHide_TextBox = new System.Windows.Forms.TextBox();
-            this.Settings_HotkeyMaidPos_CheckBox = new System.Windows.Forms.CheckBox();
-            this.Settings_HotkeyHide_CheckBox = new System.Windows.Forms.CheckBox();
-            this.Settings_HotkeyMaidPos_TextBox = new System.Windows.Forms.TextBox();
-            this.Settings_HotkeyFingerX2_TextBox = new System.Windows.Forms.TextBox();
-            this.Settings_HotkeyApply_Button = new System.Windows.Forms.Button();
-            this.Settings_HotkeyFingerX2_CheckBox = new System.Windows.Forms.CheckBox();
-            this.Settings_HotkeyReset_Button = new System.Windows.Forms.Button();
-            this.Settings_HotkeyRClavicle_TextBox = new System.Windows.Forms.TextBox();
-            this.Settings_HotkeyHead_CheckBox = new System.Windows.Forms.CheckBox();
-            this.Settings_HotkeyRClavicle_CheckBox = new System.Windows.Forms.CheckBox();
-            this.Settings_HotkeyHead_TextBox = new System.Windows.Forms.TextBox();
-            this.Settings_HotkeyLegIK_TextBox = new System.Windows.Forms.TextBox();
-            this.Settings_HotkeyNeck_CheckBox = new System.Windows.Forms.CheckBox();
-            this.Settings_HotkeyLegIK_CheckBox = new System.Windows.Forms.CheckBox();
-            this.Settings_HotkeyNeck_TextBox = new System.Windows.Forms.TextBox();
-            this.Settings_HotkeyArmIK_TextBox = new System.Windows.Forms.TextBox();
-            this.Settings_HotkeyFingerX_CheckBox = new System.Windows.Forms.CheckBox();
-            this.Settings_HotkeyArmIK_CheckBox = new System.Windows.Forms.CheckBox();
-            this.Settings_HotkeyFingerX_TextBox = new System.Windows.Forms.TextBox();
-            this.Settings_HotkeyLClavicle_TextBox = new System.Windows.Forms.TextBox();
-            this.Settings_HotkeyFingerX1_CheckBox = new System.Windows.Forms.CheckBox();
-            this.Settings_HotkeyLClavicle_CheckBox = new System.Windows.Forms.CheckBox();
-            this.Settings_HotkeyFingerX1_TextBox = new System.Windows.Forms.TextBox();
-            this.Settings_HotkeyMaidRot_TextBox = new System.Windows.Forms.TextBox();
-            this.Settings_HotkeyMaidRot_CheckBox = new System.Windows.Forms.CheckBox();
-            this.HotKey_Items_tabPage2 = new System.Windows.Forms.TabPage();
-            this.Settings_HotkeyItemReset_TextBox = new System.Windows.Forms.TextBox();
-            this.Settings_HotkeyItemPos_CheckBox = new System.Windows.Forms.CheckBox();
-            this.Settings_HotkeyItemReset_Button = new System.Windows.Forms.Button();
-            this.Settings_HotkeyItemRot_CheckBox = new System.Windows.Forms.CheckBox();
-            this.Settings_HotkeyItemReset_CheckBox = new System.Windows.Forms.CheckBox();
-            this.Settings_HotkeyItemPos_TextBox = new System.Windows.Forms.TextBox();
-            this.Settings_HotkeyItemApply_Button = new System.Windows.Forms.Button();
-            this.Settings_HotkeyItemRot_TextBox = new System.Windows.Forms.TextBox();
-            this.Settings_HotkeyItemReloadParticle_TextBox = new System.Windows.Forms.TextBox();
-            this.Settings_HotkeyItemSize_CheckBox = new System.Windows.Forms.CheckBox();
-            this.Settings_HotkeyItemReloadParticle_CheckBox = new System.Windows.Forms.CheckBox();
-            this.Settings_HotkeyItemDelete_CheckBox = new System.Windows.Forms.CheckBox();
-            this.Settings_HotkeyItemDelete_TextBox = new System.Windows.Forms.TextBox();
-            this.Settings_HotkeyItemSize_TextBox = new System.Windows.Forms.TextBox();
-            this.HotKey_Dance_tabPage3 = new System.Windows.Forms.TabPage();
-            this.Settings_HotkeyDanceAllOtherStart_TextBox = new System.Windows.Forms.TextBox();
-            this.Settings_HotkeyDanceStart_CheckBox = new System.Windows.Forms.CheckBox();
-            this.Settings_HotkeyDanceAllOtherStart_CheckBox = new System.Windows.Forms.CheckBox();
-            this.Settings_HotkeyDanceApply_Button = new System.Windows.Forms.Button();
-            this.Settings_HotkeyDanceStart_TextBox = new System.Windows.Forms.TextBox();
-            this.Settings_HotkeyDanceReset_Button = new System.Windows.Forms.Button();
             this.groupBox14 = new System.Windows.Forms.GroupBox();
             this.Settings_HotkeyCameraScreenShotNoUI_CheckBox = new System.Windows.Forms.CheckBox();
             this.Settings_HotkeyCameraScreenShot_TextBox = new System.Windows.Forms.TextBox();
@@ -723,13 +673,55 @@ namespace COM3D2.EnhancedMaidEditScene.Plugin
             this.Settings_HotkeyCameraQuickLoad_CheckBox = new System.Windows.Forms.CheckBox();
             this.Settings_HotkeyCameraQuickSave_TextBox = new System.Windows.Forms.TextBox();
             this.Settings_HotkeyCameraQuickSave_CheckBox = new System.Windows.Forms.CheckBox();
-            this.Settings_MaisTails_groupBox = new System.Windows.Forms.GroupBox();
-            this.Settings_MaidTails_SpecialMark_groupBox = new System.Windows.Forms.GroupBox();
-            this.MaidTails_SpecialMarkMethod_ForceEnum_radioButton = new System.Windows.Forms.RadioButton();
-            this.MaidTails_SpecialMarkMethod_Ignore_radioButton = new System.Windows.Forms.RadioButton();
-            this.Settings_MaidTails_DFSorEnum_groupBox = new System.Windows.Forms.GroupBox();
-            this.MaidTails_BoneEnumMethod_Enum_radioButton = new System.Windows.Forms.RadioButton();
-            this.MaidTails_BoneEnumMethod_DFS_radioButton = new System.Windows.Forms.RadioButton();
+            this.groupBox12 = new System.Windows.Forms.GroupBox();
+            this.Settings_HotkeyDanceAllOtherStart_TextBox = new System.Windows.Forms.TextBox();
+            this.Settings_HotkeyDanceAllOtherStart_CheckBox = new System.Windows.Forms.CheckBox();
+            this.Settings_HotkeyDanceStart_TextBox = new System.Windows.Forms.TextBox();
+            this.Settings_HotkeyDanceReset_Button = new System.Windows.Forms.Button();
+            this.Settings_HotkeyDanceStart_CheckBox = new System.Windows.Forms.CheckBox();
+            this.Settings_HotkeyDanceApply_Button = new System.Windows.Forms.Button();
+            this.groupBox7 = new System.Windows.Forms.GroupBox();
+            this.Settings_HotkeyItemReset_TextBox = new System.Windows.Forms.TextBox();
+            this.Settings_HotkeyItemReset_Button = new System.Windows.Forms.Button();
+            this.Settings_HotkeyItemReset_CheckBox = new System.Windows.Forms.CheckBox();
+            this.Settings_HotkeyItemApply_Button = new System.Windows.Forms.Button();
+            this.Settings_HotkeyItemReloadParticle_TextBox = new System.Windows.Forms.TextBox();
+            this.Settings_HotkeyItemReloadParticle_CheckBox = new System.Windows.Forms.CheckBox();
+            this.Settings_HotkeyItemDelete_TextBox = new System.Windows.Forms.TextBox();
+            this.Settings_HotkeyItemSize_TextBox = new System.Windows.Forms.TextBox();
+            this.Settings_HotkeyItemDelete_CheckBox = new System.Windows.Forms.CheckBox();
+            this.Settings_HotkeyItemSize_CheckBox = new System.Windows.Forms.CheckBox();
+            this.Settings_HotkeyItemRot_TextBox = new System.Windows.Forms.TextBox();
+            this.Settings_HotkeyItemPos_TextBox = new System.Windows.Forms.TextBox();
+            this.Settings_HotkeyItemRot_CheckBox = new System.Windows.Forms.CheckBox();
+            this.Settings_HotkeyItemPos_CheckBox = new System.Windows.Forms.CheckBox();
+            this.groupBox8 = new System.Windows.Forms.GroupBox();
+            this.Settings_HotkeyHide_TextBox = new System.Windows.Forms.TextBox();
+            this.Settings_HotkeyHide_CheckBox = new System.Windows.Forms.CheckBox();
+            this.Settings_HotkeyFingerX2_TextBox = new System.Windows.Forms.TextBox();
+            this.Settings_HotkeyFingerX2_CheckBox = new System.Windows.Forms.CheckBox();
+            this.Settings_HotkeyRClavicle_TextBox = new System.Windows.Forms.TextBox();
+            this.Settings_HotkeyRClavicle_CheckBox = new System.Windows.Forms.CheckBox();
+            this.Settings_HotkeyLegIK_TextBox = new System.Windows.Forms.TextBox();
+            this.Settings_HotkeyLegIK_CheckBox = new System.Windows.Forms.CheckBox();
+            this.Settings_HotkeyArmIK_TextBox = new System.Windows.Forms.TextBox();
+            this.Settings_HotkeyArmIK_CheckBox = new System.Windows.Forms.CheckBox();
+            this.Settings_HotkeyLClavicle_TextBox = new System.Windows.Forms.TextBox();
+            this.Settings_HotkeyLClavicle_CheckBox = new System.Windows.Forms.CheckBox();
+            this.Settings_HotkeyMaidRot_TextBox = new System.Windows.Forms.TextBox();
+            this.Settings_HotkeyMaidRot_CheckBox = new System.Windows.Forms.CheckBox();
+            this.Settings_HotkeyFingerX1_TextBox = new System.Windows.Forms.TextBox();
+            this.Settings_HotkeyFingerX1_CheckBox = new System.Windows.Forms.CheckBox();
+            this.Settings_HotkeyFingerX_TextBox = new System.Windows.Forms.TextBox();
+            this.Settings_HotkeyFingerX_CheckBox = new System.Windows.Forms.CheckBox();
+            this.Settings_HotkeyNeck_TextBox = new System.Windows.Forms.TextBox();
+            this.Settings_HotkeyNeck_CheckBox = new System.Windows.Forms.CheckBox();
+            this.Settings_HotkeyHead_TextBox = new System.Windows.Forms.TextBox();
+            this.Settings_HotkeyHead_CheckBox = new System.Windows.Forms.CheckBox();
+            this.Settings_HotkeyReset_Button = new System.Windows.Forms.Button();
+            this.Settings_HotkeyApply_Button = new System.Windows.Forms.Button();
+            this.Settings_HotkeyMaidPos_TextBox = new System.Windows.Forms.TextBox();
+            this.Settings_HotkeyMaidPos_CheckBox = new System.Windows.Forms.CheckBox();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.Settings_DebugLevel_ComboBox = new System.Windows.Forms.ComboBox();
             this.label6 = new System.Windows.Forms.Label();
@@ -894,18 +886,14 @@ namespace COM3D2.EnhancedMaidEditScene.Plugin
             this.groupBox9.SuspendLayout();
             this.groupBox5.SuspendLayout();
             this.GlobalSettings.SuspendLayout();
-            this.HotKeys_tabControl.SuspendLayout();
-            this.HotKey_Maid_tabPage1.SuspendLayout();
-            this.HotKey_Items_tabPage2.SuspendLayout();
-            this.HotKey_Dance_tabPage3.SuspendLayout();
             this.groupBox14.SuspendLayout();
             this.tabControl6.SuspendLayout();
             this.shift_tabPage.SuspendLayout();
             this.tilt_tabPage.SuspendLayout();
             this.etc_tabPage.SuspendLayout();
-            this.Settings_MaisTails_groupBox.SuspendLayout();
-            this.Settings_MaidTails_SpecialMark_groupBox.SuspendLayout();
-            this.Settings_MaidTails_DFSorEnum_groupBox.SuspendLayout();
+            this.groupBox12.SuspendLayout();
+            this.groupBox7.SuspendLayout();
+            this.groupBox8.SuspendLayout();
             this.groupBox4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.CurrentSelectedMaidPicture)).BeginInit();
             this.SuspendLayout();
@@ -7751,9 +7739,10 @@ namespace COM3D2.EnhancedMaidEditScene.Plugin
             // 
             // GlobalSettings
             // 
-            this.GlobalSettings.Controls.Add(this.HotKeys_tabControl);
             this.GlobalSettings.Controls.Add(this.groupBox14);
-            this.GlobalSettings.Controls.Add(this.Settings_MaisTails_groupBox);
+            this.GlobalSettings.Controls.Add(this.groupBox12);
+            this.GlobalSettings.Controls.Add(this.groupBox7);
+            this.GlobalSettings.Controls.Add(this.groupBox8);
             this.GlobalSettings.Controls.Add(this.groupBox4);
             this.GlobalSettings.Location = new System.Drawing.Point(4, 29);
             this.GlobalSettings.Name = "GlobalSettings";
@@ -7761,550 +7750,6 @@ namespace COM3D2.EnhancedMaidEditScene.Plugin
             this.GlobalSettings.TabIndex = 5;
             this.GlobalSettings.Text = "設定";
             this.GlobalSettings.UseVisualStyleBackColor = true;
-            // 
-            // HotKeys_tabControl
-            // 
-            this.HotKeys_tabControl.Controls.Add(this.HotKey_Maid_tabPage1);
-            this.HotKeys_tabControl.Controls.Add(this.HotKey_Items_tabPage2);
-            this.HotKeys_tabControl.Controls.Add(this.HotKey_Dance_tabPage3);
-            this.HotKeys_tabControl.Location = new System.Drawing.Point(6, 119);
-            this.HotKeys_tabControl.Name = "HotKeys_tabControl";
-            this.HotKeys_tabControl.SelectedIndex = 0;
-            this.HotKeys_tabControl.Size = new System.Drawing.Size(392, 262);
-            this.HotKeys_tabControl.TabIndex = 12;
-            // 
-            // HotKey_Maid_tabPage1
-            // 
-            this.HotKey_Maid_tabPage1.Controls.Add(this.Settings_HotkeyHide_TextBox);
-            this.HotKey_Maid_tabPage1.Controls.Add(this.Settings_HotkeyMaidPos_CheckBox);
-            this.HotKey_Maid_tabPage1.Controls.Add(this.Settings_HotkeyHide_CheckBox);
-            this.HotKey_Maid_tabPage1.Controls.Add(this.Settings_HotkeyMaidPos_TextBox);
-            this.HotKey_Maid_tabPage1.Controls.Add(this.Settings_HotkeyFingerX2_TextBox);
-            this.HotKey_Maid_tabPage1.Controls.Add(this.Settings_HotkeyApply_Button);
-            this.HotKey_Maid_tabPage1.Controls.Add(this.Settings_HotkeyFingerX2_CheckBox);
-            this.HotKey_Maid_tabPage1.Controls.Add(this.Settings_HotkeyReset_Button);
-            this.HotKey_Maid_tabPage1.Controls.Add(this.Settings_HotkeyRClavicle_TextBox);
-            this.HotKey_Maid_tabPage1.Controls.Add(this.Settings_HotkeyHead_CheckBox);
-            this.HotKey_Maid_tabPage1.Controls.Add(this.Settings_HotkeyRClavicle_CheckBox);
-            this.HotKey_Maid_tabPage1.Controls.Add(this.Settings_HotkeyHead_TextBox);
-            this.HotKey_Maid_tabPage1.Controls.Add(this.Settings_HotkeyLegIK_TextBox);
-            this.HotKey_Maid_tabPage1.Controls.Add(this.Settings_HotkeyNeck_CheckBox);
-            this.HotKey_Maid_tabPage1.Controls.Add(this.Settings_HotkeyLegIK_CheckBox);
-            this.HotKey_Maid_tabPage1.Controls.Add(this.Settings_HotkeyNeck_TextBox);
-            this.HotKey_Maid_tabPage1.Controls.Add(this.Settings_HotkeyArmIK_TextBox);
-            this.HotKey_Maid_tabPage1.Controls.Add(this.Settings_HotkeyFingerX_CheckBox);
-            this.HotKey_Maid_tabPage1.Controls.Add(this.Settings_HotkeyArmIK_CheckBox);
-            this.HotKey_Maid_tabPage1.Controls.Add(this.Settings_HotkeyFingerX_TextBox);
-            this.HotKey_Maid_tabPage1.Controls.Add(this.Settings_HotkeyLClavicle_TextBox);
-            this.HotKey_Maid_tabPage1.Controls.Add(this.Settings_HotkeyFingerX1_CheckBox);
-            this.HotKey_Maid_tabPage1.Controls.Add(this.Settings_HotkeyLClavicle_CheckBox);
-            this.HotKey_Maid_tabPage1.Controls.Add(this.Settings_HotkeyFingerX1_TextBox);
-            this.HotKey_Maid_tabPage1.Controls.Add(this.Settings_HotkeyMaidRot_TextBox);
-            this.HotKey_Maid_tabPage1.Controls.Add(this.Settings_HotkeyMaidRot_CheckBox);
-            this.HotKey_Maid_tabPage1.Location = new System.Drawing.Point(4, 29);
-            this.HotKey_Maid_tabPage1.Name = "HotKey_Maid_tabPage1";
-            this.HotKey_Maid_tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.HotKey_Maid_tabPage1.Size = new System.Drawing.Size(384, 229);
-            this.HotKey_Maid_tabPage1.TabIndex = 0;
-            this.HotKey_Maid_tabPage1.Text = "メイド";
-            this.HotKey_Maid_tabPage1.UseVisualStyleBackColor = true;
-            // 
-            // Settings_HotkeyHide_TextBox
-            // 
-            this.Settings_HotkeyHide_TextBox.Location = new System.Drawing.Point(111, 197);
-            this.Settings_HotkeyHide_TextBox.Name = "Settings_HotkeyHide_TextBox";
-            this.Settings_HotkeyHide_TextBox.Size = new System.Drawing.Size(90, 26);
-            this.Settings_HotkeyHide_TextBox.TabIndex = 56;
-            this.Settings_HotkeyHide_TextBox.Text = "space";
-            // 
-            // Settings_HotkeyMaidPos_CheckBox
-            // 
-            this.Settings_HotkeyMaidPos_CheckBox.AutoSize = true;
-            this.Settings_HotkeyMaidPos_CheckBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Settings_HotkeyMaidPos_CheckBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
-            this.Settings_HotkeyMaidPos_CheckBox.Location = new System.Drawing.Point(6, 6);
-            this.Settings_HotkeyMaidPos_CheckBox.Name = "Settings_HotkeyMaidPos_CheckBox";
-            this.Settings_HotkeyMaidPos_CheckBox.Size = new System.Drawing.Size(69, 24);
-            this.Settings_HotkeyMaidPos_CheckBox.TabIndex = 0;
-            this.Settings_HotkeyMaidPos_CheckBox.Text = "位置";
-            this.Settings_HotkeyMaidPos_CheckBox.UseVisualStyleBackColor = true;
-            this.Settings_HotkeyMaidPos_CheckBox.CheckedChanged += new System.EventHandler(this.Settings_Hotkey_CheckBox_CheckedChanged);
-            // 
-            // Settings_HotkeyHide_CheckBox
-            // 
-            this.Settings_HotkeyHide_CheckBox.AutoSize = true;
-            this.Settings_HotkeyHide_CheckBox.Location = new System.Drawing.Point(6, 199);
-            this.Settings_HotkeyHide_CheckBox.Name = "Settings_HotkeyHide_CheckBox";
-            this.Settings_HotkeyHide_CheckBox.Size = new System.Drawing.Size(83, 24);
-            this.Settings_HotkeyHide_CheckBox.TabIndex = 55;
-            this.Settings_HotkeyHide_CheckBox.Text = "非表示";
-            this.Settings_HotkeyHide_CheckBox.UseVisualStyleBackColor = true;
-            this.Settings_HotkeyHide_CheckBox.CheckedChanged += new System.EventHandler(this.Settings_Hotkey_CheckBox_CheckedChanged);
-            // 
-            // Settings_HotkeyMaidPos_TextBox
-            // 
-            this.Settings_HotkeyMaidPos_TextBox.Location = new System.Drawing.Point(111, 4);
-            this.Settings_HotkeyMaidPos_TextBox.Name = "Settings_HotkeyMaidPos_TextBox";
-            this.Settings_HotkeyMaidPos_TextBox.Size = new System.Drawing.Size(90, 26);
-            this.Settings_HotkeyMaidPos_TextBox.TabIndex = 6;
-            this.Settings_HotkeyMaidPos_TextBox.Text = "z";
-            // 
-            // Settings_HotkeyFingerX2_TextBox
-            // 
-            this.Settings_HotkeyFingerX2_TextBox.Location = new System.Drawing.Point(111, 162);
-            this.Settings_HotkeyFingerX2_TextBox.Name = "Settings_HotkeyFingerX2_TextBox";
-            this.Settings_HotkeyFingerX2_TextBox.Size = new System.Drawing.Size(90, 26);
-            this.Settings_HotkeyFingerX2_TextBox.TabIndex = 54;
-            this.Settings_HotkeyFingerX2_TextBox.Text = "h_shift+d";
-            // 
-            // Settings_HotkeyApply_Button
-            // 
-            this.Settings_HotkeyApply_Button.Location = new System.Drawing.Point(215, 185);
-            this.Settings_HotkeyApply_Button.Name = "Settings_HotkeyApply_Button";
-            this.Settings_HotkeyApply_Button.Size = new System.Drawing.Size(70, 38);
-            this.Settings_HotkeyApply_Button.TabIndex = 7;
-            this.Settings_HotkeyApply_Button.Text = "適用";
-            this.Settings_HotkeyApply_Button.UseVisualStyleBackColor = true;
-            this.Settings_HotkeyApply_Button.Click += new System.EventHandler(this.Settings_HotkeyApply_Button_Click);
-            // 
-            // Settings_HotkeyFingerX2_CheckBox
-            // 
-            this.Settings_HotkeyFingerX2_CheckBox.AutoSize = true;
-            this.Settings_HotkeyFingerX2_CheckBox.Location = new System.Drawing.Point(6, 167);
-            this.Settings_HotkeyFingerX2_CheckBox.Name = "Settings_HotkeyFingerX2_CheckBox";
-            this.Settings_HotkeyFingerX2_CheckBox.Size = new System.Drawing.Size(99, 24);
-            this.Settings_HotkeyFingerX2_CheckBox.TabIndex = 53;
-            this.Settings_HotkeyFingerX2_CheckBox.Text = "第一関節";
-            this.Settings_HotkeyFingerX2_CheckBox.UseVisualStyleBackColor = true;
-            this.Settings_HotkeyFingerX2_CheckBox.CheckedChanged += new System.EventHandler(this.Settings_Hotkey_CheckBox_CheckedChanged);
-            // 
-            // Settings_HotkeyReset_Button
-            // 
-            this.Settings_HotkeyReset_Button.Location = new System.Drawing.Point(308, 185);
-            this.Settings_HotkeyReset_Button.Name = "Settings_HotkeyReset_Button";
-            this.Settings_HotkeyReset_Button.Size = new System.Drawing.Size(70, 38);
-            this.Settings_HotkeyReset_Button.TabIndex = 8;
-            this.Settings_HotkeyReset_Button.Text = "既定";
-            this.Settings_HotkeyReset_Button.UseVisualStyleBackColor = true;
-            this.Settings_HotkeyReset_Button.Click += new System.EventHandler(this.Settings_HotkeyReset_Button_Click);
-            // 
-            // Settings_HotkeyRClavicle_TextBox
-            // 
-            this.Settings_HotkeyRClavicle_TextBox.Location = new System.Drawing.Point(291, 101);
-            this.Settings_HotkeyRClavicle_TextBox.Name = "Settings_HotkeyRClavicle_TextBox";
-            this.Settings_HotkeyRClavicle_TextBox.Size = new System.Drawing.Size(90, 26);
-            this.Settings_HotkeyRClavicle_TextBox.TabIndex = 51;
-            this.Settings_HotkeyRClavicle_TextBox.Text = "h_alt+z";
-            // 
-            // Settings_HotkeyHead_CheckBox
-            // 
-            this.Settings_HotkeyHead_CheckBox.AutoSize = true;
-            this.Settings_HotkeyHead_CheckBox.Location = new System.Drawing.Point(6, 41);
-            this.Settings_HotkeyHead_CheckBox.Name = "Settings_HotkeyHead_CheckBox";
-            this.Settings_HotkeyHead_CheckBox.Size = new System.Drawing.Size(51, 24);
-            this.Settings_HotkeyHead_CheckBox.TabIndex = 34;
-            this.Settings_HotkeyHead_CheckBox.Text = "頭";
-            this.Settings_HotkeyHead_CheckBox.UseVisualStyleBackColor = true;
-            this.Settings_HotkeyHead_CheckBox.CheckedChanged += new System.EventHandler(this.Settings_Hotkey_CheckBox_CheckedChanged);
-            // 
-            // Settings_HotkeyRClavicle_CheckBox
-            // 
-            this.Settings_HotkeyRClavicle_CheckBox.AutoSize = true;
-            this.Settings_HotkeyRClavicle_CheckBox.Location = new System.Drawing.Point(207, 103);
-            this.Settings_HotkeyRClavicle_CheckBox.Name = "Settings_HotkeyRClavicle_CheckBox";
-            this.Settings_HotkeyRClavicle_CheckBox.Size = new System.Drawing.Size(83, 24);
-            this.Settings_HotkeyRClavicle_CheckBox.TabIndex = 50;
-            this.Settings_HotkeyRClavicle_CheckBox.Text = "右鎖骨";
-            this.Settings_HotkeyRClavicle_CheckBox.UseVisualStyleBackColor = true;
-            this.Settings_HotkeyRClavicle_CheckBox.CheckedChanged += new System.EventHandler(this.Settings_Hotkey_CheckBox_CheckedChanged);
-            // 
-            // Settings_HotkeyHead_TextBox
-            // 
-            this.Settings_HotkeyHead_TextBox.Location = new System.Drawing.Point(111, 36);
-            this.Settings_HotkeyHead_TextBox.Name = "Settings_HotkeyHead_TextBox";
-            this.Settings_HotkeyHead_TextBox.Size = new System.Drawing.Size(90, 26);
-            this.Settings_HotkeyHead_TextBox.TabIndex = 35;
-            this.Settings_HotkeyHead_TextBox.Text = "h_shift+q";
-            // 
-            // Settings_HotkeyLegIK_TextBox
-            // 
-            this.Settings_HotkeyLegIK_TextBox.Location = new System.Drawing.Point(291, 70);
-            this.Settings_HotkeyLegIK_TextBox.Name = "Settings_HotkeyLegIK_TextBox";
-            this.Settings_HotkeyLegIK_TextBox.Size = new System.Drawing.Size(90, 26);
-            this.Settings_HotkeyLegIK_TextBox.TabIndex = 49;
-            this.Settings_HotkeyLegIK_TextBox.Text = "h_shift+x";
-            // 
-            // Settings_HotkeyNeck_CheckBox
-            // 
-            this.Settings_HotkeyNeck_CheckBox.AutoSize = true;
-            this.Settings_HotkeyNeck_CheckBox.Location = new System.Drawing.Point(6, 72);
-            this.Settings_HotkeyNeck_CheckBox.Name = "Settings_HotkeyNeck_CheckBox";
-            this.Settings_HotkeyNeck_CheckBox.Size = new System.Drawing.Size(51, 24);
-            this.Settings_HotkeyNeck_CheckBox.TabIndex = 36;
-            this.Settings_HotkeyNeck_CheckBox.Text = "首";
-            this.Settings_HotkeyNeck_CheckBox.UseVisualStyleBackColor = true;
-            this.Settings_HotkeyNeck_CheckBox.CheckedChanged += new System.EventHandler(this.Settings_Hotkey_CheckBox_CheckedChanged);
-            // 
-            // Settings_HotkeyLegIK_CheckBox
-            // 
-            this.Settings_HotkeyLegIK_CheckBox.AutoSize = true;
-            this.Settings_HotkeyLegIK_CheckBox.Location = new System.Drawing.Point(207, 72);
-            this.Settings_HotkeyLegIK_CheckBox.Name = "Settings_HotkeyLegIK_CheckBox";
-            this.Settings_HotkeyLegIK_CheckBox.Size = new System.Drawing.Size(66, 24);
-            this.Settings_HotkeyLegIK_CheckBox.TabIndex = 48;
-            this.Settings_HotkeyLegIK_CheckBox.Text = "脚IK";
-            this.Settings_HotkeyLegIK_CheckBox.UseVisualStyleBackColor = true;
-            this.Settings_HotkeyLegIK_CheckBox.CheckedChanged += new System.EventHandler(this.Settings_Hotkey_CheckBox_CheckedChanged);
-            // 
-            // Settings_HotkeyNeck_TextBox
-            // 
-            this.Settings_HotkeyNeck_TextBox.Location = new System.Drawing.Point(111, 70);
-            this.Settings_HotkeyNeck_TextBox.Name = "Settings_HotkeyNeck_TextBox";
-            this.Settings_HotkeyNeck_TextBox.Size = new System.Drawing.Size(90, 26);
-            this.Settings_HotkeyNeck_TextBox.TabIndex = 37;
-            this.Settings_HotkeyNeck_TextBox.Text = "h_shift+w";
-            // 
-            // Settings_HotkeyArmIK_TextBox
-            // 
-            this.Settings_HotkeyArmIK_TextBox.Location = new System.Drawing.Point(291, 36);
-            this.Settings_HotkeyArmIK_TextBox.Name = "Settings_HotkeyArmIK_TextBox";
-            this.Settings_HotkeyArmIK_TextBox.Size = new System.Drawing.Size(90, 26);
-            this.Settings_HotkeyArmIK_TextBox.TabIndex = 47;
-            this.Settings_HotkeyArmIK_TextBox.Text = "h_shift+z";
-            // 
-            // Settings_HotkeyFingerX_CheckBox
-            // 
-            this.Settings_HotkeyFingerX_CheckBox.AutoSize = true;
-            this.Settings_HotkeyFingerX_CheckBox.Location = new System.Drawing.Point(6, 103);
-            this.Settings_HotkeyFingerX_CheckBox.Name = "Settings_HotkeyFingerX_CheckBox";
-            this.Settings_HotkeyFingerX_CheckBox.Size = new System.Drawing.Size(99, 24);
-            this.Settings_HotkeyFingerX_CheckBox.TabIndex = 38;
-            this.Settings_HotkeyFingerX_CheckBox.Text = "指根関節";
-            this.Settings_HotkeyFingerX_CheckBox.UseVisualStyleBackColor = true;
-            this.Settings_HotkeyFingerX_CheckBox.CheckedChanged += new System.EventHandler(this.Settings_Hotkey_CheckBox_CheckedChanged);
-            // 
-            // Settings_HotkeyArmIK_CheckBox
-            // 
-            this.Settings_HotkeyArmIK_CheckBox.AutoSize = true;
-            this.Settings_HotkeyArmIK_CheckBox.Location = new System.Drawing.Point(207, 41);
-            this.Settings_HotkeyArmIK_CheckBox.Name = "Settings_HotkeyArmIK_CheckBox";
-            this.Settings_HotkeyArmIK_CheckBox.Size = new System.Drawing.Size(66, 24);
-            this.Settings_HotkeyArmIK_CheckBox.TabIndex = 46;
-            this.Settings_HotkeyArmIK_CheckBox.Text = "腕IK";
-            this.Settings_HotkeyArmIK_CheckBox.UseVisualStyleBackColor = true;
-            this.Settings_HotkeyArmIK_CheckBox.CheckedChanged += new System.EventHandler(this.Settings_Hotkey_CheckBox_CheckedChanged);
-            // 
-            // Settings_HotkeyFingerX_TextBox
-            // 
-            this.Settings_HotkeyFingerX_TextBox.Location = new System.Drawing.Point(111, 101);
-            this.Settings_HotkeyFingerX_TextBox.Name = "Settings_HotkeyFingerX_TextBox";
-            this.Settings_HotkeyFingerX_TextBox.Size = new System.Drawing.Size(90, 26);
-            this.Settings_HotkeyFingerX_TextBox.TabIndex = 39;
-            this.Settings_HotkeyFingerX_TextBox.Text = "h_shift+a";
-            // 
-            // Settings_HotkeyLClavicle_TextBox
-            // 
-            this.Settings_HotkeyLClavicle_TextBox.Location = new System.Drawing.Point(291, 132);
-            this.Settings_HotkeyLClavicle_TextBox.Name = "Settings_HotkeyLClavicle_TextBox";
-            this.Settings_HotkeyLClavicle_TextBox.Size = new System.Drawing.Size(90, 26);
-            this.Settings_HotkeyLClavicle_TextBox.TabIndex = 45;
-            this.Settings_HotkeyLClavicle_TextBox.Text = "h_alt+x";
-            // 
-            // Settings_HotkeyFingerX1_CheckBox
-            // 
-            this.Settings_HotkeyFingerX1_CheckBox.AutoSize = true;
-            this.Settings_HotkeyFingerX1_CheckBox.Location = new System.Drawing.Point(6, 137);
-            this.Settings_HotkeyFingerX1_CheckBox.Name = "Settings_HotkeyFingerX1_CheckBox";
-            this.Settings_HotkeyFingerX1_CheckBox.Size = new System.Drawing.Size(99, 24);
-            this.Settings_HotkeyFingerX1_CheckBox.TabIndex = 40;
-            this.Settings_HotkeyFingerX1_CheckBox.Text = "第二関節";
-            this.Settings_HotkeyFingerX1_CheckBox.UseVisualStyleBackColor = true;
-            this.Settings_HotkeyFingerX1_CheckBox.CheckedChanged += new System.EventHandler(this.Settings_Hotkey_CheckBox_CheckedChanged);
-            // 
-            // Settings_HotkeyLClavicle_CheckBox
-            // 
-            this.Settings_HotkeyLClavicle_CheckBox.AutoSize = true;
-            this.Settings_HotkeyLClavicle_CheckBox.Location = new System.Drawing.Point(207, 137);
-            this.Settings_HotkeyLClavicle_CheckBox.Name = "Settings_HotkeyLClavicle_CheckBox";
-            this.Settings_HotkeyLClavicle_CheckBox.Size = new System.Drawing.Size(83, 24);
-            this.Settings_HotkeyLClavicle_CheckBox.TabIndex = 44;
-            this.Settings_HotkeyLClavicle_CheckBox.Text = "左鎖骨";
-            this.Settings_HotkeyLClavicle_CheckBox.UseVisualStyleBackColor = true;
-            this.Settings_HotkeyLClavicle_CheckBox.CheckedChanged += new System.EventHandler(this.Settings_Hotkey_CheckBox_CheckedChanged);
-            // 
-            // Settings_HotkeyFingerX1_TextBox
-            // 
-            this.Settings_HotkeyFingerX1_TextBox.Location = new System.Drawing.Point(111, 132);
-            this.Settings_HotkeyFingerX1_TextBox.Name = "Settings_HotkeyFingerX1_TextBox";
-            this.Settings_HotkeyFingerX1_TextBox.Size = new System.Drawing.Size(90, 26);
-            this.Settings_HotkeyFingerX1_TextBox.TabIndex = 41;
-            this.Settings_HotkeyFingerX1_TextBox.Text = "h_shift+s";
-            // 
-            // Settings_HotkeyMaidRot_TextBox
-            // 
-            this.Settings_HotkeyMaidRot_TextBox.Location = new System.Drawing.Point(291, 4);
-            this.Settings_HotkeyMaidRot_TextBox.Name = "Settings_HotkeyMaidRot_TextBox";
-            this.Settings_HotkeyMaidRot_TextBox.Size = new System.Drawing.Size(90, 26);
-            this.Settings_HotkeyMaidRot_TextBox.TabIndex = 43;
-            this.Settings_HotkeyMaidRot_TextBox.Text = "x";
-            // 
-            // Settings_HotkeyMaidRot_CheckBox
-            // 
-            this.Settings_HotkeyMaidRot_CheckBox.AutoSize = true;
-            this.Settings_HotkeyMaidRot_CheckBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Settings_HotkeyMaidRot_CheckBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
-            this.Settings_HotkeyMaidRot_CheckBox.Location = new System.Drawing.Point(207, 6);
-            this.Settings_HotkeyMaidRot_CheckBox.Name = "Settings_HotkeyMaidRot_CheckBox";
-            this.Settings_HotkeyMaidRot_CheckBox.Size = new System.Drawing.Size(69, 24);
-            this.Settings_HotkeyMaidRot_CheckBox.TabIndex = 42;
-            this.Settings_HotkeyMaidRot_CheckBox.Text = "回転";
-            this.Settings_HotkeyMaidRot_CheckBox.UseVisualStyleBackColor = true;
-            this.Settings_HotkeyMaidRot_CheckBox.CheckedChanged += new System.EventHandler(this.Settings_Hotkey_CheckBox_CheckedChanged);
-            // 
-            // HotKey_Items_tabPage2
-            // 
-            this.HotKey_Items_tabPage2.Controls.Add(this.Settings_HotkeyItemReset_TextBox);
-            this.HotKey_Items_tabPage2.Controls.Add(this.Settings_HotkeyItemPos_CheckBox);
-            this.HotKey_Items_tabPage2.Controls.Add(this.Settings_HotkeyItemReset_Button);
-            this.HotKey_Items_tabPage2.Controls.Add(this.Settings_HotkeyItemRot_CheckBox);
-            this.HotKey_Items_tabPage2.Controls.Add(this.Settings_HotkeyItemReset_CheckBox);
-            this.HotKey_Items_tabPage2.Controls.Add(this.Settings_HotkeyItemPos_TextBox);
-            this.HotKey_Items_tabPage2.Controls.Add(this.Settings_HotkeyItemApply_Button);
-            this.HotKey_Items_tabPage2.Controls.Add(this.Settings_HotkeyItemRot_TextBox);
-            this.HotKey_Items_tabPage2.Controls.Add(this.Settings_HotkeyItemReloadParticle_TextBox);
-            this.HotKey_Items_tabPage2.Controls.Add(this.Settings_HotkeyItemSize_CheckBox);
-            this.HotKey_Items_tabPage2.Controls.Add(this.Settings_HotkeyItemReloadParticle_CheckBox);
-            this.HotKey_Items_tabPage2.Controls.Add(this.Settings_HotkeyItemDelete_CheckBox);
-            this.HotKey_Items_tabPage2.Controls.Add(this.Settings_HotkeyItemDelete_TextBox);
-            this.HotKey_Items_tabPage2.Controls.Add(this.Settings_HotkeyItemSize_TextBox);
-            this.HotKey_Items_tabPage2.Location = new System.Drawing.Point(4, 29);
-            this.HotKey_Items_tabPage2.Name = "HotKey_Items_tabPage2";
-            this.HotKey_Items_tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.HotKey_Items_tabPage2.Size = new System.Drawing.Size(384, 229);
-            this.HotKey_Items_tabPage2.TabIndex = 1;
-            this.HotKey_Items_tabPage2.Text = "アイテム";
-            this.HotKey_Items_tabPage2.UseVisualStyleBackColor = true;
-            // 
-            // Settings_HotkeyItemReset_TextBox
-            // 
-            this.Settings_HotkeyItemReset_TextBox.Location = new System.Drawing.Point(288, 104);
-            this.Settings_HotkeyItemReset_TextBox.Name = "Settings_HotkeyItemReset_TextBox";
-            this.Settings_HotkeyItemReset_TextBox.Size = new System.Drawing.Size(90, 26);
-            this.Settings_HotkeyItemReset_TextBox.TabIndex = 58;
-            this.Settings_HotkeyItemReset_TextBox.Text = "h_ctrl+r";
-            // 
-            // Settings_HotkeyItemPos_CheckBox
-            // 
-            this.Settings_HotkeyItemPos_CheckBox.AutoSize = true;
-            this.Settings_HotkeyItemPos_CheckBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Settings_HotkeyItemPos_CheckBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
-            this.Settings_HotkeyItemPos_CheckBox.Location = new System.Drawing.Point(6, 6);
-            this.Settings_HotkeyItemPos_CheckBox.Name = "Settings_HotkeyItemPos_CheckBox";
-            this.Settings_HotkeyItemPos_CheckBox.Size = new System.Drawing.Size(69, 24);
-            this.Settings_HotkeyItemPos_CheckBox.TabIndex = 57;
-            this.Settings_HotkeyItemPos_CheckBox.Text = "位置";
-            this.Settings_HotkeyItemPos_CheckBox.UseVisualStyleBackColor = true;
-            this.Settings_HotkeyItemPos_CheckBox.CheckedChanged += new System.EventHandler(this.Settings_Hotkey_CheckBox_CheckedChanged);
-            // 
-            // Settings_HotkeyItemReset_Button
-            // 
-            this.Settings_HotkeyItemReset_Button.Location = new System.Drawing.Point(308, 185);
-            this.Settings_HotkeyItemReset_Button.Name = "Settings_HotkeyItemReset_Button";
-            this.Settings_HotkeyItemReset_Button.Size = new System.Drawing.Size(70, 38);
-            this.Settings_HotkeyItemReset_Button.TabIndex = 68;
-            this.Settings_HotkeyItemReset_Button.Text = "既定";
-            this.Settings_HotkeyItemReset_Button.UseVisualStyleBackColor = true;
-            this.Settings_HotkeyItemReset_Button.Click += new System.EventHandler(this.Settings_HotkeyReset_Button_Click);
-            // 
-            // Settings_HotkeyItemRot_CheckBox
-            // 
-            this.Settings_HotkeyItemRot_CheckBox.AutoSize = true;
-            this.Settings_HotkeyItemRot_CheckBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Settings_HotkeyItemRot_CheckBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
-            this.Settings_HotkeyItemRot_CheckBox.Location = new System.Drawing.Point(204, 6);
-            this.Settings_HotkeyItemRot_CheckBox.Name = "Settings_HotkeyItemRot_CheckBox";
-            this.Settings_HotkeyItemRot_CheckBox.Size = new System.Drawing.Size(69, 24);
-            this.Settings_HotkeyItemRot_CheckBox.TabIndex = 59;
-            this.Settings_HotkeyItemRot_CheckBox.Text = "回転";
-            this.Settings_HotkeyItemRot_CheckBox.UseVisualStyleBackColor = true;
-            this.Settings_HotkeyItemRot_CheckBox.CheckedChanged += new System.EventHandler(this.Settings_Hotkey_CheckBox_CheckedChanged);
-            // 
-            // Settings_HotkeyItemReset_CheckBox
-            // 
-            this.Settings_HotkeyItemReset_CheckBox.AutoSize = true;
-            this.Settings_HotkeyItemReset_CheckBox.Location = new System.Drawing.Point(6, 103);
-            this.Settings_HotkeyItemReset_CheckBox.Name = "Settings_HotkeyItemReset_CheckBox";
-            this.Settings_HotkeyItemReset_CheckBox.Size = new System.Drawing.Size(99, 24);
-            this.Settings_HotkeyItemReset_CheckBox.TabIndex = 57;
-            this.Settings_HotkeyItemReset_CheckBox.Text = "リセット";
-            this.Settings_HotkeyItemReset_CheckBox.UseVisualStyleBackColor = true;
-            this.Settings_HotkeyItemReset_CheckBox.CheckedChanged += new System.EventHandler(this.Settings_Hotkey_CheckBox_CheckedChanged);
-            // 
-            // Settings_HotkeyItemPos_TextBox
-            // 
-            this.Settings_HotkeyItemPos_TextBox.Location = new System.Drawing.Point(103, 6);
-            this.Settings_HotkeyItemPos_TextBox.Name = "Settings_HotkeyItemPos_TextBox";
-            this.Settings_HotkeyItemPos_TextBox.Size = new System.Drawing.Size(90, 26);
-            this.Settings_HotkeyItemPos_TextBox.TabIndex = 58;
-            this.Settings_HotkeyItemPos_TextBox.Text = "z";
-            // 
-            // Settings_HotkeyItemApply_Button
-            // 
-            this.Settings_HotkeyItemApply_Button.Location = new System.Drawing.Point(215, 185);
-            this.Settings_HotkeyItemApply_Button.Name = "Settings_HotkeyItemApply_Button";
-            this.Settings_HotkeyItemApply_Button.Size = new System.Drawing.Size(70, 38);
-            this.Settings_HotkeyItemApply_Button.TabIndex = 67;
-            this.Settings_HotkeyItemApply_Button.Text = "適用";
-            this.Settings_HotkeyItemApply_Button.UseVisualStyleBackColor = true;
-            this.Settings_HotkeyItemApply_Button.Click += new System.EventHandler(this.Settings_HotkeyApply_Button_Click);
-            // 
-            // Settings_HotkeyItemRot_TextBox
-            // 
-            this.Settings_HotkeyItemRot_TextBox.Location = new System.Drawing.Point(288, 6);
-            this.Settings_HotkeyItemRot_TextBox.Name = "Settings_HotkeyItemRot_TextBox";
-            this.Settings_HotkeyItemRot_TextBox.Size = new System.Drawing.Size(90, 26);
-            this.Settings_HotkeyItemRot_TextBox.TabIndex = 60;
-            this.Settings_HotkeyItemRot_TextBox.Text = "x";
-            // 
-            // Settings_HotkeyItemReloadParticle_TextBox
-            // 
-            this.Settings_HotkeyItemReloadParticle_TextBox.Location = new System.Drawing.Point(288, 72);
-            this.Settings_HotkeyItemReloadParticle_TextBox.Name = "Settings_HotkeyItemReloadParticle_TextBox";
-            this.Settings_HotkeyItemReloadParticle_TextBox.Size = new System.Drawing.Size(90, 26);
-            this.Settings_HotkeyItemReloadParticle_TextBox.TabIndex = 66;
-            this.Settings_HotkeyItemReloadParticle_TextBox.Text = "h_ctrl+a";
-            // 
-            // Settings_HotkeyItemSize_CheckBox
-            // 
-            this.Settings_HotkeyItemSize_CheckBox.AutoSize = true;
-            this.Settings_HotkeyItemSize_CheckBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Settings_HotkeyItemSize_CheckBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
-            this.Settings_HotkeyItemSize_CheckBox.Location = new System.Drawing.Point(6, 41);
-            this.Settings_HotkeyItemSize_CheckBox.Name = "Settings_HotkeyItemSize_CheckBox";
-            this.Settings_HotkeyItemSize_CheckBox.Size = new System.Drawing.Size(86, 24);
-            this.Settings_HotkeyItemSize_CheckBox.TabIndex = 61;
-            this.Settings_HotkeyItemSize_CheckBox.Text = "サイズ";
-            this.Settings_HotkeyItemSize_CheckBox.UseVisualStyleBackColor = true;
-            this.Settings_HotkeyItemSize_CheckBox.CheckedChanged += new System.EventHandler(this.Settings_Hotkey_CheckBox_CheckedChanged);
-            // 
-            // Settings_HotkeyItemReloadParticle_CheckBox
-            // 
-            this.Settings_HotkeyItemReloadParticle_CheckBox.AutoSize = true;
-            this.Settings_HotkeyItemReloadParticle_CheckBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Settings_HotkeyItemReloadParticle_CheckBox.ForeColor = System.Drawing.Color.Black;
-            this.Settings_HotkeyItemReloadParticle_CheckBox.Location = new System.Drawing.Point(6, 72);
-            this.Settings_HotkeyItemReloadParticle_CheckBox.Name = "Settings_HotkeyItemReloadParticle_CheckBox";
-            this.Settings_HotkeyItemReloadParticle_CheckBox.Size = new System.Drawing.Size(211, 24);
-            this.Settings_HotkeyItemReloadParticle_CheckBox.TabIndex = 65;
-            this.Settings_HotkeyItemReloadParticle_CheckBox.Text = "効果ハンドルをリロード";
-            this.Settings_HotkeyItemReloadParticle_CheckBox.UseVisualStyleBackColor = true;
-            this.Settings_HotkeyItemReloadParticle_CheckBox.CheckedChanged += new System.EventHandler(this.Settings_Hotkey_CheckBox_CheckedChanged);
-            // 
-            // Settings_HotkeyItemDelete_CheckBox
-            // 
-            this.Settings_HotkeyItemDelete_CheckBox.AutoSize = true;
-            this.Settings_HotkeyItemDelete_CheckBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Settings_HotkeyItemDelete_CheckBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
-            this.Settings_HotkeyItemDelete_CheckBox.Location = new System.Drawing.Point(204, 41);
-            this.Settings_HotkeyItemDelete_CheckBox.Name = "Settings_HotkeyItemDelete_CheckBox";
-            this.Settings_HotkeyItemDelete_CheckBox.Size = new System.Drawing.Size(69, 24);
-            this.Settings_HotkeyItemDelete_CheckBox.TabIndex = 63;
-            this.Settings_HotkeyItemDelete_CheckBox.Text = "削除";
-            this.Settings_HotkeyItemDelete_CheckBox.UseVisualStyleBackColor = true;
-            this.Settings_HotkeyItemDelete_CheckBox.CheckedChanged += new System.EventHandler(this.Settings_Hotkey_CheckBox_CheckedChanged);
-            // 
-            // Settings_HotkeyItemDelete_TextBox
-            // 
-            this.Settings_HotkeyItemDelete_TextBox.Location = new System.Drawing.Point(288, 41);
-            this.Settings_HotkeyItemDelete_TextBox.Name = "Settings_HotkeyItemDelete_TextBox";
-            this.Settings_HotkeyItemDelete_TextBox.Size = new System.Drawing.Size(90, 26);
-            this.Settings_HotkeyItemDelete_TextBox.TabIndex = 64;
-            this.Settings_HotkeyItemDelete_TextBox.Text = "d";
-            // 
-            // Settings_HotkeyItemSize_TextBox
-            // 
-            this.Settings_HotkeyItemSize_TextBox.Location = new System.Drawing.Point(103, 41);
-            this.Settings_HotkeyItemSize_TextBox.Name = "Settings_HotkeyItemSize_TextBox";
-            this.Settings_HotkeyItemSize_TextBox.Size = new System.Drawing.Size(90, 26);
-            this.Settings_HotkeyItemSize_TextBox.TabIndex = 62;
-            this.Settings_HotkeyItemSize_TextBox.Text = "c";
-            // 
-            // HotKey_Dance_tabPage3
-            // 
-            this.HotKey_Dance_tabPage3.Controls.Add(this.Settings_HotkeyDanceAllOtherStart_TextBox);
-            this.HotKey_Dance_tabPage3.Controls.Add(this.Settings_HotkeyDanceStart_CheckBox);
-            this.HotKey_Dance_tabPage3.Controls.Add(this.Settings_HotkeyDanceAllOtherStart_CheckBox);
-            this.HotKey_Dance_tabPage3.Controls.Add(this.Settings_HotkeyDanceApply_Button);
-            this.HotKey_Dance_tabPage3.Controls.Add(this.Settings_HotkeyDanceStart_TextBox);
-            this.HotKey_Dance_tabPage3.Controls.Add(this.Settings_HotkeyDanceReset_Button);
-            this.HotKey_Dance_tabPage3.Location = new System.Drawing.Point(4, 29);
-            this.HotKey_Dance_tabPage3.Name = "HotKey_Dance_tabPage3";
-            this.HotKey_Dance_tabPage3.Size = new System.Drawing.Size(384, 229);
-            this.HotKey_Dance_tabPage3.TabIndex = 2;
-            this.HotKey_Dance_tabPage3.Text = "ダンス";
-            this.HotKey_Dance_tabPage3.UseVisualStyleBackColor = true;
-            // 
-            // Settings_HotkeyDanceAllOtherStart_TextBox
-            // 
-            this.Settings_HotkeyDanceAllOtherStart_TextBox.Location = new System.Drawing.Point(215, 41);
-            this.Settings_HotkeyDanceAllOtherStart_TextBox.Name = "Settings_HotkeyDanceAllOtherStart_TextBox";
-            this.Settings_HotkeyDanceAllOtherStart_TextBox.Size = new System.Drawing.Size(163, 26);
-            this.Settings_HotkeyDanceAllOtherStart_TextBox.TabIndex = 72;
-            this.Settings_HotkeyDanceAllOtherStart_TextBox.Text = "h_ctrl+f";
-            // 
-            // Settings_HotkeyDanceStart_CheckBox
-            // 
-            this.Settings_HotkeyDanceStart_CheckBox.AutoSize = true;
-            this.Settings_HotkeyDanceStart_CheckBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Settings_HotkeyDanceStart_CheckBox.ForeColor = System.Drawing.Color.Black;
-            this.Settings_HotkeyDanceStart_CheckBox.Location = new System.Drawing.Point(6, 6);
-            this.Settings_HotkeyDanceStart_CheckBox.Name = "Settings_HotkeyDanceStart_CheckBox";
-            this.Settings_HotkeyDanceStart_CheckBox.Size = new System.Drawing.Size(147, 24);
-            this.Settings_HotkeyDanceStart_CheckBox.TabIndex = 66;
-            this.Settings_HotkeyDanceStart_CheckBox.Text = "ダンススタート";
-            this.Settings_HotkeyDanceStart_CheckBox.UseVisualStyleBackColor = true;
-            this.Settings_HotkeyDanceStart_CheckBox.CheckedChanged += new System.EventHandler(this.Settings_Hotkey_CheckBox_CheckedChanged);
-            // 
-            // Settings_HotkeyDanceAllOtherStart_CheckBox
-            // 
-            this.Settings_HotkeyDanceAllOtherStart_CheckBox.AutoSize = true;
-            this.Settings_HotkeyDanceAllOtherStart_CheckBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Settings_HotkeyDanceAllOtherStart_CheckBox.ForeColor = System.Drawing.Color.Black;
-            this.Settings_HotkeyDanceAllOtherStart_CheckBox.Location = new System.Drawing.Point(6, 41);
-            this.Settings_HotkeyDanceAllOtherStart_CheckBox.Name = "Settings_HotkeyDanceAllOtherStart_CheckBox";
-            this.Settings_HotkeyDanceAllOtherStart_CheckBox.Size = new System.Drawing.Size(179, 24);
-            this.Settings_HotkeyDanceAllOtherStart_CheckBox.TabIndex = 71;
-            this.Settings_HotkeyDanceAllOtherStart_CheckBox.Text = "指定以外の全体実行";
-            this.Settings_HotkeyDanceAllOtherStart_CheckBox.UseVisualStyleBackColor = true;
-            this.Settings_HotkeyDanceAllOtherStart_CheckBox.CheckedChanged += new System.EventHandler(this.Settings_Hotkey_CheckBox_CheckedChanged);
-            // 
-            // Settings_HotkeyDanceApply_Button
-            // 
-            this.Settings_HotkeyDanceApply_Button.Location = new System.Drawing.Point(215, 185);
-            this.Settings_HotkeyDanceApply_Button.Name = "Settings_HotkeyDanceApply_Button";
-            this.Settings_HotkeyDanceApply_Button.Size = new System.Drawing.Size(70, 38);
-            this.Settings_HotkeyDanceApply_Button.TabIndex = 69;
-            this.Settings_HotkeyDanceApply_Button.Text = "適用";
-            this.Settings_HotkeyDanceApply_Button.UseVisualStyleBackColor = true;
-            this.Settings_HotkeyDanceApply_Button.Click += new System.EventHandler(this.Settings_HotkeyApply_Button_Click);
-            // 
-            // Settings_HotkeyDanceStart_TextBox
-            // 
-            this.Settings_HotkeyDanceStart_TextBox.Location = new System.Drawing.Point(215, 6);
-            this.Settings_HotkeyDanceStart_TextBox.Name = "Settings_HotkeyDanceStart_TextBox";
-            this.Settings_HotkeyDanceStart_TextBox.Size = new System.Drawing.Size(163, 26);
-            this.Settings_HotkeyDanceStart_TextBox.TabIndex = 69;
-            this.Settings_HotkeyDanceStart_TextBox.Text = "h_ctrl+d";
-            // 
-            // Settings_HotkeyDanceReset_Button
-            // 
-            this.Settings_HotkeyDanceReset_Button.Location = new System.Drawing.Point(308, 185);
-            this.Settings_HotkeyDanceReset_Button.Name = "Settings_HotkeyDanceReset_Button";
-            this.Settings_HotkeyDanceReset_Button.Size = new System.Drawing.Size(70, 38);
-            this.Settings_HotkeyDanceReset_Button.TabIndex = 70;
-            this.Settings_HotkeyDanceReset_Button.Text = "既定";
-            this.Settings_HotkeyDanceReset_Button.UseVisualStyleBackColor = true;
-            this.Settings_HotkeyDanceReset_Button.Click += new System.EventHandler(this.Settings_HotkeyReset_Button_Click);
             // 
             // groupBox14
             // 
@@ -8319,7 +7764,7 @@ namespace COM3D2.EnhancedMaidEditScene.Plugin
             this.groupBox14.Controls.Add(this.Settings_HotkeyCameraQuickLoad_CheckBox);
             this.groupBox14.Controls.Add(this.Settings_HotkeyCameraQuickSave_TextBox);
             this.groupBox14.Controls.Add(this.Settings_HotkeyCameraQuickSave_CheckBox);
-            this.groupBox14.Location = new System.Drawing.Point(6, 684);
+            this.groupBox14.Location = new System.Drawing.Point(4, 686);
             this.groupBox14.Name = "groupBox14";
             this.groupBox14.Size = new System.Drawing.Size(394, 406);
             this.groupBox14.TabIndex = 40;
@@ -8705,7 +8150,7 @@ namespace COM3D2.EnhancedMaidEditScene.Plugin
             this.Settings_HotkeyCameraReset_Button.Name = "Settings_HotkeyCameraReset_Button";
             this.Settings_HotkeyCameraReset_Button.Size = new System.Drawing.Size(70, 38);
             this.Settings_HotkeyCameraReset_Button.TabIndex = 70;
-            this.Settings_HotkeyCameraReset_Button.Text = "既定";
+            this.Settings_HotkeyCameraReset_Button.Text = "リセット";
             this.Settings_HotkeyCameraReset_Button.UseVisualStyleBackColor = true;
             this.Settings_HotkeyCameraReset_Button.Click += new System.EventHandler(this.Settings_HotkeyReset_Button_Click);
             // 
@@ -8757,86 +8202,536 @@ namespace COM3D2.EnhancedMaidEditScene.Plugin
             this.Settings_HotkeyCameraQuickSave_CheckBox.UseVisualStyleBackColor = true;
             this.Settings_HotkeyCameraQuickSave_CheckBox.CheckedChanged += new System.EventHandler(this.Settings_Hotkey_CheckBox_CheckedChanged);
             // 
-            // Settings_MaisTails_groupBox
+            // groupBox12
             // 
-            this.Settings_MaisTails_groupBox.Controls.Add(this.Settings_MaidTails_SpecialMark_groupBox);
-            this.Settings_MaisTails_groupBox.Controls.Add(this.Settings_MaidTails_DFSorEnum_groupBox);
-            this.Settings_MaisTails_groupBox.Location = new System.Drawing.Point(6, 387);
-            this.Settings_MaisTails_groupBox.Name = "Settings_MaisTails_groupBox";
-            this.Settings_MaisTails_groupBox.Size = new System.Drawing.Size(394, 151);
-            this.Settings_MaisTails_groupBox.TabIndex = 3;
-            this.Settings_MaisTails_groupBox.TabStop = false;
-            this.Settings_MaisTails_groupBox.Text = "複数尻尾Lite";
+            this.groupBox12.Controls.Add(this.Settings_HotkeyDanceAllOtherStart_TextBox);
+            this.groupBox12.Controls.Add(this.Settings_HotkeyDanceAllOtherStart_CheckBox);
+            this.groupBox12.Controls.Add(this.Settings_HotkeyDanceStart_TextBox);
+            this.groupBox12.Controls.Add(this.Settings_HotkeyDanceReset_Button);
+            this.groupBox12.Controls.Add(this.Settings_HotkeyDanceStart_CheckBox);
+            this.groupBox12.Controls.Add(this.Settings_HotkeyDanceApply_Button);
+            this.groupBox12.Location = new System.Drawing.Point(4, 572);
+            this.groupBox12.Name = "groupBox12";
+            this.groupBox12.Size = new System.Drawing.Size(394, 108);
+            this.groupBox12.TabIndex = 3;
+            this.groupBox12.TabStop = false;
+            this.groupBox12.Text = "ダンス";
             // 
-            // Settings_MaidTails_SpecialMark_groupBox
+            // Settings_HotkeyDanceAllOtherStart_TextBox
             // 
-            this.Settings_MaidTails_SpecialMark_groupBox.Controls.Add(this.MaidTails_SpecialMarkMethod_ForceEnum_radioButton);
-            this.Settings_MaidTails_SpecialMark_groupBox.Controls.Add(this.MaidTails_SpecialMarkMethod_Ignore_radioButton);
-            this.Settings_MaidTails_SpecialMark_groupBox.Location = new System.Drawing.Point(8, 25);
-            this.Settings_MaidTails_SpecialMark_groupBox.Name = "Settings_MaidTails_SpecialMark_groupBox";
-            this.Settings_MaidTails_SpecialMark_groupBox.Size = new System.Drawing.Size(380, 56);
-            this.Settings_MaidTails_SpecialMark_groupBox.TabIndex = 41;
-            this.Settings_MaidTails_SpecialMark_groupBox.TabStop = false;
-            this.Settings_MaidTails_SpecialMark_groupBox.Text = "特殊マーク「_DO_NOT_ENUM_」処理方法";
+            this.Settings_HotkeyDanceAllOtherStart_TextBox.Location = new System.Drawing.Point(213, 52);
+            this.Settings_HotkeyDanceAllOtherStart_TextBox.Name = "Settings_HotkeyDanceAllOtherStart_TextBox";
+            this.Settings_HotkeyDanceAllOtherStart_TextBox.Size = new System.Drawing.Size(90, 26);
+            this.Settings_HotkeyDanceAllOtherStart_TextBox.TabIndex = 72;
+            this.Settings_HotkeyDanceAllOtherStart_TextBox.Text = "h_ctrl+f";
             // 
-            // MaidTails_SpecialMarkMethod_ForceEnum_radioButton
+            // Settings_HotkeyDanceAllOtherStart_CheckBox
             // 
-            this.MaidTails_SpecialMarkMethod_ForceEnum_radioButton.AutoSize = true;
-            this.MaidTails_SpecialMarkMethod_ForceEnum_radioButton.Location = new System.Drawing.Point(57, 25);
-            this.MaidTails_SpecialMarkMethod_ForceEnum_radioButton.Name = "MaidTails_SpecialMarkMethod_ForceEnum_radioButton";
-            this.MaidTails_SpecialMarkMethod_ForceEnum_radioButton.Size = new System.Drawing.Size(98, 24);
-            this.MaidTails_SpecialMarkMethod_ForceEnum_radioButton.TabIndex = 1;
-            this.MaidTails_SpecialMarkMethod_ForceEnum_radioButton.Text = "強制列挙";
-            this.MaidTails_SpecialMarkMethod_ForceEnum_radioButton.UseVisualStyleBackColor = true;
-            this.MaidTails_SpecialMarkMethod_ForceEnum_radioButton.Click += new System.EventHandler(this.MaidTails_SpecialMark_Method_ForceEnum_radioButton1_Click);
+            this.Settings_HotkeyDanceAllOtherStart_CheckBox.AutoSize = true;
+            this.Settings_HotkeyDanceAllOtherStart_CheckBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Settings_HotkeyDanceAllOtherStart_CheckBox.ForeColor = System.Drawing.Color.Black;
+            this.Settings_HotkeyDanceAllOtherStart_CheckBox.Location = new System.Drawing.Point(8, 56);
+            this.Settings_HotkeyDanceAllOtherStart_CheckBox.Name = "Settings_HotkeyDanceAllOtherStart_CheckBox";
+            this.Settings_HotkeyDanceAllOtherStart_CheckBox.Size = new System.Drawing.Size(179, 24);
+            this.Settings_HotkeyDanceAllOtherStart_CheckBox.TabIndex = 71;
+            this.Settings_HotkeyDanceAllOtherStart_CheckBox.Text = "指定以外の全体実行";
+            this.Settings_HotkeyDanceAllOtherStart_CheckBox.UseVisualStyleBackColor = true;
+            this.Settings_HotkeyDanceAllOtherStart_CheckBox.CheckedChanged += new System.EventHandler(this.Settings_Hotkey_CheckBox_CheckedChanged);
             // 
-            // MaidTails_SpecialMarkMethod_Ignore_radioButton
+            // Settings_HotkeyDanceStart_TextBox
             // 
-            this.MaidTails_SpecialMarkMethod_Ignore_radioButton.AutoSize = true;
-            this.MaidTails_SpecialMarkMethod_Ignore_radioButton.Checked = true;
-            this.MaidTails_SpecialMarkMethod_Ignore_radioButton.Location = new System.Drawing.Point(202, 25);
-            this.MaidTails_SpecialMarkMethod_Ignore_radioButton.Name = "MaidTails_SpecialMarkMethod_Ignore_radioButton";
-            this.MaidTails_SpecialMarkMethod_Ignore_radioButton.Size = new System.Drawing.Size(66, 24);
-            this.MaidTails_SpecialMarkMethod_Ignore_radioButton.TabIndex = 2;
-            this.MaidTails_SpecialMarkMethod_Ignore_radioButton.TabStop = true;
-            this.MaidTails_SpecialMarkMethod_Ignore_radioButton.Text = "無視";
-            this.MaidTails_SpecialMarkMethod_Ignore_radioButton.UseVisualStyleBackColor = true;
-            this.MaidTails_SpecialMarkMethod_Ignore_radioButton.Click += new System.EventHandler(this.MaidTails_SpecialMark_Method_ForceEnum_radioButton1_Click);
+            this.Settings_HotkeyDanceStart_TextBox.Location = new System.Drawing.Point(213, 22);
+            this.Settings_HotkeyDanceStart_TextBox.Name = "Settings_HotkeyDanceStart_TextBox";
+            this.Settings_HotkeyDanceStart_TextBox.Size = new System.Drawing.Size(90, 26);
+            this.Settings_HotkeyDanceStart_TextBox.TabIndex = 69;
+            this.Settings_HotkeyDanceStart_TextBox.Text = "h_ctrl+d";
             // 
-            // Settings_MaidTails_DFSorEnum_groupBox
+            // Settings_HotkeyDanceReset_Button
             // 
-            this.Settings_MaidTails_DFSorEnum_groupBox.Controls.Add(this.MaidTails_BoneEnumMethod_Enum_radioButton);
-            this.Settings_MaidTails_DFSorEnum_groupBox.Controls.Add(this.MaidTails_BoneEnumMethod_DFS_radioButton);
-            this.Settings_MaidTails_DFSorEnum_groupBox.Location = new System.Drawing.Point(8, 87);
-            this.Settings_MaidTails_DFSorEnum_groupBox.Name = "Settings_MaidTails_DFSorEnum_groupBox";
-            this.Settings_MaidTails_DFSorEnum_groupBox.Size = new System.Drawing.Size(380, 56);
-            this.Settings_MaidTails_DFSorEnum_groupBox.TabIndex = 41;
-            this.Settings_MaidTails_DFSorEnum_groupBox.TabStop = false;
-            this.Settings_MaidTails_DFSorEnum_groupBox.Text = "ボーンの列挙方法";
+            this.Settings_HotkeyDanceReset_Button.Location = new System.Drawing.Point(318, 64);
+            this.Settings_HotkeyDanceReset_Button.Name = "Settings_HotkeyDanceReset_Button";
+            this.Settings_HotkeyDanceReset_Button.Size = new System.Drawing.Size(70, 38);
+            this.Settings_HotkeyDanceReset_Button.TabIndex = 70;
+            this.Settings_HotkeyDanceReset_Button.Text = "リセット";
+            this.Settings_HotkeyDanceReset_Button.UseVisualStyleBackColor = true;
+            this.Settings_HotkeyDanceReset_Button.Click += new System.EventHandler(this.Settings_HotkeyReset_Button_Click);
             // 
-            // MaidTails_BoneEnumMethod_Enum_radioButton
+            // Settings_HotkeyDanceStart_CheckBox
             // 
-            this.MaidTails_BoneEnumMethod_Enum_radioButton.AutoSize = true;
-            this.MaidTails_BoneEnumMethod_Enum_radioButton.Location = new System.Drawing.Point(204, 25);
-            this.MaidTails_BoneEnumMethod_Enum_radioButton.Name = "MaidTails_BoneEnumMethod_Enum_radioButton";
-            this.MaidTails_BoneEnumMethod_Enum_radioButton.Size = new System.Drawing.Size(98, 24);
-            this.MaidTails_BoneEnumMethod_Enum_radioButton.TabIndex = 5;
-            this.MaidTails_BoneEnumMethod_Enum_radioButton.Text = "効率優先";
-            this.MaidTails_BoneEnumMethod_Enum_radioButton.UseVisualStyleBackColor = true;
-            this.MaidTails_BoneEnumMethod_Enum_radioButton.Click += new System.EventHandler(this.MaidTails_BoneEnumMethod_Enum_radioButton_Click);
+            this.Settings_HotkeyDanceStart_CheckBox.AutoSize = true;
+            this.Settings_HotkeyDanceStart_CheckBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Settings_HotkeyDanceStart_CheckBox.ForeColor = System.Drawing.Color.Black;
+            this.Settings_HotkeyDanceStart_CheckBox.Location = new System.Drawing.Point(8, 26);
+            this.Settings_HotkeyDanceStart_CheckBox.Name = "Settings_HotkeyDanceStart_CheckBox";
+            this.Settings_HotkeyDanceStart_CheckBox.Size = new System.Drawing.Size(147, 24);
+            this.Settings_HotkeyDanceStart_CheckBox.TabIndex = 66;
+            this.Settings_HotkeyDanceStart_CheckBox.Text = "ダンススタート";
+            this.Settings_HotkeyDanceStart_CheckBox.UseVisualStyleBackColor = true;
+            this.Settings_HotkeyDanceStart_CheckBox.CheckedChanged += new System.EventHandler(this.Settings_Hotkey_CheckBox_CheckedChanged);
             // 
-            // MaidTails_BoneEnumMethod_DFS_radioButton
+            // Settings_HotkeyDanceApply_Button
             // 
-            this.MaidTails_BoneEnumMethod_DFS_radioButton.AutoSize = true;
-            this.MaidTails_BoneEnumMethod_DFS_radioButton.Checked = true;
-            this.MaidTails_BoneEnumMethod_DFS_radioButton.Location = new System.Drawing.Point(59, 25);
-            this.MaidTails_BoneEnumMethod_DFS_radioButton.Name = "MaidTails_BoneEnumMethod_DFS_radioButton";
-            this.MaidTails_BoneEnumMethod_DFS_radioButton.Size = new System.Drawing.Size(98, 24);
-            this.MaidTails_BoneEnumMethod_DFS_radioButton.TabIndex = 4;
-            this.MaidTails_BoneEnumMethod_DFS_radioButton.TabStop = true;
-            this.MaidTails_BoneEnumMethod_DFS_radioButton.Text = "深さ優先";
-            this.MaidTails_BoneEnumMethod_DFS_radioButton.UseVisualStyleBackColor = true;
-            this.MaidTails_BoneEnumMethod_DFS_radioButton.Click += new System.EventHandler(this.MaidTails_BoneEnumMethod_Enum_radioButton_Click);
+            this.Settings_HotkeyDanceApply_Button.Location = new System.Drawing.Point(318, 16);
+            this.Settings_HotkeyDanceApply_Button.Name = "Settings_HotkeyDanceApply_Button";
+            this.Settings_HotkeyDanceApply_Button.Size = new System.Drawing.Size(70, 38);
+            this.Settings_HotkeyDanceApply_Button.TabIndex = 69;
+            this.Settings_HotkeyDanceApply_Button.Text = "適用";
+            this.Settings_HotkeyDanceApply_Button.UseVisualStyleBackColor = true;
+            this.Settings_HotkeyDanceApply_Button.Click += new System.EventHandler(this.Settings_HotkeyApply_Button_Click);
+            // 
+            // groupBox7
+            // 
+            this.groupBox7.Controls.Add(this.Settings_HotkeyItemReset_TextBox);
+            this.groupBox7.Controls.Add(this.Settings_HotkeyItemReset_Button);
+            this.groupBox7.Controls.Add(this.Settings_HotkeyItemReset_CheckBox);
+            this.groupBox7.Controls.Add(this.Settings_HotkeyItemApply_Button);
+            this.groupBox7.Controls.Add(this.Settings_HotkeyItemReloadParticle_TextBox);
+            this.groupBox7.Controls.Add(this.Settings_HotkeyItemReloadParticle_CheckBox);
+            this.groupBox7.Controls.Add(this.Settings_HotkeyItemDelete_TextBox);
+            this.groupBox7.Controls.Add(this.Settings_HotkeyItemSize_TextBox);
+            this.groupBox7.Controls.Add(this.Settings_HotkeyItemDelete_CheckBox);
+            this.groupBox7.Controls.Add(this.Settings_HotkeyItemSize_CheckBox);
+            this.groupBox7.Controls.Add(this.Settings_HotkeyItemRot_TextBox);
+            this.groupBox7.Controls.Add(this.Settings_HotkeyItemPos_TextBox);
+            this.groupBox7.Controls.Add(this.Settings_HotkeyItemRot_CheckBox);
+            this.groupBox7.Controls.Add(this.Settings_HotkeyItemPos_CheckBox);
+            this.groupBox7.Location = new System.Drawing.Point(6, 388);
+            this.groupBox7.Name = "groupBox7";
+            this.groupBox7.Size = new System.Drawing.Size(393, 177);
+            this.groupBox7.TabIndex = 2;
+            this.groupBox7.TabStop = false;
+            this.groupBox7.Text = "ホットキー　パーティクル・ 小物";
+            // 
+            // Settings_HotkeyItemReset_TextBox
+            // 
+            this.Settings_HotkeyItemReset_TextBox.Location = new System.Drawing.Point(111, 134);
+            this.Settings_HotkeyItemReset_TextBox.Name = "Settings_HotkeyItemReset_TextBox";
+            this.Settings_HotkeyItemReset_TextBox.Size = new System.Drawing.Size(90, 26);
+            this.Settings_HotkeyItemReset_TextBox.TabIndex = 58;
+            this.Settings_HotkeyItemReset_TextBox.Text = "h_ctrl+r";
+            // 
+            // Settings_HotkeyItemReset_Button
+            // 
+            this.Settings_HotkeyItemReset_Button.Location = new System.Drawing.Point(316, 128);
+            this.Settings_HotkeyItemReset_Button.Name = "Settings_HotkeyItemReset_Button";
+            this.Settings_HotkeyItemReset_Button.Size = new System.Drawing.Size(70, 38);
+            this.Settings_HotkeyItemReset_Button.TabIndex = 68;
+            this.Settings_HotkeyItemReset_Button.Text = "リセット";
+            this.Settings_HotkeyItemReset_Button.UseVisualStyleBackColor = true;
+            this.Settings_HotkeyItemReset_Button.Click += new System.EventHandler(this.Settings_HotkeyReset_Button_Click);
+            // 
+            // Settings_HotkeyItemReset_CheckBox
+            // 
+            this.Settings_HotkeyItemReset_CheckBox.AutoSize = true;
+            this.Settings_HotkeyItemReset_CheckBox.Location = new System.Drawing.Point(6, 135);
+            this.Settings_HotkeyItemReset_CheckBox.Name = "Settings_HotkeyItemReset_CheckBox";
+            this.Settings_HotkeyItemReset_CheckBox.Size = new System.Drawing.Size(99, 24);
+            this.Settings_HotkeyItemReset_CheckBox.TabIndex = 57;
+            this.Settings_HotkeyItemReset_CheckBox.Text = "リセット";
+            this.Settings_HotkeyItemReset_CheckBox.UseVisualStyleBackColor = true;
+            this.Settings_HotkeyItemReset_CheckBox.CheckedChanged += new System.EventHandler(this.Settings_Hotkey_CheckBox_CheckedChanged);
+            // 
+            // Settings_HotkeyItemApply_Button
+            // 
+            this.Settings_HotkeyItemApply_Button.Location = new System.Drawing.Point(240, 128);
+            this.Settings_HotkeyItemApply_Button.Name = "Settings_HotkeyItemApply_Button";
+            this.Settings_HotkeyItemApply_Button.Size = new System.Drawing.Size(70, 38);
+            this.Settings_HotkeyItemApply_Button.TabIndex = 67;
+            this.Settings_HotkeyItemApply_Button.Text = "適用";
+            this.Settings_HotkeyItemApply_Button.UseVisualStyleBackColor = true;
+            this.Settings_HotkeyItemApply_Button.Click += new System.EventHandler(this.Settings_HotkeyApply_Button_Click);
+            // 
+            // Settings_HotkeyItemReloadParticle_TextBox
+            // 
+            this.Settings_HotkeyItemReloadParticle_TextBox.Location = new System.Drawing.Point(296, 82);
+            this.Settings_HotkeyItemReloadParticle_TextBox.Name = "Settings_HotkeyItemReloadParticle_TextBox";
+            this.Settings_HotkeyItemReloadParticle_TextBox.Size = new System.Drawing.Size(90, 26);
+            this.Settings_HotkeyItemReloadParticle_TextBox.TabIndex = 66;
+            this.Settings_HotkeyItemReloadParticle_TextBox.Text = "h_ctrl+a";
+            // 
+            // Settings_HotkeyItemReloadParticle_CheckBox
+            // 
+            this.Settings_HotkeyItemReloadParticle_CheckBox.AutoSize = true;
+            this.Settings_HotkeyItemReloadParticle_CheckBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Settings_HotkeyItemReloadParticle_CheckBox.ForeColor = System.Drawing.Color.Black;
+            this.Settings_HotkeyItemReloadParticle_CheckBox.Location = new System.Drawing.Point(6, 87);
+            this.Settings_HotkeyItemReloadParticle_CheckBox.Name = "Settings_HotkeyItemReloadParticle_CheckBox";
+            this.Settings_HotkeyItemReloadParticle_CheckBox.Size = new System.Drawing.Size(211, 24);
+            this.Settings_HotkeyItemReloadParticle_CheckBox.TabIndex = 65;
+            this.Settings_HotkeyItemReloadParticle_CheckBox.Text = "効果ハンドルをリロード";
+            this.Settings_HotkeyItemReloadParticle_CheckBox.UseVisualStyleBackColor = true;
+            this.Settings_HotkeyItemReloadParticle_CheckBox.CheckedChanged += new System.EventHandler(this.Settings_Hotkey_CheckBox_CheckedChanged);
+            // 
+            // Settings_HotkeyItemDelete_TextBox
+            // 
+            this.Settings_HotkeyItemDelete_TextBox.Location = new System.Drawing.Point(296, 56);
+            this.Settings_HotkeyItemDelete_TextBox.Name = "Settings_HotkeyItemDelete_TextBox";
+            this.Settings_HotkeyItemDelete_TextBox.Size = new System.Drawing.Size(90, 26);
+            this.Settings_HotkeyItemDelete_TextBox.TabIndex = 64;
+            this.Settings_HotkeyItemDelete_TextBox.Text = "d";
+            // 
+            // Settings_HotkeyItemSize_TextBox
+            // 
+            this.Settings_HotkeyItemSize_TextBox.Location = new System.Drawing.Point(111, 57);
+            this.Settings_HotkeyItemSize_TextBox.Name = "Settings_HotkeyItemSize_TextBox";
+            this.Settings_HotkeyItemSize_TextBox.Size = new System.Drawing.Size(90, 26);
+            this.Settings_HotkeyItemSize_TextBox.TabIndex = 62;
+            this.Settings_HotkeyItemSize_TextBox.Text = "c";
+            // 
+            // Settings_HotkeyItemDelete_CheckBox
+            // 
+            this.Settings_HotkeyItemDelete_CheckBox.AutoSize = true;
+            this.Settings_HotkeyItemDelete_CheckBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Settings_HotkeyItemDelete_CheckBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
+            this.Settings_HotkeyItemDelete_CheckBox.Location = new System.Drawing.Point(212, 57);
+            this.Settings_HotkeyItemDelete_CheckBox.Name = "Settings_HotkeyItemDelete_CheckBox";
+            this.Settings_HotkeyItemDelete_CheckBox.Size = new System.Drawing.Size(69, 24);
+            this.Settings_HotkeyItemDelete_CheckBox.TabIndex = 63;
+            this.Settings_HotkeyItemDelete_CheckBox.Text = "削除";
+            this.Settings_HotkeyItemDelete_CheckBox.UseVisualStyleBackColor = true;
+            this.Settings_HotkeyItemDelete_CheckBox.CheckedChanged += new System.EventHandler(this.Settings_Hotkey_CheckBox_CheckedChanged);
+            // 
+            // Settings_HotkeyItemSize_CheckBox
+            // 
+            this.Settings_HotkeyItemSize_CheckBox.AutoSize = true;
+            this.Settings_HotkeyItemSize_CheckBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Settings_HotkeyItemSize_CheckBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
+            this.Settings_HotkeyItemSize_CheckBox.Location = new System.Drawing.Point(6, 58);
+            this.Settings_HotkeyItemSize_CheckBox.Name = "Settings_HotkeyItemSize_CheckBox";
+            this.Settings_HotkeyItemSize_CheckBox.Size = new System.Drawing.Size(86, 24);
+            this.Settings_HotkeyItemSize_CheckBox.TabIndex = 61;
+            this.Settings_HotkeyItemSize_CheckBox.Text = "サイズ";
+            this.Settings_HotkeyItemSize_CheckBox.UseVisualStyleBackColor = true;
+            this.Settings_HotkeyItemSize_CheckBox.CheckedChanged += new System.EventHandler(this.Settings_Hotkey_CheckBox_CheckedChanged);
+            // 
+            // Settings_HotkeyItemRot_TextBox
+            // 
+            this.Settings_HotkeyItemRot_TextBox.Location = new System.Drawing.Point(296, 22);
+            this.Settings_HotkeyItemRot_TextBox.Name = "Settings_HotkeyItemRot_TextBox";
+            this.Settings_HotkeyItemRot_TextBox.Size = new System.Drawing.Size(90, 26);
+            this.Settings_HotkeyItemRot_TextBox.TabIndex = 60;
+            this.Settings_HotkeyItemRot_TextBox.Text = "x";
+            // 
+            // Settings_HotkeyItemPos_TextBox
+            // 
+            this.Settings_HotkeyItemPos_TextBox.Location = new System.Drawing.Point(111, 26);
+            this.Settings_HotkeyItemPos_TextBox.Name = "Settings_HotkeyItemPos_TextBox";
+            this.Settings_HotkeyItemPos_TextBox.Size = new System.Drawing.Size(90, 26);
+            this.Settings_HotkeyItemPos_TextBox.TabIndex = 58;
+            this.Settings_HotkeyItemPos_TextBox.Text = "z";
+            // 
+            // Settings_HotkeyItemRot_CheckBox
+            // 
+            this.Settings_HotkeyItemRot_CheckBox.AutoSize = true;
+            this.Settings_HotkeyItemRot_CheckBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Settings_HotkeyItemRot_CheckBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
+            this.Settings_HotkeyItemRot_CheckBox.Location = new System.Drawing.Point(212, 26);
+            this.Settings_HotkeyItemRot_CheckBox.Name = "Settings_HotkeyItemRot_CheckBox";
+            this.Settings_HotkeyItemRot_CheckBox.Size = new System.Drawing.Size(69, 24);
+            this.Settings_HotkeyItemRot_CheckBox.TabIndex = 59;
+            this.Settings_HotkeyItemRot_CheckBox.Text = "回転";
+            this.Settings_HotkeyItemRot_CheckBox.UseVisualStyleBackColor = true;
+            this.Settings_HotkeyItemRot_CheckBox.CheckedChanged += new System.EventHandler(this.Settings_Hotkey_CheckBox_CheckedChanged);
+            // 
+            // Settings_HotkeyItemPos_CheckBox
+            // 
+            this.Settings_HotkeyItemPos_CheckBox.AutoSize = true;
+            this.Settings_HotkeyItemPos_CheckBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Settings_HotkeyItemPos_CheckBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
+            this.Settings_HotkeyItemPos_CheckBox.Location = new System.Drawing.Point(6, 27);
+            this.Settings_HotkeyItemPos_CheckBox.Name = "Settings_HotkeyItemPos_CheckBox";
+            this.Settings_HotkeyItemPos_CheckBox.Size = new System.Drawing.Size(69, 24);
+            this.Settings_HotkeyItemPos_CheckBox.TabIndex = 57;
+            this.Settings_HotkeyItemPos_CheckBox.Text = "位置";
+            this.Settings_HotkeyItemPos_CheckBox.UseVisualStyleBackColor = true;
+            this.Settings_HotkeyItemPos_CheckBox.CheckedChanged += new System.EventHandler(this.Settings_Hotkey_CheckBox_CheckedChanged);
+            // 
+            // groupBox8
+            // 
+            this.groupBox8.Controls.Add(this.Settings_HotkeyHide_TextBox);
+            this.groupBox8.Controls.Add(this.Settings_HotkeyHide_CheckBox);
+            this.groupBox8.Controls.Add(this.Settings_HotkeyFingerX2_TextBox);
+            this.groupBox8.Controls.Add(this.Settings_HotkeyFingerX2_CheckBox);
+            this.groupBox8.Controls.Add(this.Settings_HotkeyRClavicle_TextBox);
+            this.groupBox8.Controls.Add(this.Settings_HotkeyRClavicle_CheckBox);
+            this.groupBox8.Controls.Add(this.Settings_HotkeyLegIK_TextBox);
+            this.groupBox8.Controls.Add(this.Settings_HotkeyLegIK_CheckBox);
+            this.groupBox8.Controls.Add(this.Settings_HotkeyArmIK_TextBox);
+            this.groupBox8.Controls.Add(this.Settings_HotkeyArmIK_CheckBox);
+            this.groupBox8.Controls.Add(this.Settings_HotkeyLClavicle_TextBox);
+            this.groupBox8.Controls.Add(this.Settings_HotkeyLClavicle_CheckBox);
+            this.groupBox8.Controls.Add(this.Settings_HotkeyMaidRot_TextBox);
+            this.groupBox8.Controls.Add(this.Settings_HotkeyMaidRot_CheckBox);
+            this.groupBox8.Controls.Add(this.Settings_HotkeyFingerX1_TextBox);
+            this.groupBox8.Controls.Add(this.Settings_HotkeyFingerX1_CheckBox);
+            this.groupBox8.Controls.Add(this.Settings_HotkeyFingerX_TextBox);
+            this.groupBox8.Controls.Add(this.Settings_HotkeyFingerX_CheckBox);
+            this.groupBox8.Controls.Add(this.Settings_HotkeyNeck_TextBox);
+            this.groupBox8.Controls.Add(this.Settings_HotkeyNeck_CheckBox);
+            this.groupBox8.Controls.Add(this.Settings_HotkeyHead_TextBox);
+            this.groupBox8.Controls.Add(this.Settings_HotkeyHead_CheckBox);
+            this.groupBox8.Controls.Add(this.Settings_HotkeyReset_Button);
+            this.groupBox8.Controls.Add(this.Settings_HotkeyApply_Button);
+            this.groupBox8.Controls.Add(this.Settings_HotkeyMaidPos_TextBox);
+            this.groupBox8.Controls.Add(this.Settings_HotkeyMaidPos_CheckBox);
+            this.groupBox8.Location = new System.Drawing.Point(6, 116);
+            this.groupBox8.Name = "groupBox8";
+            this.groupBox8.Size = new System.Drawing.Size(393, 266);
+            this.groupBox8.TabIndex = 1;
+            this.groupBox8.TabStop = false;
+            this.groupBox8.Text = "ホットキー　メイド";
+            // 
+            // Settings_HotkeyHide_TextBox
+            // 
+            this.Settings_HotkeyHide_TextBox.Location = new System.Drawing.Point(111, 225);
+            this.Settings_HotkeyHide_TextBox.Name = "Settings_HotkeyHide_TextBox";
+            this.Settings_HotkeyHide_TextBox.Size = new System.Drawing.Size(90, 26);
+            this.Settings_HotkeyHide_TextBox.TabIndex = 56;
+            this.Settings_HotkeyHide_TextBox.Text = "space";
+            // 
+            // Settings_HotkeyHide_CheckBox
+            // 
+            this.Settings_HotkeyHide_CheckBox.AutoSize = true;
+            this.Settings_HotkeyHide_CheckBox.Location = new System.Drawing.Point(6, 226);
+            this.Settings_HotkeyHide_CheckBox.Name = "Settings_HotkeyHide_CheckBox";
+            this.Settings_HotkeyHide_CheckBox.Size = new System.Drawing.Size(83, 24);
+            this.Settings_HotkeyHide_CheckBox.TabIndex = 55;
+            this.Settings_HotkeyHide_CheckBox.Text = "非表示";
+            this.Settings_HotkeyHide_CheckBox.UseVisualStyleBackColor = true;
+            this.Settings_HotkeyHide_CheckBox.CheckedChanged += new System.EventHandler(this.Settings_Hotkey_CheckBox_CheckedChanged);
+            // 
+            // Settings_HotkeyFingerX2_TextBox
+            // 
+            this.Settings_HotkeyFingerX2_TextBox.Location = new System.Drawing.Point(111, 184);
+            this.Settings_HotkeyFingerX2_TextBox.Name = "Settings_HotkeyFingerX2_TextBox";
+            this.Settings_HotkeyFingerX2_TextBox.Size = new System.Drawing.Size(90, 26);
+            this.Settings_HotkeyFingerX2_TextBox.TabIndex = 54;
+            this.Settings_HotkeyFingerX2_TextBox.Text = "h_shift+d";
+            // 
+            // Settings_HotkeyFingerX2_CheckBox
+            // 
+            this.Settings_HotkeyFingerX2_CheckBox.AutoSize = true;
+            this.Settings_HotkeyFingerX2_CheckBox.Location = new System.Drawing.Point(6, 188);
+            this.Settings_HotkeyFingerX2_CheckBox.Name = "Settings_HotkeyFingerX2_CheckBox";
+            this.Settings_HotkeyFingerX2_CheckBox.Size = new System.Drawing.Size(99, 24);
+            this.Settings_HotkeyFingerX2_CheckBox.TabIndex = 53;
+            this.Settings_HotkeyFingerX2_CheckBox.Text = "第一関節";
+            this.Settings_HotkeyFingerX2_CheckBox.UseVisualStyleBackColor = true;
+            this.Settings_HotkeyFingerX2_CheckBox.CheckedChanged += new System.EventHandler(this.Settings_Hotkey_CheckBox_CheckedChanged);
+            // 
+            // Settings_HotkeyRClavicle_TextBox
+            // 
+            this.Settings_HotkeyRClavicle_TextBox.Location = new System.Drawing.Point(296, 123);
+            this.Settings_HotkeyRClavicle_TextBox.Name = "Settings_HotkeyRClavicle_TextBox";
+            this.Settings_HotkeyRClavicle_TextBox.Size = new System.Drawing.Size(90, 26);
+            this.Settings_HotkeyRClavicle_TextBox.TabIndex = 51;
+            this.Settings_HotkeyRClavicle_TextBox.Text = "h_alt+z";
+            // 
+            // Settings_HotkeyRClavicle_CheckBox
+            // 
+            this.Settings_HotkeyRClavicle_CheckBox.AutoSize = true;
+            this.Settings_HotkeyRClavicle_CheckBox.Location = new System.Drawing.Point(212, 124);
+            this.Settings_HotkeyRClavicle_CheckBox.Name = "Settings_HotkeyRClavicle_CheckBox";
+            this.Settings_HotkeyRClavicle_CheckBox.Size = new System.Drawing.Size(83, 24);
+            this.Settings_HotkeyRClavicle_CheckBox.TabIndex = 50;
+            this.Settings_HotkeyRClavicle_CheckBox.Text = "右鎖骨";
+            this.Settings_HotkeyRClavicle_CheckBox.UseVisualStyleBackColor = true;
+            this.Settings_HotkeyRClavicle_CheckBox.CheckedChanged += new System.EventHandler(this.Settings_Hotkey_CheckBox_CheckedChanged);
+            // 
+            // Settings_HotkeyLegIK_TextBox
+            // 
+            this.Settings_HotkeyLegIK_TextBox.Location = new System.Drawing.Point(296, 92);
+            this.Settings_HotkeyLegIK_TextBox.Name = "Settings_HotkeyLegIK_TextBox";
+            this.Settings_HotkeyLegIK_TextBox.Size = new System.Drawing.Size(90, 26);
+            this.Settings_HotkeyLegIK_TextBox.TabIndex = 49;
+            this.Settings_HotkeyLegIK_TextBox.Text = "h_shift+x";
+            // 
+            // Settings_HotkeyLegIK_CheckBox
+            // 
+            this.Settings_HotkeyLegIK_CheckBox.AutoSize = true;
+            this.Settings_HotkeyLegIK_CheckBox.Location = new System.Drawing.Point(212, 93);
+            this.Settings_HotkeyLegIK_CheckBox.Name = "Settings_HotkeyLegIK_CheckBox";
+            this.Settings_HotkeyLegIK_CheckBox.Size = new System.Drawing.Size(66, 24);
+            this.Settings_HotkeyLegIK_CheckBox.TabIndex = 48;
+            this.Settings_HotkeyLegIK_CheckBox.Text = "脚IK";
+            this.Settings_HotkeyLegIK_CheckBox.UseVisualStyleBackColor = true;
+            this.Settings_HotkeyLegIK_CheckBox.CheckedChanged += new System.EventHandler(this.Settings_Hotkey_CheckBox_CheckedChanged);
+            // 
+            // Settings_HotkeyArmIK_TextBox
+            // 
+            this.Settings_HotkeyArmIK_TextBox.Location = new System.Drawing.Point(296, 58);
+            this.Settings_HotkeyArmIK_TextBox.Name = "Settings_HotkeyArmIK_TextBox";
+            this.Settings_HotkeyArmIK_TextBox.Size = new System.Drawing.Size(90, 26);
+            this.Settings_HotkeyArmIK_TextBox.TabIndex = 47;
+            this.Settings_HotkeyArmIK_TextBox.Text = "h_shift+z";
+            // 
+            // Settings_HotkeyArmIK_CheckBox
+            // 
+            this.Settings_HotkeyArmIK_CheckBox.AutoSize = true;
+            this.Settings_HotkeyArmIK_CheckBox.Location = new System.Drawing.Point(212, 62);
+            this.Settings_HotkeyArmIK_CheckBox.Name = "Settings_HotkeyArmIK_CheckBox";
+            this.Settings_HotkeyArmIK_CheckBox.Size = new System.Drawing.Size(66, 24);
+            this.Settings_HotkeyArmIK_CheckBox.TabIndex = 46;
+            this.Settings_HotkeyArmIK_CheckBox.Text = "腕IK";
+            this.Settings_HotkeyArmIK_CheckBox.UseVisualStyleBackColor = true;
+            this.Settings_HotkeyArmIK_CheckBox.CheckedChanged += new System.EventHandler(this.Settings_Hotkey_CheckBox_CheckedChanged);
+            // 
+            // Settings_HotkeyLClavicle_TextBox
+            // 
+            this.Settings_HotkeyLClavicle_TextBox.Location = new System.Drawing.Point(296, 158);
+            this.Settings_HotkeyLClavicle_TextBox.Name = "Settings_HotkeyLClavicle_TextBox";
+            this.Settings_HotkeyLClavicle_TextBox.Size = new System.Drawing.Size(90, 26);
+            this.Settings_HotkeyLClavicle_TextBox.TabIndex = 45;
+            this.Settings_HotkeyLClavicle_TextBox.Text = "h_alt+x";
+            // 
+            // Settings_HotkeyLClavicle_CheckBox
+            // 
+            this.Settings_HotkeyLClavicle_CheckBox.AutoSize = true;
+            this.Settings_HotkeyLClavicle_CheckBox.Location = new System.Drawing.Point(212, 159);
+            this.Settings_HotkeyLClavicle_CheckBox.Name = "Settings_HotkeyLClavicle_CheckBox";
+            this.Settings_HotkeyLClavicle_CheckBox.Size = new System.Drawing.Size(83, 24);
+            this.Settings_HotkeyLClavicle_CheckBox.TabIndex = 44;
+            this.Settings_HotkeyLClavicle_CheckBox.Text = "左鎖骨";
+            this.Settings_HotkeyLClavicle_CheckBox.UseVisualStyleBackColor = true;
+            this.Settings_HotkeyLClavicle_CheckBox.CheckedChanged += new System.EventHandler(this.Settings_Hotkey_CheckBox_CheckedChanged);
+            // 
+            // Settings_HotkeyMaidRot_TextBox
+            // 
+            this.Settings_HotkeyMaidRot_TextBox.Location = new System.Drawing.Point(296, 22);
+            this.Settings_HotkeyMaidRot_TextBox.Name = "Settings_HotkeyMaidRot_TextBox";
+            this.Settings_HotkeyMaidRot_TextBox.Size = new System.Drawing.Size(90, 26);
+            this.Settings_HotkeyMaidRot_TextBox.TabIndex = 43;
+            this.Settings_HotkeyMaidRot_TextBox.Text = "x";
+            // 
+            // Settings_HotkeyMaidRot_CheckBox
+            // 
+            this.Settings_HotkeyMaidRot_CheckBox.AutoSize = true;
+            this.Settings_HotkeyMaidRot_CheckBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Settings_HotkeyMaidRot_CheckBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
+            this.Settings_HotkeyMaidRot_CheckBox.Location = new System.Drawing.Point(212, 26);
+            this.Settings_HotkeyMaidRot_CheckBox.Name = "Settings_HotkeyMaidRot_CheckBox";
+            this.Settings_HotkeyMaidRot_CheckBox.Size = new System.Drawing.Size(69, 24);
+            this.Settings_HotkeyMaidRot_CheckBox.TabIndex = 42;
+            this.Settings_HotkeyMaidRot_CheckBox.Text = "回転";
+            this.Settings_HotkeyMaidRot_CheckBox.UseVisualStyleBackColor = true;
+            this.Settings_HotkeyMaidRot_CheckBox.CheckedChanged += new System.EventHandler(this.Settings_Hotkey_CheckBox_CheckedChanged);
+            // 
+            // Settings_HotkeyFingerX1_TextBox
+            // 
+            this.Settings_HotkeyFingerX1_TextBox.Location = new System.Drawing.Point(111, 154);
+            this.Settings_HotkeyFingerX1_TextBox.Name = "Settings_HotkeyFingerX1_TextBox";
+            this.Settings_HotkeyFingerX1_TextBox.Size = new System.Drawing.Size(90, 26);
+            this.Settings_HotkeyFingerX1_TextBox.TabIndex = 41;
+            this.Settings_HotkeyFingerX1_TextBox.Text = "h_shift+s";
+            // 
+            // Settings_HotkeyFingerX1_CheckBox
+            // 
+            this.Settings_HotkeyFingerX1_CheckBox.AutoSize = true;
+            this.Settings_HotkeyFingerX1_CheckBox.Location = new System.Drawing.Point(6, 158);
+            this.Settings_HotkeyFingerX1_CheckBox.Name = "Settings_HotkeyFingerX1_CheckBox";
+            this.Settings_HotkeyFingerX1_CheckBox.Size = new System.Drawing.Size(99, 24);
+            this.Settings_HotkeyFingerX1_CheckBox.TabIndex = 40;
+            this.Settings_HotkeyFingerX1_CheckBox.Text = "第二関節";
+            this.Settings_HotkeyFingerX1_CheckBox.UseVisualStyleBackColor = true;
+            this.Settings_HotkeyFingerX1_CheckBox.CheckedChanged += new System.EventHandler(this.Settings_Hotkey_CheckBox_CheckedChanged);
+            // 
+            // Settings_HotkeyFingerX_TextBox
+            // 
+            this.Settings_HotkeyFingerX_TextBox.Location = new System.Drawing.Point(111, 123);
+            this.Settings_HotkeyFingerX_TextBox.Name = "Settings_HotkeyFingerX_TextBox";
+            this.Settings_HotkeyFingerX_TextBox.Size = new System.Drawing.Size(90, 26);
+            this.Settings_HotkeyFingerX_TextBox.TabIndex = 39;
+            this.Settings_HotkeyFingerX_TextBox.Text = "h_shift+a";
+            // 
+            // Settings_HotkeyFingerX_CheckBox
+            // 
+            this.Settings_HotkeyFingerX_CheckBox.AutoSize = true;
+            this.Settings_HotkeyFingerX_CheckBox.Location = new System.Drawing.Point(6, 124);
+            this.Settings_HotkeyFingerX_CheckBox.Name = "Settings_HotkeyFingerX_CheckBox";
+            this.Settings_HotkeyFingerX_CheckBox.Size = new System.Drawing.Size(99, 24);
+            this.Settings_HotkeyFingerX_CheckBox.TabIndex = 38;
+            this.Settings_HotkeyFingerX_CheckBox.Text = "指根関節";
+            this.Settings_HotkeyFingerX_CheckBox.UseVisualStyleBackColor = true;
+            this.Settings_HotkeyFingerX_CheckBox.CheckedChanged += new System.EventHandler(this.Settings_Hotkey_CheckBox_CheckedChanged);
+            // 
+            // Settings_HotkeyNeck_TextBox
+            // 
+            this.Settings_HotkeyNeck_TextBox.Location = new System.Drawing.Point(111, 92);
+            this.Settings_HotkeyNeck_TextBox.Name = "Settings_HotkeyNeck_TextBox";
+            this.Settings_HotkeyNeck_TextBox.Size = new System.Drawing.Size(90, 26);
+            this.Settings_HotkeyNeck_TextBox.TabIndex = 37;
+            this.Settings_HotkeyNeck_TextBox.Text = "h_shift+w";
+            // 
+            // Settings_HotkeyNeck_CheckBox
+            // 
+            this.Settings_HotkeyNeck_CheckBox.AutoSize = true;
+            this.Settings_HotkeyNeck_CheckBox.Location = new System.Drawing.Point(6, 93);
+            this.Settings_HotkeyNeck_CheckBox.Name = "Settings_HotkeyNeck_CheckBox";
+            this.Settings_HotkeyNeck_CheckBox.Size = new System.Drawing.Size(51, 24);
+            this.Settings_HotkeyNeck_CheckBox.TabIndex = 36;
+            this.Settings_HotkeyNeck_CheckBox.Text = "首";
+            this.Settings_HotkeyNeck_CheckBox.UseVisualStyleBackColor = true;
+            this.Settings_HotkeyNeck_CheckBox.CheckedChanged += new System.EventHandler(this.Settings_Hotkey_CheckBox_CheckedChanged);
+            // 
+            // Settings_HotkeyHead_TextBox
+            // 
+            this.Settings_HotkeyHead_TextBox.Location = new System.Drawing.Point(111, 58);
+            this.Settings_HotkeyHead_TextBox.Name = "Settings_HotkeyHead_TextBox";
+            this.Settings_HotkeyHead_TextBox.Size = new System.Drawing.Size(90, 26);
+            this.Settings_HotkeyHead_TextBox.TabIndex = 35;
+            this.Settings_HotkeyHead_TextBox.Text = "h_shift+q";
+            // 
+            // Settings_HotkeyHead_CheckBox
+            // 
+            this.Settings_HotkeyHead_CheckBox.AutoSize = true;
+            this.Settings_HotkeyHead_CheckBox.Location = new System.Drawing.Point(6, 62);
+            this.Settings_HotkeyHead_CheckBox.Name = "Settings_HotkeyHead_CheckBox";
+            this.Settings_HotkeyHead_CheckBox.Size = new System.Drawing.Size(51, 24);
+            this.Settings_HotkeyHead_CheckBox.TabIndex = 34;
+            this.Settings_HotkeyHead_CheckBox.Text = "頭";
+            this.Settings_HotkeyHead_CheckBox.UseVisualStyleBackColor = true;
+            this.Settings_HotkeyHead_CheckBox.CheckedChanged += new System.EventHandler(this.Settings_Hotkey_CheckBox_CheckedChanged);
+            // 
+            // Settings_HotkeyReset_Button
+            // 
+            this.Settings_HotkeyReset_Button.Location = new System.Drawing.Point(316, 213);
+            this.Settings_HotkeyReset_Button.Name = "Settings_HotkeyReset_Button";
+            this.Settings_HotkeyReset_Button.Size = new System.Drawing.Size(70, 38);
+            this.Settings_HotkeyReset_Button.TabIndex = 8;
+            this.Settings_HotkeyReset_Button.Text = "リセット";
+            this.Settings_HotkeyReset_Button.UseVisualStyleBackColor = true;
+            this.Settings_HotkeyReset_Button.Click += new System.EventHandler(this.Settings_HotkeyReset_Button_Click);
+            // 
+            // Settings_HotkeyApply_Button
+            // 
+            this.Settings_HotkeyApply_Button.Location = new System.Drawing.Point(240, 213);
+            this.Settings_HotkeyApply_Button.Name = "Settings_HotkeyApply_Button";
+            this.Settings_HotkeyApply_Button.Size = new System.Drawing.Size(70, 38);
+            this.Settings_HotkeyApply_Button.TabIndex = 7;
+            this.Settings_HotkeyApply_Button.Text = "適用";
+            this.Settings_HotkeyApply_Button.UseVisualStyleBackColor = true;
+            this.Settings_HotkeyApply_Button.Click += new System.EventHandler(this.Settings_HotkeyApply_Button_Click);
+            // 
+            // Settings_HotkeyMaidPos_TextBox
+            // 
+            this.Settings_HotkeyMaidPos_TextBox.Location = new System.Drawing.Point(111, 26);
+            this.Settings_HotkeyMaidPos_TextBox.Name = "Settings_HotkeyMaidPos_TextBox";
+            this.Settings_HotkeyMaidPos_TextBox.Size = new System.Drawing.Size(90, 26);
+            this.Settings_HotkeyMaidPos_TextBox.TabIndex = 6;
+            this.Settings_HotkeyMaidPos_TextBox.Text = "z";
+            // 
+            // Settings_HotkeyMaidPos_CheckBox
+            // 
+            this.Settings_HotkeyMaidPos_CheckBox.AutoSize = true;
+            this.Settings_HotkeyMaidPos_CheckBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Settings_HotkeyMaidPos_CheckBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
+            this.Settings_HotkeyMaidPos_CheckBox.Location = new System.Drawing.Point(6, 27);
+            this.Settings_HotkeyMaidPos_CheckBox.Name = "Settings_HotkeyMaidPos_CheckBox";
+            this.Settings_HotkeyMaidPos_CheckBox.Size = new System.Drawing.Size(69, 24);
+            this.Settings_HotkeyMaidPos_CheckBox.TabIndex = 0;
+            this.Settings_HotkeyMaidPos_CheckBox.Text = "位置";
+            this.Settings_HotkeyMaidPos_CheckBox.UseVisualStyleBackColor = true;
+            this.Settings_HotkeyMaidPos_CheckBox.CheckedChanged += new System.EventHandler(this.Settings_Hotkey_CheckBox_CheckedChanged);
             // 
             // groupBox4
             // 
@@ -8882,7 +8777,7 @@ namespace COM3D2.EnhancedMaidEditScene.Plugin
             this.Settings_GUIHotkeyReset_Button.Name = "Settings_GUIHotkeyReset_Button";
             this.Settings_GUIHotkeyReset_Button.Size = new System.Drawing.Size(70, 38);
             this.Settings_GUIHotkeyReset_Button.TabIndex = 3;
-            this.Settings_GUIHotkeyReset_Button.Text = "既定";
+            this.Settings_GUIHotkeyReset_Button.Text = "リセット";
             this.Settings_GUIHotkeyReset_Button.UseVisualStyleBackColor = true;
             this.Settings_GUIHotkeyReset_Button.Click += new System.EventHandler(this.Settings_GUIHotkeyResetButton_Click);
             // 
@@ -9171,13 +9066,6 @@ namespace COM3D2.EnhancedMaidEditScene.Plugin
             this.groupBox5.ResumeLayout(false);
             this.groupBox5.PerformLayout();
             this.GlobalSettings.ResumeLayout(false);
-            this.HotKeys_tabControl.ResumeLayout(false);
-            this.HotKey_Maid_tabPage1.ResumeLayout(false);
-            this.HotKey_Maid_tabPage1.PerformLayout();
-            this.HotKey_Items_tabPage2.ResumeLayout(false);
-            this.HotKey_Items_tabPage2.PerformLayout();
-            this.HotKey_Dance_tabPage3.ResumeLayout(false);
-            this.HotKey_Dance_tabPage3.PerformLayout();
             this.groupBox14.ResumeLayout(false);
             this.groupBox14.PerformLayout();
             this.tabControl6.ResumeLayout(false);
@@ -9187,11 +9075,12 @@ namespace COM3D2.EnhancedMaidEditScene.Plugin
             this.tilt_tabPage.PerformLayout();
             this.etc_tabPage.ResumeLayout(false);
             this.etc_tabPage.PerformLayout();
-            this.Settings_MaisTails_groupBox.ResumeLayout(false);
-            this.Settings_MaidTails_SpecialMark_groupBox.ResumeLayout(false);
-            this.Settings_MaidTails_SpecialMark_groupBox.PerformLayout();
-            this.Settings_MaidTails_DFSorEnum_groupBox.ResumeLayout(false);
-            this.Settings_MaidTails_DFSorEnum_groupBox.PerformLayout();
+            this.groupBox12.ResumeLayout(false);
+            this.groupBox12.PerformLayout();
+            this.groupBox7.ResumeLayout(false);
+            this.groupBox7.PerformLayout();
+            this.groupBox8.ResumeLayout(false);
+            this.groupBox8.PerformLayout();
             this.groupBox4.ResumeLayout(false);
             this.groupBox4.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.CurrentSelectedMaidPicture)).EndInit();
@@ -9397,6 +9286,7 @@ namespace COM3D2.EnhancedMaidEditScene.Plugin
         private System.Windows.Forms.ComboBox Settings_DebugLevel_ComboBox;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Button SelectAllSpine;
+        private System.Windows.Forms.GroupBox groupBox8;
         private System.Windows.Forms.Button Settings_HotkeyReset_Button;
         private System.Windows.Forms.Button Settings_HotkeyApply_Button;
         private System.Windows.Forms.TextBox Settings_HotkeyMaidPos_TextBox;
@@ -9450,6 +9340,7 @@ namespace COM3D2.EnhancedMaidEditScene.Plugin
         private System.Windows.Forms.Button Prefab_Reset_Button;
         private System.Windows.Forms.Label PrefabItem_Count_Label;
         private System.Windows.Forms.ComboBox Prefab_Category_comboBox;
+        private System.Windows.Forms.GroupBox groupBox7;
         private System.Windows.Forms.TextBox Settings_HotkeyItemReloadParticle_TextBox;
         private System.Windows.Forms.CheckBox Settings_HotkeyItemReloadParticle_CheckBox;
         private System.Windows.Forms.TextBox Settings_HotkeyItemDelete_TextBox;
@@ -9490,7 +9381,7 @@ namespace COM3D2.EnhancedMaidEditScene.Plugin
         private System.Windows.Forms.Button Dance_BGMPlay_button;
         private System.Windows.Forms.CheckBox Dance_BGM_CheckBox;
         private System.Windows.Forms.ComboBox Dance_BGM_ComboBox;
-        private System.Windows.Forms.GroupBox Settings_MaisTails_groupBox;
+        private System.Windows.Forms.GroupBox groupBox12;
         private System.Windows.Forms.TextBox Settings_HotkeyDanceStart_TextBox;
         private System.Windows.Forms.Button Settings_HotkeyDanceReset_Button;
         private System.Windows.Forms.CheckBox Settings_HotkeyDanceStart_CheckBox;
@@ -9906,15 +9797,5 @@ namespace COM3D2.EnhancedMaidEditScene.Plugin
         private System.Windows.Forms.TextBox CameraPos_Tag3_textBox;
         private System.Windows.Forms.TextBox CameraPos_Tag2_textBox;
         private System.Windows.Forms.TextBox CameraPos_Tag1_textBox;
-        private System.Windows.Forms.TabControl HotKeys_tabControl;
-        private System.Windows.Forms.TabPage HotKey_Maid_tabPage1;
-        private System.Windows.Forms.TabPage HotKey_Items_tabPage2;
-        private System.Windows.Forms.TabPage HotKey_Dance_tabPage3;
-        private System.Windows.Forms.RadioButton MaidTails_SpecialMarkMethod_Ignore_radioButton;
-        private System.Windows.Forms.RadioButton MaidTails_SpecialMarkMethod_ForceEnum_radioButton;
-        private System.Windows.Forms.RadioButton MaidTails_BoneEnumMethod_Enum_radioButton;
-        private System.Windows.Forms.RadioButton MaidTails_BoneEnumMethod_DFS_radioButton;
-        private System.Windows.Forms.GroupBox Settings_MaidTails_SpecialMark_groupBox;
-        private System.Windows.Forms.GroupBox Settings_MaidTails_DFSorEnum_groupBox;
     }
 }

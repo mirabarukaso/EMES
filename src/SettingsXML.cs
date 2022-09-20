@@ -336,8 +336,6 @@ namespace COM3D2.EnhancedMaidEditScene.Plugin
 
         //尻尾
         public string BonesPriority = "Head,Body,FL,FR,RL,RR,XXX,Shippo,Buki";
-        public bool MaidTailsSpecialMarkMethodIgnore = true;
-        public bool MaidTailsUseDFS = true;
     }
 
     public class SettingsXMLDefault

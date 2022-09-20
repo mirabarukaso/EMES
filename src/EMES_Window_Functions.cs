@@ -399,30 +399,6 @@ namespace COM3D2.EnhancedMaidEditScene.Plugin
             Settings_HotkeyCameraMovement_checkBox.Checked = Super.settingsXml.bHotkeyCameraMovement;
             LoadingHotkeyTextBox(typeof(Settings_HotkeyCameraMovement), true);
 
-            if (true == Super.settingsXml.MaidTailsUseDFS)
-            {
-                MaidTails_BoneEnumMethod_Enum_radioButton.Checked = false;
-                MaidTails_BoneEnumMethod_DFS_radioButton.Checked = true;
-                Super.settingsXml.MaidTailsSpecialMarkMethodIgnore = true;
-                Settings_MaidTails_SpecialMark_groupBox.Enabled = false;
-            }
-            else
-            {
-                MaidTails_BoneEnumMethod_Enum_radioButton.Checked = true;
-                MaidTails_BoneEnumMethod_DFS_radioButton.Checked = false;
-                Settings_MaidTails_SpecialMark_groupBox.Enabled = true;
-            }
-
-            if (true == Super.settingsXml.MaidTailsSpecialMarkMethodIgnore)
-            {
-                MaidTails_SpecialMarkMethod_ForceEnum_radioButton.Checked = false;
-                MaidTails_SpecialMarkMethod_Ignore_radioButton.Checked = true;
-            }
-            else
-            {
-                MaidTails_SpecialMarkMethod_ForceEnum_radioButton.Checked = true;
-                MaidTails_SpecialMarkMethod_Ignore_radioButton.Checked = false;
-            }
 #if DEBUG
             Debuginfo.Log("Loading Settings_Hotkeys DONE", 2);
             Debuginfo.Log("Loading maid pose", 2);
@@ -3063,7 +3039,7 @@ namespace COM3D2.EnhancedMaidEditScene.Plugin
                 string guid = System.Guid.NewGuid().ToString();
                 if (typeof(Transform) == tCom)  
                 {
-                    if (false == com[i].name.ToLower().EndsWith("nub")                //不必要
+                    if (false == com[i].name.EndsWith("nub")
                             && false == com[i].name.StartsWith("_SM_")
                             && false == com[i].name.StartsWith("Arm")
                             && false == com[i].name.StartsWith("Hip_")
@@ -3078,14 +3054,8 @@ namespace COM3D2.EnhancedMaidEditScene.Plugin
                             //&& false == com[i].name.Contains("_yure_")
                             && false == com[i].name.Contains("_SCL_")
                             && false == com[i].name.Contains("Bip")
-                            && false == com[i].name.Contains("_HIDE_")     
-                            && false == com[i].name.ToLower().Contains("twist")           //不必要 
-                            && false == com[i].name.ToLower().Contains("_pos")            //不必要                            
-                            && false == com[i].name.ToLower().EndsWith("_end")  //不必要
-                            && false == com[i].name.EndsWith("_DO_NOT_ENUM_")   //不必要
-                            //&& false == com[i].name.Equals("base")              //不必要
-                            //&& false == com[i].name.Equals("center")
-                            //&& false == com[i].name.Equals("center2")
+                            && false == com[i].name.Contains("_HIDE_")
+                            //&& false == com[i].name.Equals("center") && false == com[i].name.Equals("center2")
                             //&& false == com[i].name.Equals(handle.parentBone.name)
                             )
                     {
