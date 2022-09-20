@@ -216,7 +216,7 @@ namespace COM3D2.EnhancedMaidEditScene.Plugin
 			public string sOptions;
 		}
 
-		//1.1.0.0 v1.3
+		//1.1.1.0 v1.3
 		public class SceneDataNew
 		{
 			public string XmlDataVersion = "1.3";

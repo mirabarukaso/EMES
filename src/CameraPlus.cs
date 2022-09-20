@@ -354,7 +354,7 @@ namespace COM3D2.EnhancedMaidEditScene.Plugin
     public class CameraPlus
     {
         public const string PluginName = "CameraPlus Lite";
-        public const string Version = "1.1.0.0";
+        public const string Version = "1.1.1.0";
 
         private EMES Super;
 
