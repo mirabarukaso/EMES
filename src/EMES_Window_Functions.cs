@@ -589,7 +589,24 @@ namespace COM3D2.EnhancedMaidEditScene.Plugin
 
         public Image GetMaidThumbIcon(Maid maid)
         {
-            byte[] bStreamPng = maid.GetThumIcon().EncodeToPNG();
+            byte[] bStreamPng;
+            try
+            {
+                bStreamPng = maid.GetThumIcon().EncodeToPNG();
+            }
+            catch(Exception e)
+            {
+#if DEBUG
+                Debuginfo.Log("新規キャラ？　Error = " + e, 2);
+#endif
+                Texture2D texture = new Texture2D(128, 128, TextureFormat.RGB24, false);
+                for (int y = 0; y < texture.height; y++)
+                    for (int x = 0; x < texture.width; x++)
+                        texture.SetPixel(x, y, UnityEngine.Color.white);
+
+                bStreamPng = texture.EncodeToPNG();
+            }
+
             MemoryStream mStream = new MemoryStream();
             mStream.Write(bStreamPng, 0, Convert.ToInt32(bStreamPng.Length));
 
