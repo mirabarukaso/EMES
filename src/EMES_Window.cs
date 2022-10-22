@@ -1603,7 +1603,15 @@ namespace COM3D2.EnhancedMaidEditScene.Plugin
             else if("部屋" == senderName)
             {
                 KeyValuePair<int, string> item = (KeyValuePair<int, string>)MyRoomCustomObjects_Items_comboBox.SelectedItem;
-                UpdatePictureBox(Super.Items.myCustomRoomObject.basicDatas[item.Key].GetThumbnail(), SS_pictureBox);
+                int selectedItemID = item.Key;
+                if (-1 == selectedItemID)
+                {
+                    //無
+                }
+                else
+                {
+                    UpdatePictureBox(Super.Items.myCustomRoomObject.basicDatas[item.Key].GetThumbnail(), SS_pictureBox);
+                }
             }
             else if("自席" == senderName)
             {

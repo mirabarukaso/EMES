@@ -16,7 +16,6 @@ namespace COM3D2.EnhancedMaidEditScene.Plugin
             IK = 4
         };
 
-        private int BoneCounts = 0;
         private Dictionary<string, Transform> BoneTails;
         private int accShippoObjectInstanceID = -1;
         private int accSenakaObjectInstanceID = -1;
@@ -85,7 +84,6 @@ namespace COM3D2.EnhancedMaidEditScene.Plugin
             DestoryTailHandle();
             DestoryTailHandleAutoIK();
 
-            BoneCounts = 0;
             BoneTails.Clear();
             accShippoObjectInstanceID = -1;
             accSenakaObjectInstanceID = -1;
@@ -142,7 +140,7 @@ namespace COM3D2.EnhancedMaidEditScene.Plugin
 
         public int GetBoneCounts()
         {
-            return BoneCounts;
+            return BoneTails.Count;
         }
 
         public Dictionary<string, Transform> GetBoneTails()
@@ -250,7 +248,7 @@ namespace COM3D2.EnhancedMaidEditScene.Plugin
                 SetMutexLock(false);
                 return true;
             }
-            else if (GetBoneCounts() != 0)
+            else if (0 != GetBoneCounts())
             {
                 if (accShippoObjectInstanceID != tmp_accShippoObjectInstanceID
                     || accSenakaObjectInstanceID != tmp_accSenakaObjectInstanceID
@@ -283,7 +281,7 @@ namespace COM3D2.EnhancedMaidEditScene.Plugin
         
         public bool CopyBonesInfoAll()
         {
-            if (GetBoneCounts() == 0)
+            if (0 == GetBoneCounts())
             {
                 return false;
             }
@@ -825,7 +823,7 @@ namespace COM3D2.EnhancedMaidEditScene.Plugin
                     continue;
                 }
 
-                //〆マーク _DO_NOT_ENUM_
+                //マーク _DO_NOT_ENUM_
                 bool NotMailTail = false;
                 for (int i = 0; i < tmpBone.transform.childCount; i++)
                 {
@@ -836,14 +834,14 @@ namespace COM3D2.EnhancedMaidEditScene.Plugin
                     {
                         if (true == Super.settingsXml.MaidTailsSpecialMarkMethodIgnore)
                         {
-                            Debuginfo.Warning("特別に〆マークされた、スキップ " + tmpBone.transform.GetChild(i).name, 1);
+                            Debuginfo.Warning("特別なマークが見つかりました、スキップ " + tmpBone.transform.GetChild(i).name, 1);
                             NotMailTail = true;
                             break;
                         }
 #if DEBUG
                         else
                         {
-                            Debuginfo.Warning("特別に〆マークされた、継続する " + tmpBone.transform.GetChild(i).name, 2);
+                            Debuginfo.Warning("特別なマークが見つかりました、続行します" + tmpBone.transform.GetChild(i).name, 2);
                             NotMailTail = false;
                         }
 #endif
@@ -1037,9 +1035,8 @@ namespace COM3D2.EnhancedMaidEditScene.Plugin
                                 if ((true == ThisBoneTransform.name.ToLower().Contains("_nub"))
                                     || (true == ThisBoneTransform.name.ToLower().Contains("twist"))
                                     || (true == ThisBoneTransform.name.ToLower().Contains("_pos_"))
-                                    || (true == ThisBoneTransform.name.Contains("_base"))
+                                    //|| (true == ThisBoneTransform.name.ToLower().Contains("_base"))
                                     || (true == ThisBoneTransform.name.Contains("_yure_"))
-                                    || (true == ThisBoneTransform.name.Contains("_Base"))
                                     || (true == ThisBoneTransform.name.Contains("_SCL_"))
                                     || (true == ThisBoneTransform.name.Contains("_HIDE_"))
                                     || (true == ThisBoneTransform.name.Equals("Bone_center"))
@@ -1221,10 +1218,7 @@ namespace COM3D2.EnhancedMaidEditScene.Plugin
                         CurrentBone.Value.ShortName = bi.name;
                     }
                     DefaultBoneData.Add(CurrentBone.Value.BoneTransform, bi);
-
-                    string BoneShowName = CurrentBone.Value.ShortName;
-                    BoneTails.Add(BoneShowName, CurrentBone.Value.BoneTransform);
-                    BoneCounts++;
+                    BoneTails.Add(CurrentBone.Value.ShortName, CurrentBone.Value.BoneTransform);
                 }
             }
         }
@@ -1271,27 +1265,30 @@ namespace COM3D2.EnhancedMaidEditScene.Plugin
 
                 foreach (KeyValuePair<Transform, BoneData> CurrentBone in Bones)
                 {
-                    if ((CurrentBone.Key.name.Contains("_nub"))
-                                || (CurrentBone.Key.name.Contains("_base"))
-                                || (CurrentBone.Key.name.Contains("_yure_")) || (CurrentBone.Key.name.Contains("_Base"))
-                                || (CurrentBone.Key.name.Contains("_HIDE_"))
-                                )
+                    if (true == Super.settingsXml.MaidTailsUseDFS)
                     {
-                        continue;
-                    }
-                    else if (false == CurrentBone.Key.name.ToString().Contains("BoneTail")
-                        && "Bone_center" != CurrentBone.Key.name.ToString()
-                        && "Bip01" != CurrentBone.Key.name.ToString()
-                        && false == CurrentBone.Key.name.ToString().Contains("Bip01")
-                        )
-                    {
-                        continue;
-                    }
+                        if ((CurrentBone.Key.name.Contains("_nub"))
+                                    || (CurrentBone.Key.name.Contains("_base"))
+                                    || (CurrentBone.Key.name.Contains("_yure_")) || (CurrentBone.Key.name.Contains("_Base"))
+                                    || (CurrentBone.Key.name.Contains("_HIDE_"))
+                                    )
+                        {
+                            continue;
+                        }
+                        else if (false == CurrentBone.Key.name.ToString().Contains("BoneTail")
+                            && "Bone_center" != CurrentBone.Key.name.ToString()
+                            && "Bip01" != CurrentBone.Key.name.ToString()
+                            && false == CurrentBone.Key.name.ToString().Contains("Bip01")
+                            )
+                        {
+                            continue;
+                        }
 
-                    if (CurrentBone.Value.Level == 0)
-                    {
-                        //L0 無視する
-                        continue;
+                        if (CurrentBone.Value.Level == 0)
+                        {
+                            //L0 無視する
+                            continue;
+                        }
                     }
 
                     EMES_SceneManagement.BonePosRotScaleInfo bi = new EMES_SceneManagement.BonePosRotScaleInfo()
@@ -1328,27 +1325,30 @@ namespace COM3D2.EnhancedMaidEditScene.Plugin
 
                 foreach (KeyValuePair<Transform, BoneData> CurrentBone in Bones)
                 {
-                    if ((CurrentBone.Key.name.Contains("_nub"))
+                    if (true == Super.settingsXml.MaidTailsUseDFS)
+                    {
+                        if ((CurrentBone.Key.name.Contains("_nub"))
                                 || (CurrentBone.Key.name.Contains("_base"))
                                 || (CurrentBone.Key.name.Contains("_yure_")) || (CurrentBone.Key.name.Contains("_Base"))
                                 || (CurrentBone.Key.name.Contains("_HIDE_"))
                                 )
-                    {
-                        continue;
-                    }
-                    else if (false == CurrentBone.Key.name.ToString().Contains("BoneTail")
-                            && "Bone_center" != CurrentBone.Key.name.ToString()
-                            && "Bip01" != CurrentBone.Key.name.ToString()
-                            && false == CurrentBone.Key.name.ToString().Contains("Bip01")
-                            )
-                    {
-                        continue;
-                    }
+                        {
+                            continue;
+                        }
+                        else if (false == CurrentBone.Key.name.ToString().Contains("BoneTail")
+                                && "Bone_center" != CurrentBone.Key.name.ToString()
+                                && "Bip01" != CurrentBone.Key.name.ToString()
+                                && false == CurrentBone.Key.name.ToString().Contains("Bip01")
+                                )
+                        {
+                            continue;
+                        }
 
-                    if (CurrentBone.Value.Level == 0)
-                    {
-                        //L0 無視する
-                        continue;
+                        if (CurrentBone.Value.Level == 0)
+                        {
+                            //L0 無視する
+                            continue;
+                        }
                     }
 
                     if (Index < boneData.Count)

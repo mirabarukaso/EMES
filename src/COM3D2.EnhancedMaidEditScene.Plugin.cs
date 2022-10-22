@@ -37,7 +37,7 @@ namespace COM3D2.EnhancedMaidEditScene.Plugin
 #endif
 #if BEPINEX
     [BepInProcess("COM3D2x64"), BepInProcess("COM3D2OHx64")]
-    [BepInPlugin("org.bepinex.plugins.enhancedmaideditscene", "Enhanced Maid Edit Scene", "1.1.1.1")]
+    [BepInPlugin("org.bepinex.plugins.enhancedmaideditscene", "Enhanced Maid Edit Scene", "1.1.1.4")]
 #endif
 
 #if SYBARIS
@@ -53,7 +53,7 @@ namespace COM3D2.EnhancedMaidEditScene.Plugin
         public const string PluginVersion = "1.1.1.0";
 #endif
 #if BEPINEX
-        public const string PluginVersion = "1.1.1.1";
+        public const string PluginVersion = "1.1.1.4";
 #endif
 
         private readonly int iSceneEdit = 5; //メイン版エディットモード

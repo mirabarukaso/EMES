@@ -1369,6 +1369,14 @@ namespace COM3D2.EnhancedMaidEditScene.Plugin
 #endif
                     myCustomRoomObject.Data[cString[item.Value.categoryID]].Add(item.Key, item.Value.drawName);
                 }
+                //セーフチェック
+                foreach(string sCategory in myCustomRoomObject.Data.Keys.ToList())
+                {
+                    if(0 == myCustomRoomObject.Data[sCategory].Count)
+                    {
+                        myCustomRoomObject.Data[sCategory].Add(-1, "無");
+                    }
+                }
             }
             else
             {
