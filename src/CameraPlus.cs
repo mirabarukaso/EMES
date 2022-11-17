@@ -228,12 +228,31 @@ namespace COM3D2.EnhancedMaidEditScene.Plugin
         #region public SepiaToneEffect
         public void Set_SepiaData(bool bEnable)
         {
-            sSepia.enabled = bEnable;
+            if (null == sSepia)
+            {
+#if DEBUG
+                Debuginfo.Warning("Set_SepiaData: Sepida is NULL, VR mode?", 1);
+#endif
+            }
+            else
+            {
+                sSepia.enabled = bEnable;
+            }
         }
 
         public void Get_SepiaData(out bool bEnable)
         {
-            bEnable = sSepia.enabled;
+            if (null == sSepia)
+            {
+#if DEBUG
+                Debuginfo.Warning("Get_SepiaData: Sepida is NULL, VR mode?", 1);
+#endif
+                bEnable = false;
+            }
+            else
+            {
+                bEnable = sSepia.enabled;
+            }
         }
         #endregion
 

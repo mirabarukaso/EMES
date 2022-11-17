@@ -560,6 +560,8 @@ namespace COM3D2.EnhancedMaidEditScene.Plugin
             {
                 Show();
                 bShowWindow = true;
+                //VR mode
+                System.Windows.Forms.Cursor.Show();
             }
             else
             {
