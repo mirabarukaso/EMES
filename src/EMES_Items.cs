@@ -776,7 +776,8 @@ namespace COM3D2.EnhancedMaidEditScene.Plugin
                     Super.MaidIK.IK_RemoveGazePoint(GameMain.Instance.CharacterMgr.GetMaid(hHandle.sItemName), false);
                 }               
             }
-            else if (true == hHandle.sCategory.Equals("MyRoomCustomObject") || true == hHandle.sCategory.Equals("ExternalImage") || true == hHandle.sCategory.Contains("Direct_"))
+            else if (true == hHandle.sCategory.Equals("MyRoomCustomObject") || true == hHandle.sCategory.Equals("ExternalImage") || true == hHandle.sCategory.Equals("RTMIHandle")
+                || true == hHandle.sCategory.Contains("Direct_") )
             {
                 UnityEngine.Object.DestroyImmediate(hHandle.parentBone);
                 actionDestoryHandle(hHandle);

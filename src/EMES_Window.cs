@@ -2514,7 +2514,7 @@ namespace COM3D2.EnhancedMaidEditScene.Plugin
             //itemsHandleInfos
             foreach(KeyValuePair<HandleEx, string> kvp in Super.Items.Items_ItemHandle)
             {
-                if (true == kvp.Key.sCategory.Equals("WildHandle") || true == kvp.Key.sCategory.Equals("MaidPartsHandle"))
+                if (true == kvp.Key.sCategory.Equals("WildHandle") || true == kvp.Key.sCategory.Equals("MaidPartsHandle") || true == kvp.Key.sCategory.Equals("RTMIHandle"))
                 {
                     continue;
                 }
@@ -4649,6 +4649,115 @@ namespace COM3D2.EnhancedMaidEditScene.Plugin
                 Super.SaveConfigurefile();
             }
         }
+
+        private void RTME_Export_button_Click(object sender, EventArgs e)
+        {
+            Hide();
+            Super.MaidIK.LockIK();
+            LockBusy();
+
+            EMES_RuntimeModelExport RTME = new EMES_RuntimeModelExport();
+            RTME.SaveModel(CurrentSelectedMaid, Super.GetConfigDirectory().Replace("\\Config\\", "\\RTME\\"), RTME_NoMTL_checkBox.Checked);
+
+            Super.MaidIK.UnLockIK();
+            UnlockBusy();
+            Show();
+        }
+
+        private void RTMI_Import_button_Click(object sender, EventArgs e)
+        {
+            RTMI_openFileDialog.Title = "ランタイムモデルのインポート";
+            RTMI_openFileDialog.Filter = "OBJ(*.obj)|*.obj";
+            RTMI_openFileDialog.InitialDirectory = Super.GetConfigDirectory().Replace("\\Config\\", "");
+            if (DialogResult.OK == RTMI_openFileDialog.ShowDialog())
+            {
+                Hide();
+                Super.MaidIK.LockIK();
+                LockBusy();
+
+                string sFullPathOBJ = RTMI_openFileDialog.FileName;
+                string handleName = Path.GetFileNameWithoutExtension(sFullPathOBJ);
+                EMES_RuntimeModelImporter RTMI = new EMES_RuntimeModelImporter();
+                GameObject go = RTMI.LoadModel(sFullPathOBJ, Super.Items.goItemMaster);
+                if (null != go)
+                {
+                    go.transform.localPosition = new  Vector3(CurrentSelectedMaid.GetPos().x, CurrentSelectedMaid.GetPos().y, CurrentSelectedMaid.GetPos().z + 0.5f);
+                    //Super.Items.Items_RemoveCategory("RTMIHandle");
+                    HandleEx handle = new HandleEx(EMES_MaidIK.BoneType.Root, EMES_MaidIK.BoneSetType.Root, go, false, true);
+                    handle.SetupItem(DateTime.Now.ToString("hhmmss") + CurrentSelectedMaid.status.callName + handleName, handleName, "RTMIHandle");
+                    Super.Items.Items_ItemHandle.Add(handle, handleName);
+                    Items_UpdateCurrentHandleCount();
+                }
+
+                Super.MaidIK.UnLockIK();
+                UnlockBusy();
+                Show();
+            }
+        }
+
+        private void Items_Material_trackBar_Scroll(object sender, EventArgs e)
+        {
+            if (true == IsBusy())
+                return;
+
+            HandleEx handle = null;
+            if (subItems_list_tabPage2 == Items_List_tabControl.SelectedTab)
+            {
+                if (Items_SubObjects_listBox.SelectedIndex >= 0)
+                    handle = (HandleEx)Items_SubObjects_listBox.SelectedValue;
+            }
+            else
+            {
+                if (false == Items_isItemHandleMethodAllorSingle())
+                    return;
+
+                if (Items_HandledObjects_listBox.SelectedIndex >= 0)
+                    handle = (HandleEx)Items_HandledObjects_listBox.SelectedValue;
+            }
+
+            if(null == handle)
+            {
+                return;
+            }
+
+            bool inChildren = Items_Material_InChildren_checkBox.Checked;
+            SkinnedMeshRenderer[] skinnedMeshRenderers = handle.parentBone.GetComponentsInChildren<SkinnedMeshRenderer>();
+            int loop = inChildren ? skinnedMeshRenderers.Length : 1;
+            string shaderType = Items_Material_Type_comboBox.SelectedItem.ToString();
+#if DEBUG
+            Debuginfo.Log("shaderType = " + shaderType, 2);
+#endif
+            if (skinnedMeshRenderers.Length > 0)
+            {
+                float value = ((float)Items_Material_Value_trackBar.Value / 1000f);
+                Items_Shader_Value_label.Text = value.ToString();
+
+                for (int i = 0; i < loop; i++)
+                {
+                    foreach(Material material in skinnedMeshRenderers[i].materials)
+                    {
+                        if (true == shaderType.Equals("Color"))
+                        {
+                            UnityEngine.Color color = material.GetColor(Items_Material_Name_textBox.Text);
+                            if (null == color)
+                                color = new UnityEngine.Color(1, 1, 1, 1);
+
+                            color.a = value;
+                            material.SetColor(Items_Material_Name_textBox.Text, color);
+                        }
+                        else if (true == shaderType.Equals("Float"))
+                        {
+                            material.SetFloat(Items_Material_Name_textBox.Text, value);
+                        }
+                        else if (true == shaderType.Equals("Int"))
+                        {
+                            material.SetInt(Items_Material_Name_textBox.Text, (int)value);
+                        }
+                    }
+                }
+            }
+        }
+
         #endregion
     }
 }

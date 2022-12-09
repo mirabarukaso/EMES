@@ -257,10 +257,29 @@ namespace COM3D2.EnhancedMaidEditScene.Plugin
         #endregion
 
         #region DEBUG_METHOD
-
         private void button1_Click(object sender, EventArgs e)
         {
+#if DEBUG
+            Material[] materials = CurrentSelectedMaid.body0.GetSlot((int)TBody.SlotID.body).obj.GetComponentsInChildren<Material>();
+            Debuginfo.Log("Material count = " + materials.Length, 2);
+            foreach (Material material in materials)
+            {
+                Debuginfo.Log("m name " + material.name, 2);
+                Debuginfo.Log("s name " + material.shader.name, 2);
+            }
 
+            SkinnedMeshRenderer[] smrs = CurrentSelectedMaid.body0.GetSlot((int)TBody.SlotID.body).obj.GetComponentsInChildren<SkinnedMeshRenderer>();
+            Debuginfo.Log("SkinnedMeshRenderer count = " + smrs.Length, 2);
+            foreach (SkinnedMeshRenderer smr in smrs)
+            {
+                Debuginfo.Log("sharedMaterials " + smr.sharedMaterials.Length, 2);
+                foreach(Material material in smr.sharedMaterials)
+                {
+                    Debuginfo.Log("m name " + material.name, 2);
+                    Debuginfo.Log("s name " + material.shader.name, 2);
+                }
+            }
+#endif
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -544,6 +563,9 @@ namespace COM3D2.EnhancedMaidEditScene.Plugin
                 Rot = new Vector3(0, 0, 0),
                 Scale = new Vector3(1, 1, 1)
             };
+
+            Items_Material_Type_comboBox.SelectedIndex = 0;
+            Items_Material_Type_comboBox.Select();
 #if DEBUG
             Debuginfo.Log("Items_Init DONE", 2);
             Debuginfo.Log("INIT ALL DONE", 2);
@@ -598,9 +620,7 @@ namespace COM3D2.EnhancedMaidEditScene.Plugin
             }
             catch(Exception e)
             {
-#if DEBUG
                 Debuginfo.Log("新規キャラ？　Error = " + e, 2);
-#endif
                 Texture2D texture = new Texture2D(128, 128, TextureFormat.RGB24, false);
                 for (int y = 0; y < texture.height; y++)
                     for (int x = 0; x < texture.width; x++)
@@ -3066,73 +3086,11 @@ namespace COM3D2.EnhancedMaidEditScene.Plugin
             bool ret = false;
 #if DEBUG
             Debuginfo.Log("Load sub objects....   " + DateTime.Now, 0);
-#endif
-
-            Component[] com = handle.parentBone.GetComponentsInChildren(typeof(Component));
-
+#endif          
             this.Enabled = false;
             Super.Items.Items_Sub_RemoveAll();
 
-            for (int i = 0; i < com.Length; i++)
-            {               
-                Type tCom = com[i].GetType();
-#if DEBUG
-                Debuginfo.Log("Type [" + tCom + "] >>  [" + (i + 1).ToString() + "] >>> " + com[i].name, 0);
-#endif
-                string guid = System.Guid.NewGuid().ToString();
-                if (typeof(Transform) == tCom)  
-                {
-                    if (false == com[i].name.ToLower().EndsWith("nub")                //不必要
-                            && false == com[i].name.StartsWith("_SM_")
-                            && false == com[i].name.StartsWith("Arm")
-                            && false == com[i].name.StartsWith("Hip_")
-                            && false == com[i].name.StartsWith("Foretwist")
-                            && false == com[i].name.StartsWith("Uppertwist")
-                            && false == com[i].name.StartsWith("Kata_")
-                            && false == com[i].name.StartsWith("Mune")
-                            && false == com[i].name.StartsWith("momo")
-                            && false == com[i].name.StartsWith("Reg")
-                            && false == com[i].name.StartsWith("Hara")
-                            && false == com[i].name.StartsWith("Skirt_P_")  //DynamicSkirtBone BoneHair3.DynamicUpdate()なエラーの回避
-                            //&& false == com[i].name.Contains("_yure_")
-                            && false == com[i].name.Contains("_SCL_")
-                            && false == com[i].name.Contains("Bip")
-                            && false == com[i].name.Contains("_HIDE_")     
-                            && false == com[i].name.ToLower().Contains("twist")           //不必要 
-                            && false == com[i].name.ToLower().Contains("_pos")            //不必要                            
-                            && false == com[i].name.ToLower().EndsWith("_end")  //不必要
-                            && false == com[i].name.EndsWith("_DO_NOT_ENUM_")   //不必要
-                            //&& false == com[i].name.Equals("base")              //不必要
-                            //&& false == com[i].name.Equals("center")
-                            //&& false == com[i].name.Equals("center2")
-                            //&& false == com[i].name.Equals(handle.parentBone.name)
-                            )
-                    {
-                        if (true == com[i].name.Contains("_yure_skirt"))    //制御不能なボーンを非表示
-                        {
-                            if (true == com[i].name.Contains("_A_"))
-                                Super.Items.Items_Sub_CreateHandle(guid + "_" + com[i].name, "[" + (i + 1).ToString() + "]T>" + com[i].name, "SubItemHandle", com[i].gameObject);
-                        }
-                        else
-                        {
-                            Super.Items.Items_Sub_CreateHandle(guid + "_" + com[i].name, "[" + (i + 1).ToString() + "]T>" + com[i].name, "SubItemHandle", com[i].gameObject);
-                        }
-                    }
-                }
-                else if (true == tCom.ToString().StartsWith("Dynamic"))
-                {
-                    if (typeof(DynamicBone) == tCom)    //髪、尻尾．．．
-                        Super.Items.Items_Sub_CreateHandle(guid + "_" + com[i].name, "[" + (i + 1).ToString() + "]D>" + com[i].name, "SubItemHandle", com[i].gameObject);
-                }
-                else //MeshRenderer  Renderer
-                {
-                    Renderer render = com[i].gameObject.GetComponent<Renderer>();
-                    if (null != render)
-                    {
-                        Super.Items.Items_Sub_CreateHandle(guid + "_" + com[i].name, "[" + (i + 1).ToString() + "]S>" + com[i].name, "SubItemHandle", com[i].gameObject);
-                    }
-                }
-            }
+            Super.Parts.EnumParts(handle);
 
             if (Super.Items.Items_Sub_ItemHandle.Count > 0)
             {

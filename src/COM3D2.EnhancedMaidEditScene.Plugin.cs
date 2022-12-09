@@ -24,7 +24,7 @@ using System.Xml;
 //c　スペシャルリリース
 //d　改造リリース
 #if SYBARIS
-[assembly: AssemblyVersion("1.1.1.0")]
+[assembly: AssemblyVersion("1.2.0.0")]
 [assembly: AssemblyTitle("Enhanced Maid Edit Scene")]
 #endif
 [assembly: AssemblyCopyright("Free @Mirabarukaso")]
@@ -33,11 +33,11 @@ namespace COM3D2.EnhancedMaidEditScene.Plugin
 {
 #if SYBARIS
     [PluginFilter("COM3D2x64"), PluginFilter("COM3D2OHx64")]
-    [PluginName("EnhancedMaidEditScene"), PluginVersion("1.1.1.0")]
+    [PluginName("EnhancedMaidEditScene"), PluginVersion("1.2.0.0")]
 #endif
 #if BEPINEX
     [BepInProcess("COM3D2x64"), BepInProcess("COM3D2OHx64")]
-    [BepInPlugin("org.bepinex.plugins.enhancedmaideditscene", "Enhanced Maid Edit Scene", "1.1.1.4")]
+    [BepInPlugin("org.bepinex.plugins.enhancedmaideditscene", "Enhanced Maid Edit Scene", "1.2.0.1")]
 #endif
 
 #if SYBARIS
@@ -48,12 +48,12 @@ namespace COM3D2.EnhancedMaidEditScene.Plugin
 #endif
     {
 #region Constants
-        public const string PluginName = "EnhancedMaidEditScene";
+        public const string PluginName = "EnhancedMaidEditScene"; 
 #if SYBARIS
-        public const string PluginVersion = "1.1.1.0";
+        public const string PluginVersion = "1.2.0.0";
 #endif
 #if BEPINEX
-        public const string PluginVersion = "1.1.1.4";
+        public const string PluginVersion = "1.2.0.1";
 #endif
 
         private readonly int iSceneEdit = 5; //メイン版エディットモード
@@ -486,8 +486,6 @@ namespace COM3D2.EnhancedMaidEditScene.Plugin
                 GameMain.Instance.ScriptMgr.LoadMotionScript(sloat, false, poseData.call_script_fil, poseData.call_script_label, maid.status.guid, string.Empty, true, true, false);
             }
 #endif
-
-
         }
 
         public void PerformPose(Maid maid, string ANM)

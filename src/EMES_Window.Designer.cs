@@ -154,6 +154,15 @@ namespace COM3D2.EnhancedMaidEditScene.Plugin
             this.eyeclose_label = new System.Windows.Forms.Label();
             this.CurrentMaidFaceBlendComboBox = new System.Windows.Forms.ComboBox();
             this.BonesIK = new System.Windows.Forms.TabPage();
+            this.MaidModel_tabControl = new System.Windows.Forms.TabControl();
+            this.PoseCopy_tabPage1 = new System.Windows.Forms.TabPage();
+            this.MaidPose_Source_comboBox = new System.Windows.Forms.ComboBox();
+            this.MaidPose_Copy_Button = new System.Windows.Forms.Button();
+            this.MaidPose_CopyPosition_checkBox = new System.Windows.Forms.CheckBox();
+            this.ModelExport_tabPage2 = new System.Windows.Forms.TabPage();
+            this.RTMI_Import_button = new System.Windows.Forms.Button();
+            this.RTME_NoMTL_checkBox = new System.Windows.Forms.CheckBox();
+            this.RTME_Export_button = new System.Windows.Forms.Button();
             this.groupBox17 = new System.Windows.Forms.GroupBox();
             this.MaidHandleSelectModle_None_radioButton = new System.Windows.Forms.RadioButton();
             this.MaidHandleSelectModle_Others_radioButton = new System.Windows.Forms.RadioButton();
@@ -369,10 +378,6 @@ namespace COM3D2.EnhancedMaidEditScene.Plugin
             this.LeftLegIKCheckBox = new System.Windows.Forms.CheckBox();
             this.RightArmIKCheckBox = new System.Windows.Forms.CheckBox();
             this.LeftArmIKCheckBox = new System.Windows.Forms.CheckBox();
-            this.BodyRotGroupBox4 = new System.Windows.Forms.GroupBox();
-            this.MaidPose_Source_comboBox = new System.Windows.Forms.ComboBox();
-            this.MaidPose_CopyPosition_checkBox = new System.Windows.Forms.CheckBox();
-            this.MaidPose_Copy_Button = new System.Windows.Forms.Button();
             this.Items = new System.Windows.Forms.TabPage();
             this.Items_List_tabControl = new System.Windows.Forms.TabControl();
             this.Items_list_tabPage1 = new System.Windows.Forms.TabPage();
@@ -392,6 +397,15 @@ namespace COM3D2.EnhancedMaidEditScene.Plugin
             this.Items_LoadImage_Projection_checkBox = new System.Windows.Forms.CheckBox();
             this.Items_LoadImage_Shader_comboBox = new System.Windows.Forms.ComboBox();
             this.Items_LoadImage_Shadow_comboBox = new System.Windows.Forms.ComboBox();
+            this.Material_tabPage = new System.Windows.Forms.TabPage();
+            this.Items_Shader_Value_label = new System.Windows.Forms.Label();
+            this.label75 = new System.Windows.Forms.Label();
+            this.label72 = new System.Windows.Forms.Label();
+            this.Items_Material_Type_comboBox = new System.Windows.Forms.ComboBox();
+            this.Items_Material_InChildren_checkBox = new System.Windows.Forms.CheckBox();
+            this.Items_Material_Name_textBox = new System.Windows.Forms.TextBox();
+            this.label70 = new System.Windows.Forms.Label();
+            this.Items_Material_Value_trackBar = new System.Windows.Forms.TrackBar();
             this.Scale_tabPage = new System.Windows.Forms.TabPage();
             this.label64 = new System.Windows.Forms.Label();
             this.Items_Handle_ScaleY_textBox = new System.Windows.Forms.TextBox();
@@ -482,7 +496,6 @@ namespace COM3D2.EnhancedMaidEditScene.Plugin
             this.CameraPos_Save2_button = new System.Windows.Forms.Button();
             this.CameraPos_Load1_button = new System.Windows.Forms.Button();
             this.CameraPos_Save1_button = new System.Windows.Forms.Button();
-            this.Camera_UI_Hide = new System.Windows.Forms.CheckBox();
             this.CameraPos_FOV_trackBar = new System.Windows.Forms.TrackBar();
             this.CameraPos_FOV_textbox = new System.Windows.Forms.TextBox();
             this.label56 = new System.Windows.Forms.Label();
@@ -516,6 +529,7 @@ namespace COM3D2.EnhancedMaidEditScene.Plugin
             this.label36 = new System.Windows.Forms.Label();
             this.SubLight_range_trackBar = new System.Windows.Forms.TrackBar();
             this.label37 = new System.Windows.Forms.Label();
+            this.Camera_UI_Hide = new System.Windows.Forms.CheckBox();
             this.tabControl2 = new System.Windows.Forms.TabControl();
             this.DOF = new System.Windows.Forms.TabPage();
             this.Shader_DOF_blurType_comboBox = new System.Windows.Forms.ComboBox();
@@ -744,6 +758,7 @@ namespace COM3D2.EnhancedMaidEditScene.Plugin
             this.CurrentSelectedMaidPicture = new System.Windows.Forms.PictureBox();
             this.EMES_openFileDialog = new System.Windows.Forms.OpenFileDialog();
             this.EMES_saveFileDialog = new System.Windows.Forms.SaveFileDialog();
+            this.RTMI_openFileDialog = new System.Windows.Forms.OpenFileDialog();
             this.MaidListGroupBox.SuspendLayout();
             this.MainTab_tabControl.SuspendLayout();
             this.Maids.SuspendLayout();
@@ -788,6 +803,9 @@ namespace COM3D2.EnhancedMaidEditScene.Plugin
             ((System.ComponentModel.ISupportInitialize)(this.eyeclose2_trackBar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.eyeclose_trackBar)).BeginInit();
             this.BonesIK.SuspendLayout();
+            this.MaidModel_tabControl.SuspendLayout();
+            this.PoseCopy_tabPage1.SuspendLayout();
+            this.ModelExport_tabPage2.SuspendLayout();
             this.groupBox17.SuspendLayout();
             this.groupBox15.SuspendLayout();
             this.MaidPoseAndParts_tabControl.SuspendLayout();
@@ -823,13 +841,14 @@ namespace COM3D2.EnhancedMaidEditScene.Plugin
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.MaidPose_Icon_pictureBox)).BeginInit();
             this.groupBox6.SuspendLayout();
-            this.BodyRotGroupBox4.SuspendLayout();
             this.Items.SuspendLayout();
             this.Items_List_tabControl.SuspendLayout();
             this.Items_list_tabPage1.SuspendLayout();
             this.subItems_list_tabPage2.SuspendLayout();
             this.Items_Settings_tabControl.SuspendLayout();
             this.ShaderAndShadow_tabPage.SuspendLayout();
+            this.Material_tabPage.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.Items_Material_Value_trackBar)).BeginInit();
             this.Scale_tabPage.SuspendLayout();
             this.Position_tabPage.SuspendLayout();
             this.Rotate_tabPage.SuspendLayout();
@@ -1296,7 +1315,7 @@ namespace COM3D2.EnhancedMaidEditScene.Plugin
             this.groupBox18.Controls.Add(this.HideAllMaidsHandle);
             this.groupBox18.Location = new System.Drawing.Point(6, 1025);
             this.groupBox18.Name = "groupBox18";
-            this.groupBox18.Size = new System.Drawing.Size(390, 62);
+            this.groupBox18.Size = new System.Drawing.Size(393, 62);
             this.groupBox18.TabIndex = 173;
             this.groupBox18.TabStop = false;
             this.groupBox18.Text = "ハンドル";
@@ -1342,9 +1361,9 @@ namespace COM3D2.EnhancedMaidEditScene.Plugin
             this.Debug_groupBox.Controls.Add(this.comboBox1);
             this.Debug_groupBox.Controls.Add(this.button2);
             this.Debug_groupBox.Controls.Add(this.textBox1);
-            this.Debug_groupBox.Location = new System.Drawing.Point(6, 886);
+            this.Debug_groupBox.Location = new System.Drawing.Point(6, 923);
             this.Debug_groupBox.Name = "Debug_groupBox";
-            this.Debug_groupBox.Size = new System.Drawing.Size(390, 96);
+            this.Debug_groupBox.Size = new System.Drawing.Size(393, 96);
             this.Debug_groupBox.TabIndex = 12;
             this.Debug_groupBox.TabStop = false;
             this.Debug_groupBox.Text = "Debug";
@@ -1474,7 +1493,7 @@ namespace COM3D2.EnhancedMaidEditScene.Plugin
             this.groupBox3.Controls.Add(this.CurrentMaidFaceBlendComboBox);
             this.groupBox3.Location = new System.Drawing.Point(6, 6);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(393, 822);
+            this.groupBox3.Size = new System.Drawing.Size(393, 811);
             this.groupBox3.TabIndex = 7;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "表情";
@@ -1659,7 +1678,7 @@ namespace COM3D2.EnhancedMaidEditScene.Plugin
             // 
             this.DeleteFaceBlendButton.Location = new System.Drawing.Point(10, 768);
             this.DeleteFaceBlendButton.Name = "DeleteFaceBlendButton";
-            this.DeleteFaceBlendButton.Size = new System.Drawing.Size(104, 48);
+            this.DeleteFaceBlendButton.Size = new System.Drawing.Size(104, 32);
             this.DeleteFaceBlendButton.TabIndex = 186;
             this.DeleteFaceBlendButton.Text = "削除";
             this.DeleteFaceBlendButton.UseVisualStyleBackColor = true;
@@ -1669,7 +1688,7 @@ namespace COM3D2.EnhancedMaidEditScene.Plugin
             // 
             this.SaveFaceBlendButton.Location = new System.Drawing.Point(142, 768);
             this.SaveFaceBlendButton.Name = "SaveFaceBlendButton";
-            this.SaveFaceBlendButton.Size = new System.Drawing.Size(104, 48);
+            this.SaveFaceBlendButton.Size = new System.Drawing.Size(104, 32);
             this.SaveFaceBlendButton.TabIndex = 185;
             this.SaveFaceBlendButton.Text = "保存";
             this.SaveFaceBlendButton.UseVisualStyleBackColor = true;
@@ -2287,12 +2306,12 @@ namespace COM3D2.EnhancedMaidEditScene.Plugin
             // 
             // BonesIK
             // 
+            this.BonesIK.Controls.Add(this.MaidModel_tabControl);
             this.BonesIK.Controls.Add(this.groupBox17);
             this.BonesIK.Controls.Add(this.groupBox15);
             this.BonesIK.Controls.Add(this.MaidPoseAndParts_tabControl);
             this.BonesIK.Controls.Add(this.groupBox1);
             this.BonesIK.Controls.Add(this.groupBox6);
-            this.BonesIK.Controls.Add(this.BodyRotGroupBox4);
             this.BonesIK.Location = new System.Drawing.Point(4, 29);
             this.BonesIK.Name = "BonesIK";
             this.BonesIK.Size = new System.Drawing.Size(404, 1093);
@@ -2300,13 +2319,111 @@ namespace COM3D2.EnhancedMaidEditScene.Plugin
             this.BonesIK.Text = "骨格";
             this.BonesIK.UseVisualStyleBackColor = true;
             // 
+            // MaidModel_tabControl
+            // 
+            this.MaidModel_tabControl.Controls.Add(this.PoseCopy_tabPage1);
+            this.MaidModel_tabControl.Controls.Add(this.ModelExport_tabPage2);
+            this.MaidModel_tabControl.Location = new System.Drawing.Point(6, 242);
+            this.MaidModel_tabControl.Name = "MaidModel_tabControl";
+            this.MaidModel_tabControl.SelectedIndex = 0;
+            this.MaidModel_tabControl.Size = new System.Drawing.Size(396, 112);
+            this.MaidModel_tabControl.TabIndex = 12;
+            // 
+            // PoseCopy_tabPage1
+            // 
+            this.PoseCopy_tabPage1.Controls.Add(this.MaidPose_Source_comboBox);
+            this.PoseCopy_tabPage1.Controls.Add(this.MaidPose_Copy_Button);
+            this.PoseCopy_tabPage1.Controls.Add(this.MaidPose_CopyPosition_checkBox);
+            this.PoseCopy_tabPage1.Location = new System.Drawing.Point(4, 29);
+            this.PoseCopy_tabPage1.Name = "PoseCopy_tabPage1";
+            this.PoseCopy_tabPage1.Padding = new System.Windows.Forms.Padding(3);
+            this.PoseCopy_tabPage1.Size = new System.Drawing.Size(388, 79);
+            this.PoseCopy_tabPage1.TabIndex = 0;
+            this.PoseCopy_tabPage1.Text = "ポーズ";
+            this.PoseCopy_tabPage1.UseVisualStyleBackColor = true;
+            // 
+            // MaidPose_Source_comboBox
+            // 
+            this.MaidPose_Source_comboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.MaidPose_Source_comboBox.FormattingEnabled = true;
+            this.MaidPose_Source_comboBox.Location = new System.Drawing.Point(5, 44);
+            this.MaidPose_Source_comboBox.Name = "MaidPose_Source_comboBox";
+            this.MaidPose_Source_comboBox.Size = new System.Drawing.Size(282, 28);
+            this.MaidPose_Source_comboBox.TabIndex = 13;
+            // 
+            // MaidPose_Copy_Button
+            // 
+            this.MaidPose_Copy_Button.Location = new System.Drawing.Point(294, 6);
+            this.MaidPose_Copy_Button.Name = "MaidPose_Copy_Button";
+            this.MaidPose_Copy_Button.Size = new System.Drawing.Size(88, 66);
+            this.MaidPose_Copy_Button.TabIndex = 14;
+            this.MaidPose_Copy_Button.Text = "コピー";
+            this.MaidPose_Copy_Button.UseVisualStyleBackColor = true;
+            this.MaidPose_Copy_Button.Click += new System.EventHandler(this.MaidPose_Copy_Button_Click);
+            // 
+            // MaidPose_CopyPosition_checkBox
+            // 
+            this.MaidPose_CopyPosition_checkBox.AutoSize = true;
+            this.MaidPose_CopyPosition_checkBox.Checked = true;
+            this.MaidPose_CopyPosition_checkBox.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.MaidPose_CopyPosition_checkBox.Location = new System.Drawing.Point(6, 14);
+            this.MaidPose_CopyPosition_checkBox.Name = "MaidPose_CopyPosition_checkBox";
+            this.MaidPose_CopyPosition_checkBox.Size = new System.Drawing.Size(115, 24);
+            this.MaidPose_CopyPosition_checkBox.TabIndex = 15;
+            this.MaidPose_CopyPosition_checkBox.Text = "位置を含む";
+            this.MaidPose_CopyPosition_checkBox.UseVisualStyleBackColor = true;
+            // 
+            // ModelExport_tabPage2
+            // 
+            this.ModelExport_tabPage2.Controls.Add(this.RTMI_Import_button);
+            this.ModelExport_tabPage2.Controls.Add(this.RTME_NoMTL_checkBox);
+            this.ModelExport_tabPage2.Controls.Add(this.RTME_Export_button);
+            this.ModelExport_tabPage2.Location = new System.Drawing.Point(4, 29);
+            this.ModelExport_tabPage2.Name = "ModelExport_tabPage2";
+            this.ModelExport_tabPage2.Padding = new System.Windows.Forms.Padding(3);
+            this.ModelExport_tabPage2.Size = new System.Drawing.Size(388, 79);
+            this.ModelExport_tabPage2.TabIndex = 1;
+            this.ModelExport_tabPage2.Text = "模型";
+            this.ModelExport_tabPage2.UseVisualStyleBackColor = true;
+            // 
+            // RTMI_Import_button
+            // 
+            this.RTMI_Import_button.ForeColor = System.Drawing.Color.Red;
+            this.RTMI_Import_button.Location = new System.Drawing.Point(3, 6);
+            this.RTMI_Import_button.Name = "RTMI_Import_button";
+            this.RTMI_Import_button.Size = new System.Drawing.Size(88, 66);
+            this.RTMI_Import_button.TabIndex = 174;
+            this.RTMI_Import_button.Text = "輸入";
+            this.RTMI_Import_button.UseVisualStyleBackColor = true;
+            this.RTMI_Import_button.Click += new System.EventHandler(this.RTMI_Import_button_Click);
+            // 
+            // RTME_NoMTL_checkBox
+            // 
+            this.RTME_NoMTL_checkBox.CheckAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.RTME_NoMTL_checkBox.Location = new System.Drawing.Point(118, 28);
+            this.RTME_NoMTL_checkBox.Name = "RTME_NoMTL_checkBox";
+            this.RTME_NoMTL_checkBox.Size = new System.Drawing.Size(158, 24);
+            this.RTME_NoMTL_checkBox.TabIndex = 172;
+            this.RTME_NoMTL_checkBox.Text = "テクスチャなし";
+            this.RTME_NoMTL_checkBox.UseVisualStyleBackColor = true;
+            // 
+            // RTME_Export_button
+            // 
+            this.RTME_Export_button.Location = new System.Drawing.Point(294, 6);
+            this.RTME_Export_button.Name = "RTME_Export_button";
+            this.RTME_Export_button.Size = new System.Drawing.Size(88, 66);
+            this.RTME_Export_button.TabIndex = 171;
+            this.RTME_Export_button.Text = "書き出す";
+            this.RTME_Export_button.UseVisualStyleBackColor = true;
+            this.RTME_Export_button.Click += new System.EventHandler(this.RTME_Export_button_Click);
+            // 
             // groupBox17
             // 
             this.groupBox17.Controls.Add(this.MaidHandleSelectModle_None_radioButton);
             this.groupBox17.Controls.Add(this.MaidHandleSelectModle_Others_radioButton);
             this.groupBox17.Controls.Add(this.MaidHandleSelectModle_Current_radioButton);
             this.groupBox17.Controls.Add(this.MaidHandleSelectModle_All_radioButton);
-            this.groupBox17.Location = new System.Drawing.Point(8, 340);
+            this.groupBox17.Location = new System.Drawing.Point(6, 360);
             this.groupBox17.Name = "groupBox17";
             this.groupBox17.Size = new System.Drawing.Size(393, 62);
             this.groupBox17.TabIndex = 172;
@@ -2368,9 +2485,9 @@ namespace COM3D2.EnhancedMaidEditScene.Plugin
             this.groupBox15.Controls.Add(this.MaidFace_AddGazePoint_button);
             this.groupBox15.Controls.Add(this.MaidFace_ShowGazePoint_checkBox);
             this.groupBox15.Controls.Add(this.MaidFace_RemoveGazePoint_button);
-            this.groupBox15.Location = new System.Drawing.Point(6, 881);
+            this.groupBox15.Location = new System.Drawing.Point(6, 899);
             this.groupBox15.Name = "groupBox15";
-            this.groupBox15.Size = new System.Drawing.Size(393, 141);
+            this.groupBox15.Size = new System.Drawing.Size(393, 123);
             this.groupBox15.TabIndex = 8;
             this.groupBox15.TabStop = false;
             this.groupBox15.Text = "目";
@@ -2378,9 +2495,9 @@ namespace COM3D2.EnhancedMaidEditScene.Plugin
             // MaidFace_ResetEyeRotation_button
             // 
             this.MaidFace_ResetEyeRotation_button.ForeColor = System.Drawing.Color.Red;
-            this.MaidFace_ResetEyeRotation_button.Location = new System.Drawing.Point(6, 84);
+            this.MaidFace_ResetEyeRotation_button.Location = new System.Drawing.Point(6, 85);
             this.MaidFace_ResetEyeRotation_button.Name = "MaidFace_ResetEyeRotation_button";
-            this.MaidFace_ResetEyeRotation_button.Size = new System.Drawing.Size(100, 51);
+            this.MaidFace_ResetEyeRotation_button.Size = new System.Drawing.Size(100, 32);
             this.MaidFace_ResetEyeRotation_button.TabIndex = 20;
             this.MaidFace_ResetEyeRotation_button.Text = "リセット";
             this.MaidFace_ResetEyeRotation_button.UseVisualStyleBackColor = true;
@@ -2422,9 +2539,9 @@ namespace COM3D2.EnhancedMaidEditScene.Plugin
             // 
             // MaidFace_AddGazePoint_button
             // 
-            this.MaidFace_AddGazePoint_button.Location = new System.Drawing.Point(280, 84);
+            this.MaidFace_AddGazePoint_button.Location = new System.Drawing.Point(280, 85);
             this.MaidFace_AddGazePoint_button.Name = "MaidFace_AddGazePoint_button";
-            this.MaidFace_AddGazePoint_button.Size = new System.Drawing.Size(104, 51);
+            this.MaidFace_AddGazePoint_button.Size = new System.Drawing.Size(104, 32);
             this.MaidFace_AddGazePoint_button.TabIndex = 15;
             this.MaidFace_AddGazePoint_button.Text = "注視点";
             this.MaidFace_AddGazePoint_button.UseVisualStyleBackColor = true;
@@ -2446,9 +2563,9 @@ namespace COM3D2.EnhancedMaidEditScene.Plugin
             // 
             // MaidFace_RemoveGazePoint_button
             // 
-            this.MaidFace_RemoveGazePoint_button.Location = new System.Drawing.Point(142, 84);
+            this.MaidFace_RemoveGazePoint_button.Location = new System.Drawing.Point(142, 85);
             this.MaidFace_RemoveGazePoint_button.Name = "MaidFace_RemoveGazePoint_button";
-            this.MaidFace_RemoveGazePoint_button.Size = new System.Drawing.Size(104, 51);
+            this.MaidFace_RemoveGazePoint_button.Size = new System.Drawing.Size(104, 32);
             this.MaidFace_RemoveGazePoint_button.TabIndex = 16;
             this.MaidFace_RemoveGazePoint_button.Text = "削除";
             this.MaidFace_RemoveGazePoint_button.UseVisualStyleBackColor = true;
@@ -2462,7 +2579,7 @@ namespace COM3D2.EnhancedMaidEditScene.Plugin
             this.MaidPoseAndParts_tabControl.Controls.Add(this.MaidTails_tabPage);
             this.MaidPoseAndParts_tabControl.Controls.Add(this.Gravity_tabPage);
             this.MaidPoseAndParts_tabControl.Controls.Add(this.BoneSliderOffset_tabPage);
-            this.MaidPoseAndParts_tabControl.Location = new System.Drawing.Point(6, 410);
+            this.MaidPoseAndParts_tabControl.Location = new System.Drawing.Point(6, 428);
             this.MaidPoseAndParts_tabControl.Name = "MaidPoseAndParts_tabControl";
             this.MaidPoseAndParts_tabControl.SelectedIndex = 0;
             this.MaidPoseAndParts_tabControl.Size = new System.Drawing.Size(396, 465);
@@ -4770,49 +4887,6 @@ namespace COM3D2.EnhancedMaidEditScene.Plugin
             this.LeftArmIKCheckBox.UseVisualStyleBackColor = true;
             this.LeftArmIKCheckBox.CheckedChanged += new System.EventHandler(this.ArmIKCheckBox_CheckedChanged);
             // 
-            // BodyRotGroupBox4
-            // 
-            this.BodyRotGroupBox4.Controls.Add(this.MaidPose_Source_comboBox);
-            this.BodyRotGroupBox4.Controls.Add(this.MaidPose_CopyPosition_checkBox);
-            this.BodyRotGroupBox4.Controls.Add(this.MaidPose_Copy_Button);
-            this.BodyRotGroupBox4.Location = new System.Drawing.Point(6, 242);
-            this.BodyRotGroupBox4.Name = "BodyRotGroupBox4";
-            this.BodyRotGroupBox4.Size = new System.Drawing.Size(393, 93);
-            this.BodyRotGroupBox4.TabIndex = 7;
-            this.BodyRotGroupBox4.TabStop = false;
-            this.BodyRotGroupBox4.Text = "ポーズコピー";
-            // 
-            // MaidPose_Source_comboBox
-            // 
-            this.MaidPose_Source_comboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.MaidPose_Source_comboBox.FormattingEnabled = true;
-            this.MaidPose_Source_comboBox.Location = new System.Drawing.Point(8, 54);
-            this.MaidPose_Source_comboBox.Name = "MaidPose_Source_comboBox";
-            this.MaidPose_Source_comboBox.Size = new System.Drawing.Size(282, 28);
-            this.MaidPose_Source_comboBox.TabIndex = 13;
-            // 
-            // MaidPose_CopyPosition_checkBox
-            // 
-            this.MaidPose_CopyPosition_checkBox.AutoSize = true;
-            this.MaidPose_CopyPosition_checkBox.Checked = true;
-            this.MaidPose_CopyPosition_checkBox.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.MaidPose_CopyPosition_checkBox.Location = new System.Drawing.Point(9, 24);
-            this.MaidPose_CopyPosition_checkBox.Name = "MaidPose_CopyPosition_checkBox";
-            this.MaidPose_CopyPosition_checkBox.Size = new System.Drawing.Size(115, 24);
-            this.MaidPose_CopyPosition_checkBox.TabIndex = 15;
-            this.MaidPose_CopyPosition_checkBox.Text = "位置を含む";
-            this.MaidPose_CopyPosition_checkBox.UseVisualStyleBackColor = true;
-            // 
-            // MaidPose_Copy_Button
-            // 
-            this.MaidPose_Copy_Button.Location = new System.Drawing.Point(297, 16);
-            this.MaidPose_Copy_Button.Name = "MaidPose_Copy_Button";
-            this.MaidPose_Copy_Button.Size = new System.Drawing.Size(88, 66);
-            this.MaidPose_Copy_Button.TabIndex = 14;
-            this.MaidPose_Copy_Button.Text = "コピー";
-            this.MaidPose_Copy_Button.UseVisualStyleBackColor = true;
-            this.MaidPose_Copy_Button.Click += new System.EventHandler(this.MaidPose_Copy_Button_Click);
-            // 
             // Items
             // 
             this.Items.Controls.Add(this.Items_List_tabControl);
@@ -4975,6 +5049,7 @@ namespace COM3D2.EnhancedMaidEditScene.Plugin
             // Items_Settings_tabControl
             // 
             this.Items_Settings_tabControl.Controls.Add(this.ShaderAndShadow_tabPage);
+            this.Items_Settings_tabControl.Controls.Add(this.Material_tabPage);
             this.Items_Settings_tabControl.Controls.Add(this.Scale_tabPage);
             this.Items_Settings_tabControl.Controls.Add(this.Position_tabPage);
             this.Items_Settings_tabControl.Controls.Add(this.Rotate_tabPage);
@@ -5092,6 +5167,104 @@ namespace COM3D2.EnhancedMaidEditScene.Plugin
             this.Items_LoadImage_Shadow_comboBox.Size = new System.Drawing.Size(98, 28);
             this.Items_LoadImage_Shadow_comboBox.TabIndex = 201;
             this.Items_LoadImage_Shadow_comboBox.SelectedIndexChanged += new System.EventHandler(this.Items_LoadImage_Shadow_comboBox_SelectedIndexChanged);
+            // 
+            // Material_tabPage
+            // 
+            this.Material_tabPage.Controls.Add(this.Items_Shader_Value_label);
+            this.Material_tabPage.Controls.Add(this.label75);
+            this.Material_tabPage.Controls.Add(this.label72);
+            this.Material_tabPage.Controls.Add(this.Items_Material_Type_comboBox);
+            this.Material_tabPage.Controls.Add(this.Items_Material_InChildren_checkBox);
+            this.Material_tabPage.Controls.Add(this.Items_Material_Name_textBox);
+            this.Material_tabPage.Controls.Add(this.label70);
+            this.Material_tabPage.Controls.Add(this.Items_Material_Value_trackBar);
+            this.Material_tabPage.Location = new System.Drawing.Point(4, 29);
+            this.Material_tabPage.Name = "Material_tabPage";
+            this.Material_tabPage.Size = new System.Drawing.Size(385, 128);
+            this.Material_tabPage.TabIndex = 4;
+            this.Material_tabPage.Text = "素材";
+            this.Material_tabPage.UseVisualStyleBackColor = true;
+            // 
+            // Items_Shader_Value_label
+            // 
+            this.Items_Shader_Value_label.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Items_Shader_Value_label.Location = new System.Drawing.Point(285, 55);
+            this.Items_Shader_Value_label.Name = "Items_Shader_Value_label";
+            this.Items_Shader_Value_label.Size = new System.Drawing.Size(84, 26);
+            this.Items_Shader_Value_label.TabIndex = 200;
+            this.Items_Shader_Value_label.Text = "1";
+            // 
+            // label75
+            // 
+            this.label75.AutoSize = true;
+            this.label75.Location = new System.Drawing.Point(7, 90);
+            this.label75.Name = "label75";
+            this.label75.Size = new System.Drawing.Size(57, 20);
+            this.label75.TabIndex = 199;
+            this.label75.Text = "タイプ";
+            // 
+            // label72
+            // 
+            this.label72.AutoSize = true;
+            this.label72.Location = new System.Drawing.Point(7, 58);
+            this.label72.Name = "label72";
+            this.label72.Size = new System.Drawing.Size(41, 20);
+            this.label72.TabIndex = 198;
+            this.label72.Text = "名前";
+            // 
+            // Items_Material_Type_comboBox
+            // 
+            this.Items_Material_Type_comboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.Items_Material_Type_comboBox.FormattingEnabled = true;
+            this.Items_Material_Type_comboBox.Items.AddRange(new object[] {
+            "Color",
+            "Float",
+            "Int"});
+            this.Items_Material_Type_comboBox.Location = new System.Drawing.Point(77, 87);
+            this.Items_Material_Type_comboBox.Name = "Items_Material_Type_comboBox";
+            this.Items_Material_Type_comboBox.Size = new System.Drawing.Size(139, 28);
+            this.Items_Material_Type_comboBox.TabIndex = 197;
+            // 
+            // Items_Material_InChildren_checkBox
+            // 
+            this.Items_Material_InChildren_checkBox.AutoSize = true;
+            this.Items_Material_InChildren_checkBox.Checked = true;
+            this.Items_Material_InChildren_checkBox.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.Items_Material_InChildren_checkBox.Location = new System.Drawing.Point(238, 90);
+            this.Items_Material_InChildren_checkBox.Name = "Items_Material_InChildren_checkBox";
+            this.Items_Material_InChildren_checkBox.Size = new System.Drawing.Size(131, 24);
+            this.Items_Material_InChildren_checkBox.TabIndex = 150;
+            this.Items_Material_InChildren_checkBox.Text = "すべて列挙し";
+            this.Items_Material_InChildren_checkBox.UseVisualStyleBackColor = true;
+            // 
+            // Items_Material_Name_textBox
+            // 
+            this.Items_Material_Name_textBox.Location = new System.Drawing.Point(77, 55);
+            this.Items_Material_Name_textBox.Name = "Items_Material_Name_textBox";
+            this.Items_Material_Name_textBox.Size = new System.Drawing.Size(139, 26);
+            this.Items_Material_Name_textBox.TabIndex = 149;
+            this.Items_Material_Name_textBox.Text = "_Color";
+            // 
+            // label70
+            // 
+            this.label70.AutoSize = true;
+            this.label70.Location = new System.Drawing.Point(7, 21);
+            this.label70.Name = "label70";
+            this.label70.Size = new System.Drawing.Size(25, 20);
+            this.label70.TabIndex = 148;
+            this.label70.Text = "値";
+            // 
+            // Items_Material_Value_trackBar
+            // 
+            this.Items_Material_Value_trackBar.AutoSize = false;
+            this.Items_Material_Value_trackBar.Location = new System.Drawing.Point(76, 14);
+            this.Items_Material_Value_trackBar.Maximum = 1000;
+            this.Items_Material_Value_trackBar.Name = "Items_Material_Value_trackBar";
+            this.Items_Material_Value_trackBar.Size = new System.Drawing.Size(302, 27);
+            this.Items_Material_Value_trackBar.TabIndex = 147;
+            this.Items_Material_Value_trackBar.TickFrequency = 200;
+            this.Items_Material_Value_trackBar.Value = 1000;
+            this.Items_Material_Value_trackBar.Scroll += new System.EventHandler(this.Items_Material_trackBar_Scroll);
             // 
             // Scale_tabPage
             // 
@@ -5772,6 +5945,7 @@ namespace COM3D2.EnhancedMaidEditScene.Plugin
             // BGandEnv
             // 
             this.BGandEnv.Controls.Add(this.tabControl5);
+            this.BGandEnv.Controls.Add(this.Camera_UI_Hide);
             this.BGandEnv.Controls.Add(this.tabControl2);
             this.BGandEnv.Controls.Add(this.groupBox11);
             this.BGandEnv.Controls.Add(this.groupBox2);
@@ -5906,7 +6080,6 @@ namespace COM3D2.EnhancedMaidEditScene.Plugin
             // CameraData
             // 
             this.CameraData.Controls.Add(this.groupBox25);
-            this.CameraData.Controls.Add(this.Camera_UI_Hide);
             this.CameraData.Controls.Add(this.CameraPos_FOV_trackBar);
             this.CameraData.Controls.Add(this.CameraPos_FOV_textbox);
             this.CameraData.Controls.Add(this.label56);
@@ -6082,17 +6255,6 @@ namespace COM3D2.EnhancedMaidEditScene.Plugin
             this.CameraPos_Save1_button.Text = "セーブ1";
             this.CameraPos_Save1_button.UseVisualStyleBackColor = true;
             this.CameraPos_Save1_button.Click += new System.EventHandler(this.CameraPos_SaveAndLoad_button_Click);
-            // 
-            // Camera_UI_Hide
-            // 
-            this.Camera_UI_Hide.AutoSize = true;
-            this.Camera_UI_Hide.Location = new System.Drawing.Point(13, 113);
-            this.Camera_UI_Hide.Name = "Camera_UI_Hide";
-            this.Camera_UI_Hide.Size = new System.Drawing.Size(164, 24);
-            this.Camera_UI_Hide.TabIndex = 220;
-            this.Camera_UI_Hide.Text = "UIを完全に非表示";
-            this.Camera_UI_Hide.UseVisualStyleBackColor = true;
-            this.Camera_UI_Hide.CheckedChanged += new System.EventHandler(this.Camera_UI_Hide_CheckedChanged);
             // 
             // CameraPos_FOV_trackBar
             // 
@@ -6473,6 +6635,18 @@ namespace COM3D2.EnhancedMaidEditScene.Plugin
             this.label37.Size = new System.Drawing.Size(41, 20);
             this.label37.TabIndex = 156;
             this.label37.Text = "範囲";
+            // 
+            // Camera_UI_Hide
+            // 
+            this.Camera_UI_Hide.AutoSize = true;
+            this.Camera_UI_Hide.CheckAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.Camera_UI_Hide.Location = new System.Drawing.Point(270, 1052);
+            this.Camera_UI_Hide.Name = "Camera_UI_Hide";
+            this.Camera_UI_Hide.Size = new System.Drawing.Size(116, 24);
+            this.Camera_UI_Hide.TabIndex = 220;
+            this.Camera_UI_Hide.Text = "UIを非表示";
+            this.Camera_UI_Hide.UseVisualStyleBackColor = true;
+            this.Camera_UI_Hide.CheckedChanged += new System.EventHandler(this.Camera_UI_Hide_CheckedChanged);
             // 
             // tabControl2
             // 
@@ -8784,9 +8958,9 @@ namespace COM3D2.EnhancedMaidEditScene.Plugin
             this.MaidTails_SpecialMarkMethod_ForceEnum_radioButton.AutoSize = true;
             this.MaidTails_SpecialMarkMethod_ForceEnum_radioButton.Location = new System.Drawing.Point(57, 25);
             this.MaidTails_SpecialMarkMethod_ForceEnum_radioButton.Name = "MaidTails_SpecialMarkMethod_ForceEnum_radioButton";
-            this.MaidTails_SpecialMarkMethod_ForceEnum_radioButton.Size = new System.Drawing.Size(98, 24);
+            this.MaidTails_SpecialMarkMethod_ForceEnum_radioButton.Size = new System.Drawing.Size(66, 24);
             this.MaidTails_SpecialMarkMethod_ForceEnum_radioButton.TabIndex = 1;
-            this.MaidTails_SpecialMarkMethod_ForceEnum_radioButton.Text = "強制列挙";
+            this.MaidTails_SpecialMarkMethod_ForceEnum_radioButton.Text = "列挙";
             this.MaidTails_SpecialMarkMethod_ForceEnum_radioButton.UseVisualStyleBackColor = true;
             this.MaidTails_SpecialMarkMethod_ForceEnum_radioButton.Click += new System.EventHandler(this.MaidTails_SpecialMark_Method_ForceEnum_radioButton1_Click);
             // 
@@ -9022,6 +9196,10 @@ namespace COM3D2.EnhancedMaidEditScene.Plugin
             ((System.ComponentModel.ISupportInitialize)(this.eyeclose2_trackBar)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.eyeclose_trackBar)).EndInit();
             this.BonesIK.ResumeLayout(false);
+            this.MaidModel_tabControl.ResumeLayout(false);
+            this.PoseCopy_tabPage1.ResumeLayout(false);
+            this.PoseCopy_tabPage1.PerformLayout();
+            this.ModelExport_tabPage2.ResumeLayout(false);
             this.groupBox17.ResumeLayout(false);
             this.groupBox17.PerformLayout();
             this.groupBox15.ResumeLayout(false);
@@ -9075,8 +9253,6 @@ namespace COM3D2.EnhancedMaidEditScene.Plugin
             ((System.ComponentModel.ISupportInitialize)(this.MaidPose_Icon_pictureBox)).EndInit();
             this.groupBox6.ResumeLayout(false);
             this.groupBox6.PerformLayout();
-            this.BodyRotGroupBox4.ResumeLayout(false);
-            this.BodyRotGroupBox4.PerformLayout();
             this.Items.ResumeLayout(false);
             this.Items_List_tabControl.ResumeLayout(false);
             this.Items_list_tabPage1.ResumeLayout(false);
@@ -9086,6 +9262,9 @@ namespace COM3D2.EnhancedMaidEditScene.Plugin
             this.Items_Settings_tabControl.ResumeLayout(false);
             this.ShaderAndShadow_tabPage.ResumeLayout(false);
             this.ShaderAndShadow_tabPage.PerformLayout();
+            this.Material_tabPage.ResumeLayout(false);
+            this.Material_tabPage.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.Items_Material_Value_trackBar)).EndInit();
             this.Scale_tabPage.ResumeLayout(false);
             this.Scale_tabPage.PerformLayout();
             this.Position_tabPage.ResumeLayout(false);
@@ -9106,6 +9285,7 @@ namespace COM3D2.EnhancedMaidEditScene.Plugin
             this.Items_HandleSettings_groupBox.ResumeLayout(false);
             this.Items_HandleSettings_groupBox.PerformLayout();
             this.BGandEnv.ResumeLayout(false);
+            this.BGandEnv.PerformLayout();
             this.tabControl5.ResumeLayout(false);
             this.SceneManagement.ResumeLayout(false);
             this.SceneManagement.PerformLayout();
@@ -9749,7 +9929,6 @@ namespace COM3D2.EnhancedMaidEditScene.Plugin
         private System.Windows.Forms.Button MaidPose_Play_Button;
         private System.Windows.Forms.CheckBox MaidPose_AutoPlay_checkBox;
         private System.Windows.Forms.PictureBox MaidPose_Icon_pictureBox;
-        private System.Windows.Forms.GroupBox BodyRotGroupBox4;
         private System.Windows.Forms.Button MaidPose_CenterMaid_button;
         private System.Windows.Forms.Button RemoveImportedBackGroundCheckBox;
         private System.Windows.Forms.CheckBox Items_RealtimeLoadThumbIcon_checkBox;
@@ -9916,5 +10095,21 @@ namespace COM3D2.EnhancedMaidEditScene.Plugin
         private System.Windows.Forms.RadioButton MaidTails_BoneEnumMethod_DFS_radioButton;
         private System.Windows.Forms.GroupBox Settings_MaidTails_SpecialMark_groupBox;
         private System.Windows.Forms.GroupBox Settings_MaidTails_DFSorEnum_groupBox;
+        private System.Windows.Forms.CheckBox RTME_NoMTL_checkBox;
+        private System.Windows.Forms.Button RTME_Export_button;
+        private System.Windows.Forms.TabControl MaidModel_tabControl;
+        private System.Windows.Forms.TabPage PoseCopy_tabPage1;
+        private System.Windows.Forms.TabPage ModelExport_tabPage2;
+        private System.Windows.Forms.OpenFileDialog RTMI_openFileDialog;
+        private System.Windows.Forms.Button RTMI_Import_button;
+        private System.Windows.Forms.TabPage Material_tabPage;
+        private System.Windows.Forms.TextBox Items_Material_Name_textBox;
+        private System.Windows.Forms.Label label70;
+        private System.Windows.Forms.TrackBar Items_Material_Value_trackBar;
+        private System.Windows.Forms.CheckBox Items_Material_InChildren_checkBox;
+        private System.Windows.Forms.ComboBox Items_Material_Type_comboBox;
+        private System.Windows.Forms.Label label75;
+        private System.Windows.Forms.Label label72;
+        private System.Windows.Forms.Label Items_Shader_Value_label;
     }
 }
