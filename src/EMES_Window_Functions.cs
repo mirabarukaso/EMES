@@ -3215,7 +3215,17 @@ namespace COM3D2.EnhancedMaidEditScene.Plugin
 
         private void GetSlotBodyHit(CheckBox cb)
         {
-            string sSlotName = Items_HandledObjects_listBox.SelectedItem.ToString().Split('_')[1].Replace("]", "");
+            string sSlotName;
+
+            try
+            {
+                sSlotName = Items_HandledObjects_listBox.SelectedItem.ToString().Split('_')[1].Replace("]", "");
+            }
+            catch
+            {
+                sSlotName = "NOT_MAID_PARTS";
+            }
+
             if (true == sSlotName.Contains("hair"))
             {
                 string[] sSlotID = Enum.GetNames(typeof(TBody.SlotID));
