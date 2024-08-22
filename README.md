@@ -1,6 +1,5 @@
 # サンプル
 <img src="https://github.com/mirabarukaso/EMES/raw/main/sample1.jpg" width=50% height=50%>  
-<img src="https://github.com/mirabarukaso/EMES/raw/main/sample2.jpg" width=50% height=50%>
 
 >KISS公式ブログに記載されているMOD利用規約
 >
