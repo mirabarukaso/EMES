@@ -846,13 +846,14 @@ namespace COM3D2.EnhancedMaidEditScene.Plugin
                         }
 #endif
                     }
-
+                    /*
                     if (true == tmpBone.transform.GetChild(i).name.Equals("Bip01 Spine"))
                     {
                         Debuginfo.Warning("BIP01を使用しているパーツは「複数尻尾」機能できません、スキップ " + tmpBone.transform.GetChild(i).name, 1);
                         NotMailTail = true;
                         break;
                     }
+                    */
                 }
 
                 if (true == NotMailTail)
@@ -899,7 +900,7 @@ namespace COM3D2.EnhancedMaidEditScene.Plugin
                                     || (ThisBoneTransform.name.Contains("_base"))
                                     || (ThisBoneTransform.name.Contains("_yure_")) || (ThisBoneTransform.name.Contains("_Base"))
                                     || (ThisBoneTransform.name.Contains("_SCL_"))
-                                   || (ThisBoneTransform.name.EndsWith("_DO_NOT_ENUM_"))
+                                    || (ThisBoneTransform.name.EndsWith("_DO_NOT_ENUM_"))
                                    )
                                 {
 #if DEBUG
@@ -1191,6 +1192,7 @@ namespace COM3D2.EnhancedMaidEditScene.Plugin
                                 || (CurrentBone.Key.name.Contains("_yure_")) || (CurrentBone.Key.name.Contains("_Base"))
                                 || (CurrentBone.Key.name.Contains("_HIDE_"))
                                 || (CurrentBone.Key.name.Contains("_SCL_"))
+                                || (CurrentBone.Key.name.StartsWith("Bip01") && false == CurrentBone.Key.name.StartsWith("Bip01 BoneTail"))
                                 )
                     {
                         Debuginfo.Log("非表示マークで「" + CurrentBone.Key.name + "」を非表示にします", 1);

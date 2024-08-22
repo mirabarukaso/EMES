@@ -79,8 +79,15 @@ namespace COM3D2.EnhancedMaidEditScene.Plugin
 				{ "さくらうららか、はらひらり", new ActionDataList{ sBGMName = "sakuraurarakaharahirari_short", sANM = "dance_cm3d21_fanbook_001_sakura_f", iCharaNum = 1}},
 				{ "さくらうららか、はらひらり-in劇場", new ActionDataList{ sBGMName = "sakuraurarakaharahirari_short", sANM = "dance_cm3d21_fanbook_001_sakura_f", iCharaNum = 1}},
 				//ok
-				{"stellar my tears", new ActionDataList{ sBGMName = "stellarmytears_short", sANM = "dance_cm3d2_002_smt_f", iCharaNum = 1, sOtherInfo = "stellarmytears_short_misato_kara,stellarmytears_short_nao_kara,stellarmytears_short_sasaki_kara", bAbsoluteANMName = true}},
-				{"stellar my tears-in劇場", new ActionDataList{ sBGMName = "stellarmytears_short", sANM = "dance_cm3d2_002_smt_f", iCharaNum = 1, sOtherInfo = "stellarmytears_short_misato_kara,stellarmytears_short_nao_kara,stellarmytears_short_sasaki_kara", bAbsoluteANMName = true}},
+				{ "stellar my tears", new ActionDataList{ sBGMName = "stellarmytears_short", sANM = "dance_cm3d2_002_smt_f", iCharaNum = 1, sOtherInfo = "stellarmytears_short_misato_kara,stellarmytears_short_nao_kara,stellarmytears_short_sasaki_kara", bAbsoluteANMName = true}},
+				{ "stellar my tears-in劇場", new ActionDataList{ sBGMName = "stellarmytears_short", sANM = "dance_cm3d2_002_smt_f", iCharaNum = 1, sOtherInfo = "stellarmytears_short_misato_kara,stellarmytears_short_nao_kara,stellarmytears_short_sasaki_kara", bAbsoluteANMName = true}},
+				{ "stellar my tears ver.nao", new ActionDataList{ sBGMName = "StellarMyTears_short", sANM = "dance_cm3d2_002_smt_f", iCharaNum = 1}},
+				{ "stellar my tears ver.nao -in劇場", new ActionDataList{ sBGMName = "StellarMyTears_short", sANM = "dance_cm3d2_002_smt_f", iCharaNum = 1}},
+				{ "stellar my tears ver.美郷あき", new ActionDataList{ sBGMName = "StellarMyTears_short_misatosama", sANM = "dance_cm3d2_002_smt_f", iCharaNum = 1}},
+				{ "stellar my tears ver.美郷あき -in劇場", new ActionDataList{ sBGMName = "StellarMyTears_short_misatosama", sANM = "dance_cm3d2_002_smt_f", iCharaNum = 1}},
+				{ "stellar my tears ver.佐咲紗花", new ActionDataList{ sBGMName = "StellarMyTears_short_sasakisama", sANM = "dance_cm3d2_002_smt_f", iCharaNum = 1}},
+				{ "stellar my tears ver.佐咲紗花 -in劇場", new ActionDataList{ sBGMName = "StellarMyTears_short_sasakisama", sANM = "dance_cm3d2_002_smt_f", iCharaNum = 1}},
+
 				//ok
 				{ "mainly priority", new ActionDataList{ sBGMName = "MainlyPriority_short", sANM = "dance_cm3d21_006_mp_f",iCharaNum = 1}},
 				{ "mainly priority-in劇場", new ActionDataList{ sBGMName = "MainlyPriority_short", sANM = "dance_cm3d21_006_mp_f", iCharaNum = 1}},
@@ -116,12 +123,24 @@ namespace COM3D2.EnhancedMaidEditScene.Plugin
 				//ok
 				{ "happy!happy!スキャンダル!!", new ActionDataList{ sBGMName = "happyhappyscandal_short", sANM = "dance_cm3d2_003_hs_f", iCharaNum = 4, sOtherInfo = "happyhappyscandal_short_nao_kara,happy_happy_scandal_misato_kara,happy_happy_scandal_sasaki_kara"}},
 				{ "happy!happy!スキャンダル!!-in劇場", new ActionDataList{ sBGMName = "happyhappyscandal_short", sANM = "dance_cm3d2_003_hs_f", iCharaNum = 4, sOtherInfo = "happyhappyscandal_short_nao_kara,happy_happy_scandal_misato_kara,happy_happy_scandal_sasaki_kara"}},
+				{ "happy!happy!スキャンダル!! ver.nao", new ActionDataList{ sBGMName = "HappyHappyScandal_Short", sANM = "dance_cm3d2_003_hs_f", iCharaNum = 4}},
+				{ "happy!happy!スキャンダル!! ver.nao -in劇場", new ActionDataList{ sBGMName = "HappyHappyScandal_Short", sANM = "dance_cm3d2_003_hs_f", iCharaNum = 4}},
+				{ "happy!happy!スキャンダル!! ver.美郷あき", new ActionDataList{ sBGMName = "HappyHappyScandal_Short_misato", sANM = "dance_cm3d2_003_hs_f", iCharaNum = 4}},
+				{ "happy!happy!スキャンダル!! ver.美郷あき -in劇場", new ActionDataList{ sBGMName = "HappyHappyScandal_Short_misato", sANM = "dance_cm3d2_003_hs_f", iCharaNum = 4}},
+				{ "happy!happy!スキャンダル!! ver.佐咲紗花", new ActionDataList{ sBGMName = "HappyHappyScandal_Short_sasaki", sANM = "dance_cm3d2_003_hs_f", iCharaNum = 4}},
+				{ "happy!happy!スキャンダル!! ver.佐咲紗花 -in劇場", new ActionDataList{ sBGMName = "HappyHappyScandal_Short_sasaki", sANM = "dance_cm3d2_003_hs_f", iCharaNum = 4}},
 				//ok
 				{ "レグルスの涙", new ActionDataList{ sBGMName = "COM3D2_regulus_no_namida_short", sANM = "dance_cm3d21_013_rn_f", iCharaNum = 1}},
 				{ "レグルスの涙-in劇場", new ActionDataList{ sBGMName = "COM3D2_regulus_no_namida_short", sANM = "dance_cm3d21_013_rn_f", iCharaNum = 1}},
 				//ok
 				{ "sweet sweet everyday", new ActionDataList{ sBGMName = "SweetSweetEveryday_short", sANM = "dance_cm3d2_004_sse_f", iCharaNum = 3}},
 				{ "sweet sweet everyday-in劇場", new ActionDataList{ sBGMName = "SweetSweetEveryday_short", sANM = "dance_cm3d2_004_sse_f", iCharaNum = 3}},
+				{ "sweet sweet everyday ver.nao", new ActionDataList{ sBGMName = "SweetSweetEveryday_short", sANM = "dance_cm3d2_004_sse_f", iCharaNum = 3}},
+				{ "sweet sweet everyday ver.nao -in劇場", new ActionDataList{ sBGMName = "SweetSweetEveryday_short", sANM = "dance_cm3d2_004_sse_f", iCharaNum = 3}},
+				{ "sweet sweet everyday ver.美郷あき", new ActionDataList{ sBGMName = "SweetSweetEveryday_short_misato", sANM = "dance_cm3d2_004_sse_f", iCharaNum = 3}},
+				{ "sweet sweet everyday ver.美郷あき -in劇場", new ActionDataList{ sBGMName = "SweetSweetEveryday_short_misato", sANM = "dance_cm3d2_004_sse_f", iCharaNum = 3}},
+				{ "sweet sweet everyday ver.佐咲紗花", new ActionDataList{ sBGMName = "SweetSweetEveryday_short_sasaki", sANM = "dance_cm3d2_004_sse_f", iCharaNum = 3}},
+				{ "sweet sweet everyday ver.佐咲紗花 -in劇場", new ActionDataList{ sBGMName = "SweetSweetEveryday_short_sasaki", sANM = "dance_cm3d2_004_sse_f", iCharaNum = 3}},
 				//ok
 				{ "speed up mind", new ActionDataList{ sBGMName = "COM3D2GP01+Fb_speedupmind_short", sANM = "dance_cm3d21_016_sum_f", iCharaNum = 2}},
 				{ "speed up mind-in劇場", new ActionDataList{ sBGMName = "COM3D2GP01+Fb_speedupmind_short", sANM = "dance_cm3d21_016_sum_f", iCharaNum = 2}},
@@ -129,10 +148,8 @@ namespace COM3D2.EnhancedMaidEditScene.Plugin
 				{ "改革的ハートグラフィー ver.nao", new ActionDataList{ sBGMName = "kaikakutekiheartgraphy_short1", sANM = "dance_cm3d2_005_khg_f", iCharaNum = 1, sOtherInfo = "kaikakutekiheartgraphy_short2", bAbsoluteANMName = true}},
 				{ "改革的ハートグラフィー ver.nao-in劇場", new ActionDataList{ sBGMName = "kaikakutekiheartgraphy_short1", iCharaNum = 1, sOtherInfo = "kaikakutekiheartgraphy_short2", bAbsoluteANMName = true}},
 				{ "改革的ハートグラフィー ver.小春めう", new ActionDataList{ sBGMName = "kaikakutekiheartgraphy_short2", sANM = "dance_cm3d2_005_khg_f", iCharaNum = 1, sOtherInfo = "kaikakutekiheartgraphy_short1", bAbsoluteANMName = true}},
-				{ "改革的ハートグラフィー ver.小春めう-in劇場", new ActionDataList{ sBGMName = "KaikakutekiHeartGraphy_short2", sANM = "dance_cm3d2_005_khg_f", iCharaNum = 1, sOtherInfo = "kaikakutekiheartgraphy_short1", bAbsoluteANMName = true}}
-				//https://com3d2.game-info.wiki/d/%A5%C0%A5%F3%A5%B9
+				{ "改革的ハートグラフィー ver.小春めう-in劇場", new ActionDataList{ sBGMName = "KaikakutekiHeartGraphy_short2", sANM = "dance_cm3d2_005_khg_f", iCharaNum = 1, sOtherInfo = "kaikakutekiheartgraphy_short1", bAbsoluteANMName = true}},
 			};
-
 
 			private static List<DanceData> _dance_data_list = new List<DanceData>()
 			{
@@ -373,14 +390,45 @@ namespace COM3D2.EnhancedMaidEditScene.Plugin
 									Dance.Data[danceData.title].bVisible = true;
 									Dance.Data[danceData.title].iIndex = Index;
 									Dance.List.Add(danceData);
+									Index++;
 								}
 								else
                                 {
 									Debuginfo.Warning("新しいダンスデータが見つかりました！ title = " + danceData.title + " scene_name = " + danceData.scene_name, 0);
 								}
-								Index++;
+
+								/*
+								 * { "<ダンス名 danceData.title>", new ActionDataList{ sBGMName = "<danceData.bgm_file_name>", sANM = "<ANM fileName>", iCharaNum = <ダンス人数 1>, }}, 
+								 * 
+								 * もし自分で新しいダンスを追加したいのであれば、改造した 「Assembly-CSharp.dll 」が必要です。
+								 * DnSpyで 「LoadAniClipNative 」を検索し、以下の行を追加して再コンパイルしてください。
+								 * これで新しいダンスをロードしたときに 「ANM 」の情報が得られます。
+								 * 
+									public static AnimationClip LoadAniClipNative(AFileSystemBase fileSystem, string fileName, bool load_l_mune_anime, bool load_r_mune_anime, bool no_chara = false)
+									{
+										AnimationClip result = null;
+										using (AFileBase afileBase = GameUty.FileOpen(fileName, fileSystem))
+										{
+											if (afileBase == null || !afileBase.IsValid())
+											{
+												Debug.LogError(fileName + " はありませんでした。");
+												return null;
+											}
+
+											// ここ
+											Debug.Log("LoadAniClipNative fileName = [" + fileName + "]");	
+											Debug.Log("LoadAniClipNative afileBase = [" + afileBase + "]");　
+											Debug.Log("LoadAniClipNative load_l_mune_anime = [" + load_l_mune_anime.ToString() + "]");
+											Debug.Log("LoadAniClipNative load_r_mune_anime = [" + load_r_mune_anime.ToString() + "]");
+											//〆
+
+											result = GameMain.Instance.AnmParse.LoadAnmClip(afileBase, load_l_mune_anime, load_r_mune_anime, no_chara);
+										}
+										return result;
+									}
+								 */
 #if DEBUG
-								Debuginfo.Log("danceData.title = " + danceData.title + "  bgm_file_name = " + danceData.bgm_file_name + "   scene_name = " + danceData.scene_name, 2);
+								Debuginfo.Log("danceData.title = [" + danceData.title + "]  bgm_file_name = [" + danceData.bgm_file_name + "]   scene_name = [" + danceData.scene_name + "]", 2);
 #endif
 							}
 						}

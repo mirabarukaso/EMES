@@ -1901,6 +1901,9 @@ namespace COM3D2.EnhancedMaidEditScene.Plugin
             }
 
             int Index = EMES_Dance.Dance.Data[Dance_List_ComboBox.SelectedItem.ToString().Split('：')[1]].iIndex;
+#if DEBUG
+            Debuginfo.Log("Index = [" + Index + "]", 2);
+#endif
             CharacterSelectManager.DefaultMaidList(EMES_Dance.Dance.Dancer.ToList());   
             DanceMain.SelectDanceData = EMES_Dance.Dance.List[Index];
             DanceSetting.Settings.IsSEPlay = true;
@@ -1909,6 +1912,9 @@ namespace COM3D2.EnhancedMaidEditScene.Plugin
             DanceSetting.Settings.IsNoteEffectLight = true;
             DanceSetting.Settings.UndressFaceOn = Dance_UndressFaceOn_CheckBox.Checked;
             DanceSetting.Settings.FPSCamMode = Dance_FPSCamMode_CheckBox.Checked;
+#if DEBUG
+            Debuginfo.Log("EMES_Dance.Dance.List[Index].scene_name = [" + EMES_Dance.Dance.List[Index].scene_name + "]", 2);
+#endif
             GameMain.Instance.LoadScene(EMES_Dance.Dance.List[Index].scene_name);     // play
         }
 
